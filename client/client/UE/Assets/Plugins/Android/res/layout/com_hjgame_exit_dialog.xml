@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/com_hjgame_bg_exitdialog" >
+
+    <TextView
+        android:id="@+id/hj_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/hj_exit_game"
+        android:textColor="#8f8f8f"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/hj_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/hj_btn_ok"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="@string/hj_exit_game"
+            android:textSize="12sp" 
+            android:background="@drawable/com_hjgame_exitbtn_selector_comm"/>
+
+        <Button
+            android:id="@+id/hj_btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="@string/hj_back_game"
+            android:textSize="12sp" 
+            android:background="@drawable/com_hjgame_exitbtn_selector_comm"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/hj_tv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/hj_linear"
+        android:layout_below="@id/hj_tv_title"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="20dp"
+        android:background="@drawable/com_hjgame_message_bg"
+        android:gravity="center_vertical"
+        android:scrollbars="vertical"
+        android:text="@string/hj_exit_tip"
+        android:textColor="#575c55" >
+    </TextView>
+
+    <Button
+        android:id="@+id/hj_btn_close"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/com_hjgame_back"
+        android:visibility="visible" />
+
+</RelativeLayout>

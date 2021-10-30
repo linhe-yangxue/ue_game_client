@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_bbs"
+    >
+
+    <RelativeLayout
+        android:id="@+id/title_bbs"
+        android:layout_width="31dp"
+        android:layout_height="match_parent"
+        android:background="#22211f"
+        android:layout_alignParentRight="true"
+        >
+        <ImageView
+            android:id="@+id/close_bbs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4.5dp"
+            android:padding="6.5dp"
+            android:src="@drawable/com_gaeagame_bbs_gb"
+            android:layout_marginBottom="150dp"
+            />
+
+        <ImageView
+            android:id="@+id/back_bbs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/com_gaeagame_bbs_qj"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            />
+        <ImageView
+            android:id="@+id/forward_bbs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/com_gaeagame_bbs_qj"
+            android:layout_above="@+id/back_bbs"
+            android:layout_marginBottom="23dp"
+            android:rotation="180"
+            />
+        <ImageView
+            android:id="@+id/reload_bbs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5.5dp"
+            android:layout_above="@+id/forward_bbs"
+            android:layout_marginBottom="27dp"
+            android:src="@drawable/com_gaeagame_bbs_sx"
+            />
+    </RelativeLayout>
+    <WebView
+        android:id="@+id/wv_zixun"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:scrollbars="vertical"
+        android:layout_toLeftOf="@+id/title_bbs"
+        android:layout_marginRight="31dp"
+        android:background="#fff"
+        />
+
+
+</FrameLayout>

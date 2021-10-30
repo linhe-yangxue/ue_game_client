@@ -1,0 +1,7110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3f3eb2e92d9e24c9bc9c92bc0a7e67, type: 3}
+  m_Name: 11110111
+  m_EditorClassIdentifier: 
+  pos_data_prefab_name_: HeroBattlePosUI2
+  spell_action_list_:
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "1:\u4F4D\u79FB\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "8:0:1:0:0:\u4F4D\u7F6E1:\u7A7A\u5730&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u76EE\u6807\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "9:0.3:\u4F4D\u79FB\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u4F4D\u79FB\u66F2\u7EBF"
+      key: move_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u901F\u5EA6\u66F2\u7EBF"
+      key: speed_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5F71\u5B50\u8DDF\u968F\u7C7B\u578B"
+      key: shadow_fllow_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_:
+        - NormalFollow
+        - BeelineFollow
+        - NotFollowY
+        - NotMove
+        show_name_list_:
+        - "\u666E\u901A\u8DDF\u968F"
+        - "\u76F4\u7EBF\u8DDF\u968F"
+        - "\u4E0D\u8DDF\u968Fy\u8F74"
+        - "\u4E0D\u4F4D\u79FB"
+        type_name_: Spell.FollowType
+        show_name_type_: Spell.FollowTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u9650\u5236\u8FB9\u754C"
+      key: is_limit_edge
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 10
+    happen_time_: 0
+    timeline_index_: 0
+    length_: 9
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "1:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u52A8\u753B"
+      key: anim_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.AnimData
+      custom_serialize_str: "attack:1:0:\u52A8\u753B"
+      is_varible: 0
+      variable_name: 
+    - type: String
+      tips: "\u52A8\u753B\u540D\u5B57"
+      key: anim_name
+      v_string: attack2
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 0
+    happen_time_: 12
+    timeline_index_: 1
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "1:\u4F4D\u79FB\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "8:0:1:0:0:\u4F4D\u7F6E1:\u5168\u5458\u4E2D\u95F4&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u76EE\u6807\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "24:0.8000001:\u4F4D\u79FB\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u4F4D\u79FB\u66F2\u7EBF"
+      key: move_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u901F\u5EA6\u66F2\u7EBF"
+      key: speed_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.7548702
+          value: 0.3301044
+          inSlope: 1.0000001
+          outSlope: 1.0000001
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5F71\u5B50\u8DDF\u968F\u7C7B\u578B"
+      key: shadow_fllow_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_:
+        - NormalFollow
+        - BeelineFollow
+        - NotFollowY
+        - NotMove
+        show_name_list_:
+        - "\u666E\u901A\u8DDF\u968F"
+        - "\u76F4\u7EBF\u8DDF\u968F"
+        - "\u4E0D\u8DDF\u968Fy\u8F74"
+        - "\u4E0D\u4F4D\u79FB"
+        type_name_: Spell.FollowType
+        show_name_type_: Spell.FollowTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u9650\u5236\u8FB9\u754C"
+      key: is_limit_edge
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 10
+    happen_time_: 12
+    timeline_index_: 0
+    length_: 24
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "1:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548id"
+      key: effect_id
+      v_string: 
+      v_int: 1111101122
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u662F\u5426\u8DDF\u968F\u76EE\u6807"
+      key: is_attach_target
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 1
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5C42\u7EA7\u7C7B\u578B"
+      key: level_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 2
+        select_list_:
+        - MaxLevel
+        - MinLevel
+        - SortByPos
+        show_name_list_:
+        - "\u6700\u9AD8\u5C42"
+        - "\u6700\u5E95\u5C42"
+        - "\u81EA\u52A8\u8BBE\u7F6E\u5C42\u7EA7"
+        type_name_: Spell.OrderType
+        show_name_type_: Spell.OrderTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u751F\u6210\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "10:1:1:8:1:\u4F4D\u7F6E1:&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u751F\u6210\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u6301\u7EED\u65F6\u95F4"
+      key: life_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "15:0.5:\u6301\u7EED\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: effect_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.8
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u7279\u6548\u5927\u5C0F"
+      key: enemy_vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u521D\u59CB\u89D2\u5EA6"
+      key: start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u521D\u59CB\u89D2\u5EA6"
+      key: enemy_start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 180}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548\u5E8F\u53F7"
+      key: effect_index
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 1
+    happen_time_: 12
+    timeline_index_: 2
+    length_: 15
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u52A8\u753B"
+      key: anim_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.AnimData
+      custom_serialize_str: "hit:1:1:\u52A8\u753B"
+      is_varible: 0
+      variable_name: 
+    - type: String
+      tips: "\u52A8\u753B\u540D\u5B57"
+      key: anim_name
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 0
+    happen_time_: 18
+    timeline_index_: 4
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u662F\u5426\u663E\u793A"
+      key: is_show
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 18
+    happen_time_: 18
+    timeline_index_: 8
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Color
+      tips: "\u7ED3\u675F\u989C\u8272"
+      key: end_color
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 1}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u6539\u53D8\u8840\u6761"
+      key: is_change_hud
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u53D8\u5316\u66F2\u7EBF"
+      key: change_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u53D8\u5316\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "3:0.1:\u53D8\u5316\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    action_type_: 12
+    happen_time_: 18
+    timeline_index_: 7
+    length_: 3
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u4F4D\u79FB\u76EE\u6807:0:True:0:0.3:0.5:0:0.3:0.5:True"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "0:7:7:4:2:\u4F4D\u7F6E1:&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u76EE\u6807\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "24:0.8000001:\u4F4D\u79FB\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u4F4D\u79FB\u66F2\u7EBF"
+      key: move_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u901F\u5EA6\u66F2\u7EBF"
+      key: speed_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5F71\u5B50\u8DDF\u968F\u7C7B\u578B"
+      key: shadow_fllow_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_:
+        - NormalFollow
+        - BeelineFollow
+        - NotFollowY
+        - NotMove
+        show_name_list_:
+        - "\u666E\u901A\u8DDF\u968F"
+        - "\u76F4\u7EBF\u8DDF\u968F"
+        - "\u4E0D\u8DDF\u968Fy\u8F74"
+        - "\u4E0D\u4F4D\u79FB"
+        type_name_: Spell.FollowType
+        show_name_type_: Spell.FollowTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u9650\u5236\u8FB9\u754C"
+      key: is_limit_edge
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 1
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 10
+    happen_time_: 18
+    timeline_index_: 3
+    length_: 24
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u76EE\u6807\u89D2\u5EA6"
+      key: end_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 11}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u76EE\u6807\u89D2\u5EA6"
+      key: enemy_end_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: -11}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u65CB\u8F6C\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u65CB\u8F6C\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u53D8\u5316\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "6:0.2:\u53D8\u5316\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u53D8\u5316\u66F2\u7EBF"
+      key: change_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 16
+    happen_time_: 18
+    timeline_index_: 5
+    length_: 6
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Color
+      tips: "\u7ED3\u675F\u989C\u8272"
+      key: end_color
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 1, g: 0, b: 0, a: 1}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u6539\u53D8\u8840\u6761"
+      key: is_change_hud
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u53D8\u5316\u66F2\u7EBF"
+      key: change_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u53D8\u5316\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "6:0.2:\u53D8\u5316\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    action_type_: 12
+    happen_time_: 21
+    timeline_index_: 7
+    length_: 6
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u653B\u51FB\u6BB5\u6570"
+      key: hit_segment
+      v_string: 
+      v_int: 1
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u653B\u51FB\u6B21\u6570"
+      key: hit_times
+      v_string: 
+      v_int: 1
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E1\u5EF6\u8FDF"
+      key: delay1
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E2\u5EF6\u8FDF"
+      key: delay2
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.3
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E3\u5EF6\u8FDF"
+      key: delay3
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E4\u5EF6\u8FDF"
+      key: delay4
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E5\u5EF6\u8FDF"
+      key: delay5
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.3
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E6\u5EF6\u8FDF"
+      key: delay6
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u4F7F\u7528\u955C\u50CF"
+      key: use_opposite
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 8
+    happen_time_: 24
+    timeline_index_: 2
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:True:0:0.3:0.5:0:0.3:0.5:True"
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548id"
+      key: effect_id
+      v_string: 
+      v_int: 1111101121
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u662F\u5426\u8DDF\u968F\u76EE\u6807"
+      key: is_attach_target
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 1
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5C42\u7EA7\u7C7B\u578B"
+      key: level_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 2
+        select_list_:
+        - MaxLevel
+        - MinLevel
+        - SortByPos
+        show_name_list_:
+        - "\u6700\u9AD8\u5C42"
+        - "\u6700\u5E95\u5C42"
+        - "\u81EA\u52A8\u8BBE\u7F6E\u5C42\u7EA7"
+        type_name_: Spell.OrderType
+        show_name_type_: Spell.OrderTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u751F\u6210\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "9:1:1:0:1:\u4F4D\u7F6E1:&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u751F\u6210\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u6301\u7EED\u65F6\u95F4"
+      key: life_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "15:0.5:\u6301\u7EED\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: effect_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 1.2
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u7279\u6548\u5927\u5C0F"
+      key: enemy_vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u521D\u59CB\u89D2\u5EA6"
+      key: start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u521D\u59CB\u89D2\u5EA6"
+      key: enemy_start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 180}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548\u5E8F\u53F7"
+      key: effect_index
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 1
+    happen_time_: 25
+    timeline_index_: 6
+    length_: 15
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Color
+      tips: "\u7ED3\u675F\u989C\u8272"
+      key: end_color
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 1, g: 1, b: 1, a: 1}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u6539\u53D8\u8840\u6761"
+      key: is_change_hud
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u53D8\u5316\u66F2\u7EBF"
+      key: change_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u53D8\u5316\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "3:0.1:\u53D8\u5316\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    action_type_: 12
+    happen_time_: 27
+    timeline_index_: 7
+    length_: 3
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "1:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548id"
+      key: effect_id
+      v_string: 
+      v_int: 1111101122
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u662F\u5426\u8DDF\u968F\u76EE\u6807"
+      key: is_attach_target
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 1
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5C42\u7EA7\u7C7B\u578B"
+      key: level_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_:
+        - MaxLevel
+        - MinLevel
+        - SortByPos
+        show_name_list_:
+        - "\u6700\u9AD8\u5C42"
+        - "\u6700\u5E95\u5C42"
+        - "\u81EA\u52A8\u8BBE\u7F6E\u5C42\u7EA7"
+        type_name_: Spell.OrderType
+        show_name_type_: Spell.OrderTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u751F\u6210\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "10:1:1:8:1:\u4F4D\u7F6E1:&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u751F\u6210\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u6301\u7EED\u65F6\u95F4"
+      key: life_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "15:0.5:\u6301\u7EED\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: effect_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 1
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u7279\u6548\u5927\u5C0F"
+      key: enemy_vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u521D\u59CB\u89D2\u5EA6"
+      key: start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u521D\u59CB\u89D2\u5EA6"
+      key: enemy_start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 180}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548\u5E8F\u53F7"
+      key: effect_index
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 1
+    happen_time_: 27
+    timeline_index_: 1
+    length_: 15
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u653B\u51FB\u6BB5\u6570"
+      key: hit_segment
+      v_string: 
+      v_int: 2
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u653B\u51FB\u6B21\u6570"
+      key: hit_times
+      v_string: 
+      v_int: 1
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E1\u5EF6\u8FDF"
+      key: delay1
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E2\u5EF6\u8FDF"
+      key: delay2
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.3
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E3\u5EF6\u8FDF"
+      key: delay3
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E4\u5EF6\u8FDF"
+      key: delay4
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E5\u5EF6\u8FDF"
+      key: delay5
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.3
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E6\u5EF6\u8FDF"
+      key: delay6
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u4F7F\u7528\u955C\u50CF"
+      key: use_opposite
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 8
+    happen_time_: 35
+    timeline_index_: 2
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "0:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548id"
+      key: effect_id
+      v_string: 
+      v_int: 1111042011
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u662F\u5426\u8DDF\u968F\u76EE\u6807"
+      key: is_attach_target
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5C42\u7EA7\u7C7B\u578B"
+      key: level_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 2
+        select_list_:
+        - MaxLevel
+        - MinLevel
+        - SortByPos
+        show_name_list_:
+        - "\u6700\u9AD8\u5C42"
+        - "\u6700\u5E95\u5C42"
+        - "\u81EA\u52A8\u8BBE\u7F6E\u5C42\u7EA7"
+        type_name_: Spell.OrderType
+        show_name_type_: Spell.OrderTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u751F\u6210\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "9:1:1:7:0:\u4F4D\u7F6E1:&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u751F\u6210\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u6301\u7EED\u65F6\u95F4"
+      key: life_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "6:0.2:\u6301\u7EED\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: effect_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 1.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u7279\u6548\u5927\u5C0F"
+      key: enemy_vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u521D\u59CB\u89D2\u5EA6"
+      key: start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u521D\u59CB\u89D2\u5EA6"
+      key: enemy_start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548\u5E8F\u53F7"
+      key: effect_index
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 1
+    happen_time_: 38
+    timeline_index_: 4
+    length_: 6
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u653B\u51FB\u6BB5\u6570"
+      key: hit_segment
+      v_string: 
+      v_int: 3
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u653B\u51FB\u6B21\u6570"
+      key: hit_times
+      v_string: 
+      v_int: 1
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E1\u5EF6\u8FDF"
+      key: delay1
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E2\u5EF6\u8FDF"
+      key: delay2
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.3
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E3\u5EF6\u8FDF"
+      key: delay3
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E4\u5EF6\u8FDF"
+      key: delay4
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E5\u5EF6\u8FDF"
+      key: delay5
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.3
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E6\u5EF6\u8FDF"
+      key: delay6
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u4F7F\u7528\u955C\u50CF"
+      key: use_opposite
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 8
+    happen_time_: 40
+    timeline_index_: 1
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:True:0:0.3:0.5:0:0.3:0.5:True"
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548id"
+      key: effect_id
+      v_string: 
+      v_int: 1111101121
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u662F\u5426\u8DDF\u968F\u76EE\u6807"
+      key: is_attach_target
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 1
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5C42\u7EA7\u7C7B\u578B"
+      key: level_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_:
+        - MaxLevel
+        - MinLevel
+        - SortByPos
+        show_name_list_:
+        - "\u6700\u9AD8\u5C42"
+        - "\u6700\u5E95\u5C42"
+        - "\u81EA\u52A8\u8BBE\u7F6E\u5C42\u7EA7"
+        type_name_: Spell.OrderType
+        show_name_type_: Spell.OrderTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u751F\u6210\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "9:1:1:0:1:\u4F4D\u7F6E1:&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u751F\u6210\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u6301\u7EED\u65F6\u95F4"
+      key: life_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "15:0.5:\u6301\u7EED\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: effect_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 1.2
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u7279\u6548\u5927\u5C0F"
+      key: vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u7279\u6548\u5927\u5C0F"
+      key: enemy_vector_scale
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 1, y: 1, z: 1}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u521D\u59CB\u89D2\u5EA6"
+      key: start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u521D\u59CB\u89D2\u5EA6"
+      key: enemy_start_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 180}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u7279\u6548\u5E8F\u53F7"
+      key: effect_index
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 1
+    happen_time_: 40
+    timeline_index_: 6
+    length_: 15
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u9707\u52A8\u65F6\u95F4"
+      key: shake_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u9707\u52A8\u5E45\u5EA6"
+      key: shake_range
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 1
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 9
+    happen_time_: 40
+    timeline_index_: 2
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u4F4D\u79FB\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "0:7:0:4:0:\u4F4D\u7F6E1:&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u76EE\u6807\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "18:0.6:\u4F4D\u79FB\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u4F4D\u79FB\u66F2\u7EBF"
+      key: move_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.22617114
+          value: 0.6969936
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u901F\u5EA6\u66F2\u7EBF"
+      key: speed_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5F71\u5B50\u8DDF\u968F\u7C7B\u578B"
+      key: shadow_fllow_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_:
+        - NormalFollow
+        - BeelineFollow
+        - NotFollowY
+        - NotMove
+        show_name_list_:
+        - "\u666E\u901A\u8DDF\u968F"
+        - "\u76F4\u7EBF\u8DDF\u968F"
+        - "\u4E0D\u8DDF\u968Fy\u8F74"
+        - "\u4E0D\u4F4D\u79FB"
+        type_name_: Spell.FollowType
+        show_name_type_: Spell.FollowTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u9650\u5236\u8FB9\u754C"
+      key: is_limit_edge
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 1
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 10
+    happen_time_: 42
+    timeline_index_: 3
+    length_: 18
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u76EE\u6807\u89D2\u5EA6"
+      key: end_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Vector3
+      tips: "\u654C\u65B9\u76EE\u6807\u89D2\u5EA6"
+      key: enemy_end_euler
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u65CB\u8F6C\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u65CB\u8F6C\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u53D8\u5316\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "3:0.1:\u53D8\u5316\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u53D8\u5316\u66F2\u7EBF"
+      key: change_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 16
+    happen_time_: 46
+    timeline_index_: 5
+    length_: 3
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u653B\u51FB\u6BB5\u6570"
+      key: hit_segment
+      v_string: 
+      v_int: 4
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Int32
+      tips: "\u653B\u51FB\u6B21\u6570"
+      key: hit_times
+      v_string: 
+      v_int: 1
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E1\u5EF6\u8FDF"
+      key: delay1
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E2\u5EF6\u8FDF"
+      key: delay2
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.3
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E3\u5EF6\u8FDF"
+      key: delay3
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E4\u5EF6\u8FDF"
+      key: delay4
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E5\u5EF6\u8FDF"
+      key: delay5
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.3
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u4F4D\u7F6E6\u5EF6\u8FDF"
+      key: delay6
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0.5
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u4F7F\u7528\u955C\u50CF"
+      key: use_opposite
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 8
+    happen_time_: 48
+    timeline_index_: 1
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Color
+      tips: "\u7ED3\u675F\u989C\u8272"
+      key: end_color
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 1}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u6539\u53D8\u8840\u6761"
+      key: is_change_hud
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u53D8\u5316\u66F2\u7EBF"
+      key: change_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u53D8\u5316\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "3:0.1:\u53D8\u5316\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    action_type_: 12
+    happen_time_: 54
+    timeline_index_: 8
+    length_: 3
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Color
+      tips: "\u7ED3\u675F\u989C\u8272"
+      key: end_color
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 1, g: 0, b: 0, a: 1}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u6539\u53D8\u8840\u6761"
+      key: is_change_hud
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u53D8\u5316\u66F2\u7EBF"
+      key: change_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u53D8\u5316\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "6:0.2:\u53D8\u5316\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    action_type_: 12
+    happen_time_: 57
+    timeline_index_: 8
+    length_: 6
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Color
+      tips: "\u7ED3\u675F\u989C\u8272"
+      key: end_color
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 1, g: 1, b: 1, a: 1}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u6539\u53D8\u8840\u6761"
+      key: is_change_hud
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u53D8\u5316\u66F2\u7EBF"
+      key: change_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u53D8\u5316\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "3:0.1:\u53D8\u5316\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    action_type_: 12
+    happen_time_: 63
+    timeline_index_: 8
+    length_: 3
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u662F\u5426\u663E\u793A"
+      key: is_show
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 1
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 18
+    happen_time_: 78
+    timeline_index_: 2
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "1:\u4F4D\u79FB\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "0:0:0:0:0:\u4F4D\u7F6E1:&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u76EE\u6807\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "9:0.3:\u4F4D\u79FB\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u4F4D\u79FB\u66F2\u7EBF"
+      key: move_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u901F\u5EA6\u66F2\u7EBF"
+      key: speed_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5F71\u5B50\u8DDF\u968F\u7C7B\u578B"
+      key: shadow_fllow_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_:
+        - NormalFollow
+        - BeelineFollow
+        - NotFollowY
+        - NotMove
+        show_name_list_:
+        - "\u666E\u901A\u8DDF\u968F"
+        - "\u76F4\u7EBF\u8DDF\u968F"
+        - "\u4E0D\u8DDF\u968Fy\u8F74"
+        - "\u4E0D\u4F4D\u79FB"
+        type_name_: Spell.FollowType
+        show_name_type_: Spell.FollowTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u9650\u5236\u8FB9\u754C"
+      key: is_limit_edge
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 10
+    happen_time_: 79
+    timeline_index_: 0
+    length_: 9
+    note_: 
+    not_export_: 0
+  - list:
+    - type: Int32
+      tips: "\u89E6\u53D1\u4E8B\u4EF6id"
+      key: trigger_event_id
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Single
+      tips: "\u89E6\u53D1\u5EF6\u8FDF"
+      key: trigger_event_delay
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u76EE\u6807"
+      key: target_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.TargetTypeData
+      custom_serialize_str: "2:\u4F4D\u79FB\u76EE\u6807:0:False:0:0:0:0:0:0:False"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u76EE\u6807\u4F4D\u7F6E"
+      key: pos_data
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.PosData
+      custom_serialize_str: "0:0:0:0:0:\u4F4D\u7F6E1:&0:0:0:0:0:\u4F4D\u7F6E2:&0:0:0:0:0:\u4F4D\u7F6E3:&0&\u76EE\u6807\u4F4D\u7F6E"
+      is_varible: 0
+      variable_name: 
+    - type: ParamDataInterface
+      tips: "\u4F4D\u79FB\u65F6\u95F4"
+      key: change_time
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: Spell.FpsData
+      custom_serialize_str: "9:0.3:\u4F4D\u79FB\u65F6\u95F4"
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u4F4D\u79FB\u66F2\u7EBF"
+      key: move_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: AnimationCurve
+      tips: "\u901F\u5EA6\u66F2\u7EBF"
+      key: speed_curve
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: EnumData
+      tips: "\u5F71\u5B50\u8DDF\u968F\u7C7B\u578B"
+      key: shadow_fllow_type
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_:
+        - NormalFollow
+        - BeelineFollow
+        - NotFollowY
+        - NotMove
+        show_name_list_:
+        - "\u666E\u901A\u8DDF\u968F"
+        - "\u76F4\u7EBF\u8DDF\u968F"
+        - "\u4E0D\u8DDF\u968Fy\u8F74"
+        - "\u4E0D\u4F4D\u79FB"
+        type_name_: Spell.FollowType
+        show_name_type_: Spell.FollowTypeShowName
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    - type: Boolean
+      tips: "\u9650\u5236\u8FB9\u754C"
+      key: is_limit_edge
+      v_string: 
+      v_int: 0
+      v_int64: 0
+      v_float: 0
+      v_bool: 0
+      v_vector2: {x: 0, y: 0}
+      v_vector3: {x: 0, y: 0, z: 0}
+      v_color: {r: 0, g: 0, b: 0, a: 0}
+      v_curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      v_enum:
+        select_: 0
+        select_list_: []
+        show_name_list_: []
+        type_name_: 
+        show_name_type_: 
+      real_custom_type_name: 
+      custom_serialize_str: 
+      is_varible: 0
+      variable_name: 
+    action_type_: 10
+    happen_time_: 95
+    timeline_index_: 1
+    length_: 9
+    note_: 
+    not_export_: 0
+  - list: []
+    action_type_: 3
+    happen_time_: 105
+    timeline_index_: 0
+    length_: 0
+    note_: 
+    not_export_: 0
+  - list: []
+    action_type_: 4
+    happen_time_: 110
+    timeline_index_: 0
+    length_: 0
+    note_: 
+    not_export_: 0
+  timeline_count_: 9
+  note_: 
+  spell_id_: 11110111

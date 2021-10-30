@@ -1,0 +1,391 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060ada7334cbe4b4eb49e3231fcbf67a, type: 3}
+  m_Name: SpellRecord
+  m_EditorClassIdentifier: 
+  role_list_:
+  - role_name_: "\u8096\u6069"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 2952f82a40b155a449d4ea5fcbe4c1c3, type: 2}
+    - {fileID: 11400000, guid: 09c0329c4fc03734ba1ed3b832604126, type: 2}
+    is_show: 0
+    unit_id_: 13031
+  - role_name_: "\u7279\u857E\u838E"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 0e777110be0b0554e9bf28dae55a46ca, type: 2}
+    - {fileID: 11400000, guid: 7a1e77b1be327ad4ca8cabfdf29bdb86, type: 2}
+    is_show: 0
+    unit_id_: 11012
+  - role_name_: "\u4EA8\u5229"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 0e1879ef8357c5340865c1cdac0943e9, type: 2}
+    - {fileID: 11400000, guid: 6143b2eecf2765341bba62bed5080334, type: 2}
+    - {fileID: 11400000, guid: 57e5556290c0f8842849bb9f338d60a5, type: 2}
+    is_show: 0
+    unit_id_: 11042
+  - role_name_: "\u6234\u7EF4"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 1b8cb7ca75056e84ca4efdcb62b84137, type: 2}
+    - {fileID: 11400000, guid: e965a2500a94e3e48bf0430b34c3a13c, type: 2}
+    is_show: 0
+    unit_id_: 11043
+  - role_name_: "\u5C71\u53E3"
+    spell_data_list_:
+    - {fileID: 11400000, guid: f0d113ab57390ef4f8c8a7cb437e57e8, type: 2}
+    - {fileID: 11400000, guid: ea34d5fe7792e0047a27c2077a3154f5, type: 2}
+    is_show: 0
+    unit_id_: 35004
+  - role_name_: "\u6770\u514B"
+    spell_data_list_:
+    - {fileID: 11400000, guid: e26a329e5eee4d341a8b4f2608d0f662, type: 2}
+    - {fileID: 11400000, guid: 2679f06cc3747fa4981344257a642eba, type: 2}
+    is_show: 0
+    unit_id_: 11032
+  - role_name_: "\u8DEF\u6613\u65AF"
+    spell_data_list_:
+    - {fileID: 11400000, guid: f220529d4cf2dee438c3335bc7a6da3b, type: 2}
+    - {fileID: 11400000, guid: 0474590eaea551841a20a88addcbdcad, type: 2}
+    is_show: 0
+    unit_id_: 35005
+  - role_name_: Sakura
+    spell_data_list_:
+    - {fileID: 11400000, guid: a7c955d6479e2684e973c9738a6e43f6, type: 2}
+    - {fileID: 11400000, guid: 8187187a275e9f14999c2b04e068ab01, type: 2}
+    - {fileID: 11400000, guid: 6e514bc292fa8ee44966ee7bb2a3879f, type: 2}
+    - {fileID: 11400000, guid: 9315b1811478cde4e92065a530eaefcd, type: 2}
+    is_show: 0
+    unit_id_: 11051
+  - role_name_: "\u6BD4\u5C14"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 419d8b174a4d9654c8eb487561aff3c1, type: 2}
+    - {fileID: 11400000, guid: 2874307fc3c40ae4f84ee77770c548c1, type: 2}
+    - {fileID: 11400000, guid: 9900b21c2e6b99a4d8200f755b591ce3, type: 2}
+    is_show: 0
+    unit_id_: 14041
+  - role_name_: "\u743C\u65AF"
+    spell_data_list_:
+    - {fileID: 11400000, guid: cd14cacda101d364f9db128fe75625ac, type: 2}
+    - {fileID: 11400000, guid: d9a84bf531ccfdd44abd9925ee034980, type: 2}
+    - {fileID: 11400000, guid: e2e7afb7869c92b4ab466f0dfaeea987, type: 2}
+    - {fileID: 11400000, guid: 9c48a9909cf043946ac1f7ad0dcb379a, type: 2}
+    - {fileID: 11400000, guid: b4d18dd2034fbd54e89e8825a830d672, type: 2}
+    - {fileID: 11400000, guid: 6917744eac9e68448b110dfa5219d2ab, type: 2}
+    is_show: 0
+    unit_id_: 11062
+  - role_name_: "\u8D1D\u8482"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 56c7eef016825e24baf30b33f7740776, type: 2}
+    - {fileID: 11400000, guid: f60d01e4fda5c4b459e019953320e76b, type: 2}
+    - {fileID: 11400000, guid: 5899820da1a9d1d40ba72c933dc036d4, type: 2}
+    is_show: 0
+    unit_id_: 11052
+  - role_name_: "\u8FDC\u85E4\u94F6\u6B21"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 90dc4954c020b12429006fbdac7ae747, type: 2}
+    - {fileID: 11400000, guid: 92ed99c8526b78e4f88a885022cc186e, type: 2}
+    - {fileID: 11400000, guid: c1e3249029f024d409ff8f9f18327aae, type: 2}
+    is_show: 0
+    unit_id_: 13011
+  - role_name_: "\u7EF4\u514B\u6258"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 729347a357eac514ea592ba98782e575, type: 2}
+    - {fileID: 11400000, guid: 13406fd762572cb4689649e07ecbcfbc, type: 2}
+    is_show: 0
+    unit_id_: 11022
+  - role_name_: "\u8428\u62C9"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 25073c2b5d6598848bef9f680a5dbc3c, type: 2}
+    - {fileID: 11400000, guid: 5647db1512b2dbd44b18ca7f88a8017f, type: 2}
+    is_show: 0
+    unit_id_: '14051 '
+  - role_name_: "\u9EA6\u8FEA"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 769520b076577e34e89681f9ed706bd7, type: 2}
+    - {fileID: 11400000, guid: 1f1daa1aa88203e4c8aa7d83855276f5, type: 2}
+    is_show: 0
+    unit_id_: 12021
+  - role_name_: "\u5361\u5C14"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 091faa22f7c54714daf603f96bd3da36, type: 2}
+    - {fileID: 11400000, guid: 7968c05487a07ab40aa076bb60973c48, type: 2}
+    - {fileID: 11400000, guid: ba2a9f9034a66bb498b523b11a5a6d68, type: 2}
+    - {fileID: 11400000, guid: a4edfeea425d6584680183d1ce5f7277, type: 2}
+    is_show: 0
+    unit_id_: 12041
+  - role_name_: "\u9001\u846C\u8005"
+    spell_data_list_:
+    - {fileID: 11400000, guid: fafab59b9600db34badf9992924ed935, type: 2}
+    - {fileID: 11400000, guid: 67f3d3308f9db9a42aeaa98ea46e8401, type: 2}
+    - {fileID: 11400000, guid: 77b366f37f794104d986243e3abcf1d4, type: 2}
+    is_show: 0
+    unit_id_: 13053
+  - role_name_: "\u6C64\u59C6"
+    spell_data_list_:
+    - {fileID: 11400000, guid: a66e286e813d97143a49d590d9b5ab0e, type: 2}
+    - {fileID: 11400000, guid: 7db60e6e85737a146a0fbeeca2e04a77, type: 2}
+    is_show: 0
+    unit_id_: '35001 '
+  - role_name_: "\u4E9A\u4F2F"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 2b1d13ca8f52c6a4785334455ed2495d, type: 2}
+    - {fileID: 11400000, guid: 0ef049dd195193c469e2e8a19489cde0, type: 2}
+    is_show: 0
+    unit_id_: '35002 '
+  - role_name_: "\u514B\u91CC\u65AF"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 34ff4bcea16db38439833fe9d64ec441, type: 2}
+    - {fileID: 11400000, guid: 7f30b9135be55f14fba87bb77f438efc, type: 2}
+    is_show: 0
+    unit_id_: 12012
+  - role_name_: "\u5927\u536B"
+    spell_data_list_:
+    - {fileID: 11400000, guid: f5348e2001fc0fb4aa61b2a60037d4c1, type: 2}
+    - {fileID: 11400000, guid: 06f4042e5b1a4e446a6abf480f713e3b, type: 2}
+    - {fileID: 11400000, guid: 4bcbc72011ba57b429f2df3e61ded733, type: 2}
+    is_show: 0
+    unit_id_: 11011
+  - role_name_: "\u62C9\u5C14\u592B"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 343fe37f4ccc5724b908bfa74600bb46, type: 2}
+    - {fileID: 11400000, guid: 96200095d05d22f49966477c6c56faf7, type: 2}
+    - {fileID: 11400000, guid: cd690732e628a204b9d92319242d9136, type: 2}
+    is_show: 0
+    unit_id_: 12051
+  - role_name_: "\u4F46\u4E01"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 127103ac47f6a394a9ccc31cd282892c, type: 2}
+    - {fileID: 11400000, guid: cd09927bd1e71e64daba523f97ffa6c0, type: 2}
+    - {fileID: 11400000, guid: 335ea1163d2ad81409513b5c71d832c2, type: 2}
+    is_show: 0
+    unit_id_: 12062
+  - role_name_: "\u7EA6\u7FF0"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 764076fdb6060044bbe97e96f16815ce, type: 2}
+    - {fileID: 11400000, guid: fd36e33f2543ab948adf6cb9a3becddd, type: 2}
+    - {fileID: 11400000, guid: e7d2331573748dd45baa7ac8de6647e8, type: 2}
+    is_show: 0
+    unit_id_: 14021
+  - role_name_: "\u5A01\u5EC9  "
+    spell_data_list_:
+    - {fileID: 11400000, guid: a63813f0265f22a43bf8de57545924aa, type: 2}
+    - {fileID: 11400000, guid: f4a6ea2de9c9f1643a810e3777b990d6, type: 2}
+    is_show: 0
+    unit_id_: '11061 '
+  - role_name_: "\u9B3C\u5B97"
+    spell_data_list_:
+    - {fileID: 11400000, guid: c474af5f647e37b44be1cfe39dd7f0e9, type: 2}
+    - {fileID: 11400000, guid: 66b0021afc4e834499cea1952efaeb75, type: 2}
+    - {fileID: 11400000, guid: 1a45ec6993be9354697833ad6f3b2f6e, type: 2}
+    is_show: 0
+    unit_id_: 13012
+  - role_name_: D13
+    spell_data_list_:
+    - {fileID: 11400000, guid: a31e620b72ccf9b489b71ea6dd6a6142, type: 2}
+    - {fileID: 11400000, guid: ad0694ee63f0d4f49bbc12abcfb09cb4, type: 2}
+    - {fileID: 11400000, guid: c7d346fba86df4f46908545d6ab99f01, type: 2}
+    is_show: 0
+    unit_id_: 14061
+  - role_name_: "\u4E54\u6CBB"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 4881ced8f9089b9448900d3fa55e05c0, type: 2}
+    - {fileID: 11400000, guid: 53e7beaf050b1054bb121ccdee84f3de, type: 2}
+    is_show: 0
+    unit_id_: 14052
+  - role_name_: "\u51EF\u745F\u7433"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 77a3b8fd13c23a8498c59b9289ac8af9, type: 2}
+    - {fileID: 11400000, guid: c58e3f23f3755de45863baf8ea51a64b, type: 2}
+    - {fileID: 11400000, guid: 563c13372ef349f4bb649daa22ecf6bc, type: 2}
+    is_show: 0
+    unit_id_: 11031
+  - role_name_: "\u970D\u5C14"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 231f53074f66cc142bb847cefb62900f, type: 2}
+    - {fileID: 11400000, guid: a010fe0a3d0d49e48b9537ba2b1a1eed, type: 2}
+    - {fileID: 11400000, guid: 2fd7a95e683c1bc46adc61206a00853e, type: 2}
+    is_show: 0
+    unit_id_: 12061
+  - role_name_: "\u5BAB\u5D0E\u9F99\u4E95 "
+    spell_data_list_:
+    - {fileID: 11400000, guid: 5ef2abb0215873f4cbf11142d6f5fc86, type: 2}
+    - {fileID: 11400000, guid: 6d44fd65c3f7cc14a81db79ebea99a5f, type: 2}
+    is_show: 0
+    unit_id_: '35003 '
+  - role_name_: "\u7F57\u6770"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 4073af0b7187f9749b56347e0f0b2613, type: 2}
+    - {fileID: 11400000, guid: 40b32752ee3bfd642afb47105bfac8ed, type: 2}
+    is_show: 1
+    unit_id_: 14042
+  - role_name_: "\u4E39\u5C3C\u5C14 "
+    spell_data_list_:
+    - {fileID: 11400000, guid: 185897444b23c4244b38dd7740881593, type: 2}
+    - {fileID: 11400000, guid: 48be0946063c47648937b9f9f3720673, type: 2}
+    is_show: 0
+    unit_id_: '35006 '
+  - role_name_: "\u4E9A\u5F53 "
+    spell_data_list_:
+    - {fileID: 11400000, guid: 377dbe42459f36c4a8ed03c8df0addc6, type: 2}
+    - {fileID: 11400000, guid: 9160a69730a3b4644a06d932adb72dc6, type: 2}
+    - {fileID: 11400000, guid: e8d82ddc50edec046b0f3a2b69b71bc5, type: 2}
+    - {fileID: 11400000, guid: ed0a91dec717ec442bb77a28008fa8f2, type: 2}
+    - {fileID: 11400000, guid: 20968611d1b153b49bae87f1ec31a141, type: 2}
+    - {fileID: 11400000, guid: 21b27503563788643b2e4f6a586ca7e9, type: 2}
+    is_show: 0
+    unit_id_: '11021 '
+  - role_name_: "\u4FDD\u7F57 "
+    spell_data_list_:
+    - {fileID: 11400000, guid: 4f44e72f4a2f010438df1d67f1e3844f, type: 2}
+    - {fileID: 11400000, guid: bdd4058d43cebc94395c64350f4b45ea, type: 2}
+    - {fileID: 11400000, guid: 32f920a454d1c194eafa1cdcba8e57f9, type: 2}
+    is_show: 0
+    unit_id_: '14022 '
+  - role_name_: "\u624E\u897F\u7F57"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 018289cd71f4de941b16aa4a5081b95c, type: 2}
+    - {fileID: 11400000, guid: 1173d8966202b1b4b82743f8073ad088, type: 2}
+    is_show: 0
+    unit_id_: 12023
+  - role_name_: "\u5609\u7C73"
+    spell_data_list_:
+    - {fileID: 11400000, guid: ccd70ff793e5d6b41874c60937685ba0, type: 2}
+    - {fileID: 11400000, guid: a634b4af36d17084fa8045c78467ed8a, type: 2}
+    is_show: 0
+    unit_id_: 13043
+  - role_name_: "\u53F6\u83B2"
+    spell_data_list_:
+    - {fileID: 11400000, guid: e10746d1c8fb56c44b2262d122fe8bbb, type: 2}
+    - {fileID: 11400000, guid: 7afe92ddf9a83064e8f639eead38e020, type: 2}
+    - {fileID: 11400000, guid: f99bc3b3857deb844b26194e3137f300, type: 2}
+    is_show: 0
+    unit_id_: '13022 '
+  - role_name_: "\u8428\u7C73\u7279"
+    spell_data_list_:
+    - {fileID: 11400000, guid: d9efa9f3ccf0355499dd7766032e9dfb, type: 2}
+    - {fileID: 11400000, guid: 56d853fd4589302489965e943ff80c2e, type: 2}
+    - {fileID: 11400000, guid: fdd78b3e48ac05e42b7e240bf98b7a1a, type: 2}
+    is_show: 0
+    unit_id_: 13052
+  - role_name_: "\u963F\u9F99"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 56b33debaf40aa24d8fb9f4ee697a120, type: 2}
+    - {fileID: 11400000, guid: a95e1e9143ffffc4ca635b2b04f395df, type: 2}
+    is_show: 0
+    unit_id_: 13021
+  - role_name_: "\u6B27\u6587"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 30c20606899295748b04055172da7df9, type: 2}
+    - {fileID: 11400000, guid: 1b09c62bfc31fad4e9725af109c26c63, type: 2}
+    is_show: 0
+    unit_id_: 12032
+  - role_name_: L.E
+    spell_data_list_:
+    - {fileID: 11400000, guid: 48de0e884cb888244b2ae09095febee9, type: 2}
+    - {fileID: 11400000, guid: 4ad15140f018ef44b928855add69f39b, type: 2}
+    is_show: 0
+    unit_id_: '13061 '
+  - role_name_: "\u8331\u8FEA"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 7f6e95af4f9451847a95d52c2134e48f, type: 2}
+    - {fileID: 11400000, guid: 8e72f5deca45c7d46895bbf80a306058, type: 2}
+    is_show: 0
+    unit_id_: '14012 '
+  - role_name_: "\u6885\u5C14 "
+    spell_data_list_:
+    - {fileID: 11400000, guid: 77bc6612312ef5548957c693d8925ad2, type: 2}
+    - {fileID: 11400000, guid: bed392396a5e36a4091a55f71d40c3e5, type: 2}
+    is_show: 0
+    unit_id_: '14032 '
+  - role_name_: "\u9ED1\u86C7"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 872f18ff284c4db4086c002f279424f5, type: 2}
+    - {fileID: 11400000, guid: 3042164bb71bca7449ef10a761a818fd, type: 2}
+    is_show: 0
+    unit_id_: 13041
+  - role_name_: "\u827E\u4F26"
+    spell_data_list_:
+    - {fileID: 11400000, guid: a3fee6c0b7dd32343940b860c09a3ba8, type: 2}
+    - {fileID: 11400000, guid: 5b2d3a2607349e3418adca78e5b19360, type: 2}
+    - {fileID: 11400000, guid: 1303eaed75e7c2b4b85f9eeee2535f19, type: 2}
+    is_show: 0
+    unit_id_: 12031
+  - role_name_: "\u5DF4\u8D6B"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 3621c43bfac6df8488cb249ad1a9682e, type: 2}
+    - {fileID: 11400000, guid: e141eea3980d8c1438190c5aaff8fdb0, type: 2}
+    is_show: 0
+    unit_id_: 12052
+  - role_name_: "\u4E54\u745F\u592B"
+    spell_data_list_:
+    - {fileID: 11400000, guid: bc44b498c35fd3c4ea514c61ea48aed6, type: 2}
+    - {fileID: 11400000, guid: dc9e6fdbdaa25a94497118f6e482308e, type: 2}
+    is_show: 0
+    unit_id_: '14062 '
+  - role_name_: "\u6770\u68EE "
+    spell_data_list_:
+    - {fileID: 11400000, guid: 8ed3f8ec84fa87243b0d425a83c8c3c2, type: 2}
+    - {fileID: 11400000, guid: e785938e04dbd70408b1be4992de8905, type: 2}
+    - {fileID: 11400000, guid: 6e514bc292fa8ee44966ee7bb2a3879f, type: 2}
+    - {fileID: 11400000, guid: 9315b1811478cde4e92065a530eaefcd, type: 2}
+    - {fileID: 11400000, guid: eb942898dde64eb43b7242e614e483a4, type: 2}
+    - {fileID: 11400000, guid: 02827caa6e304fa4e8f100499b902fe6, type: 2}
+    is_show: 0
+    unit_id_: '12042 '
+  - role_name_: "\u68B5"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 2d88b82f57366f34d9d0d2fd95e183d3, type: 2}
+    - {fileID: 11400000, guid: d5ce4d3555a28484fae42ccf9446be76, type: 2}
+    - {fileID: 11400000, guid: 8ce8fb0e0ed3f234392d4cfa0dc3c5ed, type: 2}
+    is_show: 0
+    unit_id_: '13042 '
+  - role_name_: "\u6885\u5C14"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 77bc6612312ef5548957c693d8925ad2, type: 2}
+    - {fileID: 11400000, guid: bed392396a5e36a4091a55f71d40c3e5, type: 2}
+    is_show: 0
+    unit_id_: 14032
+  - role_name_: "\u8FEA\u8BA9"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 4f30e70fad04b8c41ac963fcadd5a1e0, type: 2}
+    - {fileID: 11400000, guid: e1f45084517db5746b87b51363e1ffbc, type: 2}
+    is_show: 0
+    unit_id_: '13051 '
+  - role_name_: "\u97E9\u6734\u4EC1"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 4fabe9c5a1bfe32409aa2051af4a406d, type: 2}
+    - {fileID: 11400000, guid: 99974663a1f705e48918dca5e8e69915, type: 2}
+    - {fileID: 11400000, guid: b0be07d26c1b39e429c783f9bda18ffb, type: 2}
+    is_show: 0
+    unit_id_: '14031 '
+  - role_name_: "\u5B89\u5FB7\u9C81"
+    spell_data_list_:
+    - {fileID: 11400000, guid: cb4713dfc7f4025429f9bb954b007295, type: 2}
+    - {fileID: 11400000, guid: 4ea4b27e7697bbc40854d6cd87677d72, type: 2}
+    is_show: 0
+    unit_id_: 14011
+  - role_name_: "\u4F0A\u4E07"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 0fa68f8e3562baa418ea6f1737f8a6fb, type: 2}
+    - {fileID: 11400000, guid: d2ece5478732c6a4f84f4fc933d810ef, type: 2}
+    - {fileID: 11400000, guid: c9875aebeaa5e01489529648d01a084a, type: 2}
+    is_show: 0
+    unit_id_: 12011
+  - role_name_: "\u963F\u96C4"
+    spell_data_list_:
+    - {fileID: 11400000, guid: 1df8b6c0525caea4abc05526b07bd916, type: 2}
+    - {fileID: 11400000, guid: ac51e41e8e89e4e4a91d0d2ceab52114, type: 2}
+    is_show: 0
+    unit_id_: 35009
+  - role_name_: "\u6B7B\u4EA1"
+    spell_data_list_:
+    - {fileID: 11400000, guid: c1827e601a3dcfe4db38a8595d11d638, type: 2}
+    is_show: 0
+    unit_id_: 

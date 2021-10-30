@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7d363c7ef063a4a8f2d1f6ce9db1bc, type: 3}
+  m_Name: gweg
+  m_EditorClassIdentifier: 
+  ai_name_: gweg
+  root_: 0
+  node_uuid_list_: 000000000100000002000000
+  node_list_:
+  - uuid_: 0
+    type_: 0
+    parent_: -1
+    children_: 
+    params_:
+      type_: Entry
+      data_: []
+    name_: Entry
+    comment_: 
+    pos_: {x: -32, y: -332}
+    is_show_self_: 1
+    is_show_children_: 0
+  - uuid_: 1
+    type_: 103
+    parent_: -1
+    children_: 02000000
+    params_:
+      type_: Sequence
+      data_: []
+    name_: Sequence
+    comment_: 
+    pos_: {x: -73, y: -181}
+    is_show_self_: 1
+    is_show_children_: 1
+  - uuid_: 2
+    type_: 107
+    parent_: 1
+    children_: 
+    params_:
+      type_: WeightSelector
+      data_:
+      - type: ParamDataInterface
+        tips: 
+        key: weights
+        v_string: 
+        v_int: 0
+        v_int64: 0
+        v_float: 0
+        v_bool: 0
+        v_vector2: {x: 0, y: 0}
+        v_vector3: {x: 0, y: 0, z: 0}
+        v_color: {r: 0, g: 0, b: 0, a: 0}
+        v_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        real_custom_type_name: AI.Weights
+        custom_serialize_str: 1,0,:2,0,:2,21782,
+        is_varible: 0
+        variable_name: 
+    name_: WeightSelector
+    comment_: 
+    pos_: {x: -68, y: -84}
+    is_show_self_: 1
+    is_show_children_: 1
+  is_show_comment_: 0
+  variable_list_: []

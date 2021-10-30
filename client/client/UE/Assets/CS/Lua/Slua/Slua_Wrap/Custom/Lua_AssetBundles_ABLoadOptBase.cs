@@ -1,0 +1,99 @@
+﻿using System;
+using SLua;
+using System.Collections.Generic;
+[UnityEngine.Scripting.Preserve]
+public class Lua_AssetBundles_ABLoadOptBase : LuaObject {
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
+	static public int constructor(IntPtr l) {
+		try {
+			AssetBundles.ABLoadOptBase o;
+			UnityEngine.AsyncOperation a1;
+			checkType(l,2,out a1);
+			o=new AssetBundles.ABLoadOptBase(a1);
+			pushValue(l,true);
+			pushValue(l,o);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
+	static public int IsDone(IntPtr l) {
+		try {
+			AssetBundles.ABLoadOptBase self=(AssetBundles.ABLoadOptBase)checkSelf(l);
+			var ret=self.IsDone();
+			pushValue(l,true);
+			pushValue(l,ret);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
+	static public int get_progress(IntPtr l) {
+		try {
+			AssetBundles.ABLoadOptBase self=(AssetBundles.ABLoadOptBase)checkSelf(l);
+			pushValue(l,true);
+			pushValue(l,self.progress);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
+	static public int get_allowSceneActivation(IntPtr l) {
+		try {
+			AssetBundles.ABLoadOptBase self=(AssetBundles.ABLoadOptBase)checkSelf(l);
+			pushValue(l,true);
+			pushValue(l,self.allowSceneActivation);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
+	static public int set_allowSceneActivation(IntPtr l) {
+		try {
+			AssetBundles.ABLoadOptBase self=(AssetBundles.ABLoadOptBase)checkSelf(l);
+			bool v;
+			checkType(l,2,out v);
+			self.allowSceneActivation=v;
+			pushValue(l,true);
+			return 1;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
+	static public int get_asset(IntPtr l) {
+		try {
+			AssetBundles.ABLoadOptBase self=(AssetBundles.ABLoadOptBase)checkSelf(l);
+			pushValue(l,true);
+			pushValue(l,self.asset);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[UnityEngine.Scripting.Preserve]
+	static public void reg(IntPtr l) {
+		getTypeTable(l,"AssetBundles.ABLoadOptBase");
+		addMember(l,IsDone);
+		addMember(l,"progress",get_progress,null,true);
+		addMember(l,"allowSceneActivation",get_allowSceneActivation,set_allowSceneActivation,true);
+		addMember(l,"asset",get_asset,null,true);
+		createTypeMetatable(l,constructor, typeof(AssetBundles.ABLoadOptBase),typeof(LoadOperationBase));
+	}
+}
