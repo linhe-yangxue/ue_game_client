@@ -1,0 +1,25 @@
+return {
+    [ 1 ] = {
+        [ "id" ] = 1,
+        [ "name" ] = "月卡",
+        [ "type" ] = 1,
+        [ "price" ] = 30,
+        [ "validity_period_day" ] = 30,
+        [ "add_vip_exp" ] = 500,
+        [ "add_item_num" ] = 250,
+        [ "daily_item_num" ] = 100,
+        [ "item_id" ] = 101005,
+        [ "desc" ] = "月卡描述",
+    },
+    [ 2 ] = {
+        [ "id" ] = 2,
+        [ "name" ] = "终身卡",
+        [ "type" ] = 2,
+        [ "price" ] = 288,
+        [ "add_vip_exp" ] = 2000,
+        [ "add_item_num" ] = 2500,
+        [ "daily_item_num" ] = 100,
+        [ "item_id" ] = 101005,
+        [ "desc" ] = "终身卡描述",
+    },
+}
