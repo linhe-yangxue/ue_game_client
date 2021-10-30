@@ -1,0 +1,11 @@
+# [role index dispatch] ------ [1900, 1999] ------
+
+c_recharge 1900 {
+    request {
+        recharge_id 0 : integer
+    }
+    response {
+        errcode 0 : integer
+        first_recharge 1 : boolean
+    }
+}
