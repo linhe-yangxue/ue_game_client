@@ -22,6 +22,7 @@ function DownloadMgr:Update()
     if string.sub(info.url, 1, 4) == "http" then
       info.type = "http"
       info.www = SpecMgrs.http_mgr:Request(info.url)
+      print("DownloadMgr: info.www--",info.www,info.url)
     else
       if platform == "Android" then
         info.type = "www"

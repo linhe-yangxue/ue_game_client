@@ -12,7 +12,7 @@ public class LuaReload {
         try
         {
             proc = new System.Diagnostics.Process();
-            proc.StartInfo.FileName = excel_bat_path + "makeexceldatapause.bat";
+            proc.StartInfo.FileName = excel_bat_path + "makeexceldata.sh";
             Debug.Log(proc.StartInfo.FileName);
             proc.StartInfo.Arguments = excel_bat_path;
             proc.StartInfo.CreateNoWindow = false;
@@ -102,7 +102,7 @@ public class LuaReload {
         try
         {
             proc = new System.Diagnostics.Process();
-            proc.StartInfo.FileName = excel_bat_path + "maketranlation.bat";
+            proc.StartInfo.FileName = excel_bat_path + "tranlation.py";
             Debug.Log(proc.StartInfo.FileName);
             proc.StartInfo.Arguments = excel_bat_path;
             proc.StartInfo.CreateNoWindow = false;

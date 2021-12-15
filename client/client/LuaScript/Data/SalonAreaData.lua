@@ -4,7 +4,7 @@ return {
         [ "ch_key" ] = "画展",
         [ "name" ] = langexcel["画展"],
         [ "area_name" ] = "ArtExhibition",
-        [ "start_time" ] =14,
+        [ "start_time" ] = 14,
     },
     [ 2 ] = {
         [ "id" ] = 2,

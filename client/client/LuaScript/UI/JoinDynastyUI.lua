@@ -300,9 +300,9 @@ function JoinDynastyUI:SendCreateDynasty()
     SpecMgrs.msg_mgr:SendCreateDynasty({dynasty_name = name}, function (resp)
         if resp.errcode ~= 0 then
             if resp.name_repeat then
-                SpecMgrs.ui_mgr:ShowMsgBox(UIConst.Text.DYNASTY_NAME_EXIST
+                SpecMgrs.ui_mgr:ShowMsgBox(UIConst.Text.DYNASTY_NAME_EXIST)
             else
-                SpecMgrs.ui_mgr:ShowMsgBox(UIConst.Text.CREATE_DYNASTY_FAILED
+                SpecMgrs.ui_mgr:ShowMsgBox(UIConst.Text.CREATE_DYNASTY_FAILED)
             end
         else
             SpecMgrs.ui_mgr:ShowTipMsg(UIConst.Text.CREATE_DYNASTY_SUCCESS)
