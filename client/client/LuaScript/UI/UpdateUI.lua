@@ -89,13 +89,14 @@ function UpdateUI:StartUpdate()
         ComMgrs.dy_data_mgr.log_data:SendStartUpTranLog(CSConst.CilentProcessType.STARTTRAN_INIT_SUCCEED)
         return
     end
-    self.download_url = self.download_url .. self.new_set.svn_version_ .. "/"
+    self.download_url = self.download_url ..  "/"          --self.new_set.svn_version_ ..（因为没有svn所以暂时先去掉）
     self:_DownloadNewSet()
     self.file_diff = self:_GenFileDiff()
     self:DownLoadMsg()
 end
 
 function UpdateUI:StartLogin()
+    print("UpdateUI:StartLogin()111=================")
     SpecMgrs.sdk_mgr:Login()
     self:Hide()
 end
