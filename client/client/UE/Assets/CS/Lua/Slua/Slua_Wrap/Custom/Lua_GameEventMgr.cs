@@ -526,6 +526,18 @@ public class Lua_GameEventMgr : LuaObject {
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	[UnityEngine.Scripting.Preserve]
+	static public int get_ET_QuickSdk(IntPtr l) {
+		try {
+			pushValue(l,true);
+			pushValue(l,GameEventMgr.ET_QuickSdk);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
 	static public int get_ET_Trigger(IntPtr l) {
 		try {
 			pushValue(l,true);
@@ -593,6 +605,7 @@ public class Lua_GameEventMgr : LuaObject {
 		addMember(l,"ET_EffectEvent",get_ET_EffectEvent,null,false);
 		addMember(l,"ET_Input",get_ET_Input,null,false);
 		addMember(l,"ET_SDK",get_ET_SDK,null,false);
+		addMember(l,"ET_QuickSdk",get_ET_QuickSdk,null,false);
 		addMember(l,"ET_Trigger",get_ET_Trigger,null,false);
 		addMember(l,"ET_LuaReload",get_ET_LuaReload,null,false);
 		GameEventMgrManualWrap.reg(l);

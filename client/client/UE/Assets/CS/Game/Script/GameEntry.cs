@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using quicksdk;
 
-public class GameEntry : Singleton<GameEntry> {
+public class GameEntry : QuickSDKListener{
+
+    public static GameEntry	Instance { get; private set; }
 	private string cur_scene_path = null;
 
     static public string sGameVersion = "1.0";
@@ -19,20 +22,53 @@ public class GameEntry : Singleton<GameEntry> {
     public System.IntPtr watch_l;
     public object watch_lock = new object();
 
-    override protected void Awake() {
+    public static bool CheckExist()
+    {
+        if( Instance )
+            return true;
+        else
+        {
+            Debug.LogError("\t找不到！");
+            return false;
+        }
+    }
+
+    void Awake() {
     	GameLog.InitGameLog();
-    	base.Awake();
+    	if( !Instance)
+        {
+            Instance = (GameEntry)this;
+        }
+    	//base.Awake();
+    	//EventHandle.getInstance().Start();
+    	QuickSDK.getInstance ().setListener (this);
+//    	QuickSDK.getInstance().reInit();
     }
 
     IEnumerator Start() {
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+       //EventHandle.getInstance().Start();
+       Debug.Log("游戏开始===============调用么" + typeof(GameEntry) + "111" + typeof(Singleton<GameEventInput>) + "222" + typeof(QuickSDKListener));
+
+//       QuickSDK.getInstance ().setListener (this);
         AssetBundles.AssetBundleManager.Initialize();
+        Debug.Log("游戏开始222222");
+        Debug.Log("游戏开始222222");
+        Debug.Log("游戏开始222222");
         if (game_lua_entry_ == null) {
+            Debug.Log("游戏开始333333");
             game_lua_entry_ = new GameLuaEntry();
+            Debug.Log("游戏开始444444");
             yield return game_lua_entry_.DoInit();
         }
+        Debug.Log("游戏开始555555");
         is_inited = true;
+        Debug.Log("游戏开始6666666");
         StartWatchDeadLoop();
+    }
+
+    void showLog(string title, string message)
+    {
+        Debug.Log ("title: " + title + ", message: " + message);
     }
 
 	void MyLoadScene(string scene_path) {
@@ -44,6 +80,7 @@ public class GameEntry : Singleton<GameEntry> {
 
     void Restart() {
         AssetBundles.AssetBundleManager.ClearAll();
+        Debug.Log("重新启动游戏=======" + is_inited);
         if (is_inited) {
             game_lua_entry_.DoDestroy();
             StopWatchDeadLoop();
@@ -153,6 +190,81 @@ public class GameEntry : Singleton<GameEntry> {
             }
             Thread.Sleep(1000);
         }
+    }
+
+    //************************************************************以下是需要实现的回调接口*************************************************************************************************************************
+    //callback
+    public override void onInitSuccess()
+    {
+        showLog("onInitSuccess", "");
+        //QuickSDK.getInstance ().login (); //如果游戏需要启动时登录，需要在初始化成功之后调用
+    }
+
+    public override void onInitFailed(ErrorMsg errMsg)
+    {
+        showLog("onInitFailed", "msg: " + errMsg.errMsg);
+    }
+
+    public override void onLoginSuccess(UserInfo userInfo)
+    {
+        showLog ("onLoginSuccess", "uid: " + userInfo.uid + " ,username: " + userInfo.userName + " ,userToken: " + userInfo.token + ", msg: " + userInfo.errMsg);
+        //Application.LoadLevel ("scene2");
+        SDK.onLoginSuccessResult = "qqqq";  //userInfo.userName;
+        Debug.Log("userInfo.userName===" + userInfo.userName);
+        SDK.CallLua("QuickSDKLoginResults",userInfo.userName);
+    }
+
+    public override void onSwitchAccountSuccess(UserInfo userInfo){
+        //切换账号成功，清除原来的角色信息，使用获取到新的用户信息，回到进入游戏的界面，不需要再次调登录
+        showLog ("onLoginSuccess", "uid: " + userInfo.uid + " ,username: " + userInfo.userName + " ,userToken: " + userInfo.token + ", msg: " + userInfo.errMsg);
+        //Application.LoadLevel ("scene2");
+    }
+
+    public override void onLoginFailed (ErrorMsg errMsg)
+    {
+        showLog("onLoginFailed", "msg: "+ errMsg.errMsg);
+        onExitSuccess ();
+    }
+
+    public override void onLogoutSuccess ()
+    {
+        showLog("onLogoutSuccess", "");
+        //注销成功后回到登陆界面
+        //Application.LoadLevel("scene1");
+    }
+
+
+
+    public override void onPaySuccess (PayResult payResult)
+    {
+        showLog("onPaySuccess", "orderId: "+payResult.orderId+", cpOrderId: "+payResult.cpOrderId+" ,extraParam"+payResult.extraParam);
+    }
+
+    public override void onPayCancel (PayResult payResult)
+    {
+        showLog("onPayCancel", "orderId: "+payResult.orderId+", cpOrderId: "+payResult.cpOrderId+" ,extraParam"+payResult.extraParam);
+    }
+
+    public override void onPayFailed (PayResult payResult)
+    {
+        showLog("onPayFailed", "orderId: "+payResult.orderId+", cpOrderId: "+payResult.cpOrderId+" ,extraParam"+payResult.extraParam);
+    }
+
+    public override void onExitSuccess ()
+    {
+        showLog ("onExitSuccess", "");
+        //退出成功的回调里面调用  QuickSDK.getInstance ().exitGame ();  即可实现退出游戏，杀进程。为避免与渠道发生冲突，请不要使用  Application.Quit ();
+        QuickSDK.getInstance ().exitGame ();
+    }
+
+    public override void onSucceed(string infos)
+    {
+        showLog("onSucceed", infos);
+    }
+
+    public override void onFailed(string message)
+    {
+        showLog("onFailed", "msg: " + message);
     }
 
 }

@@ -107,6 +107,7 @@ function CreateRoleUI:InitRes()
                     SpecMgrs.ui_mgr:ShowMsgBox(UIConst.FailedToCreateRole)
                 end
             else
+                SpecMgrs.sdk_mgr:CreateRole(ComMgrs.dy_data_mgr.urs,self.name_input_field.text,self.cur_role_id)     --游戏角色创建成功后角色信息上报
                 SpecMgrs.ui_mgr:ShowUI("SelectFlagUI")
             end
         end)

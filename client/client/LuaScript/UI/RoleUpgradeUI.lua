@@ -97,8 +97,12 @@ function RoleUpgradeUI:InitInfoPanel()
     self:AddFullUnit(role_unit_id, self.unit_parent)
     self.last_level_text.text = self.last_level
     self.cur_level_text.text = self.cur_level
+    local account_info = ComMgrs.dy_data_mgr:ExGetAccountInfo()
+    print("角色升级=====",account_info,self.last_level,self.cur_level)
     local last_level_data = SpecMgrs.data_mgr:GetLevelData(self.last_level)
     local cur_level_data = SpecMgrs.data_mgr:GetLevelData(self.cur_level)
+    print("角色升级后数据",cur_level_data)
+    SpecMgrs.sdk_mgr:UpdateRoleInfo(self.cur_level)
     local cur_action_point = self.dy_strategy_map_data:GetActionPoint()
     self.last_strength.text = cur_action_point - cur_level_data.add_vitality_point
     self.cur_strength.text = cur_action_point

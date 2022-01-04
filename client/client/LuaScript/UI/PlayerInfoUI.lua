@@ -43,6 +43,7 @@ function PlayerInfoUI:InitRes()
     self.role_model = info_panel:FindChild("PlayerModel")
     self.score = info_panel:FindChild("Score/Value"):GetComponent("Text")
     self.fight_score = info_panel:FindChild("CE/Value"):GetComponent("Text")
+    self.test_score = info_panel:FindChild("test/Value"):GetComponent("Text")
     local info_content = info_panel:FindChild("Info")
     local setting_btn = info_panel:FindChild("SettingBtn")
     self.flag_image = self.main_panel:FindChild("InfoPanel/Flag/FlagIcon"):GetComponent("Image")
@@ -196,6 +197,7 @@ function PlayerInfoUI:InitRoleInfo()
     self:UpdateTitle()
     self.score.text = role_info.score
     self.fight_score.text = role_info.fight_score
+    self.test_score.text = role_info.fight_score
     local vip_level = ComMgrs.dy_data_mgr:ExGetRoleVip()
     self.vip:SetActive(vip_level > 0)
     if vip_level > 0 then

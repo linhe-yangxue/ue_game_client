@@ -15,21 +15,25 @@ UpdateUI.download_path = Application.persistentDataPath .. "/download/"
 UpdateUI.download_list_filename = "_DownloadList.txt"
 
 function UpdateUI:DoInit()
+    print("UpdateUI:DoInit()============")
     UpdateUI.super.DoInit(self)
     self.prefab_path = "UI/Common/UpdateUI"
 end
 
 function UpdateUI:OnGoLoadedOk(res_go)
+    print("22222")
     UpdateUI.super.OnGoLoadedOk(self, res_go)
     self:InitRes()
     coroutine.start(self.StartUpdate, self)
 end
 
 function UpdateUI:Hide()
+    print("UpdateUI:Hide()===========")
     UpdateUI.super.Hide(self)
 end
 
 function UpdateUI:InitRes()
+    print("UpdateUI:InitRes()============")
     self.progress_bar = self.main_panel:FindChild("ProgressBar")
     self.progress_slider = self.progress_bar:FindChild("Slider"):GetComponent("Slider")
     self.progress_text = self.progress_bar:FindChild("Text"):GetComponent("Text")
@@ -61,43 +65,66 @@ function UpdateUI:StartUpdate()
     self.progress_bar:SetActive(false)
     self.error_content:SetActive(false)
     self.simulate_mode = GameResourceMgr.IsSimulateMode()
+    print("热更路径---",self.simulate_mode)
+    print("热更路径---",UpdateUI.download_url_base)
     if self.simulate_mode or UpdateUI.download_url_base == "" then
-        self:StartLogin()
+        print("555555")
+        --SpecMgrs.sdk_mgr:QuickLogin()
+        self:UnityStartLogin()
         return
     end
+    --SpecMgrs.sdk_mgr:QuickLogin()
+    print("登陆登陆登陆1111111=========")
     self.inner_set = GameResourceMgr.GetInnerSet()
+    print("登陆登陆登陆22222=========")
     self.external_set = GameResourceMgr.GetExternalSet()
-
+    print("登陆登陆登陆33333=========")
     self.platform_name = AssetBundleConst.GetPlatformName()
-
+    print("登陆登陆登陆44444=========")
     self.download_mgr = SpecMgrs.download_mgr
+    print("登陆登陆登陆55555=========")
     if AppUtils.GetNetWorkState() == "none" then -- 一开始断网
         self:OnError(nil, nil, UIConst.Text.UPDATE_GAME_ERROR)
         return
     end
+    print("登陆登陆登陆6666666=========")
     self.download_url = self.download_url_base .. self.platform_name .. "/"
     if not IsDirectoryExists(self.download_path) then
         CreateDirectory(self.download_path)
     end
-
+    print("登陆走到这里=========")
     self.new_set = self:_DownloadVersion()
+    print("self:_DownloadVersion()登陆走到这里=========",self.new_set)
     if not self.new_set then
+        print("登陆走到这里1111111=========")
+        --SpecMgrs.sdk_mgr:QuickLogin()
         return
     end
     if not self:_CheckNeedUpdate() then
+        --print("登陆走到这里22222222=========",CSConst.CilentProcessType.STARTTRAN_INIT_SUCCEED)
+        SpecMgrs.sdk_mgr:QuickLogin()
         self:StartLogin()
+        --SpecMgrs.sdk_mgr:QuickLogin()
         ComMgrs.dy_data_mgr.log_data:SendStartUpTranLog(CSConst.CilentProcessType.STARTTRAN_INIT_SUCCEED)
         return
     end
-    self.download_url = self.download_url ..  "/"          --self.new_set.svn_version_ ..（因为没有svn所以暂时先去掉）
+    self.download_url = self.download_url --.. self.new_set.svn_version_ .. "/"
     self:_DownloadNewSet()
     self.file_diff = self:_GenFileDiff()
     self:DownLoadMsg()
 end
 
 function UpdateUI:StartLogin()
-    print("UpdateUI:StartLogin()111=================")
+    print("UpdateUI:StartLogin()====================")
+    --SpecMgrs.sdk_mgr:Login()
+    --SpecMgrs.sdk_mgr:QuickLogin()
+    self:Hide()
+end
+
+function UpdateUI:UnityStartLogin()
+    print("UpdateUI:UnityStartLogin()====================")
     SpecMgrs.sdk_mgr:Login()
+    --SpecMgrs.sdk_mgr:QuickLogin()
     self:Hide()
 end
 
@@ -115,6 +142,7 @@ function UpdateUI:DownLoadMsg()
 end
 
 function UpdateUI:_StartDownload()
+    print("UpdateUI:_StartDownload()====================")
     ComMgrs.dy_data_mgr.log_data:SendStartUpTranLog(CSConst.CilentProcessType.STARTTRAN_START_HOT_UPDATE)
     self:_DownloadDiff()
     local ret = self:_MoveToExternal()
@@ -151,6 +179,10 @@ function UpdateUI:_CheckNeedUpdate()
     local old_version = self.external_set and self.external_set.svn_version_ or self.inner_set.svn_version_
     local new_version = self.new_set.svn_version_
     print("UpdateUI:_CheckNeedUpdate", old_version, new_version)
+    if (old_version==new_version) then
+        print("=================================================")
+        --SpecMgrs.sdk_mgr:QuickLogin()
+    end
     return new_version > old_version
 end
 
@@ -206,6 +238,7 @@ function UpdateUI:_GenFileDiff()
 end
 
 function UpdateUI:CheckDownload(old_item, new_item, lang_ab_name, system_lang)
+    --print(" UpdateUI:CheckDownload()==================")
     local ab_name = new_item.name
     local is_lang = false
     for _, name in ipairs(lang_ab_name) do
@@ -297,7 +330,8 @@ function UpdateUI:_MoveToExternal()
 end
 
 function UpdateUI:_RestartGame()
-    print("UpdateUI:_RestartGame")
+    print("UpdateUI:_RestartGame======================")
+    --SpecMgrs.sdk_mgr:QuickLogin()
     coroutine.wait(0)
     LuaGC()
     coroutine.wait(0)

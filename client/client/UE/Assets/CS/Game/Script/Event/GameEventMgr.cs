@@ -24,6 +24,7 @@ public class GameEvent
         event_tag_ = event_tag;
         params_ = pms;
     }
+
 }
 
 public class GameEventMgr
@@ -67,6 +68,7 @@ public class GameEventMgr
     public const int ET_EffectEvent = 501;
     public const int ET_Input = 701;
     public const int ET_SDK = 750;
+    public const int ET_QuickSdk = 756;
 
     public const int ET_Trigger = 851;
     public const int ET_LuaReload = 901;
@@ -564,8 +566,16 @@ public class GameEventMgr
     }
 
     [DoNotToLua]
+    public void GenerateEventTest(int event_type, object event_tag, params object[] pms)
+    {
+        GameEvent ge = new GameEvent(event_type, event_tag, pms);
+        _AddEvent(ge);
+    }
+
+    [DoNotToLua]
     public void GenerateEvent(int event_type, object event_tag, params object[] pms)
     {
+        Debug.Log("GenerateEvent=====" + event_type + "event_tag==" + event_tag + "params objec" + pms);
         GameEvent ge = new GameEvent(event_type, event_tag, pms);
         _AddEvent(ge);
     }

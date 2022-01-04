@@ -154,6 +154,9 @@ function RechargeUI:SendRecharge(item, data)
             self:SetItemMes(item, data)
         end
     end
+    print("支付页面可以获取信息==",data)
+    print("支付item===",item)
+    SpecMgrs.sdk_mgr:Pay(data.recharge_id,data.recharge_count,data.diamond_count)
     SpecMgrs.msg_mgr:SendRecharge({recharge_id = data.recharge_id}, cb)
 end
 

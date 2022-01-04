@@ -79,7 +79,23 @@ end
 
 function DialogUI:NextDialog()
     self:RemoveDynamicUI(self.dialog_text)
+    print("新手引导111=====",self.dialog_data[self.cur_index])
+    if self.dialog_data[self.cur_index] ~= nil then
+        local pre_dialog_data = self.dialog_data[self.cur_index]
+        if pre_dialog_data.group_id == 3 then
+            if pre_dialog_data.id == 1031 then
+                local role_info = ComMgrs.dy_data_mgr.main_role_info
+                local serverId = ComMgrs.dy_data_mgr.base_info
+                print("服务器信息=====" ,serverId.server_id )
+                print("当前角色信息---=",role_info)
+                --上传信息为服务器id、角色id、角色名字、角色等级
+                SpecMgrs.sdk_mgr:EnterGameRole(serverId.server_id,role_info.uuid,role_info.name,role_info.level)
+            end
+        end
+    end
+
     if not self.dialog_data or not self.dialog_data[self.cur_index + 1] then
+        print("对话内容结束111=====",self.dialog_data)
         self:TriggerFinishCb()
         self:Hide()
     else

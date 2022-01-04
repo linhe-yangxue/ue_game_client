@@ -12,11 +12,14 @@ public class PackScripts {
 
     [MenuItem("Lua/Pack/PackScripts")]
     public static void PackAll() {
+        Debug.Log("AssetBundle顺序--4--");
         var root_path = Path.GetFullPath(LuaScriptReader.lua_raw_path_);
+        Debug.Log("AssetBundle顺序--5--" + root_path);
         if (!Directory.Exists(root_path)) {
             Debug.Log("文件目录不存在：" + root_path);
         }
         var file_infos = new DirectoryInfo(root_path).GetFiles("*.lua", SearchOption.AllDirectories);
+        Debug.Log("AssetBundle顺序--6--" + file_infos);
         var file_paths = System.Array.ConvertAll<FileInfo, string>(file_infos, (info) => {
             return info.FullName.Replace(root_path, "").Replace("\\", "/");
         });
@@ -26,12 +29,16 @@ public class PackScripts {
         EditorUtility.DisplayProgressBar("PackScripts", "", 0);
         var pack_file_list = new Dictionary<string, List<string>> ();
         foreach(var pack_name in LuaScriptReader.pack_list) {
+            Debug.Log("Lua脚本----1----" + pack_name);
             var filter = LuaScriptReader.pack_filter[pack_name];
+            Debug.Log("Lua脚本---2----" + filter);
             var pack_path = Application.dataPath + "/Res/" + pack_name + ".bytes";
+            Debug.Log("Lua脚本---3----" + pack_path);
             FileStream stream = File.Create(pack_path);
             var writer = new BinaryWriter(stream);
             for (int i = 0; i < file_paths.Length; ++i) {
                 var path = file_paths[i];
+                Debug.Log("Lua脚本---99----" + path);
                 if (path != null && Regex.IsMatch(path, filter, RegexOptions.IgnoreCase)) {
                     writer.Write(path.Length);
                     writer.Write(path.ToCharArray());

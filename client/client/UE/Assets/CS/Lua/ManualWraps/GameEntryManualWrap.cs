@@ -11,9 +11,8 @@ public class GameEntryManualWrap : LuaObject {
     public static void reg(IntPtr l) {
         getTypeTable(l, "GameEntry");
         addMember(l, Restart, false);
-        createTypeMetatable(l, null, typeof(GameEntry), typeof(Singleton<GameEntry>));
+        createTypeMetatable(l, null, typeof(GameEntry));  //, typeof(Singleton<GameEntry>)
     }
-
 
     [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
     [UnityEngine.Scripting.Preserve]

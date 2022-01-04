@@ -8,7 +8,9 @@ LoginUI.need_sync_load = true
 local kRecommendServer = 55 -- 推荐服务器
 
 function LoginUI:DoInit()
+    print("LoginUI:DoInit()===================")
     LoginUI.super.DoInit(self)
+
     self.prefab_path = "UI/Common/LoginUI"
     self.http = nil
 
@@ -17,6 +19,7 @@ function LoginUI:DoInit()
     self.partition_go_dict = {}
     self.server_go_dict = {}
     self.dy_server_data = ComMgrs.dy_data_mgr.server_data
+    self.simulate_mode = GameResourceMgr.IsSimulateMode()
 end
 
 function LoginUI:OnGoLoadedOk(res_go)
@@ -43,15 +46,19 @@ function LoginUI:InitRes()
     -- 进入面板
     local enter_panel = self.content_panel:FindChild("EnterPanel")
     self.logo = enter_panel:FindChild("Logo")
+    --enter_panel:FindChild("HelpBtn"):SetActive(false)   帮助按钮隐藏
     self:AddClick(enter_panel:FindChild("HelpBtn"), function ()
         -- TODO 帮助
     end)
-    self:AddClick(enter_panel:FindChild("AccountBtn"), function ()
-        self.login_btn:GetComponent("Button").interactable = true
-        self.input_account.text = self.cur_account
-        self.account_panel:SetActive(true)
-    end)
-
+    enter_panel:FindChild("AccountBtn"):SetActive(false)
+    if  self.simulate_mode then  --判断是否是unity
+        enter_panel:FindChild("AccountBtn"):SetActive(true)
+        self:AddClick(enter_panel:FindChild("AccountBtn"), function ()
+            self.login_btn:GetComponent("Button").interactable = true
+            self.input_account.text = self.cur_account
+            self.account_panel:SetActive(true)
+        end)
+    end
     self.cur_server_panel = enter_panel:FindChild("CurServerPanel/Bg")
     self.server_state_text = self.cur_server_panel:FindChild("ServerStateText"):GetComponent("Text")
     self.server_name = self.cur_server_panel:FindChild("ServerName"):GetComponent("Text")
@@ -67,7 +74,6 @@ function LoginUI:InitRes()
         PlayerPrefs.SetInt("SELECT_SERVER_ID", self.select_server_id)
         self:ConnectServer()
     end)
-
     -- 服务器选择面板
     self.select_server_panel = self.content_panel:FindChild("ServerPanel")
     local select_server_content = self.select_server_panel:FindChild("Content")
@@ -94,11 +100,13 @@ function LoginUI:InitRes()
     self.input_account = account_content:FindChild("AccountInput"):GetComponent("InputField")
     self.login_btn = account_content:FindChild("LoginBtn")
     self.login_btn:FindChild("Text"):GetComponent("Text").text = UIConst.Text.LOGIN
+    --self.account_panel:SetActive(true)
     self:AddClick(account_content:FindChild("CloseBtn"), function ()
         self.account_panel:SetActive(false)
     end)
     self:AddClick(self.login_btn, function ()
         self.cur_account = self.input_account.text
+        --self.cur_account = SpecMgrs.sdk_mgr.QuickRole
         PlayerPrefs.SetString("LOGIN_ACCOUNT", self.cur_account)
         if not self.cur_account or self.cur_account == "" then
             SpecMgrs.ui_mgr:ShowMsgBox(UIConst.AccountNull)
@@ -113,17 +121,15 @@ function LoginUI:InitRes()
 end
 
 function LoginUI:InitUI()
-    print("account_info---------",self)
     local account_info = self.is_sdk_login and self.dy_data_mgr:ExGetAccountInfo()
     self.black_bg:SetActive(self.is_sdk_login and not account_info)
-    print("account_info",PlayerPrefs.GetString("LOGIN_ACCOUNT", ""))
     local account = account_info and account_info.username or PlayerPrefs.GetString("LOGIN_ACCOUNT", "")
-    print("account",account)
     if account == "" then
+        self.cur_account =  math.random(1, 99999999)     --self.cur_account .. 如果为空时拼接会报错，所以暂时注掉
         print("self.cur_account",self.cur_account)
-        self.cur_account = math.random(1, 99999999)   --self.cur_account ..  
     end
     self.cur_account = account
+    print("self.cur_account111",self.cur_account)
     self.select_server_id = PlayerPrefs.GetInt("SELECT_SERVER_ID", 0)
     if self.select_server_id == 0 then
         -- 选择推荐服务器
@@ -135,11 +141,17 @@ function LoginUI:InitUI()
         ComMgrs.dy_data_mgr:ExSetKickOutStatus(false)
         SpecMgrs.ui_mgr:ShowMsgBox(UIConst.LoginKickText)
     end
+    --if  self.simulate_mode then  --判断是否是unity
+        self.cur_account = SpecMgrs.sdk_mgr.QuickRole
+    --end
     self:HttpRequire()
+
     --self.black_bg:SetActive(self.is_sdk_login)
 end
 
 function LoginUI:HttpRequire()
+    self.cur_account = SpecMgrs.sdk_mgr.QuickRole
+    print("当前角色ID===",SpecMgrs.sdk_mgr.QuickRole,self.cur_account)
     SpecMgrs.http_mgr:Request(UIConst.LoginServerPath..self.cur_account, function(http)
         if http.isDone then
             self.server_role_info_list = {}
@@ -157,13 +169,13 @@ function LoginUI:HttpRequire()
 end
 
 function LoginUI:ConnectServer()
-    print("点击登陆")
     self.game_start_btn:GetComponent("Button").interactable = false
     local confirm_cb = function ()
         SpecMgrs.msg_mgr:SendLogin({urs = self.cur_account, relogin = true}, function (resp)
             if resp.errcode ~= 0 then
                 SpecMgrs.ui_mgr:ShowMsgBox(resp.errcode)
             else
+                print("进入游戏主界面=========")
                 SpecMgrs.stage_mgr:GotoStage("MainStage")
             end
         end)
@@ -174,6 +186,7 @@ function LoginUI:ConnectServer()
         self.game_start_btn:GetComponent("Button").interactable = true
     end
     local server_info = self.dy_server_data:GetServerById(self.select_server_id)
+    --SpecMgrs.sdk_mgr:EnterGameRole(self.cur_account,server_info.name,server_info.build_time)   --进入游戏时候上传角色信息
     PlayerPrefs.SetString("LOGIN_ACCOUNT", self.cur_account)
     SpecMgrs.msg_mgr:ConnectServer(server_info.ip, server_info.port, function (conn_flag)
         if not conn_flag then
@@ -181,7 +194,7 @@ function LoginUI:ConnectServer()
             return
         end
         SpecMgrs.msg_mgr:SendLogin({urs = self.cur_account}, function (resp)
-            --PrintError("SendLogin resp", resp)
+            PrintError("SendLogin resp", resp)
             if resp.errcode ~= 0 and not resp.replace then
                 SpecMgrs.ui_mgr:ShowMsgBox(UIConst.LoginFailed)
                 self.game_start_btn:GetComponent("Button").interactable = true
@@ -201,7 +214,14 @@ function LoginUI:ConnectServer()
                 elseif resp.is_guide_not_end then
                     SpecMgrs.stage_mgr:GotoStage("GuideStage")
                 else
+                    local role_info = ComMgrs.dy_data_mgr.main_role_info  --角色基本信息
+                    local serverId = ComMgrs.dy_data_mgr.base_info  --服务器基本信息
+                    print("服务器信息=====" ,serverId.server_id )
+                    print("当前角色信息---=",role_info)
                     SpecMgrs.stage_mgr:GotoStage("MainStage")
+                    --上传信息为服务器id、角色id、角色名字、角色等级
+                    SpecMgrs.sdk_mgr:EnterGameRole(serverId.server_id,role_info.uuid,role_info.name,role_info.level)
+                    print("确定是否走这里========================")
                 end
             end
         end)
