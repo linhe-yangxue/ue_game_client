@@ -150,7 +150,7 @@ function LoginUI:InitUI()
 end
 
 function LoginUI:HttpRequire()
-    self.cur_account = SpecMgrs.sdk_mgr.QuickRole
+    --self.cur_account = SpecMgrs.sdk_mgr.QuickRole    --在unity时需要注掉，在出包时候放开
     print("当前角色ID===",SpecMgrs.sdk_mgr.QuickRole,self.cur_account)
     SpecMgrs.http_mgr:Request(UIConst.LoginServerPath..self.cur_account, function(http)
         if http.isDone then
