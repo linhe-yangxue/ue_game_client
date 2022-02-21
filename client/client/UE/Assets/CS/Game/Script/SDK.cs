@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System;
 using System.Text;
 using System.Linq;
+using JSON;
 using quicksdk;
 
     public class SDK : MonoBehaviour {
@@ -37,46 +38,45 @@ using quicksdk;
         public static void test()
         {
             EventHandle.getInstance().test();
-            Debug.Log("进入到SDK--==============");
+        }
+
+        public static void CallLuaTest(string func_name,string param)
+        {
+            JsonObject json = new JsonObject();
+            json.SetString("func_name", func_name);
+            json.SetString("param", param);
+            Debug.Log("CallLuaTest===========" + json);
+            GameEventMgr.GetInstance().GenerateEvent(GameEventMgr.ET_SDK, null, "CallLua", json.ToString());
         }
 
 //        public static void Init()
 //        {
-//            Debug.Log("进入QuickSDK--EventHandle初始化--==============");
 //            QuickSDK.getInstance().reInit();
-//            Debug.Log("完成QuickSDK--EventHandle初始化--==============");
 //        }
 
         public static void QuickSDKLogin()
         {
             //ongetDeviceId();
-            Debug.Log("进入QuickSDK--EventHandle登陆onLogin--==============");
             QuickSDK.getInstance ().login ();
-            Debug.Log("完成QuickSDK--EventHandle登陆onLogin--==============");
         }
 
         public static void QuickSDKLoginResult(string role_name)
         {
-            Debug.Log("进入QuickSDKLoginResult--==============");
-
-            Debug.Log("完成QuickSDKLoginResult--==============");
         }
 
         public static void CreatRole(string urs,string role_name,string role_id)
         {
-            Debug.Log("进入QuickSDK--EventHandle登陆CreatRole-==============" + urs + "666" + role_name + "777" + role_id);
             EventHandle.getInstance().onCreatRole(urs,role_name,role_id);
-            Debug.Log("完成QuickSDK--EventHandle登陆CreatRole--==============");
         }
 
-        public static void EnterGameRole(string server_id,string role_id,string role_name, string role_level)
+        public static void EnterGameRole(string role_id,string role_level,string role_name,string party_name,string server_id,string server_name,string vip_level, string role_create_time)
         {
-            EventHandle.getInstance().onEnterGame(server_id,role_id,role_name,role_level);
+            EventHandle.getInstance().onEnterGame(role_id,role_level,role_name,party_name,server_id,server_name,vip_level,role_create_time);
         }
 
-        public static void UpdateRoleInfo(string curLevel)
+        public static void UpdateRoleInfo(string role_id,string role_level,string role_name,string party_name,string server_id,string server_name,string vip_level, string role_create_time)
         {
-             EventHandle.getInstance().onUpdateRoleInfo(curLevel);
+             EventHandle.getInstance().onUpdateRoleInfo(role_id,role_level,role_name,party_name,server_id,server_name,vip_level,role_create_time);
         }
 
         public static void QuickPay(string recharge_id,string recharge_count,string count)
@@ -131,29 +131,15 @@ using quicksdk;
 
         public static void CallLua(string func_name,string param)
         {
-        Debug.Log("登陆成功后方法名==" + func_name + "用户数据" + param);
-        string[] json1 = new string[2];
-        Debug.Log("登陆成功后方法名111==");
-        json1[0] = func_name;
-        Debug.Log("登陆成功后方法名222==");
-        json1[1] = param;
-        Debug.Log("登陆成功后方法名333==" );
-        string json_str = json1.ToString();
-        Debug.Log("登陆成功后方法名444==" + json_str);
+        //string json2 = "{func_name:" + func_name + ",param:" + param + "}";
+        //Debug.Log("登陆成功后方法名555==" + json2);
 
-
-        string json2 = "{func_name:" + func_name + ",param:" + param + "}";
-        Debug.Log("登陆成功后方法名555==" + json2);
         string json3 = param;
-        GameEventMgr.GetInstance().GenerateEvent(GameEventMgr.ET_SDK, null, "CallLua", json3);
-        //Object obj = new Object(); 
 
-
-        //UnityEngine.Object json;
-        //json = { "func_name":func_name,"param":param};   
-        //SDK.CallLua(json);
-        //CallLuatest(func_name,param);
-
+        JsonObject json = new JsonObject();
+        json.SetString("func_name", func_name);
+        json.SetString("param", param);
+        GameEventMgr.GetInstance().GenerateEvent(GameEventMgr.ET_SDK, null, "CallLua", json.ToString());
         }
 
         public void CallLuatest(string func_name,string param)
@@ -170,7 +156,6 @@ using quicksdk;
 
         public void CallLua(string json_str)
         {
-            Debug.Log("CallLua:"+json_str);
             GameEventMgr.GetInstance().GenerateEvent(GameEventMgr.ET_SDK, null, "CallLua", json_str);
         }
         public void CatchError(string json_str)

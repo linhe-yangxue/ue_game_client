@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using System.Text;
+using System.Collections.Generic;
+using JSON;
 using quicksdk;
 
 public class EventHandle
@@ -33,7 +35,11 @@ public class EventHandle
 
 	public void test()
     {
-        Debug.Log("进入到EventHandle----QuickSDK==============");
+        JsonObject json = new JsonObject();
+        json.SetString("gameRoleID", "9090");
+        json.SetString("gameRoleLevel", "111");
+        json.SetString("gameRoleName", "看似回复");
+        SDK.CallLuaTest("sdkquick", json.ToString());
     }
 
 	public void Init()
@@ -120,7 +126,7 @@ public class EventHandle
 		GameRoleInfo gameRoleInfo = new GameRoleInfo();
 
 		gameRoleInfo.gameRoleBalance = "";
-		gameRoleInfo.gameRoleID = urs;
+		gameRoleInfo.gameRoleID = role_id;
 		gameRoleInfo.gameRoleLevel = "";
 		gameRoleInfo.gameRoleName = role_name;
 		gameRoleInfo.partyName = "";
@@ -143,8 +149,8 @@ public class EventHandle
 		QuickSDK.getInstance ().createRole(gameRoleInfo);//创建角色
 	}
 	
-	public void onEnterGame(string server_id,string role_id,string role_name, string role_level){
-	    Debug.Log("进入游戏======" + server_id + "111==" + role_id + "222==" + role_name + "333==" + role_level);
+	public void onEnterGame(string role_id,string role_level,string role_name,string party_name,string server_id,string server_name,string vip_level, string role_create_time){
+	    Debug.Log("进入游戏======" + role_id + "111==" + role_level + "222==" + role_name + "333==" + party_name + "444==" + server_id + "555==" + server_name + "555==" + vip_level  + "666==" + role_create_time);
 		QuickSDK.getInstance().callFunction(FuncType.QUICK_SDK_FUNC_TYPE_REAL_NAME_REGISTER);
 		//注：GameRoleInfo的字段，如果游戏有的参数必须传，没有则不用传
 		GameRoleInfo gameRoleInfo = new GameRoleInfo();
@@ -153,11 +159,11 @@ public class EventHandle
 		gameRoleInfo.gameRoleID = role_id;
 		gameRoleInfo.gameRoleLevel = role_level;
 		gameRoleInfo.gameRoleName = role_name;
-		gameRoleInfo.partyName = "";
+		gameRoleInfo.partyName = party_name;
 		gameRoleInfo.serverID = server_id;
-		gameRoleInfo.serverName = "";
-		gameRoleInfo.vipLevel = "";
-		gameRoleInfo.roleCreateTime = "";//UC与1881渠道必传，值为10位数时间戳
+		gameRoleInfo.serverName = server_name;
+		gameRoleInfo.vipLevel = vip_level;
+		gameRoleInfo.roleCreateTime = role_create_time;//UC与1881渠道必传，值为10位数时间戳
 		
 		gameRoleInfo.gameRoleGender = "";//360渠道参数
 		gameRoleInfo.gameRolePower="";//360渠道参数，设置角色战力，必须为整型字符串
@@ -174,21 +180,21 @@ public class EventHandle
 		//Application.LoadLevel("scene4");
 	}
 	
-	public void onUpdateRoleInfo(string curLevel)
+	public void onUpdateRoleInfo(string role_id,string role_level,string role_name,string party_name,string server_id,string server_name,string vip_level, string role_create_time)
 	{
-	    Debug.Log("角色升级等级===" + curLevel);
+	    Debug.Log("角色升级等级===" + role_level);
 		//注：GameRoleInfo的字段，如果游戏有的参数必须传，没有则不用传
 		GameRoleInfo gameRoleInfo = new GameRoleInfo();
 		
 		gameRoleInfo.gameRoleBalance = "";
-		gameRoleInfo.gameRoleID = "";
-		gameRoleInfo.gameRoleLevel = curLevel;
-		gameRoleInfo.gameRoleName = "";
-		gameRoleInfo.partyName = "";
-		gameRoleInfo.serverID = "";
-		gameRoleInfo.serverName = "";
-		gameRoleInfo.vipLevel = "";
-		gameRoleInfo.roleCreateTime = "";//UC与1881渠道必传，值为10位数时间戳
+		gameRoleInfo.gameRoleID = role_id;
+		gameRoleInfo.gameRoleLevel = role_level;
+		gameRoleInfo.gameRoleName = role_name;
+		gameRoleInfo.partyName = party_name;
+		gameRoleInfo.serverID = server_id;
+		gameRoleInfo.serverName = server_name;
+		gameRoleInfo.vipLevel = vip_level;
+		gameRoleInfo.roleCreateTime = role_create_time;//UC与1881渠道必传，值为10位数时间戳
 		
 		gameRoleInfo.gameRoleGender = "";//360渠道参数
 		gameRoleInfo.gameRolePower="";//360渠道参数，设置角色战力，必须为整型字符串

@@ -209,9 +209,10 @@ public class GameEntry : QuickSDKListener{
     {
         showLog ("onLoginSuccess", "uid: " + userInfo.uid + " ,username: " + userInfo.userName + " ,userToken: " + userInfo.token + ", msg: " + userInfo.errMsg);
         //Application.LoadLevel ("scene2");
-        SDK.onLoginSuccessResult = "qqqq";  //userInfo.userName;
+
         Debug.Log("userInfo.userName===" + userInfo.userName);
         SDK.CallLua("QuickSDKLoginResults",userInfo.userName);
+
     }
 
     public override void onSwitchAccountSuccess(UserInfo userInfo){

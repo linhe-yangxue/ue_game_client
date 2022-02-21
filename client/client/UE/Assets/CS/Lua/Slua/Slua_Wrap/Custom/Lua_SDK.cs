@@ -64,6 +64,22 @@ public class Lua_SDK : LuaObject {
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	[UnityEngine.Scripting.Preserve]
+	static public int CallLuaTest_s(IntPtr l) {
+		try {
+			System.String a1;
+			checkType(l,1,out a1);
+			System.String a2;
+			checkType(l,2,out a2);
+			SDK.CallLuaTest(a1,a2);
+			pushValue(l,true);
+			return 1;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	[UnityEngine.Scripting.Preserve]
 	static public int QuickSDKLogin_s(IntPtr l) {
 		try {
 			SDK.QuickSDKLogin();
@@ -118,7 +134,15 @@ public class Lua_SDK : LuaObject {
 			checkType(l,3,out a3);
 			System.String a4;
 			checkType(l,4,out a4);
-			SDK.EnterGameRole(a1,a2,a3,a4);
+			System.String a5;
+			checkType(l,5,out a5);
+			System.String a6;
+			checkType(l,6,out a6);
+			System.String a7;
+			checkType(l,7,out a7);
+			System.String a8;
+			checkType(l,8,out a8);
+			SDK.EnterGameRole(a1,a2,a3,a4,a5,a6,a7,a8);
 			pushValue(l,true);
 			return 1;
 		}
@@ -132,7 +156,21 @@ public class Lua_SDK : LuaObject {
 		try {
 			System.String a1;
 			checkType(l,1,out a1);
-			SDK.UpdateRoleInfo(a1);
+			System.String a2;
+			checkType(l,2,out a2);
+			System.String a3;
+			checkType(l,3,out a3);
+			System.String a4;
+			checkType(l,4,out a4);
+			System.String a5;
+			checkType(l,5,out a5);
+			System.String a6;
+			checkType(l,6,out a6);
+			System.String a7;
+			checkType(l,7,out a7);
+			System.String a8;
+			checkType(l,8,out a8);
+			SDK.UpdateRoleInfo(a1,a2,a3,a4,a5,a6,a7,a8);
 			pushValue(l,true);
 			return 1;
 		}
@@ -303,6 +341,7 @@ public class Lua_SDK : LuaObject {
 		addMember(l,CallLua);
 		addMember(l,CatchError);
 		addMember(l,test_s);
+		addMember(l,CallLuaTest_s);
 		addMember(l,QuickSDKLogin_s);
 		addMember(l,QuickSDKLoginResult_s);
 		addMember(l,CreatRole_s);

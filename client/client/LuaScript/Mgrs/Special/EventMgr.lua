@@ -439,11 +439,15 @@ end
 
 function EventMgr:AddSDKListener(cb)
     self:RegisterNativeEventCallback(self.ET_SDK, "sdk", cb)
-    print("AddSDKListener", self.ET_SDK)
+    print("AddSDKListener-----------------", self.ET_SDK)
 end
 
 function EventMgr:RemoveSDKListener()
     self:UnRegisterNativeEventCallback(self.ET_SDK, "sdk")
+end
+
+function EventMgr:AddQuickSdk(tag,cb)
+    self:RegisterNativeEventCallback(self.ET_QuickSdk, tag, cb)
 end
 ----------------- Interface Define end -------------
 

@@ -45,9 +45,9 @@ end
 -- 登录相关 -------------------------
 
 function SDKMgr:Login()
-    print("SDKMgr:Login")
     local is_automator = self:IsAutomator()
     if not is_automator and self.sdk.Gaea then
+        print("GaeaLogin:Login-------------")
         SpecMgrs.ui_mgr:ShowUI("LoginUI", true)
         self:GaeaLogin()
     else
@@ -99,26 +99,59 @@ function SDKMgr:SwitchAccount()
     end
 end
 
--- 支付相关 -------------------------
-function SDKMgr:Pay(productId)
-    print("SDKMgr:Pay", productId)
-    if self.sdk.Gaea then
-        self:GaeaPay({
-            -- todo
-            moneyAmount = "6",
-            productId = self:IsIOS() and "com.gaea.cn.shanhaim.t1g60" or "com.gaea.cn.shanhaim.g60",
-            productName = "60仙玉",
-            appName = "appName",
-            cpInfo = "cpInfo",
-            appUserId = "aaa",
-            appUserName = "aaa",
-            appUserLevel = "10",
-            serverId = "aaa",
-            --currency = "aaa",
-            payExt = "payExt",
-        })
-    end
+function SDKMgr:CreateRole(urs,role_name,role_id)
+    print("SDKMgr:CreateRole=====",urs,role_name,role_id)
+    SDK.CreatRole(urs,role_name,role_id)
 end
+
+function SDKMgr:QuickLogin()
+    print("SDKMgr:QuickLogin====")
+    SDK.QuickSDKLogin()
+end
+
+function SDKMgr:EnterGameRole(role_id,role_level,role_name,party_name,server_id,server_name,vip_level,role_create_time)
+    print("SDKMgr:EnterGameRole====")
+    SDK.EnterGameRole(role_id,role_level,role_name,party_name,server_id,server_name,vip_level,role_create_time)
+end
+
+function SDKMgr:UpdateRoleInfo(role_id,role_level,role_name,party_name,server_id,server_name,vip_level,role_create_time)
+    print("SDKMgr:UpdateRoleInfo====")
+    SDK.UpdateRoleInfo(role_id,role_level,role_name,party_name,server_id,server_name,vip_level,role_create_time)
+end
+
+function SDKMgr:Pay(recharge_id,recharge_count,count)
+    print("SDKMgr:OnPay-------------")
+    SDK.QuickPay(recharge_id,recharge_count,count)
+end
+
+function SDKMgr:QuickSDKLoginResults(param)
+    print("SDKMgr:QuickSDKLoginResults===-==-",param)
+    self.QuickRole = param
+    self:Login()
+end
+
+
+
+-- 支付相关 -------------------------
+--function SDKMgr:Pay(productId)
+--    print("SDKMgr:Pay", productId)
+--    if self.sdk.Gaea then
+--        self:GaeaPay({
+--            -- todo
+--            moneyAmount = "6",
+--            productId = self:IsIOS() and "com.gaea.cn.shanhaim.t1g60" or "com.gaea.cn.shanhaim.g60",
+--            productName = "60仙玉",
+--            appName = "appName",
+--            cpInfo = "cpInfo",
+--            appUserId = "aaa",
+--            appUserName = "aaa",
+--            appUserLevel = "10",
+--            serverId = "aaa",
+--            --currency = "aaa",
+--            payExt = "payExt",
+--        })
+--    end
+--end
 
 function SDKMgr:PayResult(success, param)
     print("SDKMgr:PayResult", success, param)
@@ -392,7 +425,6 @@ end
 -- base
 --------------------------------------------------------------------------------------
 function SDKMgr:RecvFromSDK(json_str)
-    print("SDKMgr:RecvFromSDK", json_str)
     local info = json.decode(json_str)
     local func_name = info.func_name
     self[func_name](self, info.param)
@@ -520,6 +552,7 @@ function SDKMgr:GaeaInit()
 end
 
 function SDKMgr:GaeaResult(param)
+    print("SDKMgr:GaeaResult(param)==========",param)
     if param.code == HJConstant.INIT_SUCCESS then
         self:GaeaInitResult(param)
     elseif param.code == HJConstant.LOGIN_SUCCESS then
@@ -547,6 +580,7 @@ function SDKMgr:GaeaLoginResult(param)
     -- guid = param.guid,
     -- loginToken = param.loginToken,
     -- loginAccount = param.loginAccount,
+    print("SDKMgr:GaeaLoginResult(param)======",param)
     self:LoginResult("gaea", param.guid, param)
 end
 

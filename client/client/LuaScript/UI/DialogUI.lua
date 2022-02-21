@@ -84,12 +84,18 @@ function DialogUI:NextDialog()
         local pre_dialog_data = self.dialog_data[self.cur_index]
         if pre_dialog_data.group_id == 3 then
             if pre_dialog_data.id == 1031 then
-                local role_info = ComMgrs.dy_data_mgr.main_role_info
-                local serverId = ComMgrs.dy_data_mgr.base_info
-                print("服务器信息=====" ,serverId.server_id )
+                local role_info = ComMgrs.dy_data_mgr:ExGetRoleInfo()
                 print("当前角色信息---=",role_info)
                 --上传信息为服务器id、角色id、角色名字、角色等级
-                SpecMgrs.sdk_mgr:EnterGameRole(serverId.server_id,role_info.uuid,role_info.name,role_info.level)
+                local role_id = role_info.uuid
+                local role_level = role_info.level
+                local role_name = role_info.name
+                local party_name = ""
+                local server_id = role_info.server_id;
+                local server_name = role_info.server_name;
+                local vip_level = ComMgrs.dy_data_mgr:ExGetRoleVip()
+                local role_create_time = ""
+                SpecMgrs.sdk_mgr:EnterGameRole(role_id,role_level,role_name,party_name,server_id,server_name,vip_level,role_create_time)
             end
         end
     end

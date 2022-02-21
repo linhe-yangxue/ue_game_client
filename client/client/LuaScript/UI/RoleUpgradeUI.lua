@@ -101,8 +101,18 @@ function RoleUpgradeUI:InitInfoPanel()
     print("角色升级=====",account_info,self.last_level,self.cur_level)
     local last_level_data = SpecMgrs.data_mgr:GetLevelData(self.last_level)
     local cur_level_data = SpecMgrs.data_mgr:GetLevelData(self.cur_level)
+    local role_info = ComMgrs.dy_data_mgr:ExGetRoleInfo()
+    --local server = self.dy_server_data:GetServerById(role_info.server_id)
+    local role_id = role_info.uuid
+    local role_level = cur_level_data
+    local role_name = role_info.name
+    local party_name = ""
+    local server_id = role_info.server_id;
+    local server_name = role_info.server_name;
+    local vip_level = ComMgrs.dy_data_mgr:ExGetRoleVip()
+    local role_create_time = ""
     print("角色升级后数据",cur_level_data)
-    SpecMgrs.sdk_mgr:UpdateRoleInfo(self.cur_level)
+    SpecMgrs.sdk_mgr:UpdateRoleInfo(role_id,role_level,role_name,party_name,server_id,server_name,vip_level,role_create_time)
     local cur_action_point = self.dy_strategy_map_data:GetActionPoint()
     self.last_strength.text = cur_action_point - cur_level_data.add_vitality_point
     self.cur_strength.text = cur_action_point

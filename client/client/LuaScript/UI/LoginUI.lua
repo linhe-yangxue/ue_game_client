@@ -141,9 +141,9 @@ function LoginUI:InitUI()
         ComMgrs.dy_data_mgr:ExSetKickOutStatus(false)
         SpecMgrs.ui_mgr:ShowMsgBox(UIConst.LoginKickText)
     end
-    --if  self.simulate_mode then  --判断是否是unity
+    if  self.simulate_mode then  --判断是否是unity
         self.cur_account = SpecMgrs.sdk_mgr.QuickRole
-    --end
+    end
     self:HttpRequire()
 
     --self.black_bg:SetActive(self.is_sdk_login)
@@ -216,11 +216,22 @@ function LoginUI:ConnectServer()
                 else
                     local role_info = ComMgrs.dy_data_mgr.main_role_info  --角色基本信息
                     local serverId = ComMgrs.dy_data_mgr.base_info  --服务器基本信息
-                    print("服务器信息=====" ,serverId.server_id )
+                    local serverName = SpecMgrs.data_mgr:GetServerData(serverId.server_id).name
+                    local server = self.dy_server_data:GetServerById(serverId.server_id)
+                    print("服务器信息=====" ,serverId.server_id , serverName ,server)
                     print("当前角色信息---=",role_info)
                     SpecMgrs.stage_mgr:GotoStage("MainStage")
                     --上传信息为服务器id、角色id、角色名字、角色等级
-                    SpecMgrs.sdk_mgr:EnterGameRole(serverId.server_id,role_info.uuid,role_info.name,role_info.level)
+                    local role_id = role_info.uuid
+                    local role_level = role_info.level
+                    local role_name = role_info.name
+                    local party_name = ""
+                    local server_id = serverId.server_id;
+                    local server_name = serverName;
+                    local vip_level = ComMgrs.dy_data_mgr:ExGetRoleVip()
+                    local role_create_time = server.build_time
+
+                    SpecMgrs.sdk_mgr:EnterGameRole(role_id,role_level,role_name,party_name,server_id,server_name,vip_level,role_create_time)
                     print("确定是否走这里========================")
                 end
             end
