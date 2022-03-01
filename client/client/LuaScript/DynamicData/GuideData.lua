@@ -119,10 +119,12 @@ function GuideData:_NextGuide(guide_data)
 end
 
 function GuideData:_StartUIGuide(guide_data)
-    if guide_data.guide_type == self.show_guide_type.ShowBtnGuide then
-        local ui = SpecMgrs.ui_mgr:GetUI(guide_data.ui)
-        self:ShowBtnGuide(ui, guide_data)
-    elseif guide_data.guide_type == self.show_guide_type.ShowDialog then
+    --强制指引去掉（不显示箭头指引）
+    --if guide_data.guide_type == self.show_guide_type.ShowBtnGuide then
+    --    local ui = SpecMgrs.ui_mgr:GetUI(guide_data.ui)
+    --    self:ShowBtnGuide(ui, guide_data)
+    --elseif
+    if guide_data.guide_type == self.show_guide_type.ShowDialog then
         self:ShowDialog(guide_data)
     elseif guide_data.guide_type == self.show_guide_type.ListenHideUI then
         self:ListenHideUI(guide_data)

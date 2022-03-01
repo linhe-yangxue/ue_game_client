@@ -2509,7 +2509,7 @@ UIConst.TraitorErrorTips = {
     [CSConst.TraitorTips.HasDeath] = langlua["叛军已被击杀"],
 }
 
-UIConst.LoginServerPath = "http://106.75.7.149:15015/query_roles?urs="   --http://192.168.170.1:38103/query_roles?urs=   49.234.90.221:38103   49.232.27.102:15016
+UIConst.LoginServerPath = "http://52.74.143.82:15015/query_roles?urs="   --http://192.168.170.1:38103/query_roles?urs=   49.234.90.221:38103   49.232.27.102:15016  106.75.7.149:15015
 UIConst.AccountNull = langlua["账号不能为空"]
 UIConst.TCP_Reconnect = langlua["断线重连中"]
 UIConst.Reconnect_Tip = langlua["与服务器连接失败，是否重连"]

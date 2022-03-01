@@ -59,13 +59,39 @@ function LoginUI:InitRes()
     change_server_btn:FindChild("Text"):GetComponent("Text").text = UIConst.Text.CHANGE_SERVER
     self:AddClick(change_server_btn, function ()
         self:InitServerPanel()
-        self.select_server_panel:SetActive(true)
+        --self.select_server_panel:SetActive(true)
+        self.notice_panel:SetActive(true)
     end)
     self.game_start_btn = enter_panel:FindChild("GameStartBtn")
     self.game_start_btn:FindChild("Text"):GetComponent("Text").text = UIConst.Text.START_GAME
     self:AddClick(self.game_start_btn, function ()
         PlayerPrefs.SetInt("SELECT_SERVER_ID", self.select_server_id)
         self:ConnectServer()
+    end)
+
+    self.notice_panel = self.content_panel:FindChild("NoticePanel")
+    local notice_content = self.notice_panel:FindChild("Content")
+    notice_content:FindChild("Top/Text"):GetComponent("Text").text = "公告"
+    --self:AddClick(select_server_content:FindChild("Top/CloseBtn"), function ()
+    --    self.notice_panel:SetActive(false)
+    --end)
+    -- 公告内容
+    local all_notice_panel = notice_content:FindChild("AllServerPanel")
+    self.area_content = all_notice_panel:FindChild("SelectArea/View/Content")
+    self.area_pref1 = self.area_content:FindChild("AreaPref")
+    self.area_pref2 = self.area_pref1:FindChild("AreaName")
+    self.area_pref2:GetComponent("Text").text = "抵制不良游戏, 拒绝盗版游戏。 注意自我保护, 谨防受骗上当。 适度游戏益脑, 沉迷游戏伤身。 合理安排时间, 享受健康生活。"
+
+    --self.partition_list_content = all_notice_panel:FindChild("PartitionList/View/Content")
+    --self.partition_pref = self.partition_list_content:FindChild("PartitionPref")
+    --self.server_list_content = all_notice_panel:FindChild("ServerList/View/Content")
+    --self.server_pref = self.server_list_content:FindChild("ServerPref")
+
+    self.confirm_btn = notice_content:FindChild("ConfirmBtn")
+    self.confirm_btn:FindChild("Text"):GetComponent("Text").text = "确认"
+    self:AddClick(self.confirm_btn, function ()
+        print("确认游戏-----")
+        self.notice_panel:SetActive(false)
     end)
 
     -- 服务器选择面板
