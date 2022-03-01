@@ -52,6 +52,11 @@ function LoginUI:InitRes()
         self.account_panel:SetActive(true)
     end)
 
+    self:AddClick(enter_panel:FindChild("NoticeBtn"), function ()
+        self.login_btn:GetComponent("Button").interactable = true
+        self.notice_panel:SetActive(true)
+    end)
+
     self.cur_server_panel = enter_panel:FindChild("CurServerPanel/Bg")
     self.server_state_text = self.cur_server_panel:FindChild("ServerStateText"):GetComponent("Text")
     self.server_name = self.cur_server_panel:FindChild("ServerName"):GetComponent("Text")
@@ -59,8 +64,7 @@ function LoginUI:InitRes()
     change_server_btn:FindChild("Text"):GetComponent("Text").text = UIConst.Text.CHANGE_SERVER
     self:AddClick(change_server_btn, function ()
         self:InitServerPanel()
-        --self.select_server_panel:SetActive(true)
-        self.notice_panel:SetActive(true)
+        self.select_server_panel:SetActive(true)
     end)
     self.game_start_btn = enter_panel:FindChild("GameStartBtn")
     self.game_start_btn:FindChild("Text"):GetComponent("Text").text = UIConst.Text.START_GAME

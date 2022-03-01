@@ -438,30 +438,31 @@ function MainSceneUI:InitActivityState()
     self:ClearRedPointList()
     self:ClearTimeLimitActivityBtn()
     local activity_system_name_list = {}
-    for _, activity_data in ipairs(self.dy_tl_activity_data:GetOpenActivityList()) do
-        if activity_data.is_show_in_mainscence and activity_data.system_name then
-            local tl_activity_btn = self:GetUIObject(self.tl_activity_btn, self.cur_activity_panel)
-            local activity_btn_data = {item = tl_activity_btn}
-            UIFuncs.AssignSpriteByIconID(activity_data.icon, tl_activity_btn:FindChild("Icon"):GetComponent("Image"))
-            tl_activity_btn:FindChild("TextBg/Text"):GetComponent("Text").text = activity_data.activity_name
-            if activity_data.effect then
-                activity_btn_data.effect = self:AddUIEffect(tl_activity_btn:FindChild("Effect"), {
-                    effect_id = activity_data.effect,
-                    offset_tb = {0, 0, 0, 0},
-                    need_sync_load = true,
-                })
-            end
-            table.insert(self.tl_activity_btn_list, activity_btn_data)
-            self:AddClick(tl_activity_btn, function ()
-                SpecMgrs.ui_mgr:ShowTLAvtivity(activity_data.id)
-            end)
-            local redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, tl_activity_btn, 1, {activity_data.system_name})
-            table.insert(self.cur_red_point_list, redpoint)
-        end
-        if activity_data.system_name then
-            table.insert(activity_system_name_list, activity_data.system_name)
-        end
-    end
+    --主界面上的精良装备、神秘宝箱、性感佳人、精锐头目、充值抽奖，在这里被实例化
+    --for _, activity_data in ipairs(self.dy_tl_activity_data:GetOpenActivityList()) do
+    --    if activity_data.is_show_in_mainscence and activity_data.system_name then
+    --        local tl_activity_btn = self:GetUIObject(self.tl_activity_btn, self.cur_activity_panel)
+    --        local activity_btn_data = {item = tl_activity_btn}
+    --        UIFuncs.AssignSpriteByIconID(activity_data.icon, tl_activity_btn:FindChild("Icon"):GetComponent("Image"))
+    --        tl_activity_btn:FindChild("TextBg/Text"):GetComponent("Text").text = activity_data.activity_name
+    --        if activity_data.effect then
+    --            activity_btn_data.effect = self:AddUIEffect(tl_activity_btn:FindChild("Effect"), {
+    --                effect_id = activity_data.effect,
+    --                offset_tb = {0, 0, 0, 0},
+    --                need_sync_load = true,
+    --            })
+    --        end
+    --        table.insert(self.tl_activity_btn_list, activity_btn_data)
+    --        self:AddClick(tl_activity_btn, function ()
+    --            SpecMgrs.ui_mgr:ShowTLAvtivity(activity_data.id)
+    --        end)
+    --        local redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, tl_activity_btn, 1, {activity_data.system_name})
+    --        table.insert(self.cur_red_point_list, redpoint)
+    --    end
+    --    if activity_data.system_name then
+    --        table.insert(activity_system_name_list, activity_data.system_name)
+    --    end
+    --end
     local redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.time_limit_activity_btn, 1, activity_system_name_list)
     table.insert(self.cur_red_point_list, redpoint)
     local is_open = ComMgrs.dy_data_mgr.check_data:CheckFirstWeekCheckOpen()
