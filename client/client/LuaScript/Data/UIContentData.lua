@@ -1292,4 +1292,14 @@ return {
             [ 1 ] = 101005,
         },
     },
+    [ "RankMainUI" ] = {
+        [ "id" ] = "RankMainUI",
+        [ "title" ] = langexcel["排行榜"],
+        [ "param1" ] = {
+            [ 1 ] = langexcel["排行榜单"],
+        },
+        [ "top_bar_item_list" ] = {
+            [ 1 ] = 101005,
+        },
+    },
 }

@@ -261,6 +261,25 @@ function MainSceneUI:InitRes()
 
     self.tl_activity_btn:SetActive(false)
     self.first_week_check_btn:SetActive(false)
+
+    --情人礼包
+    self.lover_gift_btn = scene_menu_panel:FindChild("LoverGift")
+    self:AddClick(self.lover_gift_btn, function ()
+        SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
+    end)
+
+    --英雄礼包
+    self.hero_gift_btn = scene_menu_panel:FindChild("HeroGift")
+    self:AddClick(self.hero_gift_btn, function ()
+        SpecMgrs.ui_mgr:ShowUI("HeroGiftUI")
+    end)
+
+    --总排行榜
+    self.rank_main_btn = scene_menu_panel:FindChild("Ranking")
+    self:AddClick(self.rank_main_btn, function ()
+        SpecMgrs.ui_mgr:ShowUI("RankMainUI")
+    end)
+
     -- 主线任务
     self.mail_tip_btn = scene_menu_panel:FindChild("MailTip")
     self.mail_tip_btn:FindChild("TextBg/Text"):GetComponent("Text").text = UIConst.Text.MAIL_TIP_TEXT
