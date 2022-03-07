@@ -1302,4 +1302,14 @@ return {
             [ 1 ] = 101005,
         },
     },
+    [ "FashionDetailUI" ] = {
+        [ "id" ] = "FashionDetailUI",
+        [ "title" ] = langexcel["时装"],
+        [ "param1" ] = {
+            [ 1 ] = langexcel["时装列表"],
+        },
+        [ "top_bar_item_list" ] = {
+            [ 1 ] = 101005,
+        },
+    },
 }

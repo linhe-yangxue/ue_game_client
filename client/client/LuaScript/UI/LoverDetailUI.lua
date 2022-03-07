@@ -104,6 +104,13 @@ function LoverDetailUI:InitRes()
         SpecMgrs.ui_mgr:ShowUI("LoverAddStarUI", self.lover_id)
     end)
 
+    --时装按钮
+    self.fashion_btn = self.middle_frame:FindChild("FashionBtn")
+    self.fashion_btn:FindChild("Text"):GetComponent("Text").text = "时装"
+    self:AddClick(self.fashion_btn, function ()
+        SpecMgrs.ui_mgr:ShowUI("FashionDetailUI", self.lover_id)
+    end)
+
     --  下方按钮
     self.down_frame = self.main_panel:FindChild("DownFrame")
 

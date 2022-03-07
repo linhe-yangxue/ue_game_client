@@ -482,8 +482,8 @@ function MainSceneUI:InitActivityState()
     --        table.insert(activity_system_name_list, activity_data.system_name)
     --    end
     --end
-    local redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.time_limit_activity_btn, 1, activity_system_name_list)
-    table.insert(self.cur_red_point_list, redpoint)
+    --local redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.time_limit_activity_btn, 1, activity_system_name_list)
+    --table.insert(self.cur_red_point_list, redpoint)
     local is_open = ComMgrs.dy_data_mgr.check_data:CheckFirstWeekCheckOpen()
     self.first_week_check_btn:SetActive(is_open)
     if is_open then
