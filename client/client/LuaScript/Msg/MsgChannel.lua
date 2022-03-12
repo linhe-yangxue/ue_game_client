@@ -1570,4 +1570,9 @@ function MsgChannel:SendGetLineUp(data, cb)
     self:_SendMsgByProto("c_get_lineup", data, cb)
 end
 
+--主页面排行榜
+function MsgChannel:SendGetMainRank(data, cb)
+    self:_SendMsgByProto("c_get_cross_fight_score_rank_list", data, cb)
+end
+
 return MsgChannel

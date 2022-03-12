@@ -216,6 +216,10 @@ function LoverDetailUI:InitUI()
 
     local lover_unit_id = self.cur_lover_data.unit_id
     self:AddFullUnit(lover_unit_id, self.unit_rect)
+
+    local fashion_unit_id = 26667
+    self:AddFullUnit(fashion_unit_id, self.fashion_btn)
+
     self.power_redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.power_button, CSConst.RedPointType.Normal, power_control_id_list, self.lover_id)
     self.star_redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.star_btn, CSConst.RedPointType.Normal, star_control_id_list, self.lover_id, redpoint_v2, redpoint_v2)
 end

@@ -277,7 +277,10 @@ function MainSceneUI:InitRes()
     --总排行榜
     self.rank_main_btn = scene_menu_panel:FindChild("Ranking")
     self:AddClick(self.rank_main_btn, function ()
-        SpecMgrs.ui_mgr:ShowUI("RankMainUI")
+        SpecMgrs.msg_mgr:SendGetMainRank({}, function (resp)
+            print("总排行榜数据内容----",resp)
+            SpecMgrs.ui_mgr:ShowUI("RankMainUI",resp)
+        end)
     end)
 
     -- 主线任务

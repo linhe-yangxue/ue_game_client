@@ -455,3 +455,15 @@ c_get_vip_gift 165 {
         errcode 0 : integer
     }
 }
+
+
+c_get_cross_fight_score_rank_list 166 {         #跨服战力排行榜
+    request {
+    }
+    response {
+        errcode 0 : integer
+        rank_list 1 : *RankInfo
+        self_rank 2 : integer        #未上榜为nil
+        self_rank_score 3 : integer  #排行积分，不同排行榜表示意思不一样
+    }
+}

@@ -84,7 +84,16 @@ function LoginUI:InitRes()
     self.area_content = all_notice_panel:FindChild("SelectArea/View/Content")
     self.area_pref1 = self.area_content:FindChild("AreaPref")
     self.area_pref2 = self.area_pref1:FindChild("AreaName")
-    self.area_pref2:GetComponent("Text").text = "抵制不良游戏, 拒绝盗版游戏。 注意自我保护, 谨防受骗上当。 适度游戏益脑, 沉迷游戏伤身。 合理安排时间, 享受健康生活。"
+    self.download_url = SpecMgrs.sdk_mgr:GetSDKInfo("announcement_url_android")
+    SpecMgrs.http_mgr:Request(self.download_url, function(http)
+        print("公告数据----",http)
+        if http.isDone then
+            print("公告数据111----",http.data)
+            self.area_pref2:GetComponent("Text").text = http.data
+        end
+    end)
+
+    --"抵制不良游戏, 拒绝盗版游戏。 注意自我保护, 谨防受骗上当。 适度游戏益脑, 沉迷游戏伤身。 合理安排时间, 享受健康生活。"
 
     --self.partition_list_content = all_notice_panel:FindChild("PartitionList/View/Content")
     --self.partition_pref = self.partition_list_content:FindChild("PartitionPref")
