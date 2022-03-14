@@ -1571,8 +1571,20 @@ function MsgChannel:SendGetLineUp(data, cb)
 end
 
 --主页面排行榜
-function MsgChannel:SendGetMainRank(data, cb)
+function MsgChannel:SendGetPowerRank(data, cb)
     self:_SendMsgByProto("c_get_cross_fight_score_rank_list", data, cb)
+end
+
+function MsgChannel:SendGetLevelsRank(data, cb)
+    self:_SendMsgByProto("c_get_cross_stage_start_rank_list", data, cb)
+end
+
+function MsgChannel:SendGetGangRank(data, cb)
+    self:_SendMsgByProto("c_get_cross_score_rank_list", data, cb)
+end
+
+function MsgChannel:SendGetDynastyCrossRank(data, cb)
+    --self:_SendMsgByProto("c_get_cross_score_rank_list", data, cb)
 end
 
 return MsgChannel
