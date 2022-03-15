@@ -1,8 +1,8 @@
 return {
     [ 1 ] = {
         [ "recharge_id" ] = 1,
-        [ "ch_key" ] = "充值6元",
-        [ "recharge_count" ] = 6,
+        [ "ch_key" ] = "58砖石",
+        [ "recharge_count" ] = 58,
         [ "first_diamond_count" ] = 60,
         [ "diamond_count" ] = 60,
         [ "gold_count" ] = 0,
@@ -10,8 +10,8 @@ return {
     },
     [ 2 ] = {
         [ "recharge_id" ] = 2,
-        [ "ch_key" ] = "充值30元",
-        [ "recharge_count" ] = 30,
+        [ "ch_key" ] = "225砖石",
+        [ "recharge_count" ] = 225,
         [ "first_diamond_count" ] = 300,
         [ "diamond_count" ] = 300,
         [ "gold_count" ] = 0,
@@ -19,8 +19,8 @@ return {
     },
     [ 3 ] = {
         [ "recharge_id" ] = 3,
-        [ "ch_key" ] = "充值50元",
-        [ "recharge_count" ] = 50,
+        [ "ch_key" ] = "368砖石",
+        [ "recharge_count" ] = 368,
         [ "first_diamond_count" ] = 2880,
         [ "diamond_count" ] = 500,
         [ "gold_count" ] = 0,
@@ -28,8 +28,8 @@ return {
     },
     [ 4 ] = {
         [ "recharge_id" ] = 4,
-        [ "ch_key" ] = "充值128元",
-        [ "recharge_count" ] = 128,
+        [ "ch_key" ] = "900砖石",
+        [ "recharge_count" ] = 900,
         [ "first_diamond_count" ] = 1280,
         [ "diamond_count" ] = 1280,
         [ "gold_count" ] = 0,
@@ -37,8 +37,8 @@ return {
     },
     [ 5 ] = {
         [ "recharge_id" ] = 5,
-        [ "ch_key" ] = "充值288元",
-        [ "recharge_count" ] = 288,
+        [ "ch_key" ] = "2024砖石",
+        [ "recharge_count" ] = 2024,
         [ "first_diamond_count" ] = 2880,
         [ "diamond_count" ] = 2880,
         [ "gold_count" ] = 0,
@@ -46,8 +46,8 @@ return {
     },
     [ 6 ] = {
         [ "recharge_id" ] = 6,
-        [ "ch_key" ] = "充值548元",
-        [ "recharge_count" ] = 548,
+        [ "ch_key" ] = "3848砖石",
+        [ "recharge_count" ] = 3848,
         [ "first_diamond_count" ] = 5480,
         [ "diamond_count" ] = 5480,
         [ "gold_count" ] = 0,
@@ -55,8 +55,8 @@ return {
     },
     [ 7 ] = {
         [ "recharge_id" ] = 7,
-        [ "ch_key" ] = "充值648元",
-        [ "recharge_count" ] = 648,
+        [ "ch_key" ] = "4548砖石",
+        [ "recharge_count" ] = 4548,
         [ "first_diamond_count" ] = 6480,
         [ "diamond_count" ] = 6480,
         [ "gold_count" ] = 0,
@@ -64,8 +64,8 @@ return {
     },
     [ 8 ] = {
         [ "recharge_id" ] = 8,
-        [ "ch_key" ] = "充值2048元",
-        [ "recharge_count" ] = 2048,
+        [ "ch_key" ] = "14288砖石",
+        [ "recharge_count" ] = 14288,
         [ "first_diamond_count" ] = 20480,
         [ "diamond_count" ] = 20480,
         [ "gold_count" ] = 0,
