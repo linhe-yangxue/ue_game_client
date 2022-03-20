@@ -4,7 +4,9 @@ local EffectConst = require("Effect.EffectConst")
 local UIFuncs = require("UI.UIFuncs")
 local ItemUtil = require("BaseUtilities.ItemUtil")
 local UISliderTween = require("UI.UISliderTween")
+local UILoverDetail = require("UI.LoverDetailUI")
 local FashionDetailUI = class("UI.FashionDetailUI",UIBase)
+local sync_num = 9
 
 --local anim_duration = 0.3
 --local redpoint_v2 = Vector2.New(1, 1)
@@ -18,9 +20,13 @@ function FashionDetailUI:DoInit()
     self.prefab_path = "UI/Common/FashionDetailUI"
 
     self.lover_data = ComMgrs.dy_data_mgr.lover_data
+    self.item_data = ComMgrs.dy_data_mgr.item_data
     self.data_mgr = SpecMgrs.data_mgr
     self.star_limit = SpecMgrs.data_mgr:GetParamData("lover_star_lv_limit").f_value
     self.lover_active_star_list = {}
+    self.lover_model_list = {}
+    self.lover_att_list = {}
+    self.lover_select_index = {}
     self.index_Attribute = {
         "lover_exp",
         "etiquette",
@@ -81,13 +87,36 @@ function FashionDetailUI:InitRes()
     --self.son_text = self.main_panel:FindChild("MiddleFrame/LoverAttrPanel/SonMes/SonText"):GetComponent("Text")
     --self.child_num_text = self.main_panel:FindChild("MiddleFrame/LoverAttrPanel/SonMes/SonNumText"):GetComponent("Text")
     self.unit_rect = self.main_panel:FindChild("UnitRect")
+    self.chuang_lian_left = self.main_panel:FindChild("LoverChuanglianLeft")
+    self.chuang_lian_right = self.main_panel:FindChild("LoverChuanglianRight")
+
+    self.change_skin = self.main_panel:FindChild("ChangeSkin")
+    self.content = self.change_skin:FindChild("ScrollView/Viewport/Content")
+    self.lover_card = self.content:FindChild("LoverCard")
+    self.lover_image = self.lover_card:FindChild("LoverImage")
+    self.lock_image = self.lover_card:FindChild("LockImage")
+    self.image_mask = self.lover_card:FindChild("ImageMask")
+    self.hight_light = self.lover_card:FindChild("HighLight")
+    self.name_text = self.lover_card:FindChild("NameText")
+    self.gain_button_text = self.lover_card:FindChild("GainButton/PowerButtonText")
+
+    --self:AddClick(self.lover_card, function()
+    --    self:ChangeLoverSkin(self.cur_lover_data.unit_id)
+    --end)
+
+
+    self.diamond_date_btn = self.main_panel:FindChild("MiddleFrame/DiamondDateBtn")
+
+
     --self.effect_point = self.main_panel:FindChild("EffectPoint")
-    --self.lover_attr = self.middle_frame:FindChild("LoverAttr")
-    --self.ceremony_num_text = self.middle_frame:FindChild("LoverAttr/CeremonyAttr/ValText"):GetComponent("Text")
-    --self.culture_num_text = self.middle_frame:FindChild("LoverAttr/CultureAttr/ValText"):GetComponent("Text")
-    --self.charm_num_text = self.middle_frame:FindChild("LoverAttr/CharmAttr/ValText"):GetComponent("Text")
-    --self.plan_attr_text = self.middle_frame:FindChild("LoverAttr/PlanAttr/ValText"):GetComponent("Text")
-    --self.gift_anim = self.main_panel:FindChild("GiftAnim")
+    self.lover_attr = self.main_panel:FindChild("MiddleFrame/LoverAttr")
+    self.certmony_attr = self.lover_attr:FindChild("CeremonyAttr")
+    self.ceremony_num_text = self.lover_attr:FindChild("CeremonyAttr/ValText"):GetComponent("Text")
+    self.culture_num_text = self.lover_attr:FindChild("CultureAttr/ValText"):GetComponent("Text")
+    self.charm_num_text = self.lover_attr:FindChild("CharmAttr/ValText"):GetComponent("Text")
+    self.lover_attr:SetActive(false)
+    --self.plan_attr_text = self.lover_attr:FindChild("PlanAttr/ValText"):GetComponent("Text")
+    self.gift_anim = self.main_panel:FindChild("GiftAnim")
 
     --self.dressing_button = self.middle_frame:FindChild("DressingButton")
     --self:AddClick(self.dressing_button, function()
@@ -106,13 +135,19 @@ function FashionDetailUI:InitRes()
     --end)
 
     --  下方按钮
-    --self.down_frame = self.main_panel:FindChild("DownFrame")
+    self.down_frame = self.main_panel:FindChild("DownFrame")
     --
-    --self.intimacy_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/IntimacyButton/IntimacyButtonText"):GetComponent("Text")
-    --self.ceremomy_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/CeremomyButton/CeremomyButtonText"):GetComponent("Text")
-    --self.culture_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/CultureButton/CultureButtonText"):GetComponent("Text")
-    --self.charm_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/CharmButton/CharmButtonText"):GetComponent("Text")
-    --self.plan_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/PlanButton/PlanButtonText"):GetComponent("Text")
+    self.intimacy_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/IntimacyButton/IntimacyButtonText"):GetComponent("Text")
+    self.ceremomy_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/CeremomyButton/CeremomyButtonText"):GetComponent("Text")
+    self.culture_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/CultureButton/CultureButtonText"):GetComponent("Text")
+    self.charm_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/CharmButton/CharmButtonText"):GetComponent("Text")
+    self.plan_button_text = self.main_panel:FindChild("DownFrame/AwardButtonList/PlanButton/PlanButtonText"):GetComponent("Text")
+
+
+    self.gift_btn = self.main_panel:FindChild("MiddleFrame/GiftBtn")
+    self:AddClick(self.gift_btn, function()
+        self:ShowOrHideAwardUI(true)
+    end)
     --self.power_button_text = self.main_panel:FindChild("DownFrame/PowerButton/PowerButtonText"):GetComponent("Text")
     --self.award_button_text = self.main_panel:FindChild("DownFrame/AwardButton/AwardButtonText"):GetComponent("Text")
     --self.spoil_button_text = self.main_panel:FindChild("DownFrame/SpoilButton/SpoilButtonText"):GetComponent("Text")
@@ -141,56 +176,57 @@ function FashionDetailUI:InitRes()
 
     --  奖赏面板
 
-    --self.award_frame = self.main_panel:FindChild("AwardFrame")
+    self.award_frame = self.main_panel:FindChild("AwardFrame")
     --
-    --self.award_list = self.award_frame:FindChild("AwardList")
-    --self.award_ten_time_toggle = self.award_frame:FindChild("AwardTenTimeToggle"):GetComponent("Toggle")
-    --self.award_ten_time_text = self.award_frame:FindChild("AwardTenTimeToggle/AwardTenTimeText"):GetComponent("Text")
+    self.award_list = self.award_frame:FindChild("AwardList")
+    self.award_ten_time_toggle = self.award_frame:FindChild("AwardTenTimeToggle"):GetComponent("Toggle")
+    self.award_ten_time_text = self.award_frame:FindChild("AwardTenTimeToggle/AwardTenTimeText"):GetComponent("Text")
     --
     --self.award_frame_ceremony_num_text = self.award_frame:FindChild("LoverAttr/CeremonyAttr/ValText"):GetComponent("Text")
     --self.award_frame_culture_num_text = self.award_frame:FindChild("LoverAttr/CultureAttr/ValText"):GetComponent("Text")
     --self.award_frame_charm_num_text = self.award_frame:FindChild("LoverAttr/CharmAttr/ValText"):GetComponent("Text")
     --self.award_frame_plan_attr_text = self.award_frame:FindChild("LoverAttr/PlanAttr/ValText"):GetComponent("Text")
     --
-    --self.award_item_list = {}
-    --for i = 1, self.award_ui_num do
-    --    table.insert(self.award_item_list, self.award_list:FindChild("AwardObjMes" .. i))
-    --end
-    --
-    --self.award_button_parent = self.down_frame:FindChild("AwardButtonList")
-    --local btn_list = self.down_frame:FindChild("AwardButtonList"):GetComponentsInChildren(UnityEngine.UI.Button)
-    --self.btn_tb = {}
-    --for i = 0, self.award_type_btn_num - 1 do
-    --    table.insert(self.btn_tb, btn_list[i])
-    --end
-    --
-    --for i, v in ipairs(self.btn_tb) do
-    --    local go = v.gameObject
-    --    self:AddClick(go, function()
-    --        self:SelectAwardButton(go, i)
-    --    end)
-    --end
+    self.award_item_list = {}
+    for i = 1, self.award_ui_num do
+        table.insert(self.award_item_list, self.award_list:FindChild("AwardObjMes" .. i))
+    end
+
+    self.award_button_parent = self.down_frame:FindChild("AwardButtonList")
+    local btn_list = self.down_frame:FindChild("AwardButtonList"):GetComponentsInChildren(UnityEngine.UI.Button)
+    self.btn_tb = {}
+    for i = 0, self.award_type_btn_num - 1 do
+        table.insert(self.btn_tb, btn_list[i])
+    end
+
+    for i, v in ipairs(self.btn_tb) do
+        local go = v.gameObject
+        self:AddClick(go, function()
+            self:SelectAwardButton(go, i)
+        end)
+    end
     --  点外面的位置关闭
-    --self:AddClick(self.award_frame:FindChild("ClickMask"), function()
-    --    self:ShowOrHideAwardUI(false)
-    --end)
+    self:AddClick(self.award_frame:FindChild("ClickMask"), function()
+        self:ShowOrHideAwardUI(false)
+    end)
     --
-    --self.gift_anim:SetActive(false)
+    self.gift_anim:SetActive(false)
 end
 
 function FashionDetailUI:InitUI()
     --self.can_create_send_gift_effect = true
     --self.send_gift_effect_id = SpecMgrs.data_mgr:GetParamData("give_lover_gift").effect_id
-    --self.cur_select_item_list = nil
+    self.cur_select_item_list = nil
     --self.slider_anim = UISliderTween.New()
     --self.slider_anim:DoInit(self.intimacy_slider_image, anim_duration)
-    --self:SelectAwardButton(self.btn_tb[1].gameObject, 1)
-    --if self.is_show_award ~= nil then
-    --    self:ShowOrHideAwardUI(self.is_show_award)
-    --else
-    --    self:ShowOrHideAwardUI(false)
-    --end
-    --self:SetTextVal()
+    self:SelectAwardButton(self.btn_tb[1].gameObject, 1)
+    if self.is_show_award ~= nil then
+        self:ShowOrHideAwardUI(self.is_show_award)
+    else
+        self:ShowOrHideAwardUI(false)
+    end
+    self:SetTextVal()
+    self.load_num = 0
     self:UpdateLoverData()
     self:UpdateUpPropertyFrame()
     --self:UpdateMiddlePropertyFrame()
@@ -210,8 +246,187 @@ function FashionDetailUI:InitUI()
 
     local lover_unit_id = self.cur_lover_data.unit_id
     self:AddFullUnit(lover_unit_id, self.unit_rect)
+    print("cur_lover_data-----",self.cur_lover_data)
+
+    --默认皮肤
+    --self:CreateUnit(lover_unit_id, self.lover_image)
+    --self.hight_light:SetActive(true)
+    --self.image_mask:SetActive(false)
+    --self.lock_image:SetActive(false)
+    --self.name_text:GetComponent("Text").text = "温文尔雅"
+    --self.gain_button_text:GetComponent("Text").text = "已使用"
+
+    self:AddClick(self.diamond_date_btn, function()
+        self:Hide()
+        --UILoverDetail.Favour(self.cur_lover_data.unit_id)
+    end)
+
+
+
+    self:UpdateLoverSkinData(1)
+
+
+    --换装皮肤栏
+    --local lover_card_temp = self:GetUIObject(self.lover_card, self.content)
+    --local lover_image = lover_card_temp:FindChild("LoverImage")
+    --lover_card_temp:FindChild("LockImage")
+    --lover_card_temp:FindChild("ImageMask")
+    --lover_card_temp:FindChild("HighLight")
+    self.chuang_lian_left:SetActive(false)
+    self.chuang_lian_right:SetActive(false)
+
+
+
+
     --self.power_redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.power_button, CSConst.RedPointType.Normal, power_control_id_list, self.lover_id)
     --self.star_redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.star_btn, CSConst.RedPointType.Normal, star_control_id_list, self.lover_id, redpoint_v2, redpoint_v2)
+end
+
+function FashionDetailUI:ChangeLoverSkin(unit_id,index,status)
+    if status == true then
+        self.chuang_lian_left:SetActive(true)
+        self.chuang_lian_right:SetActive(true)
+    elseif status == false then
+        self.chuang_lian_left:SetActive(false)
+        self.chuang_lian_right:SetActive(false)
+    end
+    self:ClearCreateRes()
+    self:AddFullUnit(unit_id, self.unit_rect)
+    self:UpdateLoverSkinData(index)
+    self:UpdateAttribute(unit_id,index,status)
+
+end
+
+function FashionDetailUI:UpdateLoverSkinData(index)
+    print("UpdateLoverSkinData---")
+
+    local lover_card_normal = self:GetUIObject(self.lover_card, self.content)
+    local lover_image_normal = lover_card_normal:FindChild("LoverImage")
+    lover_card_normal:FindChild("LockImage"):SetActive(false)
+    lover_card_normal:FindChild("ImageMask"):SetActive(false)
+    lover_card_normal:FindChild("HighLight"):SetActive(false)
+    if index == 1 then
+        lover_card_normal:FindChild("HighLight"):SetActive(true)
+    end
+    lover_card_normal:FindChild("NameText"):GetComponent("Text").text = "温文尔雅"
+
+    lover_card_normal:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = "已使用"
+    self:CreateUnit(self.cur_lover_data.unit_id, lover_image_normal)
+    self.lover_model_list[1] = lover_card_normal
+    self.lover_select_index[1] = 1
+    self:AddClick(lover_card_normal, function()
+        self:ChangeLoverSkin(self.cur_lover_data.unit_id,self.lover_select_index[1],false)
+    end)
+
+    --可更换皮肤
+    for i in ipairs(self.cur_lover_data.fashion) do
+        local item_id = self.data_mgr:GetItemData(self.cur_lover_data.fashion[i])
+        local lock_status = true
+        local lover_card_temp = self:GetUIObject(self.lover_card, self.content)
+        local lover_image = lover_card_temp:FindChild("LoverImage")
+        lover_card_temp:FindChild("LockImage"):SetActive(true)
+        lover_card_temp:FindChild("ImageMask"):SetActive(true)
+        lover_card_temp:FindChild("HighLight"):SetActive(false)
+        if index == i + 1 then
+            lover_card_temp:FindChild("HighLight"):SetActive(true)
+        end
+        lover_card_temp:FindChild("NameText"):GetComponent("Text").text = "意乱情迷"
+        local gain_button = lover_card_temp:FindChild("GainButton")
+        if i == 1 and self.lover_info.star_lv < 2 then
+            self:AddClick(gain_button, function()
+                print("使用按钮低于二星-----")
+                SpecMgrs.stage_mgr:GotoStage("MainStage")
+                coroutine.start(function ()
+                    coroutine.wait(0.5)
+                    SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
+                end)
+            end)
+        end
+        if i == 2 and self.lover_info.star_lv < 4 then
+            self:AddClick(gain_button, function()
+                print("使用按钮低于四星-----")
+                SpecMgrs.stage_mgr:GotoStage("MainStage")
+                coroutine.start(function ()
+                    coroutine.wait(0.5)
+                    SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
+                end)
+            end)
+        end
+
+        lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = "去获取"
+        self:CreateUnit(item_id.model_id, lover_image)
+        if i == 1 and self.lover_info.star_lv >= 2 then
+            lover_card_temp:FindChild("LockImage"):SetActive(false)
+            lover_card_temp:FindChild("ImageMask"):SetActive(false)
+            lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = "已使用"
+            lock_status = false
+        end
+        if i == 2 and self.lover_info.star_lv >= 4 then
+            lover_card_temp:FindChild("LockImage"):SetActive(false)
+            lover_card_temp:FindChild("ImageMask"):SetActive(false)
+            lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = "已使用"
+            lock_status = false
+        end
+        self.lover_model_list[i + 1] = lover_card_temp
+        self.lover_select_index[i + 1] = i + 1
+        self:AddClick(lover_card_temp, function()
+            --SpecMgrs.msg_mgr:SendChangeLoverFashion({}, function (resp)
+            --    if resp.errcode == 1 then
+            --        print("换装失败---",resp)
+            --        SpecMgrs.ui_mgr:ShowMsgBox("换装失败！") --换装成功也需要根据返回值来判断星级是否达到
+            --    else
+            --self.chuang_lian_left:SetActive(true)
+            --self.chuang_lian_right:SetActive(true)
+            --        print("换装成功---",resp)
+            --    end
+            --end)
+            self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i + 1],lock_status)
+        end)
+
+    end
+end
+
+--根据皮肤更新属性面板
+function FashionDetailUI:UpdateAttribute(unit_id,index,status)
+    if index ~= 1 then
+        if  status == false then
+            self.lover_attr:SetActive(true)
+            print("皮肤属性111---",self.cur_lover_data)
+            print("皮肤属性222---",self.cur_lover_data.fashion)
+            print("皮肤属性333---",index)
+            print("皮肤属性--",self.data_mgr:GetItemData(self.cur_lover_data.fashion[index - 1]).attr_list_value)
+            local att =  self.data_mgr:GetItemData(self.cur_lover_data.fashion[index - 1]).attr_list_value
+            local att_type = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index - 1]).attr_list
+            for i in ipairs(att) do
+                print("皮肤属性6666---",att_type[i])
+                local lover_att = self:GetUIObject(self.certmony_attr, self.lover_attr)
+                if att_type[i] == "att" then
+                    lover_att:FindChild("ValText"):GetComponent("Text").text = string.format(UIConst.Text.ATK_ATTR_FORMAT, att[i])
+                elseif att_type[i] == "def" then
+                    lover_att:FindChild("ValText"):GetComponent("Text").text = string.format(UIConst.Text.DEF_ATTR_FORMAT, att[i])
+                elseif att_type[i] == "max_hp" then
+                    lover_att:FindChild("ValText"):GetComponent("Text").text = string.format(UIConst.Text.HP_ATTR_FORMAT, att[i])
+                end
+                self.lover_att_list[i] = lover_att
+            end
+
+        elseif status == true then
+            self.lover_attr:SetActive(false)
+        end
+    else
+        self.lover_attr:SetActive(false)
+    end
+end
+
+function FashionDetailUI:CreateUnit(unit_id, lover_image)
+    self.load_num = self.load_num + 1
+    local unit
+    if self.load_num > sync_num then
+        unit = self:AddCardUnit(unit_id, lover_image, nil, nil, nil, true)
+    else
+        unit = self:AddCardUnit(unit_id, lover_image)
+    end
+    unit:StopAllAnimationToCurPos()
 end
 
 function FashionDetailUI:Update(delta_time)
@@ -229,19 +444,19 @@ function FashionDetailUI:ShowUIEffect()
 end
 
 function FashionDetailUI:SetTextVal()
-    self.intimacy_exp_text.text = UIConst.Text.LOVER_DETAIL_INTIMACY_EXP_TEXT
-    self.power_text.text = UIConst.Text.LOVER_POWER_TEXT
-    self.all_attr_text.text = UIConst.Text.ALLATTR_TEXT
-    self.son_text.text = UIConst.Text.SON_TEXT
+    --self.intimacy_exp_text.text = UIConst.Text.LOVER_DETAIL_INTIMACY_EXP_TEXT
+    --self.power_text.text = UIConst.Text.LOVER_POWER_TEXT
+    --self.all_attr_text.text = UIConst.Text.ALLATTR_TEXT
+    --self.son_text.text = UIConst.Text.SON_TEXT
 
     self.intimacy_button_text.text = UIConst.Text.INTIMACY_TEXT
     self.ceremomy_button_text.text = UIConst.Text.CEREMONY_TEXT
     self.culture_button_text.text = UIConst.Text.CULTURE_TEXT
     self.charm_button_text.text = UIConst.Text.CHARM_TEXT
     self.plan_button_text.text = UIConst.Text.PLAN_TEXT
-    self.power_button_text.text = UIConst.Text.POWER_TEXT
-    self.award_button_text.text = UIConst.Text.GIVE_TEXT
-    self.spoil_button_text.text = UIConst.Text.APPOINTMENT
+    --self.power_button_text.text = UIConst.Text.POWER_TEXT
+    --self.award_button_text.text = UIConst.Text.GIVE_TEXT
+    --self.spoil_button_text.text = UIConst.Text.APPOINTMENT
     self.award_ten_time_text.text = UIConst.Text.AWARD_TEN_TEXT
 end
 
@@ -256,6 +471,7 @@ function FashionDetailUI:UpdateUpPropertyFrame()
     local attr_dict = self.lover_info.attr_dict
     self.lover_name_text.text = self.cur_lover_data.name
     UIFuncs.AssignSpriteByIconID(self.lover_quality_data.grade, self.lover_grade)
+    print("星级----",self.lover_info)
     for i = 1, self.star_limit do
         self.lover_active_star_list[i]:SetActive(i <= self.lover_info.star_lv)
     end
@@ -320,8 +536,8 @@ function FashionDetailUI:UpdateLoverInfo(need_anim)
 end
 
 function FashionDetailUI:ShowOrHideAwardUI(is_show)
-    --self.award_frame:SetActive(is_show)
-    --self.award_button_parent:SetActive(is_show)
+    self.award_frame:SetActive(is_show)
+    self.award_button_parent:SetActive(is_show)
     --
     -- self.dressing_button:SetActive(not is_show)
     -- self.reincarnation_btn:SetActive(not is_show)
@@ -332,105 +548,123 @@ function FashionDetailUI:ShowOrHideAwardUI(is_show)
 end
 
 function FashionDetailUI:SelectAwardButton(btn, index)
-    --if not IsNil(self.award_select_btn) then
-    --    self.award_select_btn:FindChild("SelectImage"):SetActive(true)
-    --end
-    --self.award_select_btn = btn
-    --self.award_select_btn:FindChild("SelectImage"):SetActive(false)
-    --
-    --local attr = self.index_Attribute[index]
-    --local item_list = self.data_mgr:GetAttributeItemData(attr).item_list
-    --self.cur_select_item_list = item_list
-    --for i, v in ipairs(self.award_item_list) do
-    --    local item_id = item_list[i]
-    --    local award_obj = v
-    --    local attr_value = 0
-    --    local item = self.data_mgr:GetItemData(item_id)
-    --    award_obj:FindChild("AwardObjName"):GetComponent("Text").text = item.name
-    --    local str
-    --    if attr == self.index_Attribute[1] then
-    --        attr_value = item.add_exp
-    --        str = string.format(UIConst.Text.ATTR_ADD_FORMAT, UIConst.Text.LOVER_DETAIL_INTIMACY_EXP_TEXT, attr_value or 0)
-    --    else
-    --        local name = self.data_mgr:GetAttributeData(item.add_attr).name
-    --        attr_value = item.attr_value
-    --        str = string.format(UIConst.Text.ATTR_ADD_FORMAT, name, attr_value or 0)
-    --    end
-    --    UIFuncs.AssignSpriteByIconID(item.icon, award_obj:FindChild("IconImage"):GetComponent("Image"))
-    --    award_obj:FindChild("AwardObjAttr"):GetComponent("Text").text = str
-    --    UIFuncs.RegisterUpdateItemNum(self, "LoverDetailUIAward" .. i, award_obj:FindChild("ObjNumText"):GetComponent("Text"), item_id)
-    --    local btn = award_obj:FindChild("TriggerButton")
-    --    self:RemoveClick(btn)
-    --
-    --    local resp_cb = function(resp)
-    --        local pos = UIFuncs.GetGoPositionV2(self, award_obj:FindChild("IconImage"))
-    --        local attr_add_val = attr_value or 0
-    --        if self.is_give_ten then
-    --            local num = math.abs(self.last_item_num - ItemUtil.GetItemNum(item_id))
-    --            attr_add_val = attr_add_val * num
-    --        end
-    --        self:ShowGiveGiftAnim(item_id, pos, attr, attr_add_val)
-    --    end
-    --    self:AddClick(btn, function()
-    --        if attr == self.index_Attribute[1] then
-    --            if self.lover_info.level >= #self.data_mgr:GetAllLoverLevelData() then
-    --                SpecMgrs.ui_mgr:ShowTipMsg(UIConst.Text.CAN_NOT_ADD_LOVER_EXP_TEXT)
-    --                return
-    --            end
-    --        end
-    --        if UIFuncs.CheckItemCount(item.id, 1, true) then
-    --            self.last_item_num = ItemUtil.GetItemNum(item.id)
-    --            self.is_give_ten = self.award_ten_time_toggle.isOn
-    --            self.is_give_gift = true
-    --            SpecMgrs.msg_mgr:SendGiveLoverItem({lover_id = self.lover_id, item_id = item.id, is_ten = self.is_give_ten}, resp_cb)
-    --        end
-    --    end)
-    --end
+    if not IsNil(self.award_select_btn) then
+        self.award_select_btn:FindChild("SelectImage"):SetActive(true)
+    end
+    self.award_select_btn = btn
+    self.award_select_btn:FindChild("SelectImage"):SetActive(false)
+
+    local attr = self.index_Attribute[index]
+    local item_list = self.data_mgr:GetAttributeItemData(attr).item_list
+    self.cur_select_item_list = item_list
+    for i, v in ipairs(self.award_item_list) do
+        local item_id = item_list[i]
+        local award_obj = v
+        local attr_value = 0
+        local item = self.data_mgr:GetItemData(item_id)
+        award_obj:FindChild("AwardObjName"):GetComponent("Text").text = item.name
+        local str
+        if attr == self.index_Attribute[1] then
+            attr_value = item.add_exp
+            str = string.format(UIConst.Text.ATTR_ADD_FORMAT, UIConst.Text.LOVER_DETAIL_INTIMACY_EXP_TEXT, attr_value or 0)
+        else
+            local name = self.data_mgr:GetAttributeData(item.add_attr).name
+            attr_value = item.attr_value
+            str = string.format(UIConst.Text.ATTR_ADD_FORMAT, name, attr_value or 0)
+        end
+        UIFuncs.AssignSpriteByIconID(item.icon, award_obj:FindChild("IconImage"):GetComponent("Image"))
+        award_obj:FindChild("AwardObjAttr"):GetComponent("Text").text = str
+        UIFuncs.RegisterUpdateItemNum(self, "LoverDetailUIAward" .. i, award_obj:FindChild("ObjNumText"):GetComponent("Text"), item_id)
+        local btn = award_obj:FindChild("TriggerButton")
+        self:RemoveClick(btn)
+
+        local resp_cb = function(resp)
+            local pos = UIFuncs.GetGoPositionV2(self, award_obj:FindChild("IconImage"))
+            local attr_add_val = attr_value or 0
+            if self.is_give_ten then
+                local num = math.abs(self.last_item_num - ItemUtil.GetItemNum(item_id))
+                attr_add_val = attr_add_val * num
+            end
+            self:ShowGiveGiftAnim(item_id, pos, attr, attr_add_val)
+        end
+        self:AddClick(btn, function()
+            if attr == self.index_Attribute[1] then
+                if self.lover_info.level >= #self.data_mgr:GetAllLoverLevelData() then
+                    SpecMgrs.ui_mgr:ShowTipMsg(UIConst.Text.CAN_NOT_ADD_LOVER_EXP_TEXT)
+                    return
+                end
+            end
+            if UIFuncs.CheckItemCount(item.id, 1, true) then
+                self.last_item_num = ItemUtil.GetItemNum(item.id)
+                self.is_give_ten = self.award_ten_time_toggle.isOn
+                self.is_give_gift = true
+                SpecMgrs.msg_mgr:SendGiveLoverItem({lover_id = self.lover_id, item_id = item.id, is_ten = self.is_give_ten}, resp_cb)
+            end
+        end)
+    end
 end
 
 function FashionDetailUI:ShowGiveGiftAnim(item_id, pos, attr, attr_add_val)
-    --local item = self:GetUIObject(self.gift_anim, self.main_panel)
-    --UIFuncs.AssignSpriteByItemID(item_id, item:GetComponent("Image"))
-    --item:GetComponent("RectTransform").anchoredPosition = pos
-    --
-    --local pos_anim = item:GetComponent("UITweenPosition")
-    --pos_anim.from_ = pos
-    --pos_anim:Play()
-    --local alpha_anim = item:GetComponent("UITweenAlpha")
-    --local delay_time = alpha_anim.duration_ + alpha_anim.delay_time_
-    --self:AddTimer(function()
-    --    self:DelUIObject(item)
-    --    local str
-    --    if attr == self.index_Attribute[1] then
-    --        str = string.format(UIConst.Text.ATTR_ADD_FORMAT, UIConst.Text.LOVER_DETAIL_INTIMACY_EXP_TEXT, attr_add_val)
-    --    else
-    --        local name = self.data_mgr:GetAttributeData(attr).name
-    --        str = string.format(UIConst.Text.ATTR_ADD_FORMAT, name, attr_add_val)
-    --    end
-    --    SpecMgrs.ui_mgr:ShowTipMsg(str)
-    --    self:UpdateLoverInfo(true)
-    --    self.is_give_gift = false
-    --end, delay_time, 1)
+    local item = self:GetUIObject(self.gift_anim, self.main_panel)
+    UIFuncs.AssignSpriteByItemID(item_id, item:GetComponent("Image"))
+    item:GetComponent("RectTransform").anchoredPosition = pos
+
+    local pos_anim = item:GetComponent("UITweenPosition")
+    pos_anim.from_ = pos
+    pos_anim:Play()
+    local alpha_anim = item:GetComponent("UITweenAlpha")
+    local delay_time = alpha_anim.duration_ + alpha_anim.delay_time_
+    self:AddTimer(function()
+        self:DelUIObject(item)
+        local str
+        if attr == self.index_Attribute[1] then
+            str = string.format(UIConst.Text.ATTR_ADD_FORMAT, UIConst.Text.LOVER_DETAIL_INTIMACY_EXP_TEXT, attr_add_val)
+        else
+            local name = self.data_mgr:GetAttributeData(attr).name
+            str = string.format(UIConst.Text.ATTR_ADD_FORMAT, name, attr_add_val)
+        end
+        SpecMgrs.ui_mgr:ShowTipMsg(str)
+        self:UpdateLoverInfo(true)
+        self.is_give_gift = false
+    end, delay_time, 1)
+end
+
+function FashionDetailUI:ClearRes()
+    self:DelAllCreateUIObj()
 end
 
 function FashionDetailUI:ClearCreateRes()
     --self:RemoveUIEffect(self.spoil_button, nil, true)
     --self:RemoveUIEffect(self.effect_point, nil, true)
     self:DestroyAllUnit()
+
+    --清除克隆物体
+    for _, go in pairs(self.lover_model_list) do
+        self:DelUIObject(go)
+    end
+    self.lover_model_list = {}
+
+    for _, go in pairs(self.lover_att_list) do
+        self:DelUIObject(go)
+    end
+    self.lover_att_list = {}
+
+
     --local spoil_confirm_ui = SpecMgrs.ui_mgr:GetUI("SpoilConfirmUI")
     --if spoil_confirm_ui then
     --    spoil_confirm_ui:UnregisterCloseUI("FashionDetailUI")
     --end
     --self.lover_data:UnregisterUpdateLoverInfoEvent("FashionDetailUI")
-    --if self.cur_select_item_list then
-    --    for i = 1, self.award_ui_num do
-    --        UIFuncs.UnregisterUpdateItemNum(self, "LoverDetailUIAward" .. i, self.cur_select_item_list[i])
-    --    end
-    --end
+    if self.cur_select_item_list then
+        for i = 1, self.award_ui_num do
+            UIFuncs.UnregisterUpdateItemNum(self, "LoverDetailUIAward" .. i, self.cur_select_item_list[i])
+        end
+    end
 end
 
 function FashionDetailUI:Hide()
     self:ClearCreateRes()
+    --self:ClearRes()
     --SpecMgrs.redpoint_mgr:RemoveRedPoint(self.power_redpoint)
     --SpecMgrs.redpoint_mgr:RemoveRedPoint(self.star_redpoint)
     FashionDetailUI.super.Hide(self)
