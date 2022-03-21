@@ -2136,7 +2136,7 @@ UIConst.Text = {
     FIRST_RECHARGE = langlua["首充"],
     FIRST_RECHARGE_ADDITIONAL_REWARD_FORMAT = langlua["首充额外赠送%s水晶"],
     RECHARGE_ADDITIONAL_REWARD_FORMAT = langlua["额外赠送%s水晶"],
-    MONEY_FORMAT = langlua["¥%s"],
+    MONEY_FORMAT = langlua["%s平台币"],
 
     --  限时活动
     FIRST_RECHARGE_GIVE_TIP = langlua["充值必得(价值%s钻石)"],
@@ -2509,7 +2509,7 @@ UIConst.TraitorErrorTips = {
     [CSConst.TraitorTips.HasDeath] = langlua["叛军已被击杀"],
 }
 
-UIConst.LoginServerPath = "http://52.74.143.82:15015/query_roles?urs="   --http://192.168.170.1:38103/query_roles?urs=   49.234.90.221:38103   49.232.27.102:15016  106.75.7.149:15015
+UIConst.LoginServerPath = "http://52.74.143.82:38103/query_roles?urs="   --http://192.168.170.1:38103/query_roles?urs=   49.234.90.221:38103   49.232.27.102:15016  106.75.7.149:15015
 UIConst.AccountNull = langlua["账号不能为空"]
 UIConst.TCP_Reconnect = langlua["断线重连中"]
 UIConst.Reconnect_Tip = langlua["与服务器连接失败，是否重连"]

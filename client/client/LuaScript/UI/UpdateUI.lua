@@ -97,7 +97,8 @@ end
 
 function UpdateUI:StartLogin()
     print("UpdateUI:StartLogin()111=================")
-    SpecMgrs.sdk_mgr:Login()
+    -- SpecMgrs.sdk_mgr:Login()
+    SpecMgrs.sdk_mgr:JGGLogin()
     self:Hide()
 end
 

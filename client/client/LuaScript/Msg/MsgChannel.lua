@@ -48,7 +48,7 @@ function MsgChannel:_Reconnect()
     print("开始重新连接服务器")
     self.fail_count = (self.fail_count or -1) + 1
     self.is_reconnect = true
-    SpecMgrs.ui_mgr:ShowTipMsg(ui_const.TCP_Reconnect)
+    -- SpecMgrs.ui_mgr:ShowTipMsg(ui_const.TCP_Reconnect)
     self:Disconnect()
     self.conn = TCPConnect.New()
     self.conn:DoInit(function(...) self:_OnConnectError(...) end)
@@ -61,7 +61,7 @@ function MsgChannel:_Reconnect()
                     -- 重连失败， 退出
                     self:ShowReconnectFail()
                 else
-                    SpecMgrs.ui_mgr:ShowTipMsg(ui_const.TCP_ReconnectToServerOk)
+                    -- SpecMgrs.ui_mgr:ShowTipMsg(ui_const.TCP_ReconnectToServerOk)
                     SpecMgrs.ui_mgr:HideUI("LoadingUI")
                     self:HideReconnectFail()
                     self.is_reconnect = nil
@@ -147,7 +147,7 @@ function MsgChannel:_OnConnectError(faild_type, err_msg)
     elseif faild_type == GConst.NetFailed.TCP_Connect_Timeout then
         self:ShowReconnectFail()
     end
-    SpecMgrs.ui_mgr:ShowTipMsg(ui_const.TCP_Disconnected)
+    -- SpecMgrs.ui_mgr:ShowTipMsg(ui_const.TCP_Disconnected)
     if self.cb then
         self.cb(false)
         self.cb = nil
@@ -1349,6 +1349,11 @@ function MsgChannel:SendLoverAddStar(data, cb)
     self:_SendMsgByProto("c_upgrade_lover_star_lv", data, cb)
 end
 
+--  充值创建订单
+function MsgChannel:SendCreateOrder(data, cb)
+    self:_SendMsgByProto("c_create_order", data, cb)
+end
+
 --  充值
 function MsgChannel:SendRecharge(data, cb)
     self:_SendMsgByProto("c_recharge", data, cb)
@@ -1524,6 +1529,11 @@ end
 
 function MsgChannel:SendGetPlayerInfo(data, cb)
     self:_SendMsgByProto("c_get_role_base_info", data, cb)
+end
+
+--  月卡订单
+function MsgChannel:SendCreateMonthlyCardOrder(data, cb)
+    self:_SendMsgByProto("c_create_yueka_order", data, cb)
 end
 
 --  月卡

@@ -8,6 +8,7 @@ function SDKMgr:DoInit()
     self.platform = SpecMgrs.system_mgr.platform
     self.is_editor = SpecMgrs.system_mgr.is_editor
     SpecMgrs.event_mgr:AddSDKListener(function(type, json_str)
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CallLua");
         if type == "CallLua" then
             self:RecvFromSDK(json_str)
         else
@@ -21,7 +22,7 @@ function SDKMgr:DoInit()
         self.sdk = {}
     end
 
-    self:InitSDK()
+    -- self:InitSDK()
     -- test
     --self:Test()
 end
@@ -41,6 +42,61 @@ function SDKMgr:InitSDK()
     if self.sdk.Gaea then self:GaeaInit() end
     if self.sdk.Gata then self:GataInit() end
 end
+
+-- jgg SDk
+--------------------------------------------------------------------------------------
+function SDKMgr:CallJavaStatic(func_name, param)
+    print("SDKMgr:CallJavaStaticFunc", func_name, param)
+    param = json.encode(param or {})
+    SDK.CallJavaFunc("com.jgg18.ccity.UnityPlayerActivity","currentActivity",func_name, param)
+
+end
+
+function SDKMgr:JGGLogin()
+    print("SDKMgr:JGGLogin>>>>>>>")
+    SpecMgrs.ui_mgr:ShowLoadingUI();
+    SpecMgrs.sdk_mgr:CallSDK("jggLogin", {str = "456456"})
+end
+
+function SDKMgr:JGGLoginResult(param)
+    print("SDKMgr:jggLogin success", param)
+    local type = "jgg";
+    PlayerPrefs.SetString("LOGIN_ACCOUNT", type .. ":" .. param.userId)
+    local account_info = {
+        type = type,
+        username = param.userId,
+    }
+    ComMgrs.dy_data_mgr:ExSetAccountInfo(account_info)
+    print("SDKMgr:LoginResult", account_info)
+
+    SpecMgrs.ui_mgr:HideUI("LoadingUI")
+    SpecMgrs.ui_mgr:ShowUI("LoginUI", false)
+end
+
+function SDKMgr:JGGPay(params)
+    print("SDKMgr:JGGPay>>>>>>>",params)
+    SpecMgrs.ui_mgr:ShowLoadingUI();
+    SpecMgrs.sdk_mgr:CallSDK("jggPay", params)
+end
+
+function SDKMgr:JGGPaySuccess(params)
+    print("SDKMgr:JGGPaySuccess>>>>>>>",params)
+    SpecMgrs.ui_mgr:HideUI("LoadingUI")
+    local ui = SpecMgrs.ui_mgr:GetUI("RechargeUI")
+    ui:RechargeSuccess();
+end
+
+function  SDKMgr:HideLoading(params)
+    SpecMgrs.ui_mgr:HideUI("LoadingUI")
+end
+
+function SDKMgr:JGGMonthCardSuccess(params)
+    print("SDKMgr:JGGMonthCardSuccess>>>>>>>",params)
+    SpecMgrs.ui_mgr:HideUI("LoadingUI")
+    local ui = SpecMgrs.ui_mgr:GetUI("MonthCardUI")
+    ui:RechargeSuccess();
+end
+--------------------------------------------------------------------------------------
 
 -- 登录相关 -------------------------
 
@@ -441,7 +497,6 @@ function SDKMgr:IsIOS()
     return SpecMgrs.system_mgr.platform == SpecMgrs.system_mgr.RuntimePlatform.IPhonePlayer
 end
 
-
 --------------------------------------------------------------------------------------
 -- test
 --------------------------------------------------------------------------------------
@@ -520,6 +575,7 @@ function SDKMgr:GaeaInit()
 end
 
 function SDKMgr:GaeaResult(param)
+    print("SDKMgr:GaeaResult >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" , param)
     if param.code == HJConstant.INIT_SUCCESS then
         self:GaeaInitResult(param)
     elseif param.code == HJConstant.LOGIN_SUCCESS then
