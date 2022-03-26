@@ -48,7 +48,8 @@ end
 function FashionDetailUI:Show(param_tb)
     print("时装展示数据---",param_tb)
     self:ClearCreateRes()
-    self.lover_id = param_tb
+    self.lover_id = param_tb.lover_id
+    self.fashion_id = param_tb.fashion_id
     --self.is_show_award = param_tb.is_show_award
     if self.is_res_ok then
         self:InitUI()
@@ -57,6 +58,7 @@ function FashionDetailUI:Show(param_tb)
 end
 
 function FashionDetailUI:InitRes()
+    print("时装页面内容---InitRes----")
     self:InitTopBar()
     --  上方属性面板
     --self.up_mes_frame = self.main_panel:FindChild("UpMesFrame")
@@ -214,6 +216,7 @@ function FashionDetailUI:InitRes()
 end
 
 function FashionDetailUI:InitUI()
+    print("时装页面内容---InitUI----")
     --self.can_create_send_gift_effect = true
     --self.send_gift_effect_id = SpecMgrs.data_mgr:GetParamData("give_lover_gift").effect_id
     self.cur_select_item_list = nil
@@ -244,26 +247,25 @@ function FashionDetailUI:InitUI()
     --
     --self:ShowUIEffect()
 
-    local lover_unit_id = self.cur_lover_data.unit_id
-    self:AddFullUnit(lover_unit_id, self.unit_rect)
-    print("cur_lover_data-----",self.cur_lover_data)
 
-    --默认皮肤
-    --self:CreateUnit(lover_unit_id, self.lover_image)
-    --self.hight_light:SetActive(true)
-    --self.image_mask:SetActive(false)
-    --self.lock_image:SetActive(false)
-    --self.name_text:GetComponent("Text").text = "温文尔雅"
-    --self.gain_button_text:GetComponent("Text").text = "已使用"
+    print("cur_lover_data-----",self.cur_lover_data)
 
     self:AddClick(self.diamond_date_btn, function()
         self:Hide()
         --UILoverDetail.Favour(self.cur_lover_data.unit_id)
     end)
 
-
-
-    self:UpdateLoverSkinData(1)
+    local lover_unit_id = self.cur_lover_data.unit_id
+    local newindex = 1
+    for i in ipairs(self.cur_lover_data.fashion) do
+        local item_id = self.cur_lover_data.fashion[i]
+        if item_id == self.fashion_id then
+            newindex = i
+            lover_unit_id = self.data_mgr:GetItemData(self.cur_lover_data.fashion[i]).model_id
+        end
+    end
+    self:ChangeLoverSkin(lover_unit_id,newindex,false)
+    --self:UpdateLoverSkinData(newindex)
 
 
     --换装皮肤栏
@@ -283,12 +285,16 @@ function FashionDetailUI:InitUI()
 end
 
 function FashionDetailUI:ChangeLoverSkin(unit_id,index,status)
+    print("时装页面内容---ChangeLoverSkin----" , index)
     if status == true then
         self.chuang_lian_left:SetActive(true)
         self.chuang_lian_right:SetActive(true)
     elseif status == false then
         self.chuang_lian_left:SetActive(false)
         self.chuang_lian_right:SetActive(false)
+    end
+    if index == 1 then
+        unit_id = self.cur_lover_data.unit_id
     end
     self:ClearCreateRes()
     self:AddFullUnit(unit_id, self.unit_rect)
@@ -298,26 +304,7 @@ function FashionDetailUI:ChangeLoverSkin(unit_id,index,status)
 end
 
 function FashionDetailUI:UpdateLoverSkinData(index)
-    print("UpdateLoverSkinData---")
-
-    local lover_card_normal = self:GetUIObject(self.lover_card, self.content)
-    local lover_image_normal = lover_card_normal:FindChild("LoverImage")
-    lover_card_normal:FindChild("LockImage"):SetActive(false)
-    lover_card_normal:FindChild("ImageMask"):SetActive(false)
-    lover_card_normal:FindChild("HighLight"):SetActive(false)
-    if index == 1 then
-        lover_card_normal:FindChild("HighLight"):SetActive(true)
-    end
-    lover_card_normal:FindChild("NameText"):GetComponent("Text").text = "温文尔雅"
-
-    lover_card_normal:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = "已使用"
-    self:CreateUnit(self.cur_lover_data.unit_id, lover_image_normal)
-    self.lover_model_list[1] = lover_card_normal
-    self.lover_select_index[1] = 1
-    self:AddClick(lover_card_normal, function()
-        self:ChangeLoverSkin(self.cur_lover_data.unit_id,self.lover_select_index[1],false)
-    end)
-
+    print("时装页面内容---UpdateLoverSkinData----",index)
     --可更换皮肤
     for i in ipairs(self.cur_lover_data.fashion) do
         local item_id = self.data_mgr:GetItemData(self.cur_lover_data.fashion[i])
@@ -327,78 +314,100 @@ function FashionDetailUI:UpdateLoverSkinData(index)
         lover_card_temp:FindChild("LockImage"):SetActive(true)
         lover_card_temp:FindChild("ImageMask"):SetActive(true)
         lover_card_temp:FindChild("HighLight"):SetActive(false)
-        if index == i + 1 then
+        if index == i then
             lover_card_temp:FindChild("HighLight"):SetActive(true)
         end
-        lover_card_temp:FindChild("NameText"):GetComponent("Text").text = "意乱情迷"
+        lover_card_temp:FindChild("NameText"):GetComponent("Text").text = UIConst.Text.CLOTH_NAME_LIST[i]   --需要更改（切记）
         local gain_button = lover_card_temp:FindChild("GainButton")
-        if i == 1 and self.lover_info.star_lv < 2 then
-            self:AddClick(gain_button, function()
-                print("使用按钮低于二星-----")
-                SpecMgrs.stage_mgr:GotoStage("MainStage")
-                coroutine.start(function ()
-                    coroutine.wait(0.5)
-                    SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
-                end)
+        if item_id.id == 303025 then     --303025是原皮
+
+            lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_USED
+            lover_card_temp:FindChild("LockImage"):SetActive(false)
+            lover_card_temp:FindChild("ImageMask"):SetActive(false)
+            lock_status = false
+            self:CreateUnit(self.cur_lover_data.unit_id, lover_image)
+
+            local param_tb = {
+                lover_id = self.cur_lover_data.unit_id,
+                fashion_id = self.cur_lover_data.fashion[i],
+            }
+            self:AddClick(lover_card_temp, function()
+                print("点击原皮事件---",self.cur_lover_data.unit_id,self.cur_lover_data.fashion[i],self.fashion_id)
+                if self.fashion_id == self.cur_lover_data.fashion[i] then
+                    print("相同皮肤不进行换装-----")
+                    self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],lock_status)
+                else
+                    print("不同皮肤----")
+                    SpecMgrs.msg_mgr:SendChangeLoverFashion(param_tb, function (resp)
+                        if resp.errcode == 1 then
+                            SpecMgrs.ui_mgr:ShowMsgBox("换装失败！") --换装成功也需要根据返回值来判断星级是否达到
+                        elseif resp.errcode == 0 then
+                            self.fashion_id = self.cur_lover_data.fashion[i]
+                            self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],lock_status)
+                        end
+                    end)
+                end
             end)
-        end
-        if i == 2 and self.lover_info.star_lv < 4 then
-            self:AddClick(gain_button, function()
-                print("使用按钮低于四星-----")
-                SpecMgrs.stage_mgr:GotoStage("MainStage")
-                coroutine.start(function ()
-                    coroutine.wait(0.5)
-                    SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
+        else
+            self:CreateUnit(item_id.model_id, lover_image)
+            if self.lover_info.star_lv < self.cur_lover_data.fashion_unlock_lv[i-1] then
+                lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_GAIN
+                self:AddClick(gain_button, function()
+                    SpecMgrs.stage_mgr:GotoStage("MainStage")
+                    coroutine.start(function ()
+                        coroutine.wait(0.5)
+                        SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
+                    end)
                 end)
-            end)
+                self:AddClick(lover_card_temp, function()
+                    self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],true)
+                end)
+            else
+                lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_USED
+                lover_card_temp:FindChild("LockImage"):SetActive(false)
+                lover_card_temp:FindChild("ImageMask"):SetActive(false)
+                lock_status = false
+
+                local param_tb = {
+                    lover_id = self.cur_lover_data.unit_id,
+                    fashion_id = self.cur_lover_data.fashion[i],
+                }
+
+                self:AddClick(lover_card_temp, function()
+                    print("点击新皮肤111---",self.cur_lover_data.unit_id,self.cur_lover_data.fashion[i],self.fashion_id)
+                    if self.fashion_id == self.cur_lover_data.fashion[i] then
+                        print("相同皮肤不进行换装111-----")
+                        self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],lock_status)
+                    else
+                        print("不同皮肤1111----")
+                        SpecMgrs.msg_mgr:SendChangeLoverFashion(param_tb, function (resp)
+                            if resp.errcode == 1 then
+                                SpecMgrs.ui_mgr:ShowMsgBox("换装失败！") --换装成功也需要根据返回值来判断星级是否达到
+                            elseif resp.errcode == 0 then
+                                self.fashion_id = self.cur_lover_data.fashion[i]
+                                self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],lock_status)
+                            end
+                        end)
+                    end
+                end)
+            end
         end
 
-        lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = "去获取"
-        self:CreateUnit(item_id.model_id, lover_image)
-        if i == 1 and self.lover_info.star_lv >= 2 then
-            lover_card_temp:FindChild("LockImage"):SetActive(false)
-            lover_card_temp:FindChild("ImageMask"):SetActive(false)
-            lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = "已使用"
-            lock_status = false
-        end
-        if i == 2 and self.lover_info.star_lv >= 4 then
-            lover_card_temp:FindChild("LockImage"):SetActive(false)
-            lover_card_temp:FindChild("ImageMask"):SetActive(false)
-            lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = "已使用"
-            lock_status = false
-        end
-        self.lover_model_list[i + 1] = lover_card_temp
-        self.lover_select_index[i + 1] = i + 1
-        self:AddClick(lover_card_temp, function()
-            --SpecMgrs.msg_mgr:SendChangeLoverFashion({}, function (resp)
-            --    if resp.errcode == 1 then
-            --        print("换装失败---",resp)
-            --        SpecMgrs.ui_mgr:ShowMsgBox("换装失败！") --换装成功也需要根据返回值来判断星级是否达到
-            --    else
-            --self.chuang_lian_left:SetActive(true)
-            --self.chuang_lian_right:SetActive(true)
-            --        print("换装成功---",resp)
-            --    end
-            --end)
-            self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i + 1],lock_status)
-        end)
+        self.lover_model_list[i] = lover_card_temp
+        self.lover_select_index[i] = i
 
     end
 end
 
 --根据皮肤更新属性面板
 function FashionDetailUI:UpdateAttribute(unit_id,index,status)
+    print("时装页面内容---UpdateAttribute----")
     if index ~= 1 then
         if  status == false then
             self.lover_attr:SetActive(true)
-            print("皮肤属性111---",self.cur_lover_data)
-            print("皮肤属性222---",self.cur_lover_data.fashion)
-            print("皮肤属性333---",index)
-            print("皮肤属性--",self.data_mgr:GetItemData(self.cur_lover_data.fashion[index - 1]).attr_list_value)
-            local att =  self.data_mgr:GetItemData(self.cur_lover_data.fashion[index - 1]).attr_list_value
-            local att_type = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index - 1]).attr_list
+            local att =  self.data_mgr:GetItemData(self.cur_lover_data.fashion[index]).attr_list_value
+            local att_type = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index ]).attr_list
             for i in ipairs(att) do
-                print("皮肤属性6666---",att_type[i])
                 local lover_att = self:GetUIObject(self.certmony_attr, self.lover_attr)
                 if att_type[i] == "att" then
                     lover_att:FindChild("ValText"):GetComponent("Text").text = string.format(UIConst.Text.ATK_ATTR_FORMAT, att[i])

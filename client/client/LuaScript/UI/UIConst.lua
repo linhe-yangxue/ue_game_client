@@ -1193,6 +1193,15 @@ UIConst.Text = {
     CLOTH_ATTR_ADD_TEXT = langlua["时装加成"],
     CLOTH_ADD_ATTR_TEXT = langlua["时装只需拥有，无论穿戴都可激活属性"],
     CLOTH_ALL_ADD_TEXT = langlua["时装总加成"],
+    FASHION_BTN = langlua["时装"],
+    CLOTH_USED = langlua["已使用"],
+    CLOTH_GAIN = langlua["去获取"],
+    CLOTH_NAME_LIST = {
+        langlua["温文尔雅"],
+        langlua["色欲情迷"],
+        langlua["干柴烈火"],
+    },
+
 
     --  转世
     REINCARNATION_TEXT = langlua["转世"],

@@ -320,6 +320,10 @@ function MsgChannel:SendChangeLoverFashion(data, cb)
     self:_SendMsgByProto("c_change_lover_fashion", data, cb)
 end
 
+function MsgChannel:SendFashionBtn(data, cb)
+    self:_SendMsgByProto("c_query_lover_info", data, cb)
+end
+
 function MsgChannel:SendChangeLoverSex(data, cb)
     self:_SendMsgByProto("c_change_lover_sex", data, cb)
 end

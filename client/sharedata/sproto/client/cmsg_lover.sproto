@@ -294,3 +294,13 @@ c_fondle_lover 629 {                   #爱抚情人
         power_value 2 : integer        #爱抚获得势力值
     }
 }
+
+c_query_lover_info 630 {                   #查询情人信息
+    request {
+        lover_id 0 : integer
+    }
+    response {
+        errcode 0 : integer
+        fashion_id 1 : integer         #当前使用时装id
+    }
+}

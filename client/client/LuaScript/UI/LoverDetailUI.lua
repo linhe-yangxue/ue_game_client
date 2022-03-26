@@ -20,6 +20,7 @@ function LoverDetailUI:DoInit()
     self.lover_data = ComMgrs.dy_data_mgr.lover_data
     self.data_mgr = SpecMgrs.data_mgr
     self.star_limit = SpecMgrs.data_mgr:GetParamData("lover_star_lv_limit").f_value
+    print("情人星级数据----",self.star_limit)
     self.lover_active_star_list = {}
     self.index_Attribute = {
         "lover_exp",
@@ -81,6 +82,7 @@ function LoverDetailUI:InitRes()
     self.child_num_text = self.main_panel:FindChild("MiddleFrame/LoverAttrPanel/SonMes/SonNumText"):GetComponent("Text")
     self.unit_rect = self.main_panel:FindChild("UnitRect")
     self.effect_point = self.main_panel:FindChild("EffectPoint")
+
     self.lover_attr = self.middle_frame:FindChild("LoverAttr")
     self.ceremony_num_text = self.middle_frame:FindChild("LoverAttr/CeremonyAttr/ValText"):GetComponent("Text")
     self.culture_num_text = self.middle_frame:FindChild("LoverAttr/CultureAttr/ValText"):GetComponent("Text")
@@ -106,9 +108,23 @@ function LoverDetailUI:InitRes()
 
     --时装按钮
     self.fashion_btn = self.middle_frame:FindChild("FashionBtn")
-    self.fashion_btn:FindChild("Text"):GetComponent("Text").text = "时装"
+    self.fashion_btn:FindChild("Text"):GetComponent("Text").text = UIConst.Text.FASHION_BTN
     self:AddClick(self.fashion_btn, function ()
-        SpecMgrs.ui_mgr:ShowUI("FashionDetailUI", self.lover_id)
+        local param_tb = {
+            lover_id =  self.lover_id,
+        }
+        SpecMgrs.msg_mgr:SendFashionBtn(param_tb, function (resp)
+            print("时装按钮返回值----",resp)
+            if resp.errcode == 1 then
+                SpecMgrs.ui_mgr:ShowMsgBox("时装数据同步失败") --换装信息错误
+            elseif resp.errcode == 0 then
+                local param_tb = {
+                    lover_id =  self.lover_id,
+                    fashion_id = resp.fashion_id
+                }
+                SpecMgrs.ui_mgr:ShowUI("FashionDetailUI",param_tb)
+            end
+        end)
     end)
 
     --  下方按钮
@@ -222,6 +238,23 @@ function LoverDetailUI:InitUI()
 
     self.power_redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.power_button, CSConst.RedPointType.Normal, power_control_id_list, self.lover_id)
     self.star_redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.star_btn, CSConst.RedPointType.Normal, star_control_id_list, self.lover_id, redpoint_v2, redpoint_v2)
+end
+
+--皮肤界面宠爱
+function LoverDetailUI:Favour(unitid)
+    print("宠爱信息------")
+    local lover_data = ComMgrs.dy_data_mgr.lover_data
+    local lover_info = lover_data:GetLoverInfo(unitid)
+    SpecMgrs.ui_mgr:ShowUI("SpoilConfirmUI", lover_info.lover_id, lover_info.level)
+    SpecMgrs.ui_mgr:GetUI("SpoilConfirmUI"):RegisterCloseUI("LoverDetailUI", function()
+        self:ShowUIEffect()
+        self:UpdateLoverInfo()
+    end, self)
+    local param_tb = {
+        effect_id = EffectConst.EF_ID_Lover_button_click,
+    }
+    self:RemoveUIEffect(self.spoil_button, nil, true)
+    self:AddUIEffect(self.spoil_button, param_tb, false, true)
 end
 
 function LoverDetailUI:Update(delta_time)
