@@ -139,22 +139,69 @@ function RechargeUI:SetItemMes(item, data)
     self:AddUIEffect(ret[1], param_tb)
 end
 
-function RechargeUI:SendRecharge(item, data)
-    local need_reset_item = self.first_recharge_state[data.recharge_id]
+function RechargeUI:SendCreateOrder(item, data)
     local cb = function(resp)
-        if not self.is_res_ok then return end
-        self:UpdateData()
-        self:UpdateVipInfo()
-        if need_reset_item then
-            for i, obj in ipairs(self.item_obj_list_dict[item]) do
-                self:RemoveUIEffect(obj)
-            end
-            self:DelObjDict(self.item_obj_list_dict[item])
-            self.item_obj_list_dict[item] = {}
-            self:SetItemMes(item, data)
-        end
+        print("create order callback", resp)
+        print("create order errcode", resp.errcode)
+        print("itemId" , data.recharge_id)
+        if resp.errcode == 0 then        
+            print("create order call_back_url", resp.call_back_url)
+            print("create order order_id", resp.order_id)
+            SpecMgrs.sdk_mgr:JGGPay({
+                call_back_url = resp.call_back_url,
+                itemId = data.recharge_id,
+                itemName = data.ch_key,
+                desc = data.ch_key,
+                unitPrice = data.recharge_count,
+                quantity = 1,
+                type = 1,
+            })    
+        end    
     end
-    SpecMgrs.msg_mgr:SendRecharge({recharge_id = data.recharge_id}, cb)
+    SpecMgrs.msg_mgr:SendCreateOrder({recharge_id = data.recharge_id}, cb)
+end
+
+function RechargeUI:SendRecharge(item, data)
+    print("SendRecharge item", item)
+    print("SendRecharge data", data)
+    self.need_reset_item = self.first_recharge_state[data.recharge_id]
+    self.item = item;
+    self.data = data;
+    -- local cb = function(resp)
+    --     if not self.is_res_ok then return end
+    --     self:UpdateData()
+    --     self:UpdateVipInfo()
+    --     if need_reset_item then
+    --         for i, obj in ipairs(self.item_obj_list_dict[item]) do
+    --             self:RemoveUIEffect(obj)
+    --         end
+    --         self:DelObjDict(self.item_obj_list_dict[item])
+    --         self.item_obj_list_dict[item] = {}
+    --         self:SetItemMes(item, data)
+    --     end
+    -- end
+    -- SpecMgrs.msg_mgr:SendRecharge({recharge_id = data.recharge_id}, cb)
+
+    -- jggPay
+    self:SendCreateOrder(item, data);
+end
+
+function RechargeUI:RechargeSuccess()
+    -- if not self.is_res_ok then return end
+    print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.item)
+    print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.data)
+    print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.need_reset_item)
+    
+    self:UpdateData()
+    self:UpdateVipInfo()
+    if self.need_reset_item then
+        for i, obj in ipairs(self.item_obj_list_dict[self.item]) do
+            self:RemoveUIEffect(obj)
+        end
+        self:DelObjDict(self.item_obj_list_dict[self.item])
+        self.item_obj_list_dict[item] = {}
+        self:SetItemMes(self.item, self.data)
+    end
 end
 
 function RechargeUI:SetTextVal()

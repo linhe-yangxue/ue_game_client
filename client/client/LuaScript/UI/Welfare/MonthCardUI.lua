@@ -65,15 +65,41 @@ function MonthCardUI:SetCardMes(item, data)
 
     self.owner:AddClick(item:FindChild("BuyBtn"), function()
         --  todo 充值
-        local cb = function()
-            local item_list = {{item_id = CSConst.Virtual.VIPExp, count = data.add_vip_exp}, {item_id = data.item_id, count = data.add_item_num}}
-            UIFuncs.ShowGetRewardItemByItemList(item_list)
+        -- local cb = function()
+        --     local item_list = {{item_id = CSConst.Virtual.VIPExp, count = data.add_vip_exp}, {item_id = data.item_id, count = data.add_item_num}}
+        --     UIFuncs.ShowGetRewardItemByItemList(item_list)
+        -- end
+        -- SpecMgrs.msg_mgr:SendMsg("SendBuyMonthlyCard", {card_id = data.id}, cb)
+
+        --jgg pay
+        local cb = function(resp)
+            print("create order callback", resp)
+            print("create order errcode", resp.errcode)
+            print("itemId" , data.id)
+            if resp.errcode == 0 then        
+                print("create order call_back_url", resp.call_back_url)
+                print("create order order_id", resp.order_id)
+                SpecMgrs.sdk_mgr:JGGPay({
+                    call_back_url = resp.call_back_url,
+                    itemId = data.id,
+                    itemName = data.name,
+                    desc = data.desc,
+                    unitPrice = data.price,
+                    quantity = 1,
+                    type = 2,
+                })    
+            end    
         end
-        SpecMgrs.msg_mgr:SendMsg("SendBuyMonthlyCard", {card_id = data.id}, cb)
+        SpecMgrs.msg_mgr:SendMsg("SendCreateMonthlyCardOrder", {card_id = data.id}, cb)
     end)
     self.owner:AddClick(item:FindChild("ReceiveBtn"), function()
         SpecMgrs.msg_mgr:SendMsg("SendReceivingMonthlyCardReward", {card_id = data.id})
     end)
+end
+
+function MonthCardUI:RechargeSuccess()
+    local item_list = {{item_id = CSConst.Virtual.VIPExp, count = data.add_vip_exp}, {item_id = data.item_id, count = data.add_item_num}}
+    UIFuncs.ShowGetRewardItemByItemList(item_list)
 end
 
 function MonthCardUI:UpdateCardMes(item, info)

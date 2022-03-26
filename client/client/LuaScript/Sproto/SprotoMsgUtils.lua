@@ -94,6 +94,8 @@ function msg_utils:handle_s2c_msg(proto_name, args, resp_sender)
     if not func then
         error("proto name:" .. proto_name .. " no handles function")
     end
+
+    print("handle_s2c_msg proto name:>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" .. proto_name,args)
     local ret = func(args)
     local tag, req, resp = SprotoCore.protocol(s2c_sp.__cobj, proto_name)  -- decide msg whether has response
     if resp and resp_sender then
@@ -102,6 +104,7 @@ function msg_utils:handle_s2c_msg(proto_name, args, resp_sender)
 end
 
 function msg_utils:handle_s2c_resp(session, resp)
+    print("handle_s2c_resp:>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",resp)
     local cb_info = self.msg_session_callbacks[session]
     self.msg_session_callbacks[session] = nil
     if cb_info and cb_info.cb then
