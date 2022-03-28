@@ -311,3 +311,13 @@ c_refresh_bar_unit 2121 {
         errcode 0 : integer
     }
 }
+
+# 情人礼包
+c_get_ongoing_lover_activities 2122 {
+    request {
+    }
+    response {
+        errcode 0 : integer
+        activity_list 1 : *ActivityList
+    }
+}
