@@ -2145,7 +2145,7 @@ UIConst.Text = {
     FIRST_RECHARGE = langlua["首充"],
     FIRST_RECHARGE_ADDITIONAL_REWARD_FORMAT = langlua["首充额外赠送%s水晶"],
     RECHARGE_ADDITIONAL_REWARD_FORMAT = langlua["额外赠送%s水晶"],
-    MONEY_FORMAT = langlua["%s平台币"],
+    MONEY_FORMAT = langlua["%sJG"],
 
     --  限时活动
     FIRST_RECHARGE_GIVE_TIP = langlua["充值必得(价值%s钻石)"],

@@ -199,7 +199,7 @@ function RechargeUI:RechargeSuccess()
             self:RemoveUIEffect(obj)
         end
         self:DelObjDict(self.item_obj_list_dict[self.item])
-        self.item_obj_list_dict[item] = {}
+        self.item_obj_list_dict[self.item] = {}
         self:SetItemMes(self.item, self.data)
     end
 end
