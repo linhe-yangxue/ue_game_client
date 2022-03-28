@@ -265,6 +265,9 @@ function MainSceneUI:InitRes()
     --情人礼包
     self.lover_gift_btn = scene_menu_panel:FindChild("LoverGift")
     self:AddClick(self.lover_gift_btn, function ()
+        SpecMgrs.msg_mgr:SendLoverGift({}, function (resp)
+            print("情人礼包返回值----",resp)
+        end)
         SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
     end)
 

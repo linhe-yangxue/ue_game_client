@@ -295,6 +295,11 @@ function MsgChannel:SendChangeLoverGrade(data, cb)
     self:_SendMsgByProto('c_change_lover_grade', data, cb)
 end
 
+--情人礼包
+function MsgChannel:SendLoverGift(data, cb)
+    self:_SendMsgByProto("c_get_ongoing_lover_activities", data, cb)
+end
+
 --  情人
 function MsgChannel:SendLoverDiscuss(data, cb)
     self:_SendMsgByProto("c_lover_discuss", data, cb)
