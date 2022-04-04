@@ -35,6 +35,7 @@ function LoverDetailUI:DoInit()
 end
 
 function LoverDetailUI:OnGoLoadedOk(res_go)
+    print("LoverDetailUI:OnGoLoadedOk--------------",res_go)
     LoverDetailUI.super.OnGoLoadedOk(self,res_go)
     self:InitRes()
     self:InitUI()
@@ -43,6 +44,7 @@ end
 function LoverDetailUI:Show(param_tb)
     self:ClearCreateRes()
     self.lover_id = param_tb.lover_id
+    self.fashion_id = param_tb.fashion_id
     self.is_show_award = param_tb.is_show_award
     if self.is_res_ok then
         self:InitUI()
@@ -103,7 +105,11 @@ function LoverDetailUI:InitRes()
     self.star_btn = self.middle_frame:FindChild("StarBtn")
     self.star_btn:FindChild("Text"):GetComponent("Text").text = UIConst.Text.ADD_STAR
     self:AddClick(self.star_btn, function ()
-        SpecMgrs.ui_mgr:ShowUI("LoverAddStarUI", self.lover_id)
+        local param_tb = {
+            lover_id =  self.lover_id,
+            fashion_id = self.fashion_id
+        }
+        SpecMgrs.ui_mgr:ShowUI("LoverAddStarUI", param_tb)
     end)
 
     --时装按钮
@@ -112,19 +118,20 @@ function LoverDetailUI:InitRes()
     self:AddClick(self.fashion_btn, function ()
         local param_tb = {
             lover_id =  self.lover_id,
+            fashion_id = self.fashion_id
         }
-        SpecMgrs.msg_mgr:SendFashionBtn(param_tb, function (resp)
-            print("时装按钮返回值----",resp)
-            if resp.errcode == 1 then
-                SpecMgrs.ui_mgr:ShowMsgBox("时装数据同步失败") --换装信息错误
-            elseif resp.errcode == 0 then
-                local param_tb = {
-                    lover_id =  self.lover_id,
-                    fashion_id = resp.fashion_id
-                }
+        --SpecMgrs.msg_mgr:SendFashionBtn(param_tb, function (resp)
+            print("时装按钮返回值----")
+            --if resp.errcode == 1 then
+            --    SpecMgrs.ui_mgr:ShowMsgBox("时装数据同步失败") --换装信息错误
+            --elseif resp.errcode == 0 then
+            --    local param_tb = {
+            --        lover_id =  self.lover_id,
+            --        fashion_id = resp.fashion_id
+            --    }
                 SpecMgrs.ui_mgr:ShowUI("FashionDetailUI",param_tb)
-            end
-        end)
+            --end
+        --end)
     end)
 
     --  下方按钮
@@ -214,13 +221,16 @@ function LoverDetailUI:InitUI()
     end
     self:SetTextVal()
     self:UpdateLoverData()
+    self:UpdateModelInfo()
     self:UpdateUpPropertyFrame()
     self:UpdateMiddlePropertyFrame()
     self:UpdateLoverInfo()
 
     self.lover_data:RegisterUpdateLoverInfoEvent("LoverDetailUI", function(_, _, lover_id)
+        print("LoverDetailUI----RegisterUpdateLoverInfoEvent-----",lover_id)
         if self.lover_id == lover_id then
             self:UpdateLoverData()
+            self:UpdateModelInfo()
             self:UpdateUpPropertyFrame()
             if not self.is_give_gift then
                 self:UpdateLoverInfo()
@@ -230,11 +240,21 @@ function LoverDetailUI:InitUI()
 
     self:ShowUIEffect()
 
-    local lover_unit_id = self.cur_lover_data.unit_id
-    self:AddFullUnit(lover_unit_id, self.unit_rect)
+    --print("当前情人信息----",self.cur_lover_data)
+    --if self.fashion_id ==303025 then
+    --    local lover_unit_id = self.cur_lover_data.unit_id
+    --    self:AddFullUnit(lover_unit_id, self.unit_rect)
+    --else
+    --    local lover_unit_id = self.data_mgr:GetItemData(self.fashion_id).model_id
+    --    print("当前时装ID----",lover_unit_id,self.fashion_id)
+    --    self:AddFullUnit(lover_unit_id, self.unit_rect)
+    --end
 
-    local fashion_unit_id = 26667
-    self:AddFullUnit(fashion_unit_id, self.fashion_btn)
+    --local lover_unit_id = self.cur_lover_data.unit_id
+    --self:AddFullUnit(lover_unit_id, self.unit_rect)
+
+    --local fashion_unit_id = 26667
+    --self:AddFullUnit(fashion_unit_id, self.fashion_btn)
 
     self.power_redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.power_button, CSConst.RedPointType.Normal, power_control_id_list, self.lover_id)
     self.star_redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, self.star_btn, CSConst.RedPointType.Normal, star_control_id_list, self.lover_id, redpoint_v2, redpoint_v2)
@@ -292,6 +312,23 @@ function LoverDetailUI:UpdateLoverData()
     self.lover_info = self.lover_data:GetLoverInfo(self.lover_id)
     self.cur_lover_data = self.data_mgr:GetLoverData(self.lover_id)
     self.lover_quality_data = self.data_mgr:GetQualityData(self.cur_lover_data.quality)
+end
+
+function LoverDetailUI:UpdateModelInfo()
+    print("更新面板信息---------角色信息发生变化之后--------LoverDetailUI:UpdateModelInfo-------",self.lover_info.fashion_id)
+    self:DestroyAllUnit()
+    self.fashion_id = self.lover_info.fashion_id
+    if self.fashion_id ==303025 then
+        local lover_unit_id = self.cur_lover_data.unit_id
+        self:AddFullUnit(lover_unit_id, self.unit_rect)
+    else
+        local lover_unit_id = self.data_mgr:GetItemData(self.fashion_id).model_id
+        print("当前时装ID----",lover_unit_id,self.fashion_id)
+        self:AddFullUnit(lover_unit_id, self.unit_rect)
+    end
+
+    local fashion_unit_id = 26667
+    self:AddFullUnit(fashion_unit_id, self.fashion_btn)
 end
 
 --  更新上方面板

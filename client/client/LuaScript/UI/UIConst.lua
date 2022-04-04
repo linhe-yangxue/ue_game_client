@@ -1194,6 +1194,7 @@ UIConst.Text = {
     CLOTH_ADD_ATTR_TEXT = langlua["时装只需拥有，无论穿戴都可激活属性"],
     CLOTH_ALL_ADD_TEXT = langlua["时装总加成"],
     FASHION_BTN = langlua["时装"],
+    CLOTH_UNUSED = langlua["未使用"],
     CLOTH_USED = langlua["已使用"],
     CLOTH_GAIN = langlua["去获取"],
     CLOTH_NAME_LIST = {

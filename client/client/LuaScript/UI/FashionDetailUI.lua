@@ -27,6 +27,7 @@ function FashionDetailUI:DoInit()
     self.lover_model_list = {}
     self.lover_att_list = {}
     self.lover_select_index = {}
+    self.power_hero_item_dict = {}
     self.index_Attribute = {
         "lover_exp",
         "etiquette",
@@ -40,6 +41,7 @@ function FashionDetailUI:DoInit()
 end
 
 function FashionDetailUI:OnGoLoadedOk(res_go)
+    print("FashionDetailUI:OnGoLoadedOk--------------",res_go)
     FashionDetailUI.super.OnGoLoadedOk(self,res_go)
     self:InitRes()
     self:InitUI()
@@ -47,7 +49,7 @@ end
 
 function FashionDetailUI:Show(param_tb)
     print("时装展示数据---",param_tb)
-    self:ClearCreateRes()
+    --self:ClearCreateRes()
     self.lover_id = param_tb.lover_id
     self.fashion_id = param_tb.fashion_id
     --self.is_show_award = param_tb.is_show_award
@@ -105,8 +107,6 @@ function FashionDetailUI:InitRes()
     --self:AddClick(self.lover_card, function()
     --    self:ChangeLoverSkin(self.cur_lover_data.unit_id)
     --end)
-
-
     self.diamond_date_btn = self.main_panel:FindChild("MiddleFrame/DiamondDateBtn")
 
 
@@ -150,6 +150,11 @@ function FashionDetailUI:InitRes()
     self:AddClick(self.gift_btn, function()
         self:ShowOrHideAwardUI(true)
     end)
+
+    self.power_hero_panel = self.main_panel:FindChild("Content/PowerHero")
+    self.power_hero_panel:FindChild("Text"):GetComponent("Text").text = UIConst.Text.FAMILY_HERO_TEXT
+    self.power_hero_item = self.power_hero_panel:FindChild("HeroItem")
+
     --self.power_button_text = self.main_panel:FindChild("DownFrame/PowerButton/PowerButtonText"):GetComponent("Text")
     --self.award_button_text = self.main_panel:FindChild("DownFrame/AwardButton/AwardButtonText"):GetComponent("Text")
     --self.spoil_button_text = self.main_panel:FindChild("DownFrame/SpoilButton/SpoilButtonText"):GetComponent("Text")
@@ -220,6 +225,12 @@ function FashionDetailUI:InitUI()
     --self.can_create_send_gift_effect = true
     --self.send_gift_effect_id = SpecMgrs.data_mgr:GetParamData("give_lover_gift").effect_id
     self.cur_select_item_list = nil
+
+    self.last_score = ComMgrs.dy_data_mgr:ExGetRoleScore()
+    self.last_fight_score = ComMgrs.dy_data_mgr:ExGetFightScore()
+    print("时装页面内容---InitUI--last_score--",self.last_score)
+    print("时装页面内容---InitUI--last_fight_score--",self.last_fight_score)
+
     --self.slider_anim = UISliderTween.New()
     --self.slider_anim:DoInit(self.intimacy_slider_image, anim_duration)
     self:SelectAwardButton(self.btn_tb[1].gameObject, 1)
@@ -232,10 +243,12 @@ function FashionDetailUI:InitUI()
     self.load_num = 0
     self:UpdateLoverData()
     self:UpdateUpPropertyFrame()
+
     --self:UpdateMiddlePropertyFrame()
     --self:UpdateLoverInfo()
     --
     self.lover_data:RegisterUpdateLoverInfoEvent("FashionDetailUI", function(_, _, lover_id)
+        print("FashionDetailUI------RegisterUpdateLoverInfoEvent------",lover_id)
         if self.lover_id == lover_id then
             self:UpdateLoverData()
             self:UpdateUpPropertyFrame()
@@ -266,6 +279,8 @@ function FashionDetailUI:InitUI()
     end
     self:ChangeLoverSkin(lover_unit_id,newindex,false)
     --self:UpdateLoverSkinData(newindex)
+
+
 
 
     --换装皮肤栏
@@ -300,7 +315,50 @@ function FashionDetailUI:ChangeLoverSkin(unit_id,index,status)
     self:AddFullUnit(unit_id, self.unit_rect)
     self:UpdateLoverSkinData(index)
     self:UpdateAttribute(unit_id,index,status)
+    self:UpdatePowerHero()
+end
 
+function FashionDetailUI:UpdatePowerHero()
+    local lover_data = SpecMgrs.data_mgr:GetLoverData(self.lover_id)
+    for _, hero_id in ipairs(lover_data.hero) do
+        local hero_item = self:GetUIObject(self.power_hero_item, self.power_hero_panel)
+        self.power_hero_item_dict[hero_id] = hero_item
+        UIFuncs.InitHeroGo({go = hero_item, hero_id = hero_id})
+    end
+end
+
+--战力增加显示与否
+function FashionDetailUI:ShowScoreUpUI()
+    print("FashionDetailUI:ShowScoreUpUI-----last_score---",self.last_score)
+    print("FashionDetailUI:ShowScoreUpUI-----last_fight_score---",self.last_fight_score)
+    SpecMgrs.ui_mgr:ShowScoreUpUI(self.last_score, self.last_fight_score)
+    self.last_score = ComMgrs.dy_data_mgr:ExGetRoleScore()
+    self.last_fight_score = ComMgrs.dy_data_mgr:ExGetFightScore()
+end
+
+function FashionDetailUI:ShowAttCount(index)
+    local str
+    local att = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index]).attr_list_value
+    local att_type = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index ]).attr_list
+    for i in ipairs(att) do
+        --local lover_att = self:GetUIObject(self.certmony_attr, self.lover_attr)
+        if att_type[i] == "att" then
+            str = string.format(UIConst.Text.ATTR_ADD_FORMAT, UIConst.Text.ATK_TEXT, att[i])
+        elseif att_type[i] == "def" then
+            str = string.format(UIConst.Text.ATTR_ADD_FORMAT, UIConst.Text.DEF_TEXT, att[i])
+        elseif att_type[i] == "max_hp" then
+            str = string.format(UIConst.Text.ATTR_ADD_FORMAT, UIConst.Text.HP_TEXT, att[i])
+        end
+        SpecMgrs.ui_mgr:ShowTipMsg(str)
+    end
+
+    --if attr == self.index_Attribute[1] then
+    --    str = string.format(UIConst.Text.ATTR_ADD_FORMAT, UIConst.Text.LOVER_DETAIL_INTIMACY_EXP_TEXT, attr_add_val)
+    --else
+    --    local name = self.data_mgr:GetAttributeData(attr).name
+    --    str = string.format(UIConst.Text.ATTR_ADD_FORMAT, name, attr_add_val)
+    --end
+    --SpecMgrs.ui_mgr:ShowTipMsg(str)
 end
 
 function FashionDetailUI:UpdateLoverSkinData(index)
@@ -320,8 +378,12 @@ function FashionDetailUI:UpdateLoverSkinData(index)
         lover_card_temp:FindChild("NameText"):GetComponent("Text").text = UIConst.Text.CLOTH_NAME_LIST[i]   --需要更改（切记）
         local gain_button = lover_card_temp:FindChild("GainButton")
         if item_id.id == 303025 then     --303025是原皮
-
-            lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_USED
+            if self.fashion_id == self.cur_lover_data.fashion[i] then
+                lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_USED
+            else
+                lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_UNUSED
+            end
+            --lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_USED
             lover_card_temp:FindChild("LockImage"):SetActive(false)
             lover_card_temp:FindChild("ImageMask"):SetActive(false)
             lock_status = false
@@ -342,6 +404,7 @@ function FashionDetailUI:UpdateLoverSkinData(index)
                         if resp.errcode == 1 then
                             SpecMgrs.ui_mgr:ShowMsgBox("换装失败！") --换装成功也需要根据返回值来判断星级是否达到
                         elseif resp.errcode == 0 then
+                            --self:ShowScoreUpUI()   --战力值变化（滚动显示）
                             self.fashion_id = self.cur_lover_data.fashion[i]
                             self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],lock_status)
                         end
@@ -363,7 +426,12 @@ function FashionDetailUI:UpdateLoverSkinData(index)
                     self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],true)
                 end)
             else
-                lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_USED
+                if self.fashion_id == self.cur_lover_data.fashion[i] then
+                    lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_USED
+                else
+                    lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_UNUSED
+                end
+                --lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_USED
                 lover_card_temp:FindChild("LockImage"):SetActive(false)
                 lover_card_temp:FindChild("ImageMask"):SetActive(false)
                 lock_status = false
@@ -384,6 +452,8 @@ function FashionDetailUI:UpdateLoverSkinData(index)
                             if resp.errcode == 1 then
                                 SpecMgrs.ui_mgr:ShowMsgBox("换装失败！") --换装成功也需要根据返回值来判断星级是否达到
                             elseif resp.errcode == 0 then
+                                --self:ShowScoreUpUI()    --战力值变化（滚动显示）
+                                self:ShowAttCount(self.lover_select_index[i])
                                 self.fashion_id = self.cur_lover_data.fashion[i]
                                 self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],lock_status)
                             end
@@ -657,6 +727,11 @@ function FashionDetailUI:ClearCreateRes()
         self:DelUIObject(go)
     end
     self.lover_att_list = {}
+
+    for _, item in pairs(self.power_hero_item_dict) do
+        self:DelUIObject(item)
+    end
+    self.power_hero_item_dict = {}
 
 
     --local spoil_confirm_ui = SpecMgrs.ui_mgr:GetUI("SpoilConfirmUI")

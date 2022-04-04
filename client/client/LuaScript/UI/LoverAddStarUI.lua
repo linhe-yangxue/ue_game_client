@@ -55,8 +55,9 @@ function LoverAddStarUI:Hide()
     LoverAddStarUI.super.Hide(self)
 end
 
-function LoverAddStarUI:Show(lover_id)
-    self.cur_lover_id = lover_id
+function LoverAddStarUI:Show(param_tb)
+    self.cur_lover_id = param_tb.lover_id
+    self.fashion_id = param_tb.fashion_id
     if self.is_res_ok then
         self:InitUI()
     end
@@ -254,21 +255,45 @@ end
 function LoverAddStarUI:InitLoverModel()
     self:RemoveUnitModel()
     self.slide_lover_cmp:ResetLoopOffset()
-    local cur_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(self.cur_lover_id).unit_id
-    local cur_lover_unit = ComMgrs.unit_mgr:CreateUnitAutoGuid({unit_id = cur_lover_unit_id, parent = self.lover_model_dict[kLoverIndex.Cur]})
+    print("当前情人信息-----",SpecMgrs.data_mgr:GetLoverData(self.cur_lover_id))
+    print("当前情人信息11111-----",ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(self.cur_lover_id))
+    local cur_fashion_id = ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(self.cur_lover_id).fashion_id
+    if cur_fashion_id ==303025 then
+        self.cur_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(self.cur_lover_id).unit_id
+    else
+        self.cur_lover_unit_id = SpecMgrs.data_mgr:GetItemData(cur_fashion_id).model_id
+    end
+    --local cur_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(self.cur_lover_id).unit_id
+    local cur_lover_unit = ComMgrs.unit_mgr:CreateUnitAutoGuid({unit_id = self.cur_lover_unit_id, parent = self.lover_model_dict[kLoverIndex.Cur]})
     cur_lover_unit:SetPositionByRectName({parent = self.lover_model_dict[kLoverIndex.Cur], name = "full"})
     self.lover_unit_dict[kLoverIndex.Cur] = cur_lover_unit
 
     self.slide_lover_cmp:SetDraggable(#self.lover_list > 1)
     local pre_lover_info = self.lover_list[math.Repeat(self.cur_lover_index - 2, #self.lover_list) + 1]
-    local pre_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(pre_lover_info.lover_id).unit_id
-    local pre_lover_unit = ComMgrs.unit_mgr:CreateUnitAutoGuid({unit_id = pre_lover_unit_id, parent = self.lover_model_dict[kLoverIndex.Pre]})
+    print("前一位情人信息-----",SpecMgrs.data_mgr:GetLoverData(pre_lover_info.lover_id))
+    print("前一位情人信息11111-----",ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(pre_lover_info.lover_id))
+    local pre_fashion_id = ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(pre_lover_info.lover_id).fashion_id
+    if pre_fashion_id ==303025 then
+        self.pre_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(pre_lover_info.lover_id).unit_id
+    else
+        self.pre_lover_unit_id = SpecMgrs.data_mgr:GetItemData(pre_fashion_id).model_id
+    end
+    --local pre_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(pre_lover_info.lover_id).unit_id
+    local pre_lover_unit = ComMgrs.unit_mgr:CreateUnitAutoGuid({unit_id = self.pre_lover_unit_id, parent = self.lover_model_dict[kLoverIndex.Pre]})
     pre_lover_unit:SetPositionByRectName({parent = self.lover_model_dict[kLoverIndex.Pre], name = "full"})
     self.lover_unit_dict[kLoverIndex.Pre] = pre_lover_unit
 
     local next_lover_info = self.lover_list[math.Repeat(self.cur_lover_index, #self.lover_list) + 1]
-    local next_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(next_lover_info.lover_id).unit_id
-    local next_lover_unit = ComMgrs.unit_mgr:CreateUnitAutoGuid({unit_id = next_lover_unit_id, parent = self.lover_model_dict[kLoverIndex.Next]})
+    print("后一位情人信息-----",SpecMgrs.data_mgr:GetLoverData(next_lover_info.lover_id))
+    print("后一位情人信息111111-----",ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(next_lover_info.lover_id))
+    local next_fashion_id = ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(next_lover_info.lover_id).fashion_id
+    if next_fashion_id ==303025 then
+        self.next_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(next_lover_info.lover_id).unit_id
+    else
+        self.next_lover_unit_id = SpecMgrs.data_mgr:GetItemData(next_fashion_id).model_id
+    end
+    --local next_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(next_lover_info.lover_id).unit_id
+    local next_lover_unit = ComMgrs.unit_mgr:CreateUnitAutoGuid({unit_id = self.next_lover_unit_id, parent = self.lover_model_dict[kLoverIndex.Next]})
     next_lover_unit:SetPositionByRectName({parent = self.lover_model_dict[kLoverIndex.Next], name = "full"})
     self.lover_unit_dict[kLoverIndex.Next] = next_lover_unit
 end

@@ -259,10 +259,26 @@ function CelebrityHotelUI:CreateRow(row_grid_temp, lover_temp, lover_num, is_pos
         table.insert(self.create_obj_list, obj)
         self:AddClick(obj:FindChild("TriggerBtn"), function()
             if is_possess then
+                print("点击情人----",lover_id)
                 local param_tb = {
-                    lover_id = lover_id
+                    lover_id =  lover_id,
                 }
-                SpecMgrs.ui_mgr:ShowUI("LoverDetailUI", param_tb)
+                SpecMgrs.msg_mgr:SendFashionBtn(param_tb, function (resp)
+                    print("明星酒店返回值----",resp)
+                    if resp.errcode == 1 then
+                        SpecMgrs.ui_mgr:ShowMsgBox("明星酒店失败") --换装信息错误
+                    elseif resp.errcode == 0 then
+                        local param_tb = {
+                            lover_id =  lover_id,
+                            fashion_id = resp.fashion_id
+                        }
+                        SpecMgrs.ui_mgr:ShowUI("LoverDetailUI",param_tb)
+                    end
+                end)
+                --local param_tb = {
+                --    lover_id = lover_id
+                --}
+                --SpecMgrs.ui_mgr:ShowUI("LoverDetailUI", param_tb)
             else
                 local lover_data = SpecMgrs.data_mgr:GetLoverData(self.not_possess_lover_tb[i].id)
                 local fragment_data = SpecMgrs.data_mgr:GetItemData(lover_data.fragment_id)
