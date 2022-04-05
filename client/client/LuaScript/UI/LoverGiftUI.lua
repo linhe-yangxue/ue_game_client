@@ -52,6 +52,7 @@ function LoverGiftUI:InitRes()
     self:AddClick(content:FindChild("CloseBtn"), function ()
         self:Hide()
     end)
+    self.BuyBtn = content:FindChild("BuyBtn")
     self.buyText = content:FindChild("BuyBtn/Image/Text"):GetComponent("Text")
     self.buyTip = content:FindChild("BuyTip"):GetComponent("Text")
 
@@ -102,6 +103,10 @@ function LoverGiftUI:UpdateLoverInfo(index)
             --礼包名字
             local activity_name = lover_info.activity_name
             self.title.text = activity_name
+            --购买Button
+            self:AddClick(self.BuyBtn, function ()
+                print("情人礼包购买")
+            end)
 
         end
     end
