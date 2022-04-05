@@ -8,7 +8,8 @@ function LoverGiftUI:DoInit()
     LoverGiftUI.super.DoInit(self)
     self.dy_vip_data = ComMgrs.dy_data_mgr.vip_data
     self.prefab_path = "UI/Common/LoverGiftUI"
-    self.index = 1
+
+    self.lover_unit_dict = {}
 end
 
 function LoverGiftUI:OnGoLoadedOk(res_go)
@@ -22,7 +23,10 @@ function LoverGiftUI:Hide()
     self:ClearRes()
 end
 
-function LoverGiftUI:Show()
+function LoverGiftUI:Show(param_tb)
+    self.date = param_tb
+    self.activity_list = self.date.activity_list
+    self.activity_list_length = #self.activity_list
     if self.is_res_ok then
         self:InitUI()
     end
@@ -34,9 +38,12 @@ function LoverGiftUI:Update(delta_time)
 end
 
 function LoverGiftUI:UpdateRefreshTime()
-    local next_refresh_time = self.dy_vip_data:GetVipShopRefreshTime()
-    local remian_time = next_refresh_time - Time:GetServerTime()
-    self.refresh_text.text = UIFuncs.TimeDelta2Str(remian_time, 4, UIConst.Text.VIP_SHOP_REFRESH_TIME)
+    for i = 1, self.activity_list_length do
+        local lover_info = self.activity_list[self.index]
+        local next_refresh_time = lover_info.end_ts
+        local remian_time = next_refresh_time - Time:GetServerTime()
+        self.refresh_text.text = UIFuncs.TimeDelta2Str(remian_time, 4, UIConst.Text.VIP_SHOP_REFRESH_TIME)
+    end
 end
 
 function LoverGiftUI:InitRes()
@@ -53,8 +60,6 @@ function LoverGiftUI:InitRes()
     self.check_item_list = content:FindChild("ItemCheckList/ViewPort/CheckItemList")
     self.reward_item = content:FindChild("ItemCheckList/ViewPort/CheckItemList/RewardItem")
     self.cur_frame_obj_list = {}
-    self:UpdateData()
-    self:InitLoverItem()
 
     self.left_btn = content:FindChild("ButtonLeft")
     self:AddClick(self.left_btn, function ()
@@ -66,6 +71,8 @@ function LoverGiftUI:InitRes()
         self:RightButton()
     end)
 
+
+
     self.check_item_list = content:FindChild("ItemCheckList/ViewPort/CheckItemList")
     self.reward_item = content:FindChild("ItemCheckList/ViewPort/CheckItemList/RewardItem")
     print("当前页面信息111---",self.index)
@@ -74,51 +81,86 @@ function LoverGiftUI:InitRes()
 
 end
 
+function LoverGiftUI:UpdateLoverInfo(index)
+
+    for i = 1, self.activity_list_length do
+        if index == i then
+            local lover_info = self.activity_list[i]
+            --情人Model
+            local lover_unit_id = lover_info.lover_id
+            self.unit = self:AddFullUnit(lover_unit_id, self.unit_rect)
+            --获得道具
+            local item_list = lover_info.item_list
+            self:InitLoverItemNew(item_list)
+            --礼包价格
+            local price = lover_info.price
+            self.buyText.text = "US$" .. price
+            --限购次数（当前/总数）
+            --local cur_purchase_count = lover_info.cur_purchase_count
+            local purchase_count = lover_info.purchase_count
+            self.buyTip.text = UIConst.Text.LIMIT_BUY .. purchase_count .. "/" .. purchase_count
+            --礼包名字
+            local activity_name = lover_info.activity_name
+            self.title.text = activity_name
+
+        end
+    end
+end
+
+function LoverGiftUI:InitLoverItemNew(item_list)
+    print("LoverGiftUI:InitLoverItemNew(item_list)-------------",item_list)
+    for i in ipairs(item_list) do
+        local item = self:GetUIObject(self.reward_item, self.check_item_list)
+        table.insert(self.cur_frame_obj_list, item)
+        print("道具信息---",item_list[i].item_id,item_list[i].count)
+        UIFuncs.AssignItem(item, item_list[i].item_id, item_list[i].count)
+    end
+end
+
 function LoverGiftUI:InitUI()
     self:InitTaskInfo()
+    self:UpdateData()
+    --self:InitLoverItem()
+    if self.activity_list_length ~= nil then
+        self:UpdateLoverInfo(1)
+    end
 end
 
 function LoverGiftUI:LeftButton()
     self.index = self.index - 1
     print("当前页面数量111--",self.index)
+    self:ClearInfo()
     self:UpdateMiddle(self.index)
+    self:UpdateLoverInfo(self.index)
     print("点击left按钮")
 end
 
 function LoverGiftUI:RightButton()
     self.index = self.index + 1
     print("当前页面数量222--",self.index)
+    self:ClearInfo()
     self:UpdateMiddle(self.index)
+    self:UpdateLoverInfo(self.index)
     print("点击right按钮")
 end
 
 function LoverGiftUI:UpdateMiddle(index)
     self:ClearUnit("unit")
-    local lover_unit_id
-    if index == 1 then
+    print("总数量长度----",self.activity_list_length)
+    if self.activity_list_length == 1 then
         self.left_btn:SetActive(false)
-        self.right_btn:SetActive(true)
-        self.buyText.text = "US$9.99"
-        lover_unit_id = 24031
-        self.unit = self:AddFullUnit(lover_unit_id, self.unit_rect)
-    elseif index == 2 then
-        self.left_btn:SetActive(true)
-        self.right_btn:SetActive(true)
-        self.buyText.text = "US$19.99"
-        lover_unit_id = 24011
-        self.unit = self:AddFullUnit(lover_unit_id, self.unit_rect)
-    elseif index == 3 then
-        self.left_btn:SetActive(true)
-        self.right_btn:SetActive(true)
-        self.buyText.text = "US$49.99"
-        lover_unit_id = 23051
-        self.unit = self:AddFullUnit(lover_unit_id, self.unit_rect)
-    elseif index == 4 then
-        self.left_btn:SetActive(true)
         self.right_btn:SetActive(false)
-        self.buyText.text = "US$99.99"
-        lover_unit_id = 24061
-        self.unit = self:AddFullUnit(lover_unit_id, self.unit_rect)
+    else
+        if index == 1 then
+            self.left_btn:SetActive(false)
+            self.right_btn:SetActive(true)
+        elseif index == self.activity_list_length then
+            self.left_btn:SetActive(true)
+            self.right_btn:SetActive(false)
+        else
+            self.left_btn:SetActive(true)
+            self.right_btn:SetActive(true)
+        end
     end
 end
 
@@ -191,17 +233,25 @@ function LoverGiftUI:InitLoverItem()
 end
 
 function LoverGiftUI:InitTaskInfo()
+
     self.left_btn:SetActive(false)
-    self.right_btn:SetActive(true)
-    print("当前页面信息222---",self.index)
-    local lover_unit_id = 24031
-    self.unit = self:AddFullUnit(lover_unit_id, self.unit_rect)
-    self.buyText.text = "US$9.99"
-    self.buyTip.text = "限购：1/1"
-    self.title.text = "情人礼包"      --self.group_data.desc
+    self.right_btn:SetActive(false)
+
+    self.index = 1
+    self:UpdateMiddle(1)
+
+end
+
+function LoverGiftUI:ClearInfo()
+    for _, item in pairs(self.cur_frame_obj_list) do
+        self:DelUIObject(item)
+    end
+    self.cur_frame_obj_list = {}
 end
 
 function LoverGiftUI:ClearRes()
+    self:ClearInfo()
+    self:ClearUnit("unit")
     self.index = 1
 
 end

@@ -300,6 +300,11 @@ function MsgChannel:SendLoverGift(data, cb)
     self:_SendMsgByProto("c_get_ongoing_lover_activities", data, cb)
 end
 
+--英雄礼包
+function MsgChannel:SendHeroGift(data, cb)
+    self:_SendMsgByProto("c_get_ongoing_hero_activities", data, cb)
+end
+
 --  情人
 function MsgChannel:SendLoverDiscuss(data, cb)
     self:_SendMsgByProto("c_lover_discuss", data, cb)

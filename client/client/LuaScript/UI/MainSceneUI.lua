@@ -267,14 +267,20 @@ function MainSceneUI:InitRes()
     self:AddClick(self.lover_gift_btn, function ()
         SpecMgrs.msg_mgr:SendLoverGift({}, function (resp)
             print("情人礼包返回值----",resp)
+            SpecMgrs.ui_mgr:ShowUI("LoverGiftUI",resp)
         end)
-        SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
+        --SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
+
     end)
 
     --英雄礼包
     self.hero_gift_btn = scene_menu_panel:FindChild("HeroGift")
     self:AddClick(self.hero_gift_btn, function ()
-        SpecMgrs.ui_mgr:ShowUI("HeroGiftUI")
+        SpecMgrs.msg_mgr:SendHeroGift({}, function (resp)
+            print("英雄礼包返回值----",resp)
+            SpecMgrs.ui_mgr:ShowUI("HeroGiftUI",resp)
+        end)
+        --SpecMgrs.ui_mgr:ShowUI("HeroGiftUI")
     end)
 
     --总排行榜

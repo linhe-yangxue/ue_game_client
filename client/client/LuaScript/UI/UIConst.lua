@@ -288,6 +288,7 @@ UIConst.Text = {
     VIP_ADDITION = langlua["<color=#F0C058>VIP</color>加成"],
     VIP_GIFT = langlua["VIP礼包"],
     VIP_DAILY_GIFT = langlua["VIP日常礼包"],
+    LIMIT_BUY = langlua["限购"],
     REMAIN_COUNT = langlua["当前剩余数量：%s"],
     CONFIRM_USE_ITEM = langlua["您确定使用%s个%s%s"],
     CONFIRM_USE_ITEM_TO_RECOVER = langlua["您确定使用<color=#01D12e>%s</color>个%s来恢复<color=#01D12e>%s</color>%s"],
