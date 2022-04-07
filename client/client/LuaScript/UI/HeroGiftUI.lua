@@ -23,8 +23,8 @@ function HeroGiftUI:Hide()
 end
 
 function HeroGiftUI:Show(param_tb)
-    self.date = param_tb
-    self.activity_list = self.date.activity_list
+    self.data = param_tb
+    self.activity_list = self.data.activity_list
     self.activity_list_length = #self.activity_list
     if self.is_res_ok then
         self:InitUI()
@@ -103,9 +103,32 @@ function HeroGiftUI:UpdateHeroInfo(index)
             --购买Button
             self:AddClick(self.BuyBtn, function ()
                 print("英雄礼包购买")
+                self:SendCreateHeroOrder(self.activity_list[i]);
             end)
         end
     end
+end
+
+function HeroGiftUI:SendCreateHeroOrder(data)
+    local cb = function(resp)
+        print("create order callback", resp)
+        if resp.errcode == 0 then        
+            SpecMgrs.sdk_mgr:JGGPay({
+                call_back_url = resp.call_back_url,
+                itemId = data.lover_id,
+                itemName = data.activity_name,
+                desc = data.activity_name,
+                unitPrice = data.price,
+                quantity = 1,
+                type = 4,
+            })    
+        end    
+    end
+    SpecMgrs.msg_mgr:SendCreateHeroOrder({package_id  = data.lover_id}, cb)
+end
+
+function HeroGiftUI:RechargeSuccess()
+    print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.data)
 end
 
 function HeroGiftUI:InitLoverItemNew(item_list)

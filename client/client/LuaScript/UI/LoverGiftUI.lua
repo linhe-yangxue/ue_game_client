@@ -24,8 +24,8 @@ function LoverGiftUI:Hide()
 end
 
 function LoverGiftUI:Show(param_tb)
-    self.date = param_tb
-    self.activity_list = self.date.activity_list
+    self.data = param_tb
+    self.activity_list = self.data.activity_list
     self.activity_list_length = #self.activity_list
     if self.is_res_ok then
         self:InitUI()
@@ -106,10 +106,35 @@ function LoverGiftUI:UpdateLoverInfo(index)
             --购买Button
             self:AddClick(self.BuyBtn, function ()
                 print("情人礼包购买")
+                print(self.index)
+                print(self.activity_list[self.index])
+                self:SendCreateLoverOrder(self.activity_list[self.index])
             end)
 
         end
     end
+end
+
+function LoverGiftUI:SendCreateLoverOrder(data)
+    local cb = function(resp)
+        print("create order callback", resp)
+        if resp.errcode == 0 then        
+            SpecMgrs.sdk_mgr:JGGPay({
+                call_back_url = resp.call_back_url,
+                itemId = data.lover_id,
+                itemName = data.activity_name,
+                desc = data.activity_name,
+                unitPrice = data.price,
+                quantity = 1,
+                type = 3,
+            })    
+        end    
+    end
+    SpecMgrs.msg_mgr:SendCreateOrder({package_id = data.lover_id}, cb)
+end
+
+function LoverGiftUI:RechargeSuccess()
+    print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.data)
 end
 
 function LoverGiftUI:InitLoverItemNew(item_list)
