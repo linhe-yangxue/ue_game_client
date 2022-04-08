@@ -1365,12 +1365,12 @@ end
 
 -- 情人购买创建订单
 function MsgChannel:SendCreateLoverOrder(data, cb)
-    self:_SendMsgByProto("c_create_lover_order ", data, cb)
+    self:_SendMsgByProto("create_lover_order", data, cb)
 end
 
 -- 情人购买创建订单
 function MsgChannel:SendCreateHeroOrder(data, cb)
-    self:_SendMsgByProto("c_create_hero_order ", data, cb)
+    self:_SendMsgByProto("create_hero_order", data, cb)
 end
 
 --  充值创建订单

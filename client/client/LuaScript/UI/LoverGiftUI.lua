@@ -125,7 +125,7 @@ function LoverGiftUI:SendCreateLoverOrder(data)
             })    
         end    
     end
-    SpecMgrs.msg_mgr:SendCreateOrder({package_id = data.lover_id}, cb)
+    SpecMgrs.msg_mgr:SendCreateLoverOrder({package_id = data.lover_id}, cb)
 end
 
 function LoverGiftUI:RechargeSuccess()
