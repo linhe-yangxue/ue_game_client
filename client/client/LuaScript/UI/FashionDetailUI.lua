@@ -41,14 +41,12 @@ function FashionDetailUI:DoInit()
 end
 
 function FashionDetailUI:OnGoLoadedOk(res_go)
-    print("FashionDetailUI:OnGoLoadedOk--------------",res_go)
     FashionDetailUI.super.OnGoLoadedOk(self,res_go)
     self:InitRes()
     self:InitUI()
 end
 
 function FashionDetailUI:Show(param_tb)
-    print("时装展示数据---",param_tb)
     --self:ClearCreateRes()
     self.lover_id = param_tb.lover_id
     self.fashion_id = param_tb.fashion_id
@@ -60,7 +58,6 @@ function FashionDetailUI:Show(param_tb)
 end
 
 function FashionDetailUI:InitRes()
-    print("时装页面内容---InitRes----")
     self:InitTopBar()
     --  上方属性面板
     --self.up_mes_frame = self.main_panel:FindChild("UpMesFrame")
@@ -221,15 +218,12 @@ function FashionDetailUI:InitRes()
 end
 
 function FashionDetailUI:InitUI()
-    print("时装页面内容---InitUI----")
     --self.can_create_send_gift_effect = true
     --self.send_gift_effect_id = SpecMgrs.data_mgr:GetParamData("give_lover_gift").effect_id
     self.cur_select_item_list = nil
 
     self.last_score = ComMgrs.dy_data_mgr:ExGetRoleScore()
     self.last_fight_score = ComMgrs.dy_data_mgr:ExGetFightScore()
-    print("时装页面内容---InitUI--last_score--",self.last_score)
-    print("时装页面内容---InitUI--last_fight_score--",self.last_fight_score)
 
     --self.slider_anim = UISliderTween.New()
     --self.slider_anim:DoInit(self.intimacy_slider_image, anim_duration)
@@ -248,7 +242,6 @@ function FashionDetailUI:InitUI()
     --self:UpdateLoverInfo()
     --
     self.lover_data:RegisterUpdateLoverInfoEvent("FashionDetailUI", function(_, _, lover_id)
-        print("FashionDetailUI------RegisterUpdateLoverInfoEvent------",lover_id)
         if self.lover_id == lover_id then
             self:UpdateLoverData()
             self:UpdateUpPropertyFrame()
@@ -258,10 +251,6 @@ function FashionDetailUI:InitUI()
         end
     end, self)
     --
-    --self:ShowUIEffect()
-
-
-    print("cur_lover_data-----",self.cur_lover_data)
 
     self:AddClick(self.diamond_date_btn, function()
         self:Hide()
@@ -329,8 +318,6 @@ end
 
 --战力增加显示与否
 function FashionDetailUI:ShowScoreUpUI()
-    print("FashionDetailUI:ShowScoreUpUI-----last_score---",self.last_score)
-    print("FashionDetailUI:ShowScoreUpUI-----last_fight_score---",self.last_fight_score)
     SpecMgrs.ui_mgr:ShowScoreUpUI(self.last_score, self.last_fight_score)
     self.last_score = ComMgrs.dy_data_mgr:ExGetRoleScore()
     self.last_fight_score = ComMgrs.dy_data_mgr:ExGetFightScore()
@@ -339,7 +326,7 @@ end
 function FashionDetailUI:ShowAttCount(index)
     local str
     local att = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index]).attr_list_value
-    local att_type = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index ]).attr_list
+    local att_type = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index]).attr_list
     for i in ipairs(att) do
         --local lover_att = self:GetUIObject(self.certmony_attr, self.lover_attr)
         if att_type[i] == "att" then
@@ -362,7 +349,6 @@ function FashionDetailUI:ShowAttCount(index)
 end
 
 function FashionDetailUI:UpdateLoverSkinData(index)
-    print("时装页面内容---UpdateLoverSkinData----",index)
     --可更换皮肤
     for i in ipairs(self.cur_lover_data.fashion) do
         local item_id = self.data_mgr:GetItemData(self.cur_lover_data.fashion[i])
@@ -394,12 +380,9 @@ function FashionDetailUI:UpdateLoverSkinData(index)
                 fashion_id = self.cur_lover_data.fashion[i],
             }
             self:AddClick(lover_card_temp, function()
-                print("点击原皮事件---",self.cur_lover_data.unit_id,self.cur_lover_data.fashion[i],self.fashion_id)
                 if self.fashion_id == self.cur_lover_data.fashion[i] then
-                    print("相同皮肤不进行换装-----")
                     self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],lock_status)
                 else
-                    print("不同皮肤----")
                     SpecMgrs.msg_mgr:SendChangeLoverFashion(param_tb, function (resp)
                         if resp.errcode == 1 then
                             SpecMgrs.ui_mgr:ShowMsgBox("换装失败！") --换装成功也需要根据返回值来判断星级是否达到
@@ -416,10 +399,13 @@ function FashionDetailUI:UpdateLoverSkinData(index)
             if self.lover_info.star_lv < self.cur_lover_data.fashion_unlock_lv[i-1] then
                 lover_card_temp:FindChild("GainButton/PowerButtonText"):GetComponent("Text").text = UIConst.Text.CLOTH_GAIN
                 self:AddClick(gain_button, function()
+                    --点击去获取button跳转到主页面然后展示出情人礼包信息
                     SpecMgrs.stage_mgr:GotoStage("MainStage")
                     coroutine.start(function ()
                         coroutine.wait(0.5)
-                        SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
+                        SpecMgrs.msg_mgr:SendLoverGift({}, function (resp)
+                            SpecMgrs.ui_mgr:ShowUI("LoverGiftUI",resp)
+                        end)
                     end)
                 end)
                 self:AddClick(lover_card_temp, function()
@@ -442,12 +428,9 @@ function FashionDetailUI:UpdateLoverSkinData(index)
                 }
 
                 self:AddClick(lover_card_temp, function()
-                    print("点击新皮肤111---",self.cur_lover_data.unit_id,self.cur_lover_data.fashion[i],self.fashion_id)
                     if self.fashion_id == self.cur_lover_data.fashion[i] then
-                        print("相同皮肤不进行换装111-----")
                         self:ChangeLoverSkin(item_id.model_id,self.lover_select_index[i],lock_status)
                     else
-                        print("不同皮肤1111----")
                         SpecMgrs.msg_mgr:SendChangeLoverFashion(param_tb, function (resp)
                             if resp.errcode == 1 then
                                 SpecMgrs.ui_mgr:ShowMsgBox("换装失败！") --换装成功也需要根据返回值来判断星级是否达到
@@ -462,21 +445,18 @@ function FashionDetailUI:UpdateLoverSkinData(index)
                 end)
             end
         end
-
         self.lover_model_list[i] = lover_card_temp
         self.lover_select_index[i] = i
-
     end
 end
 
 --根据皮肤更新属性面板
 function FashionDetailUI:UpdateAttribute(unit_id,index,status)
-    print("时装页面内容---UpdateAttribute----")
     if index ~= 1 then
         if  status == false then
             self.lover_attr:SetActive(true)
             local att =  self.data_mgr:GetItemData(self.cur_lover_data.fashion[index]).attr_list_value
-            local att_type = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index ]).attr_list
+            local att_type = self.data_mgr:GetItemData(self.cur_lover_data.fashion[index]).attr_list
             for i in ipairs(att) do
                 local lover_att = self:GetUIObject(self.certmony_attr, self.lover_attr)
                 if att_type[i] == "att" then
@@ -550,7 +530,6 @@ function FashionDetailUI:UpdateUpPropertyFrame()
     local attr_dict = self.lover_info.attr_dict
     self.lover_name_text.text = self.cur_lover_data.name
     UIFuncs.AssignSpriteByIconID(self.lover_quality_data.grade, self.lover_grade)
-    print("星级----",self.lover_info)
     for i = 1, self.star_limit do
         self.lover_active_star_list[i]:SetActive(i <= self.lover_info.star_lv)
     end

@@ -246,7 +246,7 @@ function CelebrityHotelUI:ShowSecondAnim(lover_id)
         local lover_level_data = SpecMgrs.data_mgr:GetLoverLevelData(lover_info.level)
         local show_tip_list = {}
         table.insert(show_tip_list, string.format(UIConst.Text.ADD_POWER_POINT, lover_level_data.discuss_power_value))
-        SpecMgrs.ui_mgr:ShowUI("SpoilUI", lover_id, self.child_info, show_tip_list)
+        SpecMgrs.ui_mgr:ShowUI("SpoilUI", lover_id, self.child_info, show_tip_list, lover_info.fashion_id)
     end, 0.6, 1)
 end
 
@@ -259,12 +259,10 @@ function CelebrityHotelUI:CreateRow(row_grid_temp, lover_temp, lover_num, is_pos
         table.insert(self.create_obj_list, obj)
         self:AddClick(obj:FindChild("TriggerBtn"), function()
             if is_possess then
-                print("点击情人----",lover_id)
                 local param_tb = {
                     lover_id =  lover_id,
                 }
                 SpecMgrs.msg_mgr:SendFashionBtn(param_tb, function (resp)
-                    print("明星酒店返回值----",resp)
                     if resp.errcode == 1 then
                         SpecMgrs.ui_mgr:ShowMsgBox("明星酒店失败") --换装信息错误
                     elseif resp.errcode == 0 then

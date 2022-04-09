@@ -24,9 +24,10 @@ function SpoilConfirmUI:OnGoLoadedOk(res_go)
     self:InitUI()
 end
 
-function SpoilConfirmUI:Show(lover_id, lover_level)
+function SpoilConfirmUI:Show(lover_id, lover_level,fashion_id)
     self.lover_id = lover_id
     self.lover_level = lover_level
+    self.fashion_id = fashion_id
     if self.is_res_ok then
         self:InitUI()
     end
@@ -91,7 +92,7 @@ function SpoilConfirmUI:SendDoteLover()
             local show_tip_list = {}
             table.insert(show_tip_list, string.format(UIConst.Text.ADD_POWER_POINT, lover_level_data.dote_power_value))
             table.insert(show_tip_list, string.format(UIConst.Text.ADD_EXP, lover_level_data.dote_exp))
-            SpecMgrs.ui_mgr:ShowUI("SpoilUI", self.lover_id, resp.child_info)
+            SpecMgrs.ui_mgr:ShowUI("SpoilUI", self.lover_id, resp.child_info, nil, self.fashion_id)
         end
         self:Hide()
     end

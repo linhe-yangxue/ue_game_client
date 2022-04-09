@@ -27,7 +27,8 @@ function SpoilUI:OnGoLoadedOk(res_go)
     self:InitUI()
 end
 
-function SpoilUI:Show(lover_id, child_data, show_tip_list)
+function SpoilUI:Show(lover_id, child_data, show_tip_list, fashion_id)
+    self.fashion_id = fashion_id
     self.lover_id = lover_id
     self.child_data = child_data
     self.show_tip_list = show_tip_list
@@ -127,8 +128,13 @@ function SpoilUI:UpdateUIInfo()
     self.mask_right:SetActive(true)
 
     self.dialog_box:SetActive(false)
-
-    self:AddFullUnit(self.lover_data.unit_id, self.stand_lover)
+    if self.fashion_id == 303025 or self.fashion_id == nil then
+        self:AddFullUnit(self.lover_data.unit_id, self.stand_lover)
+    else
+        local lover_unit_id = SpecMgrs.data_mgr:GetItemData(self.fashion_id).model_id
+        self:AddFullUnit(lover_unit_id, self.stand_lover)
+    end
+    --self:AddFullUnit(self.lover_data.unit_id, self.stand_lover)
 
     local lover_unit_id = self.lover_data.spoil_model_id
     local pos_y = SpecMgrs.data_mgr:GetUnitData(lover_unit_id).spoil_pos_y

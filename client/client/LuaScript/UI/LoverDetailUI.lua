@@ -20,7 +20,6 @@ function LoverDetailUI:DoInit()
     self.lover_data = ComMgrs.dy_data_mgr.lover_data
     self.data_mgr = SpecMgrs.data_mgr
     self.star_limit = SpecMgrs.data_mgr:GetParamData("lover_star_lv_limit").f_value
-    print("情人星级数据----",self.star_limit)
     self.lover_active_star_list = {}
     self.index_Attribute = {
         "lover_exp",
@@ -35,7 +34,6 @@ function LoverDetailUI:DoInit()
 end
 
 function LoverDetailUI:OnGoLoadedOk(res_go)
-    print("LoverDetailUI:OnGoLoadedOk--------------",res_go)
     LoverDetailUI.super.OnGoLoadedOk(self,res_go)
     self:InitRes()
     self:InitUI()
@@ -121,7 +119,6 @@ function LoverDetailUI:InitRes()
             fashion_id = self.fashion_id
         }
         --SpecMgrs.msg_mgr:SendFashionBtn(param_tb, function (resp)
-            print("时装按钮返回值----")
             --if resp.errcode == 1 then
             --    SpecMgrs.ui_mgr:ShowMsgBox("时装数据同步失败") --换装信息错误
             --elseif resp.errcode == 0 then
@@ -156,7 +153,7 @@ function LoverDetailUI:InitRes()
         self:ShowOrHideAwardUI(true)
     end)
     self:AddClick(self.spoil_button, function()--  宠爱
-        SpecMgrs.ui_mgr:ShowUI("SpoilConfirmUI", self.lover_info.lover_id, self.lover_info.level)
+        SpecMgrs.ui_mgr:ShowUI("SpoilConfirmUI", self.lover_info.lover_id, self.lover_info.level, self.fashion_id)
         SpecMgrs.ui_mgr:GetUI("SpoilConfirmUI"):RegisterCloseUI("LoverDetailUI", function()
             self:ShowUIEffect()
             self:UpdateLoverInfo()
@@ -227,7 +224,6 @@ function LoverDetailUI:InitUI()
     self:UpdateLoverInfo()
 
     self.lover_data:RegisterUpdateLoverInfoEvent("LoverDetailUI", function(_, _, lover_id)
-        print("LoverDetailUI----RegisterUpdateLoverInfoEvent-----",lover_id)
         if self.lover_id == lover_id then
             self:UpdateLoverData()
             self:UpdateModelInfo()
@@ -262,7 +258,6 @@ end
 
 --皮肤界面宠爱
 function LoverDetailUI:Favour(unitid)
-    print("宠爱信息------")
     local lover_data = ComMgrs.dy_data_mgr.lover_data
     local lover_info = lover_data:GetLoverInfo(unitid)
     SpecMgrs.ui_mgr:ShowUI("SpoilConfirmUI", lover_info.lover_id, lover_info.level)
@@ -315,7 +310,6 @@ function LoverDetailUI:UpdateLoverData()
 end
 
 function LoverDetailUI:UpdateModelInfo()
-    print("更新面板信息---------角色信息发生变化之后--------LoverDetailUI:UpdateModelInfo-------",self.lover_info.fashion_id)
     self:DestroyAllUnit()
     self.fashion_id = self.lover_info.fashion_id
     if self.fashion_id ==303025 then
@@ -323,7 +317,6 @@ function LoverDetailUI:UpdateModelInfo()
         self:AddFullUnit(lover_unit_id, self.unit_rect)
     else
         local lover_unit_id = self.data_mgr:GetItemData(self.fashion_id).model_id
-        print("当前时装ID----",lover_unit_id,self.fashion_id)
         self:AddFullUnit(lover_unit_id, self.unit_rect)
     end
 
