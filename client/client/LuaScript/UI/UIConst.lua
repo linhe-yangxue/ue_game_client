@@ -1186,6 +1186,9 @@ UIConst.Text = {
     CHARM_ADD_FORMAL = langlua["魅力: +%s"],
     PLAN_ADD_FORMAL = langlua["交际: +%s"],
 
+    --情人礼包
+    LOVER_GIFT = langlua["<color=#01D12e>dd天  HH:MM:SS</color>"],
+
     CLOTH_NAME_FORMAT = "<color=#f0c058>%s</color>",
     ADD_ATTR_TEXT = langlua["<color=#a59f92>额外属性加成</color>"],
     NO_ADD_ATTR_TEXT = langlua["无属性加成"],

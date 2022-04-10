@@ -267,6 +267,10 @@ function MainSceneUI:InitRes()
     self:AddClick(self.lover_gift_btn, function ()
         SpecMgrs.msg_mgr:SendLoverGift({}, function (resp)
             print("情人礼包返回值----",resp)
+            print("情人礼包返回值111----",#resp.activity_list)
+            if resp.activity_list == nil then
+                print("情人礼包返回值222----",resp.activity_list)
+            end
             SpecMgrs.ui_mgr:ShowUI("LoverGiftUI",resp)
         end)
         --SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")

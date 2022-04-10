@@ -4,6 +4,9 @@ local UIFuncs = require("UI.UIFuncs")
 
 local LoverGiftUI = class("UI.LoverGiftUI", UIBase)
 
+local lover_data_dict = {
+    ["aa"] = "ExGeLoverGiftBuy",
+}
 function LoverGiftUI:DoInit()
     LoverGiftUI.super.DoInit(self)
     self.dy_vip_data = ComMgrs.dy_data_mgr.vip_data
@@ -40,7 +43,11 @@ function LoverGiftUI:UpdateRefreshTime()
         local lover_info = self.activity_list[self.index]
         local next_refresh_time = lover_info.end_ts
         local remian_time = next_refresh_time - Time:GetServerTime()
-        self.refresh_text.text = UIFuncs.TimeDelta2Str(remian_time, 4, UIConst.Text.VIP_SHOP_REFRESH_TIME)
+        if remian_time > 0  then
+            self.refresh_text.text = UIFuncs.TimeDelta2Str(remian_time ,4, UIConst.Text.LOVER_GIFT)
+        else
+            self.refresh_text.text = UIConst.Text.ALREADY_FINISH_TEXT
+        end
     end
 end
 
@@ -70,41 +77,74 @@ function LoverGiftUI:InitRes()
 
     self.check_item_list = content:FindChild("ItemCheckList/ViewPort/CheckItemList")
     self.reward_item = content:FindChild("ItemCheckList/ViewPort/CheckItemList/RewardItem")
-    print("当前页面信息111---",self.index)
 
     self.refresh_text = content:FindChild("RefreshObj/RefreshText"):GetComponent("Text")
 
 end
 
-function LoverGiftUI:UpdateLoverInfo(index)
-
+function LoverGiftUI:UpdateLoverInfo(index,msg)
     for i = 1, self.activity_list_length do
         if index == i then
             local lover_info = self.activity_list[i]
+            print("更新情人礼包数据-----",self.activity_list[i])
+            print("更新情人礼包数据1111-----",self.activity_list[i].purchase_have)
+            --self.activity_list[i].purchase_have = 10
+            --print("更新情人礼包数据2222-----",self.activity_list[i].purchase_have)
             --情人Model
             local lover_unit_id = lover_info.lover_id
             self.unit = self:AddFullUnit(lover_unit_id, self.unit_rect)
             --获得道具
             local item_list = lover_info.item_list
-            print("情人礼包道具信息----",item_list)
             self.cur_frame_obj_list = UIFuncs.SetItemList(self, item_list, self.check_item_list)
-            --礼包价格
-            local price = lover_info.price
-            self.buyText.text = price .. "JG"
             --限购次数（当前/总数）
-            --local cur_purchase_count = lover_info.cur_purchase_count
+            local cur_purchase_count = lover_info.purchase_have
             local purchase_count = lover_info.purchase_count
-            self.buyTip.text = UIConst.Text.LIMIT_BUY .. purchase_count .. "/" .. purchase_count
+            --if msg ~= nil then
+            --    cur_purchase_count = msg.times
+            --    --self.activity_list[i].purchase_have = msg.times
+            --else
+            --    cur_purchase_count = lover_info.purchase_have
+            --end
+            --local cur_purchase_count = lover_info.purchase_have
+            self.buyTip.text = UIConst.Text.LIMIT_BUY .. cur_purchase_count .. "/" .. purchase_count
+            --礼包价格
+            if cur_purchase_count < purchase_count then
+                local price = lover_info.price
+                self.buyText.text = price .. "JG"
+                --购买Button
+                self:AddClick(self.BuyBtn, function ()
+                    --local param_tb = {
+                    --    package_id = lover_info.id,
+                    --}
+                    print("可以购买--------------",cur_purchase_count,purchase_count)
+                    if cur_purchase_count < purchase_count then
+                        SpecMgrs.msg_mgr:SendLoverPurchase({package_id = lover_info.id}, function (resp)
+                            print("情人礼包uuu----",resp)
+                            self:UpdateLover(index,ComMgrs.dy_data_mgr[lover_data_dict["aa"]](ComMgrs.dy_data_mgr))
+                        end)
+                    end
+                end)
+            else
+                print("已经购买完毕--------------")
+                self.buyText.text = "已购买"
+            end
+
             --礼包名字
             local activity_name = lover_info.activity_name
             self.title.text = activity_name
-            --购买Button
-            self:AddClick(self.BuyBtn, function ()
-                print("情人礼包购买")
-            end)
-
         end
     end
+end
+
+function LoverGiftUI:UpdateLover(index,msg)
+    --print("更新数据---",msg)
+    --print("更新数据111---",msg.lover_activity_id)
+    --print("更新数据222---",msg.status)
+    --print("更新数据333---",msg.times)
+    self.activity_list[index].purchase_have = msg.times
+    self:ClearInfo()
+    self:UpdateMiddle(index)
+    self:UpdateLoverInfo(index,msg)
 end
 
 function LoverGiftUI:InitUI()
@@ -134,7 +174,6 @@ end
 
 function LoverGiftUI:UpdateMiddle(index)
     self:ClearUnit("unit")
-    print("总数量长度----",self.activity_list_length)
     if self.activity_list_length == 1 then
         self.left_btn:SetActive(false)
         self.right_btn:SetActive(false)
