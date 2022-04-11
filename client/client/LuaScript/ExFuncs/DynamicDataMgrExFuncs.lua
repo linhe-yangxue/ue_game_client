@@ -28,6 +28,8 @@ function DynamicDataMgr:ExDoInit()
     self.no_longer_remind_item = {}
     self.stage_data = {}
     self.cost_value_dict = {}  -- 行动力，精力等等
+    self.lover_gift = {}  --情人礼包
+    self.hero_gift = {}   --英雄礼包
 
     --商店
     self.train_shop_data = {}
@@ -531,6 +533,17 @@ function DynamicDataMgr:ExUpdateHeroShopBuyTime(msg)
     end
 end
 
+function DynamicDataMgr:ExUpdateHeroGiftBuy(msg)
+    print("英雄礼包购买返回推送------" ,msg)
+    self.hero_gift = msg
+    return self.hero_gift
+end
+
+function DynamicDataMgr:ExGeHeroGiftBuy()
+    print("英雄礼包购买返回推送11111------")
+    return self.hero_gift
+end
+
 function DynamicDataMgr:ExGetHeroShopBuyTime()
     return self.hero_shop_data
 end
@@ -584,6 +597,17 @@ end
 
 function DynamicDataMgr:ExGetDynastyShopBuyTime()
     return self.dynasty_shop_data
+end
+
+function DynamicDataMgr:ExUpdateLoverGiftBuy(msg)
+    print("情人礼包购买返回推送------" ,msg)
+    self.lover_gift = msg
+    return self.lover_gift
+end
+
+function DynamicDataMgr:ExGeLoverGiftBuy()
+    print("情人礼包购买返回推送11111------")
+    return self.lover_gift
 end
 --  商店end
 

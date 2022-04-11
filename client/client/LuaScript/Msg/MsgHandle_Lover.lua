@@ -31,7 +31,13 @@ function mh_lover.s_lover_train_finish(msg)
 end
 
 function mh_lover.s_update_lover_shop(msg)
-	ComMgrs.dy_data_mgr:ExUpdateLoverShopBuyTime(msg)
+    ComMgrs.dy_data_mgr:ExUpdateLoverShopBuyTime(msg)
 end
+
+function mh_lover.s_update_lover_activity(msg)
+    ComMgrs.dy_data_mgr:ExUpdateLoverGiftBuy(msg)
+end
+
+
 
 return mh_lover

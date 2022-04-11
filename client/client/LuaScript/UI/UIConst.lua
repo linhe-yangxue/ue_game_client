@@ -1188,6 +1188,7 @@ UIConst.Text = {
 
     --情人礼包
     LOVER_GIFT = langlua["<color=#01D12e>dd天  HH:MM:SS</color>"],
+    HERO_GIFT = langlua["<color=#01D12e>dd天  HH:MM:SS</color>"],
 
     CLOTH_NAME_FORMAT = "<color=#f0c058>%s</color>",
     ADD_ATTR_TEXT = langlua["<color=#a59f92>额外属性加成</color>"],

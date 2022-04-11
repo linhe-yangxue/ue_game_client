@@ -91,6 +91,10 @@ function mh_role.s_update_hero_shop(msg)
     ComMgrs.dy_data_mgr:ExUpdateHeroShopBuyTime(msg)
 end
 
+function mh_role.s_update_hero_activity(msg)
+    ComMgrs.dy_data_mgr:ExUpdateHeroGiftBuy(msg)
+end
+
 function mh_role.s_update_vip_info(msg)
     ComMgrs.dy_data_mgr.vip_data:NotifyUpdateVipInfo(msg)
 end

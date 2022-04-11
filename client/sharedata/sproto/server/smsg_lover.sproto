@@ -69,3 +69,12 @@ s_update_lover_shop 607 {             #更新情人商店
         shop_dict 3 : i$integer         #键为商品id, 值为购买次数
     }
 }
+
+s_update_lover_activity 608 {             #更新情人活动
+    request {
+        lover_activity_id 0 :  integer #活动id
+        times 1 : integer          #购买次数
+        status 2 : integer    #购买状态
+    }
+}
+

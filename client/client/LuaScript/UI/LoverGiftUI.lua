@@ -5,12 +5,14 @@ local UIFuncs = require("UI.UIFuncs")
 local LoverGiftUI = class("UI.LoverGiftUI", UIBase)
 
 local lover_data_dict = {
-    ["aa"] = "ExGeLoverGiftBuy",
+    ["Lover"] = "ExGeLoverGiftBuy",
 }
 function LoverGiftUI:DoInit()
     LoverGiftUI.super.DoInit(self)
     self.dy_vip_data = ComMgrs.dy_data_mgr.vip_data
     self.prefab_path = "UI/Common/LoverGiftUI"
+    self.lover_gift_list = {}
+    self.lover_gift_buy_list = {}
 end
 
 function LoverGiftUI:OnGoLoadedOk(res_go)
@@ -45,51 +47,49 @@ function LoverGiftUI:UpdateRefreshTime()
         local remian_time = next_refresh_time - Time:GetServerTime()
         if remian_time > 0  then
             self.refresh_text.text = UIFuncs.TimeDelta2Str(remian_time ,4, UIConst.Text.LOVER_GIFT)
+            self.lover_gift_buy_list[self.index] = false
         else
+            self.lover_gift_buy_list[self.index] = true
             self.refresh_text.text = UIConst.Text.ALREADY_FINISH_TEXT
         end
     end
 end
 
 function LoverGiftUI:InitRes()
-    local content = self.main_panel:FindChild("Content")
-    self.title = content:FindChild("Title"):GetComponent("Text")
-    self:AddClick(content:FindChild("CloseBtn"), function ()
+    self.content = self.main_panel:FindChild("Content")
+    self.title = self.content:FindChild("Title"):GetComponent("Text")
+    self:AddClick(self.content:FindChild("CloseBtn"), function ()
         self:Hide()
     end)
-    self.BuyBtn = content:FindChild("BuyBtn")
-    self.buyText = content:FindChild("BuyBtn/Image/Text"):GetComponent("Text")
-    self.buyTip = content:FindChild("BuyTip"):GetComponent("Text")
+    self.BuyBtn = self.content:FindChild("BuyBtn")
+    self.buyText = self.content:FindChild("BuyBtn/Image/Text"):GetComponent("Text")
+    self.buyTip = self.content:FindChild("BuyTip"):GetComponent("Text")
 
     --添加美女
-    self.unit_rect = content:FindChild("UnitRect")
+    self.unit_rect = self.content:FindChild("UnitRect")
     self.cur_frame_obj_list = {}
 
-    self.left_btn = content:FindChild("ButtonLeft")
+    self.left_btn = self.content:FindChild("ButtonLeft")
     self:AddClick(self.left_btn, function ()
         self:LeftButton()
     end)
 
-    self.right_btn = content:FindChild("ButtonRight")
+    self.right_btn = self.content:FindChild("ButtonRight")
     self:AddClick(self.right_btn, function ()
         self:RightButton()
     end)
 
-    self.check_item_list = content:FindChild("ItemCheckList/ViewPort/CheckItemList")
-    self.reward_item = content:FindChild("ItemCheckList/ViewPort/CheckItemList/RewardItem")
+    self.check_item_list = self.content:FindChild("ItemCheckList/ViewPort/CheckItemList")
+    self.reward_item = self.content:FindChild("ItemCheckList/ViewPort/CheckItemList/RewardItem")
 
-    self.refresh_text = content:FindChild("RefreshObj/RefreshText"):GetComponent("Text")
+    self.refresh_text = self.content:FindChild("RefreshObj/RefreshText"):GetComponent("Text")
 
 end
 
-function LoverGiftUI:UpdateLoverInfo(index,msg)
+function LoverGiftUI:UpdateLoverInfo(index)
     for i = 1, self.activity_list_length do
         if index == i then
             local lover_info = self.activity_list[i]
-            print("更新情人礼包数据-----",self.activity_list[i])
-            print("更新情人礼包数据1111-----",self.activity_list[i].purchase_have)
-            --self.activity_list[i].purchase_have = 10
-            --print("更新情人礼包数据2222-----",self.activity_list[i].purchase_have)
             --情人Model
             local lover_unit_id = lover_info.lover_id
             self.unit = self:AddFullUnit(lover_unit_id, self.unit_rect)
@@ -99,35 +99,32 @@ function LoverGiftUI:UpdateLoverInfo(index,msg)
             --限购次数（当前/总数）
             local cur_purchase_count = lover_info.purchase_have
             local purchase_count = lover_info.purchase_count
-            --if msg ~= nil then
-            --    cur_purchase_count = msg.times
-            --    --self.activity_list[i].purchase_have = msg.times
-            --else
-            --    cur_purchase_count = lover_info.purchase_have
-            --end
-            --local cur_purchase_count = lover_info.purchase_have
             self.buyTip.text = UIConst.Text.LIMIT_BUY .. cur_purchase_count .. "/" .. purchase_count
             --礼包价格
+            local lover_gift_buy = self:GetUIObject(self.BuyBtn, self.content)
+            lover_gift_buy:GetComponent("RectTransform").anchoredPosition = Vector2.New(-15, 120)
+            self.lover_gift_list[i] = lover_gift_buy
+            local buyText = lover_gift_buy:FindChild("Image/Text"):GetComponent("Text")
             if cur_purchase_count < purchase_count then
                 local price = lover_info.price
-                self.buyText.text = price .. "JG"
-                --购买Button
-                self:AddClick(self.BuyBtn, function ()
-                    --local param_tb = {
-                    --    package_id = lover_info.id,
-                    --}
-                    print("可以购买--------------",cur_purchase_count,purchase_count)
-                    if cur_purchase_count < purchase_count then
-                        SpecMgrs.msg_mgr:SendLoverPurchase({package_id = lover_info.id}, function (resp)
-                            print("情人礼包uuu----",resp)
-                            self:UpdateLover(index,ComMgrs.dy_data_mgr[lover_data_dict["aa"]](ComMgrs.dy_data_mgr))
-                        end)
-                    end
-                end)
+                buyText.text = price .. "JG"
             else
-                print("已经购买完毕--------------")
-                self.buyText.text = "已购买"
+                buyText.text = "已购买"
             end
+            --购买Button
+            self:AddClick(lover_gift_buy, function ()
+                if cur_purchase_count < purchase_count and self.lover_gift_buy_list[self.index] == false then
+                    SpecMgrs.msg_mgr:SendLoverPurchase({package_id = lover_info.id}, function (resp)
+                        if resp.errcode == 0 then
+                            self:UpdateLover(index,ComMgrs.dy_data_mgr[lover_data_dict["Lover"]](ComMgrs.dy_data_mgr))
+                        end
+                    end)
+                elseif cur_purchase_count == purchase_count and self.lover_gift_buy_list[self.index] == false then
+                    SpecMgrs.ui_mgr:ShowMsgBox("本次活动已购买完毕，请等时间刷新！")
+                else
+                    SpecMgrs.ui_mgr:ShowMsgBox("活动已结束，请重新进入！")
+                end
+            end)
 
             --礼包名字
             local activity_name = lover_info.activity_name
@@ -137,14 +134,10 @@ function LoverGiftUI:UpdateLoverInfo(index,msg)
 end
 
 function LoverGiftUI:UpdateLover(index,msg)
-    --print("更新数据---",msg)
-    --print("更新数据111---",msg.lover_activity_id)
-    --print("更新数据222---",msg.status)
-    --print("更新数据333---",msg.times)
     self.activity_list[index].purchase_have = msg.times
     self:ClearInfo()
     self:UpdateMiddle(index)
-    self:UpdateLoverInfo(index,msg)
+    self:UpdateLoverInfo(index)
 end
 
 function LoverGiftUI:InitUI()
@@ -156,20 +149,16 @@ end
 
 function LoverGiftUI:LeftButton()
     self.index = self.index - 1
-    print("当前页面数量111--",self.index)
     self:ClearInfo()
     self:UpdateMiddle(self.index)
     self:UpdateLoverInfo(self.index)
-    print("点击left按钮")
 end
 
 function LoverGiftUI:RightButton()
     self.index = self.index + 1
-    print("当前页面数量222--",self.index)
     self:ClearInfo()
     self:UpdateMiddle(self.index)
     self:UpdateLoverInfo(self.index)
-    print("点击right按钮")
 end
 
 function LoverGiftUI:UpdateMiddle(index)
@@ -202,6 +191,10 @@ end
 
 function LoverGiftUI:ClearInfo()
     self:DelObjDict(self.cur_frame_obj_list)
+    for _, go in pairs(self.lover_gift_list) do
+        self:DelUIObject(go)
+    end
+    self.lover_gift_list = {}
 end
 
 function LoverGiftUI:ClearRes()
