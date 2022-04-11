@@ -86,15 +86,30 @@ function SDKMgr:JGGPaySuccess(params)
     ui:RechargeSuccess();
 end
 
-function  SDKMgr:HideLoading(params)
-    SpecMgrs.ui_mgr:HideUI("LoadingUI")
-end
-
 function SDKMgr:JGGMonthCardSuccess(params)
     print("SDKMgr:JGGMonthCardSuccess>>>>>>>",params)
     SpecMgrs.ui_mgr:HideUI("LoadingUI")
     local ui = SpecMgrs.ui_mgr:GetUI("MonthCardUI")
     ui:RechargeSuccess();
+end
+
+function SDKMgr:JGGLoverPaySuccess(params)
+    print("SDKMgr:JGGLoverPaySuccess>>>>>>>",params)
+    SpecMgrs.ui_mgr:HideUI("LoadingUI")
+    local ui = SpecMgrs.ui_mgr:GetUI("LoverGiftUI")
+    ui:RechargeSuccess();
+end
+
+function SDKMgr:JGGHeroPaySuccess(params)
+    print("SDKMgr:JGGHeroPaySuccess>>>>>>>",params)
+    SpecMgrs.ui_mgr:HideUI("LoadingUI")
+    local ui = SpecMgrs.ui_mgr:GetUI("HeroGiftUI")
+    ui:RechargeSuccess();
+end
+
+
+function  SDKMgr:HideLoading(params)
+    SpecMgrs.ui_mgr:HideUI("LoadingUI")
 end
 --------------------------------------------------------------------------------------
 

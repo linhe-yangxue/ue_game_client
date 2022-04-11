@@ -158,6 +158,7 @@ function HeroGiftUI:RightButton()
     self.index = self.index + 1
     self:ClearInfo()
     self:UpdateMiddle(self.index)
+    self:UpdateHeroInfo(self.index)
 end
 
 function HeroGiftUI:UpdateMiddle(index)
