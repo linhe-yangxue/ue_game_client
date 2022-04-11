@@ -114,6 +114,7 @@ function LoverGiftUI:UpdateLoverInfo(index)
             --购买Button
             self:AddClick(lover_gift_buy, function ()
                 if cur_purchase_count < purchase_count and self.lover_gift_buy_list[self.index] == false then
+                    --self:SendCreateLoverOrder(self.activity_list[self.index])
                     SpecMgrs.msg_mgr:SendLoverPurchase({package_id = lover_info.id}, function (resp)
                         if resp.errcode == 0 then
                             self:UpdateLover(index,ComMgrs.dy_data_mgr[lover_data_dict["Lover"]](ComMgrs.dy_data_mgr))
@@ -132,6 +133,28 @@ function LoverGiftUI:UpdateLoverInfo(index)
         end
     end
 end
+
+--function LoverGiftUI:SendCreateLoverOrder(data)
+--    local cb = function(resp)
+--        print("create order callback", resp)
+--        if resp.errcode == 0 then
+--            SpecMgrs.sdk_mgr:JGGPay({
+--                call_back_url = resp.call_back_url,
+--                itemId = data.lover_id,
+--                itemName = data.activity_name,
+--                desc = data.activity_name,
+--                unitPrice = data.price,
+--                quantity = 1,
+--                type = 3,
+--            })
+--        end
+--    end
+--    SpecMgrs.msg_mgr:SendCreateOrder({package_id = data.lover_id}, cb)
+--end
+--
+--function LoverGiftUI:RechargeSuccess()
+--    print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.data)
+--end
 
 function LoverGiftUI:UpdateLover(index,msg)
     self.activity_list[index].purchase_have = msg.times

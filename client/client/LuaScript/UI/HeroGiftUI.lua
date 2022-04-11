@@ -114,6 +114,7 @@ function HeroGiftUI:UpdateHeroInfo(index)
             --购买Button
             self:AddClick(hero_gift_buy, function ()
                 if cur_purchase_count < purchase_count and self.hero_gift_buy_list[self.index] == false then
+                    --self:SendCreateHeroOrder(self.activity_list[i]);
                     SpecMgrs.msg_mgr:SendHeroPurchase({package_id = hero_info.id}, function (resp)
                         if resp.errcode == 0 then
                             self:UpdateHero(index,ComMgrs.dy_data_mgr[hero_data_dict["Hero"]](ComMgrs.dy_data_mgr))
@@ -132,6 +133,29 @@ function HeroGiftUI:UpdateHeroInfo(index)
         end
     end
 end
+
+--function HeroGiftUI:SendCreateHeroOrder(data)
+--    local cb = function(resp)
+--        print("create order callback", resp)
+--        if resp.errcode == 0 then
+--            SpecMgrs.sdk_mgr:JGGPay({
+--                call_back_url = resp.call_back_url,
+--                itemId = data.lover_id,
+--                itemName = data.activity_name,
+--                desc = data.activity_name,
+--                unitPrice = data.price,
+--                quantity = 1,
+--                type = 4,
+--            })
+--        end
+--    end
+--    SpecMgrs.msg_mgr:SendCreateHeroOrder({package_id  = data.lover_id}, cb)
+--end
+--
+--function HeroGiftUI:RechargeSuccess()
+--    print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.data)
+--end
+
 
 function HeroGiftUI:UpdateHero(index,msg)
     self.activity_list[index].purchase_have = msg.times
