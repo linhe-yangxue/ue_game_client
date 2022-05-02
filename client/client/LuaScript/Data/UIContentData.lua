@@ -1312,4 +1312,14 @@ return {
             [ 1 ] = 101005,
         },
     },
+    [ "LoverVideosUI" ] = {
+        [ "id" ] = "LoverVideosUI",
+        [ "title" ] = langexcel["情人写真"],
+        [ "param1" ] = {
+            [ 1 ] = langexcel["激情视频aa"],
+        },
+        [ "top_bar_item_list" ] = {
+            [ 1 ] = 101005,
+        },
+    },
 }

@@ -354,6 +354,14 @@ function MsgChannel:SendTotalLoverDiscuss(data, cb)
     self:_SendMsgByProto("c_total_lover_discuss", data, cb)
 end
 
+function MsgChannel:SendPurchasedLoverVideos(data, cb)
+    self:_SendMsgByProto("c_get_purchased_lover_videos", data, cb)
+end
+
+function MsgChannel:SendLoverVideosReward(data, cb)
+    self:_SendMsgByProto("c_get_lover_video_reward", data, cb)
+end
+
 --  情人end
 
 ------- nightclub msgs define begin

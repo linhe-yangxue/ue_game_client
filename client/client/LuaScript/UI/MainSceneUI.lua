@@ -103,6 +103,7 @@ function MainSceneUI:Hide()
     self:ClearRankActivityRefreshTimer()
     self:RemoveDynamicUI(self.rank_activity_left_time)
     ComMgrs.dy_data_mgr:UnregisterUpdateRoleInfoEvent("MainSceneUI")
+    ComMgrs.dy_data_mgr:UnregisterUpdateLoverGiftInfoEvent("MainSceneUI")
     self.dy_task_data:UnregisterUpdateTaskInfoEvent("MainSceneUI")
     self.dy_activity_data:UnregisterUpdateActivityStateEvent("MainSceneUI")
     self.dy_activity_data:UnregisterUpdateRankActivityStateEvent("MainSceneUI")
@@ -262,19 +263,18 @@ function MainSceneUI:InitRes()
     self.tl_activity_btn:SetActive(false)
     self.first_week_check_btn:SetActive(false)
 
-    --情人礼包
     self.lover_gift_btn = scene_menu_panel:FindChild("LoverGift")
     self:AddClick(self.lover_gift_btn, function ()
+        SpecMgrs.ui_mgr:ShowLoadingUI();
         SpecMgrs.msg_mgr:SendLoverGift({}, function (resp)
             print("情人礼包返回值----",resp)
-            print("情人礼包返回值111----",#resp.activity_list)
-            if resp.activity_list == nil then
-                print("情人礼包返回值222----",resp.activity_list)
+            SpecMgrs.ui_mgr:HideUI("LoadingUI")
+            if #resp.activity_list == 0 then
+                SpecMgrs.ui_mgr:ShowMsgBox("礼包已购买完毕，敬请期待！")
+            else
+                SpecMgrs.ui_mgr:ShowUI("LoverGiftUI",resp)
             end
-            SpecMgrs.ui_mgr:ShowUI("LoverGiftUI",resp)
         end)
-        --SpecMgrs.ui_mgr:ShowUI("LoverGiftUI")
-
     end)
 
     --英雄礼包
@@ -285,6 +285,17 @@ function MainSceneUI:InitRes()
             SpecMgrs.ui_mgr:ShowUI("HeroGiftUI",resp)
         end)
         --SpecMgrs.ui_mgr:ShowUI("HeroGiftUI")
+    end)
+
+    --测试视频
+    self.lover_test_btn = scene_menu_panel:FindChild("LoverGiftTest")
+    self:AddClick(self.lover_test_btn, function ()
+        print("测试视频-----")
+        SpecMgrs.msg_mgr:SendPurchasedLoverVideos({}, function (resp)
+            print("激情视频返回值----",resp)
+            SpecMgrs.ui_mgr:ShowUI("LoverVideosUI",resp)
+        end)
+        --SpecMgrs.ui_mgr:ShowUI("LoverGiftTestUI")
     end)
 
     --总排行榜
@@ -391,6 +402,7 @@ function MainSceneUI:InitUI()
     self.dy_activity_data:RegisterUpdateRankActivityStateEvent("MainSceneUI", self.UpdateRankActivityState, self)
     self.dy_activity_data:RegisterUpdateRankActivityRankingEvent("MainSceneUI", self.UpdateRankActivityRank, self)
     self.dy_tl_activity_data:RegisterUpdateRechargeActivitySwitch("MainSceneUI", self.UpdateRechargeActivityState, self)
+    ComMgrs.dy_data_mgr:RegisterUpdateLoverGiftInfoEvent("MainSceneUI", self.UpdateLoverGiftBtnStatus, self)
 
     self:RegisterEvent(self.dy_mail_data, "AddMailEvent", function ()
         self.mail_tip_btn:SetActive(self.dy_mail_data:CheckHaveAttachmentMail())
@@ -422,6 +434,17 @@ function MainSceneUI:InitUI()
     self:UpdateTaskInfo()
     self.mail_tip_btn:SetActive(self.dy_mail_data:CheckHaveAttachmentMail())
     self:InitShopPanel()
+
+    self.lover_gift_info = ComMgrs.dy_data_mgr:ExGeLoverGiftInfo()
+    if #self.lover_gift_info.activity_list ~= 0 then
+        print("情人礼包显示出来-----")
+        self.lover_gift_btn_status = true
+        self.lover_gift_btn:SetActive(true)
+    else
+        print("情人礼包不显示-----")
+        self.lover_gift_btn_status = false
+        self.lover_gift_btn:SetActive(false)
+    end
 end
 
 --  商店
@@ -670,6 +693,18 @@ function MainSceneUI:_UpdateMissionPop(pop_content)
     self.mission_guide_arrow_timer = self:AddTimer(func_before_loop, 6, 1)
 end
 
+function MainSceneUI:UpdateLoverGiftBtnStatus(_, data)
+    self.lover_gift_info = data
+    if #self.lover_gift_info.activity_list ~= 0 then
+        self.lover_gift_btn_status = true
+        self.lover_gift_btn:SetActive(true)
+    else
+        self.lover_gift_btn_status = false
+        self.lover_gift_btn:SetActive(false)
+    end
+
+end
+
 function MainSceneUI:UpdateRoleImformation(_, data)
     if data.role_id then
         local unit_id = SpecMgrs.data_mgr:GetRoleLookData(data.role_id).unit_id
@@ -754,6 +789,7 @@ function MainSceneUI:Update(delta_time)
             self.door_timer = nil
         end
     end
+    
 end
 
 function MainSceneUI:InitFoldState()

@@ -14,6 +14,7 @@ EventUtil.GeneratorEventFuncs(DynamicDataMgr, "UpdateBattleScoreEvent")
 EventUtil.GeneratorEventFuncs(DynamicDataMgr, "UpdateItemDict")
 EventUtil.GeneratorEventFuncs(DynamicDataMgr, "LevelUpEvent")
 EventUtil.GeneratorEventFuncs(DynamicDataMgr, "UpdateBattleStateEvent")
+EventUtil.GeneratorEventFuncs(DynamicDataMgr, "UpdateLoverGiftInfoEvent")
 
 function DynamicDataMgr:ExDoInit()
     self._guid_base = 0
@@ -30,6 +31,7 @@ function DynamicDataMgr:ExDoInit()
     self.cost_value_dict = {}  -- 行动力，精力等等
     self.lover_gift = {}  --情人礼包
     self.hero_gift = {}   --英雄礼包
+    self.lover_gift_info = {}  --情人礼包
 
     --商店
     self.train_shop_data = {}
@@ -608,6 +610,19 @@ end
 function DynamicDataMgr:ExGeLoverGiftBuy()
     print("情人礼包购买返回推送11111------")
     return self.lover_gift
+end
+
+function DynamicDataMgr:ExUpdateLoverGiftInfo(msg)
+    print("情人礼包主动定时刷新推送11111-----" ,msg)
+    self.lover_gift_info = msg
+    self:DispatchUpdateLoverGiftInfoEvent(msg)
+    --return self.lover_gift_info
+end
+
+function DynamicDataMgr:ExGeLoverGiftInfo()
+    print("情人礼包主动定时刷新推送22222----")
+    --self:DispatchUpdateBattleStateEvent(is_in_battle)
+    return self.lover_gift_info
 end
 --  商店end
 

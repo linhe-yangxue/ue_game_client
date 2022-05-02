@@ -237,6 +237,7 @@ data_mgr._excel_mapper = {
     LanguageData =          "LanguageData",
     BadWordData =           "BadWordData",
     SpaceWordData =         "SpaceWordData",
+    LoverPortrait =         "LoverPortrait"
 }
 
 data_mgr.IS_CLIENT = false

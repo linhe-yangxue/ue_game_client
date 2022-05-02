@@ -581,6 +581,24 @@ return {
         [ "res_path" ] = "UIRes/CelebrityHotel/sltp_7_7",
         [ "res_name" ] = "sltp_7_7",
     },
+    [ 60019 ] = {
+        [ "id" ] = 60019,
+        [ "ch_key" ] = "情人笑脸",
+        [ "res_path" ] = "UIRes/LoverGift/occlude_1",
+        [ "res_name" ] = "occlude_1",
+    },
+    [ 60020 ] = {
+        [ "id" ] = 60020,
+        [ "ch_key" ] = "情人get",
+        [ "res_path" ] = "UIRes/LoverGift/occlude_2",
+        [ "res_name" ] = "occlude_2",
+    },
+    [ 60021 ] = {
+        [ "id" ] = 60021,
+        [ "ch_key" ] = "情人天呐",
+        [ "res_path" ] = "UIRes/LoverGift/occlude_3",
+        [ "res_name" ] = "occlude_3",
+    },
     [ 70001 ] = {
         [ "id" ] = 70001,
         [ "ch_key" ] = "测试事件1",
@@ -4726,6 +4744,42 @@ return {
         [ "ch_key" ] = "限时活动背景1",
         [ "res_path" ] = "UIResBG/Welfare/huodongbj_07",
         [ "res_name" ] = "huodongbj_07",
+    },
+    [ 330002 ] = {
+        [ "id" ] = 330002,
+        [ "ch_key" ] = "情人礼包背景1",
+        [ "res_path" ] = "UIRes/LoverGift/LoverBg_1",
+        [ "res_name" ] = "LoverBg_1",
+    },
+    [ 330003 ] = {
+        [ "id" ] = 330003,
+        [ "ch_key" ] = "情人视频背景1",
+        [ "res_path" ] = "UIRes/LoverGift/LoverFrameBig_1",
+        [ "res_name" ] = "LoverFrameBig_1",
+    },
+    [ 330004 ] = {
+        [ "id" ] = 330004,
+        [ "ch_key" ] = "情人礼包背景2",
+        [ "res_path" ] = "UIRes/LoverGift/Loverqiuchang",
+        [ "res_name" ] = "Loverqiuchang",
+    },
+    [ 330005 ] = {
+        [ "id" ] = 330005,
+        [ "ch_key" ] = "情人礼包背景3",
+        [ "res_path" ] = "UIRes/LoverGift/Loverdongche",
+        [ "res_name" ] = "Loverdongche",
+    },
+    [ 330006 ] = {
+        [ "id" ] = 330006,
+        [ "ch_key" ] = "情人礼包背景4",
+        [ "res_path" ] = "UIRes/LoverGift/Loverhuitang",
+        [ "res_name" ] = "Loverhuitang",
+    },
+    [ 330007 ] = {
+        [ "id" ] = 330007,
+        [ "ch_key" ] = "情人礼包背景5",
+        [ "res_path" ] = "UIRes/LoverGift/Loverfeiji",
+        [ "res_name" ] = "Loverfeiji",
     },
     [ 2300001 ] = {
         [ "id" ] = 2300001,

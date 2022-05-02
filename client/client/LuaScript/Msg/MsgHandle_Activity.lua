@@ -73,4 +73,9 @@ function mh_activity.s_update_bar_count_data(msg)
     ComMgrs.dy_data_mgr.bar_data:NotifyUpdateBarGameCount(msg)
 end
 
+function mh_activity.s_update_ongoing_lover_activities(msg)
+    print("情人礼包主动定时刷新推送-----" ,msg)
+    ComMgrs.dy_data_mgr:ExUpdateLoverGiftInfo(msg)
+end
+
 return mh_activity
