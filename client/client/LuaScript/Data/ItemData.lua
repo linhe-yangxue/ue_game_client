@@ -5767,6 +5767,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80016,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 23033,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5787,6 +5789,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80016,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 23034,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5807,6 +5811,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80019,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 23035,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5827,6 +5833,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80019,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 23036,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5847,6 +5855,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80009,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 23037,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5867,6 +5877,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80009,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 23038,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5887,6 +5899,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80002,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 23039,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5907,6 +5921,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80002,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 23040,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5927,6 +5943,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80021,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25001,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5947,6 +5965,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80021,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25002,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5967,6 +5987,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80004,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25003,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -5987,6 +6009,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80004,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25004,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6007,6 +6031,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80011,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25005,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6027,6 +6053,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80011,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25006,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6047,6 +6075,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80022,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25007,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6067,6 +6097,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80022,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25008,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6087,6 +6119,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80024,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25009,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6107,6 +6141,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80012,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25010,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6127,6 +6163,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80010,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25011,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6147,6 +6185,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80023,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25012,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6167,6 +6207,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80003,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25013,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6187,6 +6229,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80020,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25014,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6207,6 +6251,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80008,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25015,
         [ "sex" ] = 1,
         [ "attr_list" ] = {
@@ -6227,6 +6273,8 @@ return {
         [ "item_type" ] = 3,
         [ "sub_type" ] = 302,
         [ "quality" ] = 1,
+        [ "icon" ] = 80006,
+        [ "desc" ] = langexcel["防御增加%s;攻击增加%s;生命增加%s;家族头目加成"],
         [ "model_id" ] = 25016,
         [ "sex" ] = 1,
         [ "attr_list" ] = {

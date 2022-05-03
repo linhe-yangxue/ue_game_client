@@ -404,7 +404,11 @@ function FashionDetailUI:UpdateLoverSkinData(index)
                     coroutine.start(function ()
                         coroutine.wait(0.5)
                         SpecMgrs.msg_mgr:SendLoverGift({}, function (resp)
-                            SpecMgrs.ui_mgr:ShowUI("LoverGiftUI",resp)
+                            if #resp.activity_list == 0 then
+                                SpecMgrs.ui_mgr:ShowMsgBox("礼包已购买完毕，敬请期待！")
+                            else
+                                SpecMgrs.ui_mgr:ShowUI("LoverGiftUI",resp)
+                            end
                         end)
                     end)
                 end)

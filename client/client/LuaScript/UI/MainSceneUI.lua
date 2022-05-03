@@ -280,9 +280,15 @@ function MainSceneUI:InitRes()
     --英雄礼包
     self.hero_gift_btn = scene_menu_panel:FindChild("HeroGift")
     self:AddClick(self.hero_gift_btn, function ()
+        SpecMgrs.ui_mgr:ShowLoadingUI();
         SpecMgrs.msg_mgr:SendHeroGift({}, function (resp)
             print("英雄礼包返回值----",resp)
-            SpecMgrs.ui_mgr:ShowUI("HeroGiftUI",resp)
+            SpecMgrs.ui_mgr:HideUI("LoadingUI")
+            if #resp.activity_list == 0 then
+                SpecMgrs.ui_mgr:ShowMsgBox("礼包已购买完毕，敬请期待！")
+            else
+                SpecMgrs.ui_mgr:ShowUI("HeroGiftUI",resp)
+            end
         end)
         --SpecMgrs.ui_mgr:ShowUI("HeroGiftUI")
     end)
@@ -403,6 +409,7 @@ function MainSceneUI:InitUI()
     self.dy_activity_data:RegisterUpdateRankActivityRankingEvent("MainSceneUI", self.UpdateRankActivityRank, self)
     self.dy_tl_activity_data:RegisterUpdateRechargeActivitySwitch("MainSceneUI", self.UpdateRechargeActivityState, self)
     ComMgrs.dy_data_mgr:RegisterUpdateLoverGiftInfoEvent("MainSceneUI", self.UpdateLoverGiftBtnStatus, self)
+    ComMgrs.dy_data_mgr:RegisterUpdateHeroGiftInfoEvent("MainSceneUI", self.UpdateHeroGiftBtnStatus, self)
 
     self:RegisterEvent(self.dy_mail_data, "AddMailEvent", function ()
         self.mail_tip_btn:SetActive(self.dy_mail_data:CheckHaveAttachmentMail())
@@ -445,6 +452,19 @@ function MainSceneUI:InitUI()
         self.lover_gift_btn_status = false
         self.lover_gift_btn:SetActive(false)
     end
+
+    self.hero_gift_info = ComMgrs.dy_data_mgr:ExGeHeroGiftInfo()
+    if #self.hero_gift_info.activity_list ~= 0 then
+        print("英雄礼包显示出来-----")
+        self.hero_gift_btn_status = true
+        self.hero_gift_btn:SetActive(true)
+    else
+        print("英雄礼包不显示-----")
+        self.hero_gift_btn_status = false
+        self.hero_gift_btn:SetActive(false)
+    end
+
+
 end
 
 --  商店
@@ -701,6 +721,18 @@ function MainSceneUI:UpdateLoverGiftBtnStatus(_, data)
     else
         self.lover_gift_btn_status = false
         self.lover_gift_btn:SetActive(false)
+    end
+
+end
+
+function MainSceneUI:UpdateHeroGiftBtnStatus(_, data)
+    self.hero_gift_info = data
+    if #self.hero_gift_info.activity_list ~= 0 then
+        self.hero_gift_btn_status = true
+        self.hero_gift_btn:SetActive(true)
+    else
+        self.hero_gift_btn_status = false
+        self.hero_gift_btn:SetActive(false)
     end
 
 end

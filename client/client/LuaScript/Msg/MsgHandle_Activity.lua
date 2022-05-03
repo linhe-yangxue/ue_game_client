@@ -78,4 +78,8 @@ function mh_activity.s_update_ongoing_lover_activities(msg)
     ComMgrs.dy_data_mgr:ExUpdateLoverGiftInfo(msg)
 end
 
+function mh_activity.s_update_ongoing_hero_activities(msg)
+    ComMgrs.dy_data_mgr:ExUpdateHeroGiftInfo(msg)
+end
+
 return mh_activity

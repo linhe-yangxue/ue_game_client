@@ -25,7 +25,6 @@ local func_map = {
 }
 function LoverGiftUI:DoInit()
     LoverGiftUI.super.DoInit(self)
-    self.dy_vip_data = ComMgrs.dy_data_mgr.vip_data
     self.lover_video_data = SpecMgrs.data_mgr:GetAllLoverPortrait()
     self.prefab_path = "UI/Common/LoverGiftUI"
     self.lover_gift_list = {}
@@ -46,6 +45,7 @@ end
 
 function LoverGiftUI:Hide()
     LoverGiftUI.super.Hide(self)
+    ComMgrs.dy_data_mgr:UnregisterUpdateLoverGiftInfoEvent("LoverGiftUI")
     self:ClearRes()
 end
 
@@ -203,6 +203,7 @@ function LoverGiftUI:_AddHeroUnit(index, hero_id)
 end
 
 function LoverGiftUI:UpdateLoverInfo(item,index,activity_list)
+    local lover_info = activity_list
     local lover_movie_frame = item:FindChild("LoverMovieFrame")
     local lover_movie_frame_img = lover_movie_frame:GetComponent("Image")
     local lover_bg = item:FindChild("LoverBg")
@@ -213,7 +214,10 @@ function LoverGiftUI:UpdateLoverInfo(item,index,activity_list)
     local fashion_btn_des = fashion_btn:FindChild("Text"):GetComponent("Text")
     fashion_btn_des.text = "时装详情"
     fashion_btn:SetActive(false)
-    local lover_info = activity_list
+    self:AddClick(fashion_btn, function ()
+        SpecMgrs.ui_mgr:ShowUI("FashionInfoUI",lover_info)
+    end)
+
     local title = item:FindChild("Title")
     local lover_title_fir = lover_info.activity_name_fir
     local title_text = title:GetComponent("Text")

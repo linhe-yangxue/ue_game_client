@@ -15,6 +15,7 @@ EventUtil.GeneratorEventFuncs(DynamicDataMgr, "UpdateItemDict")
 EventUtil.GeneratorEventFuncs(DynamicDataMgr, "LevelUpEvent")
 EventUtil.GeneratorEventFuncs(DynamicDataMgr, "UpdateBattleStateEvent")
 EventUtil.GeneratorEventFuncs(DynamicDataMgr, "UpdateLoverGiftInfoEvent")
+EventUtil.GeneratorEventFuncs(DynamicDataMgr, "UpdateHeroGiftInfoEvent")
 
 function DynamicDataMgr:ExDoInit()
     self._guid_base = 0
@@ -32,6 +33,7 @@ function DynamicDataMgr:ExDoInit()
     self.lover_gift = {}  --情人礼包
     self.hero_gift = {}   --英雄礼包
     self.lover_gift_info = {}  --情人礼包
+    self.hero_gift_info = {}   --英雄礼包
 
     --商店
     self.train_shop_data = {}
@@ -620,10 +622,19 @@ function DynamicDataMgr:ExUpdateLoverGiftInfo(msg)
 end
 
 function DynamicDataMgr:ExGeLoverGiftInfo()
-    print("情人礼包主动定时刷新推送22222----")
-    --self:DispatchUpdateBattleStateEvent(is_in_battle)
     return self.lover_gift_info
 end
+
+function DynamicDataMgr:ExUpdateHeroGiftInfo(msg)
+    self.hero_gift_info = msg
+    self:DispatchUpdateHeroGiftInfoEvent(msg)
+    --return self.hero_gift_info
+end
+
+function DynamicDataMgr:ExGeHeroGiftInfo()
+    return self.hero_gift_info
+end
+
 --  商店end
 
 function DynamicDataMgr:EXSetArenaChallengeTime(time)
