@@ -2145,7 +2145,7 @@ UIConst.Text = {
 
     -- 充值
     VIP_EXP_TIP_FORMAT = langlua["还差<color=#01D12E>%s</color>VIP经验可到达"],
-    VIP_TIP_TEXT = langlua["每充值¥1赠送%s点VIP经验"],
+    VIP_TIP_TEXT = langlua["每充值1JG赠送%s点VIP经验"],
     VIP_EXP_SLIDER_FORMAT = langlua["Vip经验%s/%s"],
     DIAMOND_FORMAT = langlua["<quad id=5 size=70/>%s钻石"],
     FIRST_RECHARGE = langlua["首充"],
@@ -2169,8 +2169,8 @@ UIConst.Text = {
     GIFT_EXCHANGE = langlua["礼包兑换"],
     ALREADY_OVERDUE_TEXT = langlua["已过期"],
 
-    RECHARGE_FORMAT = langlua["单笔充值¥%s"],
-    ACCUME_RECARGE_FORMAT = langlua["活动期间内累计充值¥%s"],
+    RECHARGE_FORMAT = langlua["单笔充值%sJG"],
+    ACCUME_RECARGE_FORMAT = langlua["活动期间内累计充值%sJG"],
     DAILY_SURPLUS_TIME_FORMAT = langlua["本日剩余次数%s/%s"],
     WEEK_SURPLUS_TIME_FORMAT = langlua["本周剩余次数%s/%s"],
     ACCUME_RECHARGE_PROGRESS = langlua["充值进度%s"],
@@ -2228,8 +2228,8 @@ UIConst.Text = {
     VIP_SHOP_REFRESH_TIME = langlua["<color=#01D12e>dd天  HH:MM:SS</color>后刷新商品"],
     VIP_SHOP = langlua["VIP商城"],
     --  充值抽奖
-    RECHARGE_DRAW_TIP = langlua["每累计充值¥%s可获得1次抽奖次数"],
-    RECHARGE_NEXT_DRAW_TIP = langlua["再冲值¥%s可获得1次抽奖次数"],
+    RECHARGE_DRAW_TIP = langlua["每累计充值%sJG可获得1次抽奖次数"],
+    RECHARGE_NEXT_DRAW_TIP = langlua["再冲值%sJG可获得1次抽奖次数"],
     RECHARGE_DRAW_EXCHANGE_TIP = langlua["活动结束时请及时兑换积分"],
     RECHARGE_DRAW_SCORE_FORMAT = langlua["当前积分: %s"],
     RECHARGE_PRIZE_TEXT = langlua["奖品记录"],

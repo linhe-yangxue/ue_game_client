@@ -75,6 +75,42 @@ return {
         [ "is_cross" ] = true,
         [ "is_dynasty_rank" ] = true,
     },
+    [ "cross_fight_score_rank" ] = {
+        [ "id" ] = "cross_fight_score_rank",
+        [ "ch_key" ] = "跨服战力排行榜",
+        [ "max_len" ] = 100,
+        [ "is_cross" ] = true,
+    },
+    [ "cross_hunt_rank" ] = {
+        [ "id" ] = "cross_hunt_rank",
+        [ "ch_key" ] = "跨服狩猎积分排行",
+        [ "max_len" ] = 100,
+        [ "is_cross" ] = true,
+    },
+    [ "cross_score_rank" ] = {
+        [ "id" ] = "cross_score_rank",
+        [ "ch_key" ] = "跨服帮力排行榜",
+        [ "max_len" ] = 100,
+        [ "is_cross" ] = true,
+    },
+    [ "cross_stage_start_rank" ] = {
+        [ "id" ] = "cross_stage_start_rank",
+        [ "ch_key" ] = "跨服关卡星数排行榜",
+        [ "max_len" ] = 100,
+        [ "is_cross" ] = true,
+    },
+    [ "cross_train_rank" ] = {
+        [ "id" ] = "cross_train_rank",
+        [ "ch_key" ] = "跨服试炼排行",
+        [ "max_len" ] = 100,
+        [ "is_cross" ] = true,
+    },
+    [ "cross_traitor_feats_rank" ] = {
+        [ "id" ] = "cross_traitor_feats_rank",
+        [ "ch_key" ] = "跨服叛军伤害排行",
+        [ "max_len" ] = 100,
+        [ "is_cross" ] = true,
+    },
     [ "cross_traitor_honour_rank" ] = {
         [ "id" ] = "cross_traitor_honour_rank",
         [ "ch_key" ] = "跨服叛军boss荣誉排行",
@@ -84,6 +120,12 @@ return {
     [ "cross_traitor_hurt_rank" ] = {
         [ "id" ] = "cross_traitor_hurt_rank",
         [ "ch_key" ] = "跨服叛军boss伤害排行",
+        [ "max_len" ] = 100,
+        [ "is_cross" ] = true,
+    },
+    [ "cross_traitor_max_hurt_rank" ] = {
+        [ "id" ] = "cross_traitor_max_hurt_rank",
+        [ "ch_key" ] = "跨服叛军最大伤害排行",
         [ "max_len" ] = 100,
         [ "is_cross" ] = true,
     },

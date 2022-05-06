@@ -155,9 +155,9 @@ function LoverVideosUI:SetNotPorcessCard(lover_card, not_possess_lover_tb, lover
     local item_check_list = lover_card:FindChild("ItemCheckList")
     local check_item_list = item_check_list:FindChild("ViewPort/CheckItemList")
     local item_bg = lover_card:FindChild("ItemBg")
-    local item_list = reward_list.add_gift_item_list
+    local item_list = reward_list.gift_item_list
     for i = #item_list, 1, -1 do
-        local item = UIFuncs.SetItem(self, reward_list.add_gift_item_list[i], reward_list.gift_count_list[i], check_item_list)
+        local item = UIFuncs.SetItem(self, reward_list.gift_item_list[i], reward_list.gift_num_list[i], check_item_list)
         table.insert(self.cur_frame_obj_list, item)
     end
     local lover_gift_btn = lover_card:FindChild("ButtonGift")

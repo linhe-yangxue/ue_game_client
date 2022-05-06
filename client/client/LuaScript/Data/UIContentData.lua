@@ -441,6 +441,15 @@ return {
         },
         [ "is_show_combat" ] = true,
     },
+    [ "FashionDetailUI" ] = {
+        [ "id" ] = "FashionDetailUI",
+        [ "title" ] = langexcel["时装"],
+        [ "top_bar_item_list" ] = {
+            [ 1 ] = 101005,
+            [ 2 ] = 201003,
+            [ 3 ] = 101004,
+        },
+    },
     [ "FestivalActivityUI" ] = {
         [ "id" ] = "FestivalActivityUI",
         [ "param1" ] = {
@@ -726,6 +735,15 @@ return {
             [ 2 ] = 101005,
         },
     },
+    [ "LoverVideosUI" ] = {
+        [ "id" ] = "LoverVideosUI",
+        [ "title" ] = langexcel["情人写真"],
+        [ "top_bar_item_list" ] = {
+            [ 1 ] = 101005,
+            [ 2 ] = 201003,
+            [ 3 ] = 101004,
+        },
+    },
     [ "LuxuryHouseUI" ] = {
         [ "id" ] = "LuxuryHouseUI",
         [ "title" ] = langexcel["婚配所"],
@@ -907,6 +925,15 @@ return {
     [ "RankActivityInfoUI" ] = {
         [ "id" ] = "RankActivityInfoUI",
         [ "title" ] = langexcel["冲榜活动"],
+    },
+    [ "RankMainUI" ] = {
+        [ "id" ] = "RankMainUI",
+        [ "title" ] = langexcel["排行榜"],
+        [ "top_bar_item_list" ] = {
+            [ 1 ] = 101005,
+            [ 2 ] = 201003,
+            [ 3 ] = 101004,
+        },
     },
     [ "RankUI" ] = {
         [ "id" ] = "RankUI",
@@ -1287,36 +1314,6 @@ return {
         [ "title" ] = langexcel["福利"],
         [ "param1" ] = {
             [ 1 ] = langexcel["福利帮助"],
-        },
-        [ "top_bar_item_list" ] = {
-            [ 1 ] = 101005,
-        },
-    },
-    [ "RankMainUI" ] = {
-        [ "id" ] = "RankMainUI",
-        [ "title" ] = langexcel["排行榜"],
-        [ "param1" ] = {
-            [ 1 ] = langexcel["排行榜单"],
-        },
-        [ "top_bar_item_list" ] = {
-            [ 1 ] = 101005,
-        },
-    },
-    [ "FashionDetailUI" ] = {
-        [ "id" ] = "FashionDetailUI",
-        [ "title" ] = langexcel["时装"],
-        [ "param1" ] = {
-            [ 1 ] = langexcel["时装列表"],
-        },
-        [ "top_bar_item_list" ] = {
-            [ 1 ] = 101005,
-        },
-    },
-    [ "LoverVideosUI" ] = {
-        [ "id" ] = "LoverVideosUI",
-        [ "title" ] = langexcel["情人写真"],
-        [ "param1" ] = {
-            [ 1 ] = langexcel["激情视频aa"],
         },
         [ "top_bar_item_list" ] = {
             [ 1 ] = 101005,

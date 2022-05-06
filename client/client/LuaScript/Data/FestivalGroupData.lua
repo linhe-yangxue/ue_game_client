@@ -3,7 +3,7 @@ return {
         [ "id" ] = 1,
         [ "ch_key" ] = "欢庆佳节",
         [ "name" ] = "欢庆佳节",
-        [ "open_time" ] = "2022-03-15 16:00:00",
+        [ "open_time" ] = "2022-05-05 16:00:00",
         [ "activity_duration" ] = 3,
         [ "activity_list" ] = {
             [ 1 ] = 1,
@@ -24,6 +24,6 @@ return {
             [ 2 ] = "活动兑换",
         },
         [ "exchange_bg" ] = 330001,
-        [ "open_timestamp" ] = 1647360000,
+        [ "open_timestamp" ] = 1651766400,
     },
 }

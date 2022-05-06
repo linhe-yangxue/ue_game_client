@@ -59,17 +59,19 @@ function FashionInfoUI:InitUI()
     print("道具详情---------",item_data)
     --local bag_item_list = self.dy_bag_data:GetBagItemListByBagType(item_data.sub_type)
     local bag_item = self.dy_bag_data:GetBagItemByItemId(self.lover_piece)
-
-
+    local item_data_info = SpecMgrs.data_mgr:GetItemData(self.lover_piece)
     print("道具详情1111111--------",bag_item)
+    print("道具详情999999999999-------",item_data_info)
+    local cur_item_count = 0
+    if bag_item ~= nil then
+        cur_item_count = bag_item.count
+    end
 
-    print("道具详情2222222--------",bag_item.item_data)
-    print("道具详情3333333--------",bag_item.item_data.synthesize_count)
     self.item_name.text = item_data.name
-    self.item_count.text = bag_item.count .. "/" .. bag_item.item_data.synthesize_count
+    self.item_count.text = cur_item_count .. "/" .. item_data_info.synthesize_count
     self.item_desc.text = string.format(item_data.desc,item_data.attr_list_value[1],item_data.attr_list_value[2],item_data.attr_list_value[3])
-    UIFuncs.AssignSpriteByIconID(bag_item.item_data.icon, self.item:FindChild("Icon"):GetComponent("Image"))
-    UIFuncs.ChangeItemBgAndFarme(bag_item.item_data.quality, self.frame:GetComponent("Image"),self.frame:GetComponent("Image"))
+    UIFuncs.AssignSpriteByIconID(item_data_info.icon, self.item:FindChild("Icon"):GetComponent("Image"))
+    UIFuncs.ChangeItemBgAndFarme(item_data_info.quality, self.frame:GetComponent("Image"),self.frame:GetComponent("Image"))
     --self.unit = self:AddFullUnit(lover_unit_id, self.unit_rect)
     --self:ClickLover(self.xiong_anim)
 end
