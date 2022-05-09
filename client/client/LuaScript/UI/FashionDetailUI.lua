@@ -64,9 +64,9 @@ function FashionDetailUI:InitRes()
     self.up_lover_property_frame = self.main_panel:FindChild("UPLoverPropertyFrame")
     self.lover_name_text = self.up_lover_property_frame:FindChild("NamePanel/Text"):GetComponent("Text")
     self.lover_grade = self.up_lover_property_frame:FindChild("NamePanel/Grade"):GetComponent("Image")
-    local star_panel = self.up_lover_property_frame:FindChild("StarPanel")
+    self.star_panel = self.up_lover_property_frame:FindChild("StarPanel")
     for i = 1, self.star_limit do
-        self.lover_active_star_list[i] = star_panel:FindChild("Star" .. i .. "/Active")
+        self.lover_active_star_list[i] = self.star_panel:FindChild("Star" .. i .. "/Active")
     end
     --self.describe_text = self.up_lover_property_frame:FindChild("DescribeText"):GetComponent("Text")
 

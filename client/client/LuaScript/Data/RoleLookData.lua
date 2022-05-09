@@ -21,11 +21,11 @@ return {
     },
     [ 3 ] = {
         [ "role_look_id" ] = 3,
-        [ "unlocked" ] = false,
+        [ "unlocked" ] = true,
         [ "sex" ] = 1,
         [ "skin_id" ] = 1,
         [ "unit_id" ] = 7,
-        [ "unlock_icon" ] = 10025,
+        [ "unlock_icon" ] = 10017,
         [ "head_icon_id" ] = 10047,
     },
     [ 4 ] = {
@@ -68,11 +68,11 @@ return {
     },
     [ 8 ] = {
         [ "role_look_id" ] = 8,
-        [ "unlocked" ] = false,
+        [ "unlocked" ] = true,
         [ "sex" ] = 2,
         [ "skin_id" ] = 1,
         [ "unit_id" ] = 8,
-        [ "unlock_icon" ] = 10026,
+        [ "unlock_icon" ] = 10018,
         [ "head_icon_id" ] = 10048,
     },
     [ 9 ] = {
@@ -120,8 +120,8 @@ return {
             [ "sex" ] = 2,
             [ "skin_id" ] = 1,
             [ "unit_id" ] = 8,
-            [ "unlock_icon" ] = 10026,
-            [ "unlocked" ] = false,
+            [ "unlock_icon" ] = 10018,
+            [ "unlocked" ] = true,
         },
         [ 4 ] = {
             [ "head_icon_id" ] = 10046,
@@ -169,8 +169,8 @@ return {
             [ "sex" ] = 1,
             [ "skin_id" ] = 1,
             [ "unit_id" ] = 7,
-            [ "unlock_icon" ] = 10025,
-            [ "unlocked" ] = false,
+            [ "unlock_icon" ] = 10017,
+            [ "unlocked" ] = true,
         },
         [ 4 ] = {
             [ "head_icon_id" ] = 10045,

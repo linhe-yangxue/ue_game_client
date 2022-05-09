@@ -89,7 +89,7 @@ function HeroDetailInfoUI:InitRes()
         self.select_index = math.Repeat(self.select_index, #self.hero_list) + 1
         self:UpdateHeroDetailInfo()
     end)
-
+    self.detail_info_panel:FindChild("InfoPanel/Image/Text"):GetComponent("Text").text = UIConst.Text.DETAIL
     self:AddClick(self.detail_info_panel:FindChild("InfoPanel/Image"), function ()
         self:ExpandDetailInfoPanel()
     end)

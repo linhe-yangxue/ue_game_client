@@ -147,6 +147,7 @@ function PlayerInfoUI:InitRes()
     self.cost_value_data_dict[CSConst.CostValueItem.PhysicalPower] = strength_data
 
     local bottom_panel = self.main_panel:FindChild("BottomPanel")
+    bottom_panel:FindChild("Text"):GetComponent("Text").text = UIConst.Text.DETAIL
     self:AddClick(bottom_panel, function ()
         SpecMgrs.ui_mgr:ShowUI("PlayerDetailInfoUI")
         self:UpdateSettingContent(false)

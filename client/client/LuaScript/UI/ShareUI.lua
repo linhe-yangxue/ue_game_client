@@ -59,7 +59,7 @@ function ShareUI:InitUI()
     self.share_image:SetActive(false)
     self.mask:SetActive(false)
     self.close_btn:SetActive(false)
-    self.show_share_btn:SetActive(true)
+    self.show_share_btn:SetActive(false)
     self.add_share_obj:SetActive(false)
     self:SetTextVal()
 end
@@ -71,7 +71,7 @@ function ShareUI:Update()
             self.share_image_cmp.texture = self.share_texture
             self.mask:SetActive(true)
             self.share_image:SetActive(true)
-            self.show_share_btn:SetActive(true)
+            self.show_share_btn:SetActive(false)
             self.add_share_obj:SetActive(false)
             self.close_btn:SetActive(true)
         end

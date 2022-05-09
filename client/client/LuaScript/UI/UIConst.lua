@@ -750,6 +750,7 @@ UIConst.Text = {
     POWER = langlua["势力"],
     BUSINESS_ATTR = langlua["商业属性"],
     MANAGEMENT_ATTR = langlua["管理属性"],
+    DETAIL = langlua["详细"],
     FAME_ATTR = langlua["名望属性"],
     BATTLE_ATTR = langlua["战斗属性"],
     DESTINY_TIPS = langlua["注： 潜能升级可提升头目技能等级"],

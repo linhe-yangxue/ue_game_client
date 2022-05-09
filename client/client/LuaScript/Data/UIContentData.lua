@@ -43,6 +43,12 @@ return {
     [ "BarUI" ] = {
         [ "id" ] = "BarUI",
         [ "title" ] = langexcel["酒吧"],
+        [ "help_type" ] = 1,
+        [ "param1" ] = {
+            [ 1 ] = langexcel["参加小游戏获得英雄碎片"],
+            [ 2 ] = langexcel["大堂参加扳手腕获得获得碎片"],
+            [ 3 ] = langexcel["包厢参加倒红酒游戏获得英雄和情人碎片"],
+        },
     },
     [ "BigMapUI" ] = {
         [ "id" ] = "BigMapUI",

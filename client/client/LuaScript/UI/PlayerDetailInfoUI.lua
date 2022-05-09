@@ -70,6 +70,7 @@ function PlayerDetailInfoUI:InitRes()
     self.role_exp_value = exp_panel:FindChild("ExpBar/Value"):GetComponent("Text")
 
     local detail_info_panel = self.main_panel:FindChild("DetailInfoPanel")
+    detail_info_panel:FindChild("CloseBtn/Text"):GetComponent("Text").text = UIConst.Text.DETAIL
     self:AddClick(detail_info_panel:FindChild("CloseBtn"), function ()
         self:ExpandDetailInfoPanel()
     end)

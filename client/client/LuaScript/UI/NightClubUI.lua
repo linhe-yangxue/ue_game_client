@@ -226,6 +226,7 @@ function NightClubUI:InitRes()
     local battle_attr = attr_panel:FindChild("BattleAttr")
     battle_attr:FindChild("Text"):GetComponent("Text").text = UIConst.Text.BATTLE_ATTR
     self.battle_attr = battle_attr:FindChild("Value"):GetComponent("Text")
+    self.hero_info_panel:FindChild("BottomPanel/Text"):GetComponent("Text").text = UIConst.Text.DETAIL
 
     self:AddClick(self.hero_info_panel:FindChild("BottomPanel"), function ()
         self:ShowHeroDetailInfo()

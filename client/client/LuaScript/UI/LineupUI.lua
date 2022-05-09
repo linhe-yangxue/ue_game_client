@@ -112,6 +112,7 @@ function LineupUI:InitRes()
     end)
 
     self.bottom_panel = self.ip_hero_part:FindChild("Bottom")
+    self.bottom_panel:FindChild("Text"):GetComponent("Text").text = UIConst.Text.DETAIL
     self:AddClick(self.bottom_panel, function ()
         local seat_data = self.dy_hero_data:GetLineupData(self.cur_seat_index)
         if not seat_data or not seat_data.hero_id then
