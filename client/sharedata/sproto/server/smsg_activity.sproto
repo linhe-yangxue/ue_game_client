@@ -150,3 +150,17 @@ s_update_bar_count_data 2111 {
         lover_remaining_challenge_cnt 5 : integer # 情人-还剩余多少次挑战次数
     }
 }
+
+# 更新正在进行的情人礼包
+s_update_ongoing_lover_activities 2112 {
+    request {
+        activity_list 0 : *LoverActivityList
+    }
+}
+
+# 更新正在进行的礼包
+s_update_ongoing_hero_activities 2114 {
+    request {
+        activity_list 0 : *HeroActivityList
+    }
+}

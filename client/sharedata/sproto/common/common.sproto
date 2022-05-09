@@ -443,3 +443,17 @@
     time 1 : integer
     user_name 2 : string
 }
+
+.ActivityListInfo{
+    start_ts 0 : integer
+    end_ts 1 : integer
+    price 2 : integer
+    icon 3 : string
+    item_list 4 : {
+        item_id 0 : integer
+        count 1 : integer
+    }
+    purchase_count 5 : integer
+    lover_id 6 : integer
+    activity_name 7 : string
+}

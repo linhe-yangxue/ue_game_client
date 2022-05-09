@@ -312,12 +312,33 @@ c_refresh_bar_unit 2121 {
     }
 }
 
-# 情人礼包
+# 获取正在进行的情人礼包
 c_get_ongoing_lover_activities 2122 {
     request {
     }
     response {
         errcode 0 : integer
-        activity_list 1 : *ActivityList
+        activity_list 1 : *ActivityListInfo
+    }
+}
+
+# 获取已经购买的情人视频
+c_get_purchased_lover_videos 2124 {
+    request {}
+    response {
+        errcode 0 : integer
+        total_num 1 : integer
+        purchased_num 2 : integer
+        lover_videos 3 : *LoverVideosInfo
+    }
+}
+
+c_get_lover_video_reward 2125 {
+    request {
+        lover_video_id 0 : integer
+    }
+    response {
+        errcode 0 : integer
+        is_success 1 : boolean
     }
 }
