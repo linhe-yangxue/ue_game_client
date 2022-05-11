@@ -600,8 +600,7 @@ function UIFuncs.InitItemGo(param_tb)
     local name_str = UIFuncs.GetItemName(param_tb)
     UIFuncs.UpdateText(name_go, name_str)
 
-    local icon_image = item_go:FindChild("Icon"):GetComponent("Image")
-    icon_image.material = nil
+    
     local icon
     local quality_id
     if item_data.item_type == CSConst.ItemType.Hero then
@@ -628,26 +627,53 @@ function UIFuncs.InitItemGo(param_tb)
         local frame_image = item_go:FindChild("Frame"):GetComponent("Image")
         UIFuncs.ChangeItemBgAndFarme(quality_id, item_go:GetComponent("Image"), frame_image, UIConst.IconType.Item)
     end
-    UIFuncs.AssignSpriteByIconID(icon, icon_image)
 
-    local frag_go = item_go:FindChild("Frag")
-    if frag_go then
-        if item_data.sub_type == CSConst.ItemSubType.EquipmentFragment or
-            item_data.sub_type == CSConst.ItemSubType.HeroFragment then
-            frag_go:SetActive(true)
-            UIFuncs.ChangeItemFrag(quality_id, frag_go:GetComponent("Image"))
-            icon_image.material = SpecMgrs.res_mgr:GetMaterialSync(UIConst.MaterialResPath.FragMask)
-        else
-            frag_go:SetActive(false)
+    print('-----------------------------------')
+    print(item_data)
+    
+    --碎片处理
+    if item_data.sub_type == CSConst.ItemSubType.EquipmentFragment or item_data.sub_type == CSConst.ItemSubType.LoverFragment or item_data.sub_type == CSConst.ItemSubType.HeroFragment then
+        item_go:FindChild("Icon"):SetActive(false)
+
+        local fragIcon = item_go:FindChild("FragIcon")
+        if(fragIcon) then
+            fragIcon:SetActive(true)
+            local fragIconImage = fragIcon:GetComponent("Image")
+            fragIconImage.material = nil
+            local iconImage = item_go:FindChild("FragIcon/Icon"):GetComponent("Image")
+            UIFuncs.AssignSpriteByIconID(icon, iconImage) 
+
+            local frag_go = item_go:FindChild("Frag")
+            if frag_go then
+                if item_data.sub_type == CSConst.ItemSubType.EquipmentFragment or
+                    item_data.sub_type == CSConst.ItemSubType.HeroFragment then
+                    frag_go:SetActive(true)
+                    UIFuncs.ChangeItemFrag(quality_id, frag_go:GetComponent("Image"))
+                    fragIconImage.material = SpecMgrs.res_mgr:GetMaterialSync(UIConst.MaterialResPath.FragMask)
+                else
+                    frag_go:SetActive(false)
+                end
+            end
+            local lover_frag_go = item_go:FindChild("LoverFrag")
+            if lover_frag_go then
+                lover_frag_go:SetActive(item_data.lover ~= nil)
+                if item_data.sub_type == CSConst.ItemSubType.LoverFragment then
+                    fragIconImage.material = SpecMgrs.res_mgr:GetMaterialSync(UIConst.MaterialResPath.LoverFragMask)
+                end
+            end
         end
-    end
-    local lover_frag_go = item_go:FindChild("LoverFrag")
-    if lover_frag_go then
-        lover_frag_go:SetActive(item_data.lover ~= nil)
-        if item_data.sub_type == CSConst.ItemSubType.LoverFragment then
-            icon_image.material = SpecMgrs.res_mgr:GetMaterialSync(UIConst.MaterialResPath.LoverFragMask)
+    else
+        item_go:FindChild("Icon"):SetActive(true)
+        local icon_image = item_go:FindChild("Icon"):GetComponent("Image")
+        icon_image.material = nil
+        local fragIcon = item_go:FindChild("FragIcon")
+        if(fragIcon) then
+            fragIcon:SetActive(false)
         end
-    end
+        item_go:FindChild("Frag"):SetActive(false)
+        item_go:FindChild("LoverFrag"):SetActive(false)
+        UIFuncs.AssignSpriteByIconID(icon, icon_image)          
+    end     
 
     local can_click = param_tb.can_click == nil or param_tb.can_click -- 默认开启点击
     if can_click and param_tb.ui then
