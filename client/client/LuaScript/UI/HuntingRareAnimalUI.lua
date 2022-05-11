@@ -164,8 +164,10 @@ function HuntingRareAnimalUI:InitRes()
     for i = 1, #self.rare_animal_data_list do
         self:AddToggle(self.ip_item_comp_list[i].listen_toggle.gameObject, function ()
             local animal_id = self.ip_item_comp_list[i].listen_toggle.isOn and i or nil
-            SpecMgrs.msg_mgr:SendMsg("SendListenRareAnimal",{animal_id = animal_id}, function (resp)
-            end)
+            if animal_id ~= nil  then
+                SpecMgrs.msg_mgr:SendMsg("SendListenRareAnimal",{animal_id = animal_id}, function (resp)
+                end)
+            end
         end)
     end
 

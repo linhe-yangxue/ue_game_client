@@ -14,7 +14,8 @@ function RechargeTipUI:OnGoLoadedOk(res_go)
     self:InitUI()
 end
 
-function RechargeTipUI:Show()
+function RechargeTipUI:Show(need_diamond)
+    self.need_diamond = need_diamond
     if self.is_res_ok then
         self:InitUI()
     end
@@ -45,6 +46,7 @@ end
 
 function RechargeTipUI:UpdateData()
     self.recharge_tip_unit_id = SpecMgrs.data_mgr:GetParamData("recharge_tip_unit").unit_id
+    self.main_panel:FindChild("NeedDiamondText"):GetComponent("Text").text = self.need_diamond
 end
 
 function RechargeTipUI:UpdateUIInfo()

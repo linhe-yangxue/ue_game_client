@@ -56,6 +56,11 @@ return {
         [ "param1" ] = {
             [ 1 ] = langexcel["1226354"],
         },
+        [ "top_bar_item_list" ] = {
+            [ 1 ] = 101002,
+            [ 2 ] = 101005,
+        },
+        [ "is_show_combat" ] = true,
     },
     [ "CelebrityHotelUI" ] = {
         [ "id" ] = "CelebrityHotelUI",
@@ -164,6 +169,7 @@ return {
         },
         [ "top_bar_item_list" ] = {
             [ 1 ] = 101005,
+            [ 2 ] = 101021,
         },
         [ "is_show_combat" ] = true,
     },
@@ -396,6 +402,11 @@ return {
         [ "param1" ] = {
             [ 1 ] = langexcel["娱乐会所帮助"],
         },
+        [ "top_bar_item_list" ] = {
+            [ 1 ] = 101002,
+            [ 2 ] = 101005,
+        },
+        [ "is_show_combat" ] = true,
     },
     [ "EquipmentCultivateUI" ] = {
         [ "id" ] = "EquipmentCultivateUI",

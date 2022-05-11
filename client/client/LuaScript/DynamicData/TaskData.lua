@@ -12,11 +12,11 @@ end
 function TaskData:NotifyUpdateTaskInfo(msg)
     --  检测任务组奖励
     local comment_index = table.index(self.show_comment_group_index_list, self.group_id)
-    if self.group_id and comment_index then
-        if self.group_id ~= msg.group_id then
-            SpecMgrs.ui_mgr:ShowCommentUI(comment_index)
-        end
-    end
+    --if self.group_id and comment_index then
+    --    if self.group_id ~= msg.group_id then
+    --        SpecMgrs.ui_mgr:ShowCommentUI(comment_index)
+    --    end
+    --end
     self.group_id = msg.group_id
     self.task_id = msg.task_id
     self.progress = msg.progress

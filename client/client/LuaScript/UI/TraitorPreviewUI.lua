@@ -320,9 +320,9 @@ function TraitorPreviewUI:InitFeatsRewardPanel()
         table.insert(self.reward_item_list, reward_item)
         UIFuncs.InitItemGo({
             go = reward_item,
-            item_id = reward_data.data.item_id,
+            item_id = reward_data.item_id,
             ui = self,
-            count = reward_data.data.item_count,
+            count = reward_data.item_count,
         })
     end
     self.feats_reward_rect_cmp.anchoredPosition = Vector2.zero

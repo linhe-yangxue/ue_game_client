@@ -494,7 +494,7 @@ end
 function TreasureCultivateUI:UpdateStrengthenMaterialList()
     local total_exp = 0
     self.strengthen_cost = 0
-    local select_treasure_count = #self.cur_select_material_guid_list
+    local select_treasure_count = #self.cur_select_material_guid_lis
     self.auto_add_btn:SetActive(select_treasure_count == 0)
     self.treasure_strengthen_btn:SetActive(select_treasure_count > 0)
     for i = 1, kMaxStrengthenMaterialCount do
@@ -667,14 +667,20 @@ function TreasureCultivateUI:AutoAddStrengthenMaterial()
         return
     end
     local max_exp = SpecMgrs.data_mgr:GetStrengthenLvData(self.strengthen_lv_limit)["total_exp_q" .. self.treasure_data.quality] - self.treasure_info.strengthen_exp
+
     if self.cur_select_total_exp >= max_exp then
         SpecMgrs.ui_mgr:ShowMsgBox(UIConst.Text.STRENGTHEN_EXP_ENOUGH)
         return
     end
     local treasure_list = self:GetTreasureList()
+    if #treasure_list == 0 then
+        UIFuncs.ShowItemItemAccessUI(self.treasure_data.id)
+    end
     local total_exp = self.cur_select_total_exp
     for _, treasure_data in ipairs(treasure_list) do
-        if #self.cur_select_material_guid_list == kMaxStrengthenMaterialCount then break end
+        if #self.cur_select_material_guid_list == kMaxStrengthenMaterialCount then
+            break
+        end
         if treasure_data.guid ~= self.cultivate_treasure_guid and not self.cur_select_material_guid_dict[treasure_data.guid] then
             if treasure_data.strengthen_lv == 1 and treasure_data.strengthen_exp == 0 and treasure_data.refine_lv == 0 then
                 total_exp = total_exp + treasure_data.strengthen_exp + treasure_data.item_data.add_exp
@@ -924,7 +930,8 @@ function TreasureCultivateUI:SendRefineTreasure()
         local cost_treasure_item = self.cur_select_refine_material or self.treasure_data.id
         local own_count = self.dy_bag_data:GetTreasureItemCountWithoutCultivate(cost_treasure_item)
         if own_count < refine_material_cost_count then
-            UIFuncs.ShowItemNotEnough(cost_treasure_item)
+            --UIFuncs.ShowItemNotEnough(cost_treasure_item)
+            UIFuncs.ShowItemItemAccessUI(cost_treasure_item)
             return
         end
     end

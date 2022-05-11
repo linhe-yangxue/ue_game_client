@@ -13,8 +13,8 @@ EventUtil.GeneratorEventFuncs(HeroBattleMgr, "BattleEnd")
 
 local speed_list = {
     1,
-    1.6,
-    2,
+    1.5,
+    3,
 }
 
 local BattleArrayLuaName = "Data.SpellData.BattleParam"
@@ -73,10 +73,13 @@ function HeroBattleMgr:InitBattle(battle_data)
     self.all_unit_list = {}
     self.is_start_battle = true
     self.cur_action_index = 1
+    self.cur_speed_num = ComMgrs.dy_data_mgr:EXGetHeroBattleSpeed()
     if self.is_editor_play then
         self.cur_speed = speed_list[1]
     else
-        self.cur_speed = speed_list[2]
+        --self.cur_speed = speed_list[2]
+        --速度与显示相匹配
+        self.cur_speed = speed_list[self.cur_speed_num]
     end
     self.action_timer = 0
 
