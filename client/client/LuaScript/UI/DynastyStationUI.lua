@@ -12,6 +12,7 @@ function DynastyStationUI:DoInit()
     self.dynasty_battle_apply_day = SpecMgrs.data_mgr:GetParamData("dynasty_compete_apply_day").f_value
     self.dynasty_battle_fight_day = SpecMgrs.data_mgr:GetParamData("dynasty_compete_fight_day").day_dict
     self.dynasty_compete_apply_member_count = SpecMgrs.data_mgr:GetParamData("dynasty_compete_apply_member_count").f_value
+    self.dynasty_compete_apply_level_limit = SpecMgrs.data_mgr:GetParamData("dynasty_compete_apply_level_limit").f_value
     self.building_item_dict = {}
     self.deploy_member_item_list = {}
 end

@@ -1036,7 +1036,7 @@ function UIFuncs.CheckItemCount(item_id, cost_item_count, is_show_tip)
             if item_data.sub_type == CSConst.ItemSubType.CostValue then
                 UIFuncs.CheckCostValueRecoverItemCount(item_id)
             elseif item_id == CSConst.Virtual.Diamond then
-                SpecMgrs.ui_mgr:ShowUI("RechargeTipUI")
+                SpecMgrs.ui_mgr:ShowUI("RechargeTipUI",cost_item_count)
             elseif item_data.sub_type == CSConst.ItemSubType.Currency then
                 local str = string.format(UIConst.Text.ITEM_NOT_ENOUGH, item_data.name)
                 SpecMgrs.ui_mgr:ShowTipMsg(str)
