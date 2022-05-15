@@ -519,7 +519,7 @@ return {
     },
     [ "dynasty_challenge_open_time" ] = {
         [ "name" ] = "dynasty_challenge_open_time",
-        [ "f_value" ] = 6,
+        [ "f_value" ] = 1,
     },
     [ "dynasty_challenge_reward" ] = {
         [ "name" ] = "dynasty_challenge_reward",
@@ -535,7 +535,7 @@ return {
     },
     [ "dynasty_compete_apply_member_count" ] = {
         [ "name" ] = "dynasty_compete_apply_member_count",
-        [ "f_value" ] = 22,
+        [ "f_value" ] = 3,
     },
     [ "dynasty_compete_fight_day" ] = {
         [ "name" ] = "dynasty_compete_fight_day",

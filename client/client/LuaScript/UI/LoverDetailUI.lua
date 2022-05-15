@@ -258,6 +258,7 @@ end
 
 --皮肤界面宠爱
 function LoverDetailUI:Favour(unitid)
+    print("宠爱信息------",unitid)
     local lover_data = ComMgrs.dy_data_mgr.lover_data
     local lover_info = lover_data:GetLoverInfo(unitid)
     SpecMgrs.ui_mgr:ShowUI("SpoilConfirmUI", lover_info.lover_id, lover_info.level)
@@ -320,8 +321,8 @@ function LoverDetailUI:UpdateModelInfo()
         self:AddFullUnit(lover_unit_id, self.unit_rect)
     end
 
-    local fashion_unit_id = 26667
-    self:AddFullUnit(fashion_unit_id, self.fashion_btn)
+    --local fashion_unit_id = 26667
+    --self:AddFullUnit(fashion_unit_id, self.fashion_btn)
 end
 
 --  更新上方面板

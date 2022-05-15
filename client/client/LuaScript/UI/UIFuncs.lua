@@ -630,7 +630,6 @@ function UIFuncs.InitItemGo(param_tb)
 
     print('-----------------------------------')
     print(item_data)
-    
     --碎片处理
     if item_data.sub_type == CSConst.ItemSubType.EquipmentFragment or item_data.sub_type == CSConst.ItemSubType.LoverFragment or item_data.sub_type == CSConst.ItemSubType.HeroFragment then
         item_go:FindChild("Icon"):SetActive(false)
@@ -663,16 +662,31 @@ function UIFuncs.InitItemGo(param_tb)
             end
         end
     else
-        item_go:FindChild("Icon"):SetActive(true)
-        local icon_image = item_go:FindChild("Icon"):GetComponent("Image")
-        icon_image.material = nil
-        local fragIcon = item_go:FindChild("FragIcon")
-        if(fragIcon) then
-            fragIcon:SetActive(false)
-        end
-        item_go:FindChild("Frag"):SetActive(false)
-        item_go:FindChild("LoverFrag"):SetActive(false)
-        UIFuncs.AssignSpriteByIconID(icon, icon_image)          
+        print("道具与肢体名字2222222==========",item_go.name)
+        --阵容界面不是一样的结构，先这样看看效果
+        --if item_go.name ~= "EquipParent" then
+            print("道具与肢体名字3333333==========",item_go.name)
+            item_go:FindChild("Icon"):SetActive(true)
+            local icon_image = item_go:FindChild("Icon"):GetComponent("Image")
+            icon_image.material = nil
+            local fragIcon = item_go:FindChild("FragIcon")
+            if(fragIcon) then
+                fragIcon:SetActive(false)
+            end
+            local frag = item_go:FindChild("Frag")
+            if(frag) then
+                frag:SetActive(false)
+            end
+            local loverfrag = item_go:FindChild("LoverFrag")
+            if(loverfrag) then
+                loverfrag:SetActive(false)
+            end
+            UIFuncs.AssignSpriteByIconID(icon, icon_image)
+        --else
+        --    local icon_image = item_go:FindChild("Icon"):GetComponent("Image")
+        --    UIFuncs.AssignSpriteByIconID(icon, icon_image)
+        --end
+
     end     
 
     local can_click = param_tb.can_click == nil or param_tb.can_click -- 默认开启点击

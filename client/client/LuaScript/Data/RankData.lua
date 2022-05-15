@@ -138,6 +138,7 @@ return {
         [ "id" ] = "hunt_rank",
         [ "ch_key" ] = "狩猎积分排行",
         [ "max_len" ] = 100,
+        [ "is_cross" ] = true,
     },
     [ "level_rank" ] = {
         [ "id" ] = "level_rank",

@@ -359,6 +359,8 @@ function DynastyChallengeUI:InitMapList()
             self.map_item_dict[i] = map_item
             UIFuncs.AssignUISpriteSync(map_data.res_path, map_data.res_name, map_item:GetComponent("Image"))
             map_item:GetComponent("RectTransform").anchoredPosition = Vector2.New(0, (i - 1) * self.map_item_height)
+            --地图克隆倒序排列，解决层级问题
+            map_item:SetSiblingIndex(open_map_count - i)
         end
         for j = 1, map_data.chapter_count do
             stage_index = stage_index + 1

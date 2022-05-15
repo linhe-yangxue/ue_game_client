@@ -107,7 +107,7 @@ return {
         [ "ch_key" ] = "豪华签到",
         [ "activity_name" ] = "豪华签到",
         [ "icon" ] = 2800029,
-        [ "is_show_in_mainscence" ] = true,
+        [ "is_show_in_mainscence" ] = false,
         [ "system_name" ] = "RechargeActivity6",
         [ "type" ] = 3,
         [ "recharge_activity" ] = 9,
