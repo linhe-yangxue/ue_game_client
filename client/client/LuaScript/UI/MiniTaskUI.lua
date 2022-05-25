@@ -33,7 +33,7 @@ end
 function MiniTaskUI:InitRes()
     self.anim_controller = self.main_panel:GetComponent("Animator")
     self.content = self.main_panel:FindChild("Content")
-    self.mission_icon = self.content:FindChild("Icon/Img"):GetComponent("Image")
+    self.mission_icon = self.content:FindChild("Icon/Mask/Img"):GetComponent("Image")
     self:AddClick(self.content:FindChild("CloseBtn"), function ()
         self:CloseMiniTask()
     end)
