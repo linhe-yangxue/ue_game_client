@@ -1621,20 +1621,40 @@ function MsgChannel:SendGetLineUp(data, cb)
 end
 
 --主页面排行榜
+--服务器这么写的，没有按照ID区分走一个协议，莫得办法
+--跨服战力排行   ID = 15
 function MsgChannel:SendGetPowerRank(data, cb)
     self:_SendMsgByProto("c_get_cross_fight_score_rank_list", data, cb)
 end
 
-function MsgChannel:SendGetLevelsRank(data, cb)
-    self:_SendMsgByProto("c_get_cross_stage_start_rank_list", data, cb)
-end
-
+--跨服帮力排行   ID = 16
 function MsgChannel:SendGetGangRank(data, cb)
     self:_SendMsgByProto("c_get_cross_score_rank_list", data, cb)
 end
 
-function MsgChannel:SendGetDynastyCrossRank(data, cb)
-    --self:_SendMsgByProto("c_get_cross_score_rank_list", data, cb)
+--跨服关卡星数排行  ID = 17
+function MsgChannel:SendGetLevelsRank(data, cb)
+    self:_SendMsgByProto("c_get_cross_stage_start_rank_list", data, cb)
+end
+
+--跨服叛军boss荣誉排行   ID = 18
+function MsgChannel:SendGetCrossFeatsRank(data, cb)
+    self:_SendMsgByProto("c_get_cross_traitor_honour_rank_list", data, cb)
+end
+
+--跨服叛军boss最大伤害排行   ID = 19
+function MsgChannel:SendGetCrossMaxHurtRank(data, cb)
+    self:_SendMsgByProto("c_get_cross_max_hurt_rank", data, cb)
+end
+
+--跨服狩猎积分排行   ID = 20
+function MsgChannel:SendGetCrossHuntPointRank(data, cb)
+    self:_SendMsgByProto("c_get_cross_hunt_rank_list", data, cb)
+end
+
+--跨服试炼排行  ID = 21
+function MsgChannel:SendGetTrialCrossRank(data, cb)
+    self:_SendMsgByProto("c_get_cross_train_rank_list", data, cb)
 end
 
 return MsgChannel

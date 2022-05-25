@@ -494,7 +494,7 @@ end
 function TreasureCultivateUI:UpdateStrengthenMaterialList()
     local total_exp = 0
     self.strengthen_cost = 0
-    local select_treasure_count = #self.cur_select_material_guid_lis
+    local select_treasure_count = #self.cur_select_material_guid_list
     self.auto_add_btn:SetActive(select_treasure_count == 0)
     self.treasure_strengthen_btn:SetActive(select_treasure_count > 0)
     for i = 1, kMaxStrengthenMaterialCount do
@@ -689,6 +689,10 @@ function TreasureCultivateUI:AutoAddStrengthenMaterial()
                 if total_exp >= max_exp then break end
             end
         end
+    end
+    --如果不满足等级1级、经验是0，精良是0的装备是不能通过自动添加加入的，所以加了下面的提示框
+    if #self.cur_select_material_guid_list == 0 then
+        SpecMgrs.ui_mgr:ShowMsgBox(UIConst.Text.STRENGTHEN_EMPTY)
     end
     self.cur_select_total_exp = total_exp
     self:UpdateStrengthenMaterialList()

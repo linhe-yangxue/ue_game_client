@@ -38,7 +38,7 @@ function RankActivityInfoUI:Show(rank_activity_id)
     self.rank_activity_data = SpecMgrs.data_mgr:GetRushActivityData(self.rank_activity_id)
     SpecMgrs.msg_mgr:SendGetRankActivityList({rank_name = self.rank_activity_data.rank}, function (resp)
         if resp.errcode ~= 0 then
-            SpecMgrs.ui_mgr:ShowTipMsg(string.format(UIConst.Text.GET_RANK_ACTIVITY_RANK_LIST_FAILED, self.rank_activity_data.name))
+            SpecMgrs.ui_mgr:ShowTipMsg(string.format(UIConst.Text.GET_RANK_ACTIVITY_RANK_LIST_NOTDATE, self.rank_activity_data.name))
         else
             self.rank_list_info = resp
             self:_Show()

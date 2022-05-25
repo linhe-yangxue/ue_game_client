@@ -1377,6 +1377,7 @@ UIConst.Text = {
     TREASURE_REFINE_LIMIT = langlua["当前宝物已到达精炼上限"],
     EQUIPMENT_REFINE_LIMIT = langlua["当前装备已到达精炼上限"],
     EXTRA_ADDITION_FORMAT = langlua["额外加成 +%s"],
+    STRENGTHEN_EMPTY = langlua["暂无符合要求的道具"],
     EXP_UP = langlua["经验+%s"],
     EXP_TREASURE = langlua["经验宝物"],
     ADD_STAR_LIMIT = langlua["当前星级已达上限"],
@@ -2208,6 +2209,7 @@ UIConst.Text = {
     RANK_ACTIVITY_FORMAT = "NO.%s",
     RANK_ACTIVITY_FORMAT2 = "NO.%s-%s",
     GET_RANK_ACTIVITY_RANK_LIST_FAILED = langlua["获取%s排行榜失败"],
+    GET_RANK_ACTIVITY_RANK_LIST_NOTDATE = langlua["获取%s排行榜无数据"],
 
     --VIP 提醒
     BUY_GIFT = langlua["购买礼包"],

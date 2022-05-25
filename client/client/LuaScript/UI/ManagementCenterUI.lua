@@ -664,8 +664,11 @@ function ManagementCenterUI:ShowChangeGradePanel(lover_id)
     local att_sum_str = self:GetLoverAttrContrastStr(lover_id, lover_grade_id + 1, "attr_sum", true)
     self.cgp_attr_text_list["attr_sum"].text = att_sum_str
     for attr_name, v in pairs(serv_lover_data.attr_dict) do
-        local attr_data = SpecMgrs.data_mgr:GetAttributeData(attr_name)
-        self.cgp_attr_text_list[attr_name].text = UIFuncs.ChangeStrColor(v, "Green1")
+        --应该是给情人加时装属性时候加进去了，然后服务器都传过来了，这个样先做个处理吧
+        if attr_name ~= "max_hp" and attr_name ~= "att" and attr_name ~= "def" then
+            local attr_data = SpecMgrs.data_mgr:GetAttributeData(attr_name)
+            self.cgp_attr_text_list[attr_name].text = UIFuncs.ChangeStrColor(v, "Green1")
+        end
     end
     local target_grade_id = self.dy_lover_data:FindGradeDownTarget(serv_lover_data.grade)
     local is_not_lowest_grade = target_grade_id and true or false

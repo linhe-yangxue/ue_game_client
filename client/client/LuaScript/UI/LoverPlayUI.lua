@@ -14,7 +14,7 @@ function LoverPlayUI:DoInit()
     self.prefab_path = "UI/Common/LoverPlayUI"
     self.lover_gift_list = {}
     self.lover_gift_buy_list = {}
-    self.xiong_anim = "xiong"
+    self.xiong_anim = "idle"
     self.anim_transition_time = 0.3
 end
 

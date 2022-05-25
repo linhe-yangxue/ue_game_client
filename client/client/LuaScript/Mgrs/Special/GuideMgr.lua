@@ -42,6 +42,7 @@ function GuideMgr:DoInit()
     self.cur_force_guide_group_id = nil -- 当前指引id  唯一
     self.cur_force_guide_index = nil -- 当前指引组 索引
     self.cur_force_guide_data = nil -- 当前激活强制指引
+    self.cur_func_guide_type = nil
     self.is_first_set_func_guide = true
     self.before_guide_hide_ui_data_list = SpecMgrs.data_mgr:GetAllBeforeGuideHideUIData()
 end
@@ -387,6 +388,7 @@ function GuideMgr:PassGuide()
     for guide_group_id , guide_index in pairs(pass_dict) do
         local first_guide_index = guide_index + 1
         for i = first_guide_index, #(guide_group_list[guide_group_id]) do
+            print("跳过指引才走这里========================")
            SpecMgrs.msg_mgr:SendCompleteGuide({guide_group_id = guide_group_id}, function (resp)
             end)
         end
@@ -410,6 +412,7 @@ function GuideMgr:ClearAll()
     self.cur_force_guide_data = nil
     self.func_guide_group_id = nil
     self.is_first_set_func_guide = true
+    self.cur_func_guide_type = nil --不为nil会影响新手账号卡死
     self:UnregisterAllEvent()
 end
 
