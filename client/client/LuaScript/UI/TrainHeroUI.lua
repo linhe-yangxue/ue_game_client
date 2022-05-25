@@ -998,7 +998,7 @@ function TrainHeroUI:UpdateCultivateItemList(attr_type)
         local cultivate_item = self:GetUIObject(self.cultivate_item, self.cultivate_item_list)
         table.insert(self.cultivate_attr_item_list, cultivate_item)
         cultivate_item:FindChild("Name"):GetComponent("Text").text = item_data.name
-        local item_icon = cultivate_item:FindChild("IconBg/Icon")
+        local item_icon = cultivate_item:FindChild("IconBg/Image/Icon")
         UIFuncs.AssignSpriteByIconID(item_data.icon, item_icon:GetComponent("Image"))
         self:AddClick(item_icon, function ()
             self:SendCultivateHero(cultivate_item, item_data.id)
