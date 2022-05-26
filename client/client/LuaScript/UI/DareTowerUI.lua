@@ -436,7 +436,7 @@ function DareTowerUI:ChangeTowerGo(go, tower_id)
     local treasure_box_parent = stage_name_go:FindChild("TreasureBoxParent")
     if tower_data then
         local _, monster_data, monster_unit_data = MonsterUtil.GetMainMonsterData(tower_data.monster_group_id, tower_data.main_monster_index)
-        self:AssignSpriteByIconID(monster_unit_data.icon, icon_go:FindChild("Image/Boss"):GetComponent("Image"))
+        self:AssignSpriteByIconID(monster_unit_data.icon, icon_go:FindChild("Image/Mask/Boss"):GetComponent("Image"))
         self:AssignSpriteByIconID(monster_unit_data.icon, icon_go:FindChild("Lock/Icon"):GetComponent("Image"))
         icon_go:SetActive(true)
         self:UpdateTower(tower_id)
