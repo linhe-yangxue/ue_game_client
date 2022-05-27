@@ -151,10 +151,11 @@ function PartyRecordUI:InitInviteMsgPanel()
 
     local invite_list = self.dy_party_data:GetReceiveInviteList()
     print("33--",invite_list)
-    local usdata = {}
-    local usertable = {host_info = {uuid = 50000007,name = "小胖",level = 99}}
-    usdata = {usertable}
-    local dddd = table.values(usdata)
+    self:_GetInviteListCb(invite_list)
+    --local usdata = {}
+    --local usertable = {host_info = {uuid = 50000007,name = "小胖",level = 99}}
+    --usdata = {usertable}
+    --local dddd = table.values(usdata)
     --local uuid =
     --local name = "小胖"
     --local level = 99
@@ -164,8 +165,8 @@ function PartyRecordUI:InitInviteMsgPanel()
     --host_info[name] = name
     --host_info[level] = level
     --usertable[host_info] = host_info
-
-    self:_GetInviteListCb(dddd)
+    --
+    --self:_GetInviteListCb(dddd)
 end
 
 function PartyRecordUI:_SetToggle(toggle, is_on)
@@ -185,8 +186,8 @@ function PartyRecordUI:_GetInviteListCb(invite_list)
     for i, party_info in ipairs(invite_list) do
         local go = self:_GetItem(panel_index_map.invite)
         print("qqqqqq--ww",go)
-        --self.ip_item_dict[party_info.host_info.uuid] = go
-        table.insert(self.ip_item_dict, go)
+        self.ip_item_dict[party_info.host_info.uuid] = go
+        --table.insert(self.ip_item_dict, go)
         self:_InitInviteItem(go, party_info)
     end
 end
@@ -194,9 +195,12 @@ end
 function PartyRecordUI:_InitInviteItem(go, party_info)
     local host_info = party_info.host_info
     print("party_info.host_info.name",host_info.name)
+    go:FindChild("PartyInfo/Name"):GetComponent("Text").text = string.format(UIConst.Text.WHO_TEH_PARTY_BELONG, host_info.name)
+    go:FindChild("PartyInfo/Level"):GetComponent("Text").text = string.format(UIConst.Text.LEVEL_FORMAT_TEXT_WITH_GREEN_COLOR, host_info.level)
+
     --go:FindChild("PartyInfo/Name"):GetComponent("Text").text = host_info.name--string.format(UIConst.Text.WHO_TEH_PARTY_BELONG, host_info.name)
-    go:FindChild("PartyInfo/PartyType"):GetComponent("Text").text = host_info.name--string.format(UIConst.Text.WHO_TEH_PARTY_BELONG, host_info.name)
-    go:FindChild("PartyInfo/Level"):GetComponent("Text").text = host_info.level--string.format(UIConst.Text.LEVEL_FORMAT_TEXT_WITH_GREEN_COLOR, host_info.level)
+    --go:FindChild("PartyInfo/PartyType"):GetComponent("Text").text = host_info.name--string.format(UIConst.Text.WHO_TEH_PARTY_BELONG, host_info.name)
+    --go:FindChild("PartyInfo/Level"):GetComponent("Text").text = host_info.level--string.format(UIConst.Text.LEVEL_FORMAT_TEXT_WITH_GREEN_COLOR, host_info.level)
     local max_guest_num = self.party_type_data_list[party_info.party_type_id].guests_max_num
     party_info_go:FindChild("GuestNum"):GetComponent("Text").text = string.format(UIConst.Text.GUEST_NUM, #party_info.guests_list, max_guest_num)
     local param_tb = {go = go:FindChild("Icon/Item"), role_id = host_info.role_id}

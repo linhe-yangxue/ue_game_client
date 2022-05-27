@@ -30,6 +30,7 @@ function PartyData:DoInit()
 end
 
 function PartyData:NotifyUpdatePartyInfo(msg)
+    print("派对信息服务器主动推送=======",msg)
     if msg.party_info then -- 自己派对信息
         self.party_info = msg.party_info
         self:DispatchUpdatePartyInfo(self.party_info)
@@ -79,9 +80,9 @@ function PartyData:GetReceiveInviteDict()
 end
 
 function PartyData:GetReceiveInviteList()
-    print("9999--",self)
-    return table.values(self.receive_invite_dict)
-    --return table.values(self.join_party_info)
+    print("9999--",self.join_party_info)
+    --return table.values(self.receive_invite_dict)
+    return table.values(self.join_party_info)
 end
 
 function PartyData:ShowPartyEnd(party_info)
