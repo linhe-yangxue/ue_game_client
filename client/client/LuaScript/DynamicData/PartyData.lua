@@ -82,7 +82,8 @@ end
 function PartyData:GetReceiveInviteList()
     print("9999--",self.join_party_info)
     --return table.values(self.receive_invite_dict)
-    return table.values(self.join_party_info)
+    --return table.values(self.join_party_info)
+    return self.join_party_info
 end
 
 function PartyData:ShowPartyEnd(party_info)

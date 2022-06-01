@@ -247,7 +247,6 @@ end
 
 function PartyInfoUI:InitGuestGo(go, guest_info)
     go:FindChild("Player/Text"):GetComponent("Text").text = guest_info.role_info.name
-    print("1234----",guest_info)
     local server_data = SpecMgrs.data_mgr:GetServerData(guest_info.role_info.server_id)
     local guest_gift_data = SpecMgrs.data_mgr:GetPartyGiftData(guest_info.gift_id)
     go:FindChild("Server/Text"):GetComponent("Text").text = server_data.name

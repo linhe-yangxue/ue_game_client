@@ -81,15 +81,16 @@ function LoginUI:InitRes()
     --end)
     -- 公告内容
     local all_notice_panel = notice_content:FindChild("AllServerPanel")
+    self.title_name = all_notice_panel:FindChild("Title/titleName")
     self.area_content = all_notice_panel:FindChild("SelectArea/View/Content")
     self.area_pref1 = self.area_content:FindChild("AreaPref")
     self.area_pref2 = self.area_pref1:FindChild("AreaName")
     self.download_url = SpecMgrs.sdk_mgr:GetSDKInfo("announcement_url_android")
     SpecMgrs.http_mgr:Request(self.download_url, function(http)
-        print("公告数据----",http)
         if http.isDone then
-            print("公告数据111----",http.data)
-            self.area_pref2:GetComponent("Text").text = http.data
+            local announcement_data = json.decode(http.data).notice
+            self.title_name:GetComponent("Text").text = announcement_data[1].title
+            self.area_pref2:GetComponent("Text").text = announcement_data[1].content
         end
     end)
 
@@ -103,7 +104,6 @@ function LoginUI:InitRes()
     self.confirm_btn = notice_content:FindChild("ConfirmBtn")
     self.confirm_btn:FindChild("Text"):GetComponent("Text").text = "确认"
     self:AddClick(self.confirm_btn, function ()
-        print("确认游戏-----")
         self.notice_panel:SetActive(false)
     end)
 
@@ -151,15 +151,11 @@ function LoginUI:InitRes()
     self.black_bg = self.main_panel:FindChild("BlackBg")
 end
 
-function LoginUI:InitUI()
-    print("account_info---------",self)
+function LoginUI:InitUI(
     local account_info = self.is_sdk_login and self.dy_data_mgr:ExGetAccountInfo()
     self.black_bg:SetActive(self.is_sdk_login and not account_info)
-    print("account_info",PlayerPrefs.GetString("LOGIN_ACCOUNT", ""))
     local account = account_info and account_info.username or PlayerPrefs.GetString("LOGIN_ACCOUNT", "")
-    print("account",account)
     if account == "" then
-        print("self.cur_account",self.cur_account)
         self.cur_account = math.random(1, 99999999)   --self.cur_account ..  
     end
     self.cur_account = account

@@ -4,7 +4,7 @@ return {
         [ "ch_key" ] = "武器",
         [ "name" ] = langexcel["武器"],
         [ "part_type" ] = 1,
-        [ "unlock_level" ] = 20,
+        [ "unlock_level" ] = 15,
         [ "show_level" ] = 5,
     },
     [ 2 ] = {
@@ -12,7 +12,7 @@ return {
         [ "ch_key" ] = "头盔",
         [ "name" ] = langexcel["头盔"],
         [ "part_type" ] = 1,
-        [ "unlock_level" ] = 20,
+        [ "unlock_level" ] = 15,
         [ "show_level" ] = 5,
     },
     [ 3 ] = {

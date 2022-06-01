@@ -246,23 +246,27 @@ end
 function JoinPartyUI:SendPartyJoin(lover_id, party_id, gift_id)
     if not self.dy_party_data:CheckLoverCanJoinParty(lover_id, true) then return end
     local param_tb = {lover_id = lover_id, gift_id = gift_id, party_id = party_id}
-    SpecMgrs.msg_mgr:SendMsg("SendPartyJoin", param_tb, function(resp)
-        if resp.end_type then
-            SpecMgrs.ui_mgr:ShowMsgSelectBox({content = UIConst.Text.CUR_PARTY_ALREADY_END, is_show_cancel_btn = false, confirm_cb = function ()
-                SpecMgrs.ui_mgr:HideUI(self)
-                SpecMgrs.ui_mgr:HideUI("PartyInfoUI")
-            end})
+    SpecMgrs.msg_mgr:SendPartyJoin(param_tb, function(resp)
+        if resp.errcode ~= 0 then
+            SpecMgrs.ui_mgr:ShowMsgBox(UIConst.Text.PARTY_ONLY_ONE)
         else
-            SpecMgrs.ui_mgr:HideUI(self)
-            local select_ui = SpecMgrs.ui_mgr:GetUI("SelectPartyUI")
-            if select_ui then
-                select_ui:Hide()
+            if resp.end_type then
+                SpecMgrs.ui_mgr:ShowMsgSelectBox({content = UIConst.Text.CUR_PARTY_ALREADY_END, is_show_cancel_btn = false, confirm_cb = function ()
+                    SpecMgrs.ui_mgr:HideUI(self)
+                    SpecMgrs.ui_mgr:HideUI("PartyInfoUI")
+                end})
+            else
+                SpecMgrs.ui_mgr:HideUI(self)
+                local select_ui = SpecMgrs.ui_mgr:GetUI("SelectPartyUI")
+                if select_ui then
+                    select_ui:Hide()
+                end
+                SpecMgrs.ui_mgr:HideUI("SelectPartyUI")
+                local party_info = self.dy_party_data:GetJoinPartyInfo()
+                SpecMgrs.ui_mgr:ShowUI("PartyInfoUI", party_info)
+                local lover_level = ComMgrs.dy_data_mgr.lover_data:GetServLoverDataById(lover_id).level
+                SpecMgrs.ui_mgr:ShowUI("JoinPartySuccessUI", self.cur_party_gift_id, lover_level)
             end
-            SpecMgrs.ui_mgr:HideUI("SelectPartyUI")
-            local party_info = self.dy_party_data:GetJoinPartyInfo()
-            SpecMgrs.ui_mgr:ShowUI("PartyInfoUI", party_info)
-            local lover_level = ComMgrs.dy_data_mgr.lover_data:GetServLoverDataById(lover_id).level
-            SpecMgrs.ui_mgr:ShowUI("JoinPartySuccessUI", self.cur_party_gift_id, lover_level)
         end
     end)
 end

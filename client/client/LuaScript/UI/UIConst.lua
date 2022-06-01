@@ -600,6 +600,7 @@ UIConst.Text = {
     END_PARTY = langlua["结束派对"],
     JOIN_PARTY = langlua["出席派对"],
     PARTY_INFO = langlua["派对信息"],
+    PARTY_ONLY_ONE = langlua["同一派对不能参加多次"],
     PARTY_DEFAULT_TEXT = langlua["BOSS，是举办派对还是出席派对呢？"],
     MY_PARTY_IN_PROGRESS = langlua["BOSS，派对正在进行中，请点击查看"],
     MY_PARTY_END = langlua["BOSS，派对已经结束，请点击查看领取积分"],

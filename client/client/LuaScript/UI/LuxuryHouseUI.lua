@@ -217,7 +217,8 @@ function LuxuryHouseUI:CreateMarryChildMes()
             self.spouse_selector:SelectObj(1, true)
         end
     end)
-    local show_count = #self.marry_child_list > self.scroll_show_count and self.scroll_show_count or #self.marry_child_list
+    --local show_count = #self.marry_child_list > self.scroll_show_count and self.scroll_show_count or #self.marry_child_list
+    local show_count = #self.marry_child_list
     self.marry_list_view_comp:Start(#self.marry_child_list, show_count)
 end
 
@@ -265,7 +266,8 @@ function LuxuryHouseUI:CreateUnMarryChildMes(reselect_index)
         end
     end)
 
-    local show_count = #self.unmarry_child_list > self.scroll_show_count and self.scroll_show_count or #self.unmarry_child_list
+    --local show_count = #self.unmarry_child_list > self.scroll_show_count and self.scroll_show_count or #self.unmarry_child_list
+    local show_count = #self.unmarry_child_list
     self.unmarry_list_view_comp:Start(#self.unmarry_child_list, show_count)
 end
 

@@ -177,9 +177,13 @@ function HoldPartyUI:SendPartyStart(lover_id, party_type_id, is_private)
         SpecMgrs.ui_mgr:ShowUI("PartyInfoUI", party_info)
     end
     local param_tb = {lover_id = lover_id, party_type_id = party_type_id, is_private}
-    SpecMgrs.msg_mgr:SendMsg("SendPartyStart", param_tb, function(resp)
-        if self.wait_for_serv_cb then
-            self.wait_for_serv_cb(resp.party_info)
+    SpecMgrs.msg_mgr:SendPartyStart(param_tb, function(resp)
+        if resp.errcode ~= 1 then
+            if self.wait_for_serv_cb then
+                self.wait_for_serv_cb(resp.party_info)
+            end
+        else
+            SpecMgrs.ui_mgr:ShowMsgBox(UIConst.Text.PARTY_ONLY_ONE)
         end
     end)
 end

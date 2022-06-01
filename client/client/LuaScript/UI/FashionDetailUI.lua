@@ -10,7 +10,7 @@ local sync_num = 9
 
 --local anim_duration = 0.3
 --local redpoint_v2 = Vector2.New(1, 1)
---local create_effect_interval = 0.5
+local create_effect_interval = 0.5
 --local power_control_id_list = {CSConst.RedPointControlIdDict.LoverSkill}
 --local star_control_id_list = {CSConst.RedPointControlIdDict.LoverStar}
 
@@ -107,7 +107,7 @@ function FashionDetailUI:InitRes()
     self.diamond_date_btn = self.main_panel:FindChild("MiddleFrame/DiamondDateBtn")
 
 
-    --self.effect_point = self.main_panel:FindChild("EffectPoint")
+    self.effect_point = self.main_panel:FindChild("EffectPoint")
     self.lover_attr = self.main_panel:FindChild("MiddleFrame/LoverAttr")
     self.certmony_attr = self.lover_attr:FindChild("CeremonyAttr")
     self.ceremony_num_text = self.lover_attr:FindChild("CeremonyAttr/ValText"):GetComponent("Text")
@@ -218,8 +218,8 @@ function FashionDetailUI:InitRes()
 end
 
 function FashionDetailUI:InitUI()
-    --self.can_create_send_gift_effect = true
-    --self.send_gift_effect_id = SpecMgrs.data_mgr:GetParamData("give_lover_gift").effect_id
+    self.can_create_send_gift_effect = true
+    self.send_gift_effect_id = SpecMgrs.data_mgr:GetParamData("give_lover_gift").effect_id
     self.cur_select_item_list = nil
 
     self.last_score = ComMgrs.dy_data_mgr:ExGetRoleScore()
@@ -557,39 +557,39 @@ function FashionDetailUI:UpdateMiddlePropertyFrame()
 end
 
 function FashionDetailUI:UpdateLoverInfo(need_anim)
-    --local attr_dict = self.lover_info.attr_dict
-    --local total_attribute = self.lover_data:GetLoverAllAttr(self.lover_id)
-    --local cur_level_need_exp = self.data_mgr:GetLoverLevelData(self.lover_info.level).exp
-    --local grade = self.lover_info.grade
-    --local real_exp = self.lover_info.exp - cur_level_need_exp
+    local attr_dict = self.lover_info.attr_dict
+    local total_attribute = self.lover_data:GetLoverAllAttr(self.lover_id)
+    local cur_level_need_exp = self.data_mgr:GetLoverLevelData(self.lover_info.level).exp
+    local grade = self.lover_info.grade
+    local real_exp = self.lover_info.exp - cur_level_need_exp
     --
-    --local fill_amount = 0
-    --local slider_text
-    --if self.lover_info.level < self.max_level then
-    --    local upgrade_need_exp = self.data_mgr:GetLoverLevelData(self.lover_info.level + 1).exp - self.data_mgr:GetLoverLevelData(self.lover_info.level).exp
-    --    fill_amount = real_exp / upgrade_need_exp
-    --    slider_text = string.format(UIConst.Text.SPRIT, real_exp, upgrade_need_exp)
-    --else
-    --    fill_amount = 1
-    --    slider_text = UIConst.Text.MAX_TEXT
-    --end
-    --if need_anim then
-    --    local old_level = tonumber(self.intimacy_level_text.text)
-    --    local fill_time = self.lover_info.level - old_level
-    --    fill_time = math.clamp(fill_time, 0, 1)
-    --    self.slider_anim:SetTargetVal(fill_amount, fill_time)
-    --    if self.can_create_send_gift_effect then
-    --        local param_tb = {
-    --            effect_id = self.send_gift_effect_id,
-    --            life_time = 1,
-    --        }
-    --        self:AddUIEffect(self.effect_point, param_tb)
-    --        self.can_create_send_gift_effect = false
-    --        self:AddTimer(function()
-    --            self.can_create_send_gift_effect = true
-    --        end, create_effect_interval, 1)
-    --    end
-    --end
+    local fill_amount = 0
+    local slider_text
+    if self.lover_info.level < self.max_level then
+        local upgrade_need_exp = self.data_mgr:GetLoverLevelData(self.lover_info.level + 1).exp - self.data_mgr:GetLoverLevelData(self.lover_info.level).exp
+        fill_amount = real_exp / upgrade_need_exp
+        slider_text = string.format(UIConst.Text.SPRIT, real_exp, upgrade_need_exp)
+    else
+        fill_amount = 1
+        slider_text = UIConst.Text.MAX_TEXT
+    end
+    if need_anim then
+        --local old_level = tonumber(self.intimacy_level_text.text)
+        --local fill_time = self.lover_info.level - old_level
+        --fill_time = math.clamp(fill_time, 0, 1)
+        --self.slider_anim:SetTargetVal(fill_amount, fill_time)
+        if self.can_create_send_gift_effect then
+            local param_tb = {
+                effect_id = self.send_gift_effect_id,
+                life_time = 1,
+            }
+            self:AddUIEffect(self.effect_point, param_tb)
+            self.can_create_send_gift_effect = false
+            self:AddTimer(function()
+                self.can_create_send_gift_effect = true
+            end, create_effect_interval, 1)
+        end
+    end
     --self.intimacy_slider_image.fillAmount = fill_amount
     --self.intimacy_slider_text.text = slider_text
     --self.power_point_text.text = self.lover_info.power_value

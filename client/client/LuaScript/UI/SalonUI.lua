@@ -50,7 +50,7 @@ function SalonUI:InitRes()
         local salon_area_data = {}
         local join_btn = area_content:FindChild("JoinBtn")
         salon_area_data.join_btn = join_btn
-        salon_area_data.lover_icon = join_btn:FindChild("Mask/LoverIcon")
+        salon_area_data.lover_icon = join_btn:FindChild("LoverIcon")
         salon_area_data.red_point = join_btn:FindChild("NamePanel/RedPoint")
         salon_area_data.join_img = join_btn:FindChild("JoinImg")
         area_content:FindChild("NamePanel/Name"):GetComponent("Text").text = area_data.name
