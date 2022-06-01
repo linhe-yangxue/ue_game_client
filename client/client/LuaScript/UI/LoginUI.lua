@@ -151,7 +151,7 @@ function LoginUI:InitRes()
     self.black_bg = self.main_panel:FindChild("BlackBg")
 end
 
-function LoginUI:InitUI(
+function LoginUI:InitUI()
     local account_info = self.is_sdk_login and self.dy_data_mgr:ExGetAccountInfo()
     self.black_bg:SetActive(self.is_sdk_login and not account_info)
     local account = account_info and account_info.username or PlayerPrefs.GetString("LOGIN_ACCOUNT", "")
