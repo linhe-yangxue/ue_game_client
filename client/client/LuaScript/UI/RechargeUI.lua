@@ -102,7 +102,7 @@ function RechargeUI:UpdateVipInfo()
 end
 
 function RechargeUI:SetItemMes(item, data)
-    item:FindChild("RechargeBtn/RechargeBtnText"):GetComponent("Text").text = string.format(UIConst.Text.MONEY_FORMAT, data.recharge_count)
+    item:FindChild("RechargeBtn/RechargeBtnText"):GetComponent("Text").text = data.recharge_count  --string.format(UIConst.Text.MONEY_FORMAT, data.recharge_count)
     self:AddClick(item:FindChild("RechargeBtn"), function()
         self:SendRecharge(item, data)
     end)

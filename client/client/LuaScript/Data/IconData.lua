@@ -5423,6 +5423,48 @@ return {
         [ "res_path" ] = "UIRes/Common/Icon/Welfare/flhd_icon_18",
         [ "res_name" ] = "flhd_icon_18",
     },
+    [ 2800030 ] = {
+        [ "id" ] = 2800030,
+        [ "ch_key" ] = "精良装备",
+        [ "res_path" ] = "UIRes/Common/Icon/Welfare/jingliangzhuangbei_icon",
+        [ "res_name" ] = "jingliangzhuangbei_icon",
+    },
+    [ 2800031 ] = {
+        [ "id" ] = 2800031,
+        [ "ch_key" ] = "精锐头目",
+        [ "res_path" ] = "UIRes/Common/Icon/Welfare/jingruitoumu_icon",
+        [ "res_name" ] = "jingruitoumu_icon",
+    },
+    [ 2800032 ] = {
+        [ "id" ] = 2800032,
+        [ "ch_key" ] = "神秘宝物",
+        [ "res_path" ] = "UIRes/Common/Icon/Welfare/shenmibaowu_icon",
+        [ "res_name" ] = "shenmibaowu_icon",
+    },
+    [ 2800033 ] = {
+        [ "id" ] = 2800033,
+        [ "ch_key" ] = "性感佳人",
+        [ "res_path" ] = "UIRes/Common/Icon/Welfare/xingganjiaren_icon",
+        [ "res_name" ] = "xingganjiaren_icon",
+    },
+    [ 2800034 ] = {
+        [ "id" ] = 2800034,
+        [ "ch_key" ] = "激情视频",
+        [ "res_path" ] = "UIRes/Common/Icon/Welfare/jiqingshipin_icon",
+        [ "res_name" ] = "jiqingshipin_icon",
+    },
+    [ 2800035 ] = {
+        [ "id" ] = 2800035,
+        [ "ch_key" ] = "情人礼包",
+        [ "res_path" ] = "UIRes/Common/Icon/Welfare/qingrenlibao_icon",
+        [ "res_name" ] = "qingrenlibao_icon",
+    },
+    [ 2800036 ] = {
+        [ "id" ] = 2800036,
+        [ "ch_key" ] = "英雄礼包",
+        [ "res_path" ] = "UIRes/Common/Icon/Welfare/yingxionglibao_icon",
+        [ "res_name" ] = "yingxionglibao_icon",
+    },
     [ 2900001 ] = {
         [ "id" ] = 2900001,
         [ "ch_key" ] = "水晶商店1",
