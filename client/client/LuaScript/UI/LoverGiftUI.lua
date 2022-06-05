@@ -305,11 +305,12 @@ function LoverGiftUI:UpdateLoverInfo(item,index,activity_list)
     end)
     --购买Button，购买完毕走主动推送进行更新
     self:AddClick(lover_gift_buy, function ()
-        SpecMgrs.msg_mgr:SendLoverPurchase({package_id = lover_info.id}, function (resp)
-            if resp.errcode == 0 then
-                SpecMgrs.ui_mgr:ShowUI("CommonRewardUI",item_list)
-            end
-        end)
+        -- SpecMgrs.msg_mgr:SendLoverPurchase({package_id = lover_info.id}, function (resp)
+        --     if resp.errcode == 0 then
+        --         SpecMgrs.ui_mgr:ShowUI("CommonRewardUI",item_list)
+        --     end
+        -- end)
+        self:SendCreateLoverOrder(lover_info);
     end)
 
     --礼包副标题
@@ -322,27 +323,27 @@ function LoverGiftUI:UpdateLoverInfo(item,index,activity_list)
 
 end
 
---function LoverGiftUI:SendCreateLoverOrder(data)
---    local cb = function(resp)
---        print("create order callback", resp)
---        if resp.errcode == 0 then
---            SpecMgrs.sdk_mgr:JGGPay({
---                call_back_url = resp.call_back_url,
---                itemId = data.lover_id,
---                itemName = data.activity_name,
---                desc = data.activity_name,
---                unitPrice = data.price,
---                quantity = 1,
---                type = 3,
---            })
---        end
---    end
---    SpecMgrs.msg_mgr:SendCreateOrder({package_id = data.lover_id}, cb)
---end
---
---function LoverGiftUI:RechargeSuccess()
---    print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.data)
---end
+function LoverGiftUI:SendCreateLoverOrder(data)
+   local cb = function(resp)
+       print("create order callback", resp)
+       if resp.errcode == 0 then
+           SpecMgrs.sdk_mgr:JGGPay({
+               call_back_url = resp.call_back_url,
+               itemId = data.id,
+               itemName = data.activity_name_sec,
+               desc = data.activity_name_sec,
+               unitPrice = data.discount,
+               quantity = 1,
+               type = 3,
+           })
+       end
+   end
+   SpecMgrs.msg_mgr:SendCreateLoverOrder({package_id = data.id}, cb)
+end
+
+function LoverGiftUI:RechargeSuccess()
+   print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.data)
+end
 
 --更新左右button信息
 function LoverGiftUI:ChangeLoverInfo(index)

@@ -1384,7 +1384,7 @@ function MsgChannel:SendCreateLoverOrder(data, cb)
     self:_SendMsgByProto("create_lover_order", data, cb)
 end
 
--- 情人购买创建订单
+-- 英雄购买创建订单
 function MsgChannel:SendCreateHeroOrder(data, cb)
     self:_SendMsgByProto("create_hero_order", data, cb)
 end
