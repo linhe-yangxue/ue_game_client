@@ -89,6 +89,9 @@ function DynastyData:NotifyKickedOutDynasty(msg)
 end
 
 function DynastyData:NotifyUpdateMemberApplyDict(msg)
+    if msg.member_dict then
+        self.member_dict = msg.member_dict
+    end
     if msg.apply_dict then
         self.dynasty_apply_dict = msg.apply_dict
         self:_UpdateApplyRedPoint()
@@ -97,11 +100,14 @@ function DynastyData:NotifyUpdateMemberApplyDict(msg)
 end
 
 function DynastyData:NotifyUpdateMemberJob(msg)
+    --if msg.member_dict then
+    --    self.member_dict = msg.member_dict
+    --end
     local self_uuid = ComMgrs.dy_data_mgr:ExGetRoleUuid()
     if self.member_dict and self.member_dict[self_uuid] then
         self.member_dict[self_uuid].job = msg.job
         local job_data = SpecMgrs.data_mgr:GetDynastyJobData(msg.job)
-        SpecMgrs.ui_mgr:ShowTipMsg(string.format(UIConst.Text.DYNASTY_JOB_CHANGE_FORMAT, job_data.name))
+        --SpecMgrs.ui_mgr:ShowTipMsg(string.format(UIConst.Text.DYNASTY_JOB_CHANGE_FORMAT, job_data.name))
         self:_UpdateApplyRedPoint()
         self:DispatchUpdateDynastyJobEvent()
     end
@@ -625,8 +631,9 @@ end
 function DynastyData:_UpdateApplyRedPoint()
     local count = 0
     local self_info = self:GetSelfInfo()
+
     if not self_info then return end
-    if not SpecMgrs.data_mgr:GetDynastyJobData(self_info.job).is_manager then
+    if SpecMgrs.data_mgr:GetDynastyJobData(self_info.job).is_manager then
         for _, info in pairs(self.dynasty_apply_dict) do
             count = count + 1
         end
