@@ -34,6 +34,7 @@ function HeroGiftUI:DoInit()
     self.seat_to_model = {} -- 模型
     self.mid_go_list = {}
     self.cmd_count_text = {}
+    self.item_list = {}
 end
 
 function HeroGiftUI:OnGoLoadedOk(res_go)
@@ -264,6 +265,7 @@ function HeroGiftUI:UpdateHeroInfo(item,index,activity_list)
         self:Hide()
     end)
     --购买Button，购买完毕走主动推送进行更新
+
     self:AddClick(lover_gift_buy, function ()
         -- SpecMgrs.msg_mgr:SendHeroPurchase({package_id = hero_info.id},function (resp)
         --     if resp.errcode == 0 then
@@ -284,6 +286,7 @@ function HeroGiftUI:UpdateHeroInfo(item,index,activity_list)
 end
 
 function HeroGiftUI:SendCreateHeroOrder(data)
+    self.itemlist = data.item_list;
    local cb = function(resp)
        print("create order callback", resp)
        if resp.errcode == 0 then
@@ -302,7 +305,8 @@ function HeroGiftUI:SendCreateHeroOrder(data)
 end
 
 function HeroGiftUI:RechargeSuccess()
-   print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.data)
+   print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.itemlist)
+   SpecMgrs.ui_mgr:ShowUI("CommonRewardUI",self.itemlist)
 end
 
 --更新左右button信息

@@ -35,6 +35,7 @@ function LoverGiftUI:DoInit()
     self.seat_to_model = {} -- 模型
     self.mid_go_list = {}
     self.cmd_count_text = {}
+    self.itemlist = {}
 end
 
 function LoverGiftUI:OnGoLoadedOk(res_go)
@@ -303,6 +304,7 @@ function LoverGiftUI:UpdateLoverInfo(item,index,activity_list)
     self:AddClick(item:FindChild("CloseBtn"), function ()
         self:Hide()
     end)
+    
     --购买Button，购买完毕走主动推送进行更新
     self:AddClick(lover_gift_buy, function ()
         -- SpecMgrs.msg_mgr:SendLoverPurchase({package_id = lover_info.id}, function (resp)
@@ -324,6 +326,7 @@ function LoverGiftUI:UpdateLoverInfo(item,index,activity_list)
 end
 
 function LoverGiftUI:SendCreateLoverOrder(data)
+    self.itemlist = data.item_list;
    local cb = function(resp)
        print("create order callback", resp)
        if resp.errcode == 0 then
@@ -342,7 +345,8 @@ function LoverGiftUI:SendCreateLoverOrder(data)
 end
 
 function LoverGiftUI:RechargeSuccess()
-   print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.data)
+   print("RechargeSuccess>>>>>>>>>>>>>>>>>>>>>", self.itemlist)
+   SpecMgrs.ui_mgr:ShowUI("CommonRewardUI",self.itemlist)
 end
 
 --更新左右button信息

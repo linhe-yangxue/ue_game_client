@@ -71,6 +71,7 @@ function MonthCardUI:SetCardMes(item, data)
         -- end
         -- SpecMgrs.msg_mgr:SendMsg("SendBuyMonthlyCard", {card_id = data.id}, cb)
 
+        self.data = data;
         --jgg pay
         local cb = function(resp)
             print("create order callback", resp)
@@ -98,7 +99,7 @@ function MonthCardUI:SetCardMes(item, data)
 end
 
 function MonthCardUI:RechargeSuccess()
-    local item_list = {{item_id = CSConst.Virtual.VIPExp, count = data.add_vip_exp}, {item_id = data.item_id, count = data.add_item_num}}
+    local item_list = {{item_id = CSConst.Virtual.VIPExp, count = self.data.add_vip_exp}, {item_id = self.data.item_id, count = self.data.add_item_num}}
     UIFuncs.ShowGetRewardItemByItemList(item_list)
 end
 
