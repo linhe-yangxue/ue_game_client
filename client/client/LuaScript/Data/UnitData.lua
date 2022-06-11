@@ -241,6 +241,7 @@ return {
         [ "name" ] = "战斧叛徒",
         [ "res_path" ] = "Unit/Hero/hero_bier/bier_pb",
         [ "default_anim" ] = "idle",
+        [ "icon" ] = 10042,
         [ "oriented" ] = 1,
     },
     [ 3020 ] = {
@@ -321,6 +322,7 @@ return {
         [ "name" ] = "莉莲",
         [ "res_path" ] = "Unit/Hero/hero_meier/meier_pb",
         [ "default_anim" ] = "idle",
+        [ "icon" ] = 10029,
         [ "oriented" ] = 1,
     },
     [ 3030 ] = {

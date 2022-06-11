@@ -4,6 +4,8 @@ local UnitConst = require("Unit.UnitConst")
 local GConst = require("GlobalConst")
 local LoginUI = class("UI.LoginUI", UIBase)
 
+local AssetBundleConst = AssetBundles.AssetBundleConst
+
 LoginUI.need_sync_load = true
 local kRecommendServer = 55 -- 推荐服务器
 
@@ -93,8 +95,8 @@ function LoginUI:InitRes()
             self.area_pref2:GetComponent("Text").text = announcement_data[1].content
         end
     end)
-
-    --"抵制不良游戏, 拒绝盗版游戏。 注意自我保护, 谨防受骗上当。 适度游戏益脑, 沉迷游戏伤身。 合理安排时间, 享受健康生活。"
+    self.game_version = enter_panel:FindChild("GameVersion")
+    self.game_version:GetComponent("Text").text = "版本号：" .. PlayerPrefs.GetString("GAME_VERSION", "")
 
     --self.partition_list_content = all_notice_panel:FindChild("PartitionList/View/Content")
     --self.partition_pref = self.partition_list_content:FindChild("PartitionPref")

@@ -10,7 +10,8 @@ local RectTransformUtility = UnityEngine.RectTransformUtility
 
 local UpdateUI = class("UI.UpdateUI", UIBase)
 
-UpdateUI.download_url_base = SpecMgrs.sdk_mgr:GetSDKInfo("patch_server_url")
+--UpdateUI.download_url_base = SpecMgrs.sdk_mgr:GetSDKInfo("patch_server_url")
+UpdateUI.version_url_android = SpecMgrs.sdk_mgr:GetSDKInfo("version_url_android")
 UpdateUI.download_path = Application.persistentDataPath .. "/download/"
 UpdateUI.download_list_filename = "_DownloadList.txt"
 
@@ -22,7 +23,8 @@ end
 function UpdateUI:OnGoLoadedOk(res_go)
     UpdateUI.super.OnGoLoadedOk(self, res_go)
     self:InitRes()
-    coroutine.start(self.StartUpdate, self)
+    self:GameVersionInfo()   --获取游戏版本、热更信息
+    --coroutine.start(self.StartUpdate, self)
 end
 
 function UpdateUI:Hide()
@@ -41,6 +43,10 @@ function UpdateUI:InitRes()
     self.error_content:FindChild("Box/Top/Text"):GetComponent("Text").text = UIConst.Text.TIP
     self.error_content:FindChild("Box/ConfirmBtn/Text"):GetComponent("Text").text = UIConst.Text.CONFIRM
     self.error_content_text_comp = self.error_content:FindChild("Box/Content"):GetComponent("Text")
+    self.force_update_content = self.main_panel:FindChild("ForceUpdateContent")
+    self.force_update_content:FindChild("Box/Top/Text"):GetComponent("Text").text = UIConst.Text.TIP
+    self.force_update_content:FindChild("Box/ConfirmBtn/Text"):GetComponent("Text").text = UIConst.Text.CONFIRM
+    self.force_update_content_text = self.force_update_content:FindChild("Box/Content"):GetComponent("Text")
 
     self:AddClick(self.tips_content:FindChild("Box/ConfirmBtn"), function()
         self.tips_content:SetActive(false)
@@ -53,6 +59,11 @@ function UpdateUI:InitRes()
         coroutine.start(self._RestartGame, self)
         self.error_tips = nil
     end)
+
+    self:AddClick(self.force_update_content:FindChild("Box/ConfirmBtn"), function()
+        self.force_update_content:SetActive(false)
+        Application.Quit()
+    end)
 end
 
 function UpdateUI:StartUpdate()
@@ -60,8 +71,9 @@ function UpdateUI:StartUpdate()
     self.tips_content:SetActive(false)
     self.progress_bar:SetActive(false)
     self.error_content:SetActive(false)
+    self.force_update_content:SetActive(false)
     self.simulate_mode = GameResourceMgr.IsSimulateMode()
-    if self.simulate_mode or UpdateUI.download_url_base == "" then
+    if self.simulate_mode or self.download_url_base == "" then
         self:StartLogin()
         return
     end
@@ -95,9 +107,32 @@ function UpdateUI:StartUpdate()
     self:DownLoadMsg()
 end
 
+function UpdateUI:GameVersionInfo()
+    SpecMgrs.http_mgr:Request(self.version_url_android, function(http)
+        if http.isDone then
+            self.version_info = json.decode(http.text)
+            self.download_url_base = self.version_info.url
+            self.game_version = self.version_info.version
+            self.force_content = self.version_info.context
+            self.force_version = tonumber(self.version_info.state)
+            PlayerPrefs.SetString("RESOURCE_UPDATE_URL", self.download_url_base)
+            PlayerPrefs.SetString("GAME_VERSION", self.game_version)
+            if self.force_version == 0 then
+                coroutine.start(self.StartUpdate, self)
+            else
+                self:ForceUpdateGame()
+            end
+        end
+    end)
+end
+
+function UpdateUI:ForceUpdateGame()
+    self.force_update_content:SetActive(true)
+    self.force_update_content_text.text = self.force_content
+end
+
 function UpdateUI:StartLogin()
-    print("UpdateUI:StartLogin()111=================")
-    -- SpecMgrs.sdk_mgr:Login()
+    --SpecMgrs.sdk_mgr:Login()
     SpecMgrs.sdk_mgr:JGGLogin()
     self:Hide()
 end
@@ -126,7 +161,6 @@ function UpdateUI:_StartDownload()
 end
 
 function UpdateUI:_DownloadVersion()
-    print("UpdateUI:_DownloadVersion")
     local new_set
     SpecMgrs.download_mgr:DownloadToFile(
         self.download_url .. AssetBundleConst.set_version_filename,
@@ -173,7 +207,6 @@ function UpdateUI:_DownloadNewSet()
 end
 
 function UpdateUI:_GenFileDiff()
-    print("UpdateUI:_GenFileDiff")
     local new_list = self.new_set:GetList()
     local old_list = self.external_set and self.external_set:GetList() or self.inner_set:GetList()
     local download = {}
@@ -225,7 +258,6 @@ function UpdateUI:CheckDownload(old_item, new_item, lang_ab_name, system_lang)
 end
 
 function UpdateUI:_DownloadDiff()
-    print("UpdateUI:_DownloadDiff")
     local download_mgr = SpecMgrs.download_mgr
     local download_handles = {}
     for k, v in pairs(self.file_diff.download) do
@@ -272,7 +304,6 @@ function UpdateUI:_DownloadDiff()
 end
 
 function UpdateUI:_MoveToExternal()
-    print("UpdateUI:_MoveToExternal",self.file_diff.download)
     local external_path = AssetBundleConst.external_path
     if not IsDirectoryExists(external_path) then
         CreateDirectory(external_path)
@@ -298,7 +329,6 @@ function UpdateUI:_MoveToExternal()
 end
 
 function UpdateUI:_RestartGame()
-    print("UpdateUI:_RestartGame")
     coroutine.wait(0)
     LuaGC()
     coroutine.wait(0)
