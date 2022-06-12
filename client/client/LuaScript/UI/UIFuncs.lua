@@ -628,8 +628,8 @@ function UIFuncs.InitItemGo(param_tb)
         UIFuncs.ChangeItemBgAndFarme(quality_id, item_go:GetComponent("Image"), frame_image, UIConst.IconType.Item)
     end
 
-    print('-----------------------------------')
-    print(item_data)
+    --print('-----------------------------------')
+    --print(item_data)
     --碎片处理
     if item_data.sub_type == CSConst.ItemSubType.EquipmentFragment or item_data.sub_type == CSConst.ItemSubType.LoverFragment or item_data.sub_type == CSConst.ItemSubType.HeroFragment then
         item_go:FindChild("Icon"):SetActive(false)
@@ -662,10 +662,8 @@ function UIFuncs.InitItemGo(param_tb)
             end
         end
     else
-        print("道具与肢体名字2222222==========",item_go.name)
         --阵容界面不是一样的结构，先这样看看效果
         --if item_go.name ~= "EquipParent" then
-            print("道具与肢体名字3333333==========",item_go.name)
             item_go:FindChild("Icon"):SetActive(true)
             local icon_image = item_go:FindChild("Icon"):GetComponent("Image")
             icon_image.material = nil

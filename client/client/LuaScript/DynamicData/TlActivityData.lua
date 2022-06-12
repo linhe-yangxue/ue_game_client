@@ -30,7 +30,6 @@ function TlActivityData:GetOpenActivityList()
             table.insert(ret, activity_data)
         end
     end
-    print("hhhhh--",ret)
     return ret
 end
 

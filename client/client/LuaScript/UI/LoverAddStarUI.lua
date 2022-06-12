@@ -255,8 +255,6 @@ end
 function LoverAddStarUI:InitLoverModel()
     self:RemoveUnitModel()
     self.slide_lover_cmp:ResetLoopOffset()
-    print("当前情人信息-----",SpecMgrs.data_mgr:GetLoverData(self.cur_lover_id))
-    print("当前情人信息11111-----",ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(self.cur_lover_id))
     local cur_fashion_id = ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(self.cur_lover_id).fashion_id
     if cur_fashion_id ==303025 then
         self.cur_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(self.cur_lover_id).unit_id
@@ -270,8 +268,6 @@ function LoverAddStarUI:InitLoverModel()
 
     self.slide_lover_cmp:SetDraggable(#self.lover_list > 1)
     local pre_lover_info = self.lover_list[math.Repeat(self.cur_lover_index - 2, #self.lover_list) + 1]
-    print("前一位情人信息-----",SpecMgrs.data_mgr:GetLoverData(pre_lover_info.lover_id))
-    print("前一位情人信息11111-----",ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(pre_lover_info.lover_id))
     local pre_fashion_id = ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(pre_lover_info.lover_id).fashion_id
     if pre_fashion_id ==303025 then
         self.pre_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(pre_lover_info.lover_id).unit_id
@@ -284,8 +280,6 @@ function LoverAddStarUI:InitLoverModel()
     self.lover_unit_dict[kLoverIndex.Pre] = pre_lover_unit
 
     local next_lover_info = self.lover_list[math.Repeat(self.cur_lover_index, #self.lover_list) + 1]
-    print("后一位情人信息-----",SpecMgrs.data_mgr:GetLoverData(next_lover_info.lover_id))
-    print("后一位情人信息111111-----",ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(next_lover_info.lover_id))
     local next_fashion_id = ComMgrs.dy_data_mgr.lover_data:GetLoverInfo(next_lover_info.lover_id).fashion_id
     if next_fashion_id ==303025 then
         self.next_lover_unit_id = SpecMgrs.data_mgr:GetLoverData(next_lover_info.lover_id).unit_id
