@@ -13,7 +13,7 @@ function LoginStage:DoInit()
     SpecMgrs.guide_mgr:ClearAll()
     ComMgrs.dy_data_mgr:ExSetCurStageType(StageConst.STAGE_Login)
     SpecMgrs.ui_mgr:ShowUI("UpdateUI")
-    SpecMgrs.sound_mgr:PlayBGM(SoundConst.SOUND_ID_Login)
+    --SpecMgrs.sound_mgr:PlayBGM(SoundConst.SOUND_ID_Login)
 end
 
 function LoginStage:DoDestroy()

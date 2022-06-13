@@ -45,6 +45,7 @@ end
 
 function HeroGiftUI:Hide()
     HeroGiftUI.super.Hide(self)
+    ComMgrs.dy_data_mgr:UnregisterHeroGiftInfoEvent("HeroGiftUI")
     self:ClearRes()
 end
 
@@ -199,15 +200,12 @@ function HeroGiftUI:_AddHeroUnit(index, hero_id, hero_left_id, hero_right_id)
     local go = self.mid_go_list[index]
     self:_ClearHeroUnit(index)
     if hero_id then
-        print("当前英雄ID=======",hero_id)
         self.seat_to_model[index] = self:AddHalfUnit(hero_id, go:FindChild("UnitParent")) --AddFullUnit
     end
     if hero_left_id ~= -1 then
-        print("当前英雄ID11111=======",hero_left_id)
         self.seat_to_model[index] = self:AddHalfUnit(hero_left_id, go:FindChild("UnitParentLeft")) --AddFullUnit
     end
     if hero_right_id ~= -1 then
-        print("当前英雄ID2222222=======",hero_right_id)
         self.seat_to_model[index] = self:AddHalfUnit(hero_right_id, go:FindChild("UnitParentRight")) --AddFullUnit
     end
 

@@ -933,6 +933,7 @@ function CityStageUI:BeginSweep(stage_id)
     sp_reward_go:FindChild("Titile/Text"):GetComponent("Text").text = UIConst.Text.TOTAL_GET
     SpecMgrs.msg_mgr:SendSweepBossStage({stage_id = stage_id}, function(resp)
         self:SendSweepBossStageCb(resp)
+
     end)
 end
 
@@ -967,6 +968,10 @@ function CityStageUI:SendSweepBossStageCb(resp)
         if not self.is_level_up and self.cur_sweep_time <= self.sp_sweep_time then
             self.sweep_timer = 0 -- 继续扫荡
         else
+            --单次扫荡放开遮罩
+            if self.cur_sweep_time == 2 then
+                self:EndScrollSweepPanel()
+            end
             self:SweepEnd()
         end
     end
