@@ -87,6 +87,11 @@ function LoginUI:InitRes()
     self.area_content = all_notice_panel:FindChild("SelectArea/View/Content")
     self.area_pref1 = self.area_content:FindChild("AreaPref")
     self.area_pref2 = self.area_pref1:FindChild("AreaName")
+    coroutine.start(function ()
+        coroutine.wait(0.5)
+        self.notice_panel:SetActive(true)
+    end)
+
     self.download_url = SpecMgrs.sdk_mgr:GetSDKInfo("announcement_url_android")
     SpecMgrs.http_mgr:Request(self.download_url, function(http)
         if http.isDone then

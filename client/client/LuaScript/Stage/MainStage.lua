@@ -11,6 +11,8 @@ function MainStage:DoInit()
     ComMgrs.dy_data_mgr:ExSetCurStageType(StageConst.STAGE_UnderworldHeadquarters)
     SpecMgrs.ui_mgr:ShowUI("MainSceneUI")
     SpecMgrs.sound_mgr:PlayBGM(SoundConst.SOUND_ID_MainScene)
+    --切换场景暂停后在主场景打开
+    SpecMgrs.sound_mgr:UnPauseBGMSound()
 end
 
 function MainStage:DoDestroy()

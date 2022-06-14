@@ -11,7 +11,9 @@ function BigMapStage:DoInit()
     ComMgrs.dy_data_mgr:ExSetCurStageType(StageConst.STAGE_BigMap)
     SpecMgrs.ui_mgr:ShowUI("BigMapUI")
     SpecMgrs.ui_mgr:ShowUI("GameMenuUI")
-    SpecMgrs.sound_mgr:PlayBGM(SoundConst.SOUND_ID_BigMap)
+    --SpecMgrs.sound_mgr:PlayBGM(SoundConst.SOUND_ID_BigMap)
+    --切换到大地图后暂停BGM
+    SpecMgrs.sound_mgr:PauseBGMSound()
 end
 
 function BigMapStage:DoDestroy()

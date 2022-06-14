@@ -11,7 +11,8 @@ function EntertainmentStage:DoInit()
     ComMgrs.dy_data_mgr:ExSetCurStageType(StageConst.STAGE_EntertainmentCompany)
     SpecMgrs.ui_mgr:ShowUI("EntertainmentUI")
     SpecMgrs.ui_mgr:ShowUI("GameMenuUI")
-    SpecMgrs.sound_mgr:PlayBGM(SoundConst.SOUND_ID_Entertainment)
+    --切换到娱乐中心后暂停BGM
+    SpecMgrs.sound_mgr:PauseBGMSound()
 end
 
 function EntertainmentStage:DoDestroy()
