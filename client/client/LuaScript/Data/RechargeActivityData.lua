@@ -164,7 +164,7 @@ return {
     [ 9 ] = {
         [ "id" ] = 9,
         [ "ch_key" ] = "豪华签到活动",
-        [ "activity_desc" ] = "128元以上挡位每周重置",
+        [ "activity_desc" ] = "255JG币以上挡位每周重置",
         [ "activity_type" ] = 4,
         [ "show_other_reward" ] = false,
         [ "title" ] = "豪华签到",

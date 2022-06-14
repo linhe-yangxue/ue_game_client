@@ -2022,7 +2022,7 @@ return {
     [ 204101 ] = {
         [ "id" ] = 204101,
         [ "ch_key" ] = "5元礼包",
-        [ "name" ] = langexcel["5元礼包"],
+        [ "name" ] = langexcel["首充礼包"],
         [ "item_type" ] = 2,
         [ "sub_type" ] = 202,
         [ "quality" ] = 5,
@@ -2043,7 +2043,7 @@ return {
     [ 204102 ] = {
         [ "id" ] = 204102,
         [ "ch_key" ] = "10元礼包",
-        [ "name" ] = langexcel["10元礼包"],
+        [ "name" ] = langexcel["首充礼包"],
         [ "item_type" ] = 2,
         [ "sub_type" ] = 202,
         [ "quality" ] = 5,
@@ -2064,7 +2064,7 @@ return {
     [ 204103 ] = {
         [ "id" ] = 204103,
         [ "ch_key" ] = "20元礼包",
-        [ "name" ] = langexcel["20元礼包"],
+        [ "name" ] = langexcel["首充礼包"],
         [ "item_type" ] = 2,
         [ "sub_type" ] = 202,
         [ "quality" ] = 5,
@@ -2085,7 +2085,7 @@ return {
     [ 204104 ] = {
         [ "id" ] = 204104,
         [ "ch_key" ] = "30元礼包",
-        [ "name" ] = langexcel["30元礼包"],
+        [ "name" ] = langexcel["首充礼包"],
         [ "item_type" ] = 2,
         [ "sub_type" ] = 202,
         [ "quality" ] = 5,
@@ -2106,7 +2106,7 @@ return {
     [ 204105 ] = {
         [ "id" ] = 204105,
         [ "ch_key" ] = "50元礼包",
-        [ "name" ] = langexcel["50元礼包"],
+        [ "name" ] = langexcel["首充礼包"],
         [ "item_type" ] = 2,
         [ "sub_type" ] = 202,
         [ "quality" ] = 5,
@@ -2127,7 +2127,7 @@ return {
     [ 204106 ] = {
         [ "id" ] = 204106,
         [ "ch_key" ] = "98元礼包",
-        [ "name" ] = langexcel["98元礼包"],
+        [ "name" ] = langexcel["首充礼包"],
         [ "item_type" ] = 2,
         [ "sub_type" ] = 202,
         [ "quality" ] = 5,
@@ -2148,7 +2148,7 @@ return {
     [ 204107 ] = {
         [ "id" ] = 204107,
         [ "ch_key" ] = "228元礼包",
-        [ "name" ] = langexcel["228元礼包"],
+        [ "name" ] = langexcel["首充礼包"],
         [ "item_type" ] = 2,
         [ "sub_type" ] = 202,
         [ "quality" ] = 5,
@@ -2169,7 +2169,7 @@ return {
     [ 204108 ] = {
         [ "id" ] = 204108,
         [ "ch_key" ] = "328元礼包",
-        [ "name" ] = langexcel["328元礼包"],
+        [ "name" ] = langexcel["首充礼包"],
         [ "item_type" ] = 2,
         [ "sub_type" ] = 202,
         [ "quality" ] = 5,
@@ -2190,7 +2190,7 @@ return {
     [ 204109 ] = {
         [ "id" ] = 204109,
         [ "ch_key" ] = "998元礼包",
-        [ "name" ] = langexcel["998元礼包"],
+        [ "name" ] = langexcel["首充礼包"],
         [ "item_type" ] = 2,
         [ "sub_type" ] = 202,
         [ "quality" ] = 5,
