@@ -122,7 +122,7 @@ function LoverVideosUI:CreateRow(row_grid_temp, lover_temp, lover_num, not_lover
         end)
 
         --spine角色添加
-        --self:SetLoverCardUnit(obj, lover_id)
+        self:SetLoverCardUnit(obj, lover_id)
         self.lover_id2lover_card[lover_id] = obj
         obj:FindChild("Mask"):SetActive(false)
         local lover_redpoint = SpecMgrs.redpoint_mgr:AddRedPoint(self, obj, CSConst.RedPointType.HighLight, redpoint_control_id_list, lover_id)
@@ -130,11 +130,12 @@ function LoverVideosUI:CreateRow(row_grid_temp, lover_temp, lover_num, not_lover
 
     end
     for i = 1, not_lover_num do
+        local lover_id = self.not_possess_lover_tb[i].lover_id
         local obj = self:GetUIObject(lover_temp, row_grid_obj , false)
         table.insert(self.create_obj_list, obj)
         self:SetNotPorcessCard(obj, self.not_possess_lover_tb[i],self.not_possess_lover_tb[i].video_name,self.lover_video_data[self.not_possess_lover_tb[i].video_id])
         obj:FindChild("Mask"):SetActive(true)
-
+        self:SetLoverCardUnit(obj, lover_id)
     end
     local column_num = math.ceil(lover_num / self.grid_column_count)
     local grid_rect = row_grid_obj:GetComponent("RectTransform")
@@ -147,6 +148,8 @@ function LoverVideosUI:SetNotPorcessCard(lover_card, not_possess_lover_tb, lover
     lover_card:FindChild("GiftStatus"):SetActive(true)
     lover_card:FindChild("GiftStatus"):GetComponent("Text").text = "未激活"
     lover_card:FindChild("TitleNameBg/NameText"):GetComponent("Text").text = lover_card_name
+    local lover_video_Bg = lover_card:FindChild("videoBg"):GetComponent("Image")
+    UIFuncs.AssignUISpriteSync("UIRes/LoverGift/videoBg1", "videoBg1", lover_video_Bg)
     local lover_gift_Play = lover_card:FindChild("ButtonPlay")
     lover_gift_Play:SetActive(true)
     self:AddClick(lover_gift_Play, function ()
@@ -192,6 +195,8 @@ function LoverVideosUI:SetLoverCardMsg(lover_card, lover_id, lover_card_name)
     lover_card:FindChild("GiftStatus"):SetActive(true)
     lover_card:FindChild("GiftStatus"):GetComponent("Text").text = "已拥有"
     lover_card:FindChild("TitleNameBg/NameText"):GetComponent("Text").text = lover_card_name
+    local lover_video_Bg = lover_card:FindChild("videoBg"):GetComponent("Image")
+    UIFuncs.AssignUISpriteSync("UIRes/LoverGift/videoBg1", "videoBg1", lover_video_Bg)
     local lover_gift_Play = lover_card:FindChild("ButtonPlay")
     lover_gift_Play:SetActive(true)
     self:AddClick(lover_gift_Play, function ()
@@ -214,9 +219,9 @@ function LoverVideosUI:CreateUnit(unit_id, lover_image)
     self.load_num = self.load_num + 1
     local unit
     if self.load_num > sync_num then
-        unit = self:AddFullUnit(unit_id, lover_image, nil, nil, nil, true)
+        unit = self:AddCardUnit(unit_id, lover_image, nil, nil, nil, true)
     else
-        unit = self:AddFullUnit(unit_id, lover_image)
+        unit = self:AddCardUnit(unit_id, lover_image)
     end
     unit:StopAllAnimationToCurPos()
 end

@@ -28,6 +28,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1352262257426136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224502135315086676}
+  m_Layer: 5
+  m_Name: rect_card
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1543974606085332
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +245,7 @@ MonoBehaviour:
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: 
+  startingAnimation: idle
   startingLoop: 1
   timeScale: 1
   freeze: 0
@@ -435,6 +450,24 @@ RectTransform:
   m_AnchoredPosition: {x: 12.25, y: 574.85}
   m_SizeDelta: {x: 950, y: 1049.7}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224502135315086676
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352262257426136}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00032, y: 1.00032, z: 1.00032}
+  m_Children: []
+  m_Father: {fileID: 224974449309310472}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -315, y: 730}
+  m_SizeDelta: {x: 628.3, y: 1101.4}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224534140715137898
 RectTransform:
   m_ObjectHideFlags: 1
@@ -486,6 +519,7 @@ RectTransform:
   - {fileID: 224534140715137898}
   - {fileID: 224900449116944584}
   - {fileID: 224257157969772066}
+  - {fileID: 224502135315086676}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -1,6 +1,7 @@
 local UIBase = require("UI.UIBase")
 local UIConst = require("UI.UIConst")
 local UIFuncs = require("UI.UIFuncs")
+local UnitConst = require("Unit.UnitConst")
 local EventUtil = require("BaseUtilities.EventUtil")
 
 local LoverGiftUI = class("UI.LoverGiftUI", UIBase)
@@ -14,6 +15,7 @@ local kSliderToNextFactor = 0.1 -- 滑动英雄超过屏幕的0.1就滑向下一
 local kDefaultSelectSeatIndex = 1
 local kTopHeroAnimTime = 0.2
 
+local sync_num = 9
 local kHero = 1
 local lineup_type_map = {
     hero = kHero,
@@ -203,6 +205,17 @@ function LoverGiftUI:_AddHeroUnit(index, hero_id)
     go:FindChild("NoHero"):SetActive(not hero_id and true or false)
 end
 
+function LoverGiftUI:CreateUnit(unit_id, lover_image)
+    self.load_num = self.load_num + 1
+    local unit
+    if self.load_num > sync_num then
+        unit = self:AddCardUnit(unit_id, lover_image, nil, nil, nil, true)
+    else
+        unit = self:AddCardUnit(unit_id, lover_image)
+    end
+    unit:StopAllAnimationToCurPos()
+end
+
 function LoverGiftUI:UpdateLoverInfo(item,index,activity_list)
     local lover_info = activity_list
     local lover_movie_frame = item:FindChild("LoverMovieFrame")
@@ -240,6 +253,8 @@ function LoverGiftUI:UpdateLoverInfo(item,index,activity_list)
         lover_movie_frame:SetActive(true)
         lover_gift_Play:SetActive(true)
         lover_video_status:SetActive(true)
+        local lover_image = lover_movie_frame:FindChild("LoverImage")
+        self:CreateUnit(self.lover_video_data[lover_info.lover_id].unit_id, lover_image)
         lover_movie_title.text = self.lover_video_data[lover_info.lover_id].name
         UIFuncs.AssignSpriteByIconID(tonumber(lover_info.icon), lover_movie_frame_img)
         if purchase_status == 0 then
@@ -355,6 +370,7 @@ function LoverGiftUI:ChangeLoverInfo(index)
 end
 
 function LoverGiftUI:InitUI()
+    self.load_num = 0
     self:ClearRes()
     self:InitLoverUI()
     ComMgrs.dy_data_mgr:RegisterUpdateLoverGiftInfoEvent("LoverGiftUI", self.UpdateLoverGiftInfo, self)
@@ -482,7 +498,7 @@ function LoverGiftUI:ClearRes()
     self:ClearGoDict("mid_go_list")
     self:ClearAnim("mid_anim")
     self.cur_seat_index = nil
-    --self:ClearUnit("unit")
+    self:ClearUnit("unit")
     self.index = 1
 end
 
