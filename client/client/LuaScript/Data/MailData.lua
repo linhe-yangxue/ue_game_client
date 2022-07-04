@@ -135,9 +135,9 @@ return {
     [ 19 ] = {
         [ "id" ] = 19,
         [ "mail_type" ] = 1,
-        [ "name" ] = langexcel["月卡每日奖励"],
-        [ "ch_key" ] = "月卡每日奖励",
-        [ "content" ] = langexcel["月卡每日奖励邮件补发"],
+        [ "name" ] = langexcel["月卡奖励"],
+        [ "ch_key" ] = "月卡奖励",
+        [ "content" ] = langexcel["月卡奖励邮件补发"],
     },
     [ 20 ] = {
         [ "id" ] = 20,

@@ -644,7 +644,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 6,
+        [ "recharge_amount" ] = 60,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -672,7 +672,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 25,
+        [ "recharge_amount" ] = 250,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -700,7 +700,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 50,
+        [ "recharge_amount" ] = 500,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -728,7 +728,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 150,
+        [ "recharge_amount" ] = 1500,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -756,7 +756,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 300,
+        [ "recharge_amount" ] = 3000,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -784,7 +784,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 500,
+        [ "recharge_amount" ] = 5000,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -812,7 +812,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 750,
+        [ "recharge_amount" ] = 7500,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -840,7 +840,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 1000,
+        [ "recharge_amount" ] = 10000,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -868,7 +868,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 1500,
+        [ "recharge_amount" ] = 15000,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -896,7 +896,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 2000,
+        [ "recharge_amount" ] = 20000,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -924,7 +924,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 3000,
+        [ "recharge_amount" ] = 30000,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -952,7 +952,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 4500,
+        [ "recharge_amount" ] = 45000,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -980,7 +980,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 6000,
+        [ "recharge_amount" ] = 60000,
         [ "accum_level_list" ] = {
             [ 1 ] = 20,
             [ 2 ] = 50,
@@ -1008,7 +1008,7 @@ return {
         [ "duration_days" ] = 3,
         [ "reserve_days" ] = 1,
         [ "interval_days" ] = 0,
-        [ "recharge_amount" ] = 8000,
+        [ "recharge_amount" ] = 80000,
         [ "accum_level_list" ] = {
             [ 1 ] = 101,
             [ 2 ] = 150,
