@@ -123,6 +123,7 @@ end
 function LoverGiftUI:_InitMiddleHeroPart()
     self:ClearUnitDict("seat_to_model")
     self:ClearGoDict("mid_go_list")
+
     for i = 1, self.activity_list_length do
         local item = self:GetUIObject(self.middle_lineup_type_to_temp[kHero], self.view_content)
         self.mid_go_list[i] = item
@@ -205,7 +206,7 @@ function LoverGiftUI:_AddHeroUnit(index, hero_id)
     go:FindChild("NoHero"):SetActive(not hero_id and true or false)
 end
 
-function LoverGiftUI:CreateUnit(unit_id, lover_image)
+function LoverGiftUI:CreateUnit(unit_id, lover_image, index)
     self.load_num = self.load_num + 1
     local unit
     if self.load_num > sync_num then
@@ -213,6 +214,7 @@ function LoverGiftUI:CreateUnit(unit_id, lover_image)
     else
         unit = self:AddCardUnit(unit_id, lover_image)
     end
+    self.lover_gift_list[index] = unit
     unit:StopAllAnimationToCurPos()
 end
 
@@ -254,7 +256,7 @@ function LoverGiftUI:UpdateLoverInfo(item,index,activity_list)
         lover_gift_Play:SetActive(true)
         lover_video_status:SetActive(true)
         local lover_image = lover_movie_frame:FindChild("LoverImage")
-        self:CreateUnit(self.lover_video_data[lover_info.lover_id].unit_id, lover_image)
+        self:CreateUnit(self.lover_video_data[lover_info.lover_id].unit_id, lover_image,index)
         lover_movie_title.text = self.lover_video_data[lover_info.lover_id].name
         UIFuncs.AssignSpriteByIconID(tonumber(lover_info.icon), lover_movie_frame_img)
         if purchase_status == 0 then
@@ -481,10 +483,6 @@ function LoverGiftUI:ClearAnim(anim_name)
 end
 
 function LoverGiftUI:ClearInfo()
-    for _, go in pairs(self.lover_gift_list) do
-        self:DelUIObject(go)
-    end
-    self.lover_gift_list = {}
     for _, go in pairs(self.cur_frame_obj_list) do
         self:DelUIObject(go)
     end
@@ -494,6 +492,7 @@ end
 function LoverGiftUI:ClearRes()
     self:ClearInfo()
     --self:DelObjDict(self.cur_frame_obj_list)
+    self:ClearUnitDict("lover_gift_list")
     self:ClearUnitDict("seat_to_model")
     self:ClearGoDict("mid_go_list")
     self:ClearAnim("mid_anim")
