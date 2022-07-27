@@ -112,6 +112,7 @@ public class GameEntry : Singleton<GameEntry> {
 
     void OnApplicationPause(bool pauseStatus)
     {
+
     }
 
 
@@ -153,6 +154,20 @@ public class GameEntry : Singleton<GameEntry> {
             }
             Thread.Sleep(1000);
         }
+    }
+
+    // -------------------------------------------------
+    // 通用回调
+    // -------------------------------------------------
+    public void CallLua(string json_str)
+    {
+        Debug.Log("CallLua:"+json_str);
+        GameEventMgr.GetInstance().GenerateEvent(GameEventMgr.ET_SDK, null, "CallLua", json_str);
+    }
+    public void CatchError(string json_str)
+    {
+        Debug.Log("CatchError:"+json_str);
+        GameEventMgr.GetInstance().GenerateEvent(GameEventMgr.ET_SDK, null, "CatchError", json_str);
     }
 
 }
