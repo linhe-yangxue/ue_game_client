@@ -14076,7 +14076,7 @@ return {
         [ "name" ] = langexcel["限时称号001"],
         [ "item_type" ] = 8,
         [ "sub_type" ] = 802,
-        [ "icon" ] = 300037,
+        [ "icon" ] = 300065,
         [ "desc" ] = langexcel["收集%s个不同%s碎片,可以合成%s"],
         [ "add_role_attr_name_list" ] = {
             [ 1 ] = "business",
@@ -14091,7 +14091,7 @@ return {
             [ 4 ] = 10,
         },
         [ "validity_period" ] = 30,
-        [ "btn_icon" ] = 300047,
+        [ "btn_icon" ] = 300065,
     },
     [ 902002 ] = {
         [ "id" ] = 902002,
@@ -14099,7 +14099,7 @@ return {
         [ "name" ] = langexcel["限时称号002"],
         [ "item_type" ] = 8,
         [ "sub_type" ] = 802,
-        [ "icon" ] = 300037,
+        [ "icon" ] = 300066,
         [ "desc" ] = langexcel["收集%s个不同%s碎片,可以合成%s"],
         [ "add_role_attr_name_list" ] = {
             [ 1 ] = "business",
@@ -14114,7 +14114,7 @@ return {
             [ 4 ] = 10,
         },
         [ "validity_period" ] = 30,
-        [ "btn_icon" ] = 300047,
+        [ "btn_icon" ] = 300066,
     },
     [ 902003 ] = {
         [ "id" ] = 902003,
@@ -14145,7 +14145,7 @@ return {
         [ "name" ] = langexcel["永久称号001"],
         [ "item_type" ] = 8,
         [ "sub_type" ] = 803,
-        [ "icon" ] = 300037,
+        [ "icon" ] = 300067,
         [ "desc" ] = langexcel["收集%s个不同%s碎片,可以合成%s"],
         [ "add_role_attr_name_list" ] = {
             [ 1 ] = "business",
@@ -14159,7 +14159,7 @@ return {
             [ 3 ] = 10,
             [ 4 ] = 10,
         },
-        [ "btn_icon" ] = 300047,
+        [ "btn_icon" ] = 300067,
     },
     [ 902005 ] = {
         [ "id" ] = 902005,
@@ -14167,7 +14167,7 @@ return {
         [ "name" ] = langexcel["永久称号002"],
         [ "item_type" ] = 8,
         [ "sub_type" ] = 803,
-        [ "icon" ] = 300037,
+        [ "icon" ] = 300068,
         [ "desc" ] = langexcel["收集%s个不同%s碎片,可以合成%s"],
         [ "add_role_attr_name_list" ] = {
             [ 1 ] = "business",
@@ -14181,7 +14181,7 @@ return {
             [ 3 ] = 10,
             [ 4 ] = 10,
         },
-        [ "btn_icon" ] = 300047,
+        [ "btn_icon" ] = 300068,
     },
     [ 902006 ] = {
         [ "id" ] = 902006,
@@ -14189,7 +14189,7 @@ return {
         [ "name" ] = langexcel["永久称号003"],
         [ "item_type" ] = 8,
         [ "sub_type" ] = 803,
-        [ "icon" ] = 300037,
+        [ "icon" ] = 300069,
         [ "desc" ] = langexcel["收集%s个不同%s碎片,可以合成%s"],
         [ "add_hero_attr_name_list" ] = {
             [ 1 ] = "max_hp",
@@ -14201,7 +14201,7 @@ return {
             [ 2 ] = 10,
             [ 3 ] = 10,
         },
-        [ "btn_icon" ] = 300047,
+        [ "btn_icon" ] = 300069,
     },
     [ "attr_item_list" ] = {
         [ "business" ] = {
